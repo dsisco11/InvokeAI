@@ -22,6 +22,7 @@ import sdxlReducer from 'features/sdxl/store/sdxlSlice';
 import configReducer from 'features/system/store/configSlice';
 import systemReducer from 'features/system/store/systemSlice';
 import hotkeysReducer from 'features/ui/store/hotkeysSlice';
+import imageSizeReducer from 'features/imageSize/store/imageSizeSlice';
 import uiReducer from 'features/ui/store/uiSlice';
 import { createStore as createIDBKeyValStore, get, set } from 'idb-keyval';
 import dynamicMiddlewares from 'redux-dynamic-middlewares';
@@ -55,6 +56,7 @@ const allReducers = {
   sdxl: sdxlReducer,
   queue: queueReducer,
   workflow: workflowReducer,
+  imageSize: imageSizeReducer,
   [api.reducerPath]: api.reducer,
 };
 
@@ -76,6 +78,7 @@ const rememberedKeys: (keyof typeof allReducers)[] = [
   'dynamicPrompts',
   'lora',
   'modelmanager',
+  'imageSize',
 ];
 
 // Create a custom idb-keyval store (just needed to customize the name)

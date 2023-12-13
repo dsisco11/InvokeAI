@@ -3,7 +3,7 @@ import {
   createMultiStyleConfigHelpers,
   defineStyle,
 } from '@chakra-ui/styled-system';
-import { getInputOutlineStyles } from 'theme/util/getInputOutlineStyles';
+import { getInputOutlineStyles } from 'theme_/util/getInputOutlineStyles';
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys);

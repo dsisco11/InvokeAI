@@ -1,4 +1,13 @@
-export type SliderProps = {
+import type {
+  SliderProps as ChakraSliderProps,
+  SliderTrackProps as ChakraSliderTrackProps,
+  SliderInnerTrackProps as ChakraSliderInnerTrackProps,
+  SliderThumbProps as ChakraSliderThumbProps,
+  SliderMarkProps as ChakraSliderMarkProps,
+  TooltipProps as ChakraTooltipProps,
+} from '@chakra-ui/react';
+
+export interface SliderProps extends ChakraSliderProps {
   /**
    * The value
    */
@@ -43,6 +52,26 @@ export type SliderProps = {
    * Whether to show a tooltip over the slider thumb
    */
   withThumbTooltip?: boolean;
-};
+  /**
+   * Override props for the Chakra SliderTrack component
+   */
+  sliderTrackProps: ChakraSliderTrackProps;
+  /**
+   * Override props for the Chakra FilledTrack component
+   */
+  sliderFilledTrackProps: ChakraSliderInnerTrackProps;
+  /**
+   * Override props for the Chakra SliderThumb component
+   */
+  sliderThumbProps: ChakraSliderThumbProps;
+  /**
+   * Override props for the SliderThumb's Chakra Tooltip component
+   */
+  sliderThumbTooltipProps: ChakraTooltipProps;
+  /**
+   * Override props for the Chakra SliderMark component
+   */
+  sliderMarkProps: ChakraSliderMarkProps;
+}
 
 export type FormattedMark = { value: number; label: string };

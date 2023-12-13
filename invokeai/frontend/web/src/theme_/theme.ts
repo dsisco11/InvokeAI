@@ -3,26 +3,26 @@ import { headingTheme } from 'theme/components/heading';
 import { formTheme } from 'theme_/components/form';
 import { InvokeAIColors } from './colors/colors';
 import { accordionTheme } from './components/accordion';
-import { buttonTheme } from './components/button';
+import { buttonTheme } from 'common/components/Button';
 import { checkboxTheme } from './components/checkbox';
 import { editableTheme } from './components/editable';
 import { formLabelTheme } from './components/formLabel';
 import { inputTheme } from './components/input';
 import { menuTheme } from './components/menu';
 import { modalTheme } from './components/modal';
-import { numberInputTheme } from './components/numberInput';
 import { popoverTheme } from './components/popover';
 import { progressTheme } from './components/progress';
 import { no_scrollbar } from './components/scrollbar';
 import { selectTheme } from './components/select';
 import { skeletonTheme } from './components/skeleton';
-import { sliderTheme } from './components/slider';
 import { switchTheme } from './components/switch';
 import { tabsTheme } from './components/tabs';
 import { textTheme } from './components/text';
 import { textareaTheme } from './components/textarea';
-import { tooltipTheme } from './components/tooltip';
+import { tooltipTheme } from 'common/components/Tooltip';
 import { reactflowStyles } from './custom/reactflow';
+import { sliderTheme } from 'common/components/Slider';
+import { numberInputTheme } from 'common/components/NumberInput';
 
 export const theme: ThemeOverride = {
   config: {

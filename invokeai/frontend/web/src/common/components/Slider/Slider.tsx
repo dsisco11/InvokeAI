@@ -26,6 +26,12 @@ const Slider = forwardRef((props: SliderProps, ref) => {
     marks: _marks,
     isDisabled = false,
     withThumbTooltip: withTooltip = false,
+    sliderThumbProps,
+    sliderThumbTooltipProps,
+    sliderTrackProps,
+    sliderFilledTrackProps,
+    sliderMarkProps,
+    ...sliderProps
   } = props;
   const [isMouseOverSlider, setIsMouseOverSlider] = useState(false);
   const [isChanging, setIsChanging] = useState(false);
@@ -61,6 +67,7 @@ const Slider = forwardRef((props: SliderProps, ref) => {
       isDisabled={isDisabled}
       onChangeStart={onChangeStart}
       onChangeEnd={onChangeEnd}
+      {...sliderProps}
     >
       <AnimatePresence>
         {marks?.length &&
@@ -68,6 +75,7 @@ const Slider = forwardRef((props: SliderProps, ref) => {
           marks.map((m, i) => (
             <SliderMark
               key={m.value}
+              {...sliderMarkProps}
               value={m.value}
               label={m.label}
               index={i}
@@ -76,15 +84,20 @@ const Slider = forwardRef((props: SliderProps, ref) => {
           ))}
       </AnimatePresence>
 
-      <ChakraSliderTrack>
-        <ChakraSliderFilledTrack />
+      <ChakraSliderTrack {...sliderTrackProps}>
+        <ChakraSliderFilledTrack {...sliderFilledTrackProps} />
       </ChakraSliderTrack>
 
       <Tooltip
         isOpen={withTooltip && (isMouseOverSlider || isChanging)}
         label={label}
+        {...sliderThumbTooltipProps}
       >
-        <ChakraSliderThumb onDoubleClick={onReset} zIndex={0} />
+        <ChakraSliderThumb
+          onDoubleClick={onReset}
+          zIndex={0}
+          {...sliderThumbProps}
+        />
       </Tooltip>
     </ChakraSlider>
   );

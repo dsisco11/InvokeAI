@@ -3,7 +3,7 @@ import IconButton from './IconButton';
 import { FaBoltLightning } from 'react-icons/fa6';
 
 const meta: Meta<typeof IconButton> = {
-  title: 'IconButton',
+  title: 'Primitives/IconButton',
   tags: ['autodocs'],
   component: IconButton,
   args: {

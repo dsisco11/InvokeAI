@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ResetIconButton from './ResetIconButton';
 
 const meta: Meta<typeof ResetIconButton> = {
+  title: 'Components/ResetIconButton',
   tags: ['autodocs'],
   component: ResetIconButton,
   args: {

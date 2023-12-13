@@ -25,6 +25,7 @@ const invokeAI = definePartsStyle(() => ({
     bg: 'base.800',
     shadow: 'dark-lg',
     border: 'none',
+    borderRadius: 'none',
   },
   item: {
     // this will style the MenuItem and MenuItemOption components
@@ -37,11 +38,23 @@ const invokeAI = definePartsStyle(() => ({
       },
     },
     _focus: {
-      bg: 'base.600',
+      bg: 'base.700',
     },
     svg: {
       opacity: 0.7,
       fontSize: 14,
+    },
+    "&[aria-selected='true']": {
+      fontWeight: 600,
+      bg: 'accent.500 !important',
+      color: 'base.100 !important',
+      _hover: {
+        color: 'base.50 !important',
+        bg: 'accent.400 !important',
+      },
+    },
+    "&[aria-selected='true'] [data-option-desc='true']": {
+      color: 'base.100',
     },
   },
   divider: {

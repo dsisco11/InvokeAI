@@ -5,7 +5,7 @@ import { NumberInput } from 'common/components/primitives/NumberInput';
 import { useState } from 'react';
 
 const meta: Meta<typeof Control> = {
-  title: 'Control',
+  title: 'Primitives/Control',
   tags: ['autodocs'],
   component: Control,
   args: {

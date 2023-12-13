@@ -1,5 +1,5 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
-import { getInputOutlineStyles } from 'theme/util/getInputOutlineStyles';
+import { getInputOutlineStyles } from 'theme_/util/getInputOutlineStyles';
 
 const invokeAI = defineStyle(() => ({
   ...getInputOutlineStyles(),

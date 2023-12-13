@@ -1,5 +1,5 @@
 import { Button as ChakraButton, forwardRef } from '@chakra-ui/react';
-import { ButtonProps } from 'common/components/Button/types';
+import { ButtonProps } from './types';
 import { memo } from 'react';
 
 const Button = forwardRef((props: ButtonProps, ref) => {

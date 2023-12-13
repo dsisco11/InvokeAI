@@ -1,5 +1,5 @@
 import { Tooltip as ChakraTooltip } from '@chakra-ui/react';
-import { TooltipProps } from 'common/components/Tooltip/types';
+import { TooltipProps } from './types';
 import { memo } from 'react';
 
 const Tooltip = (props: TooltipProps) => {

@@ -7,7 +7,7 @@ import {
   forwardRef,
 } from '@chakra-ui/react';
 import { useStore } from '@nanostores/react';
-import { NumberInputProps } from 'common/components/NumberInput/types';
+import { NumberInputProps } from './types';
 import {
   $modifiers,
   useGlobalModifiersSetters,
@@ -33,7 +33,11 @@ const NumberInput = forwardRef((props: NumberInputProps, ref) => {
     step: _step,
     fineStep: _fineStep,
     onChange: _onChange,
-    isDisabled = false,
+    numberInputFieldProps,
+    numberInputStepperProps,
+    numberIncrementStepperProps,
+    numberDecrementStepperProps,
+    ...numberInputProps
   } = props;
 
   const [valueAsString, setValueAsString] = useState<string>(String(value));
@@ -94,8 +98,6 @@ const NumberInput = forwardRef((props: NumberInputProps, ref) => {
     }
   }, [value, valueAsNumber]);
 
-  console.log('NumberInput', { value, valueAsString, valueAsNumber });
-
   return (
     <ChakraNumberInput
       ref={ref}
@@ -109,13 +111,23 @@ const NumberInput = forwardRef((props: NumberInputProps, ref) => {
       focusInputOnChange={false}
       onPaste={stopPastePropagation}
       inputMode={isInteger ? 'numeric' : 'decimal'}
-      isDisabled={isDisabled}
       precision={isInteger ? 0 : undefined}
+      {...numberInputProps}
     >
-      <ChakraNumberInputField onKeyUp={onKeyUpDown} onKeyDown={onKeyUpDown} />
-      <ChakraNumberInputStepper>
-        <ChakraNumberIncrementStepper onClick={stepperOnClick} />
-        <ChakraNumberDecrementStepper onClick={stepperOnClick} />
+      <ChakraNumberInputField
+        onKeyUp={onKeyUpDown}
+        onKeyDown={onKeyUpDown}
+        {...numberInputFieldProps}
+      />
+      <ChakraNumberInputStepper {...numberInputStepperProps}>
+        <ChakraNumberIncrementStepper
+          onClick={stepperOnClick}
+          {...numberIncrementStepperProps}
+        />
+        <ChakraNumberDecrementStepper
+          onClick={stepperOnClick}
+          {...numberDecrementStepperProps}
+        />
       </ChakraNumberInputStepper>
     </ChakraNumberInput>
   );

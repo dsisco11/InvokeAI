@@ -1,5 +1,5 @@
 import { IconButton as ChakraIconButton, forwardRef } from '@chakra-ui/react';
-import { IconButtonProps } from 'common/components/IconButton/types';
+import { IconButtonProps } from './types';
 import { memo } from 'react';
 
 const IconButton = forwardRef((props: IconButtonProps, ref) => {

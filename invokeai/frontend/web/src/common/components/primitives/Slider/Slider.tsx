@@ -4,14 +4,15 @@ import {
   SliderThumb as ChakraSliderThumb,
   SliderTrack as ChakraSliderTrack,
   forwardRef,
+  useFormControl,
 } from '@chakra-ui/react';
 import { useStore } from '@nanostores/react';
-import SliderMark from 'common/components/Slider/SliderMark';
-import { FormattedMark, SliderProps } from 'common/components/Slider/types';
-import { Tooltip } from 'common/components/Tooltip';
+import { Tooltip } from 'common/components/primitives/Tooltip';
 import { $modifiers } from 'common/hooks/useGlobalModifiers';
 import { AnimatePresence } from 'framer-motion';
 import { memo, useCallback, useMemo, useState } from 'react';
+import SliderMark from './SliderMark';
+import { FormattedMark, SliderProps } from './types';
 
 const Slider = forwardRef((props: SliderProps, ref) => {
   const {
@@ -24,7 +25,6 @@ const Slider = forwardRef((props: SliderProps, ref) => {
     onReset,
     formatValue = (v: number) => v.toString(),
     marks: _marks,
-    isDisabled = false,
     withThumbTooltip: withTooltip = false,
     sliderThumbProps,
     sliderThumbTooltipProps,
@@ -41,6 +41,7 @@ const Slider = forwardRef((props: SliderProps, ref) => {
     () => (modifiers.shift ? _fineStep ?? _step : _step),
     [modifiers.shift, _fineStep, _step]
   );
+  const controlProps = useFormControl({});
 
   const label = useMemo(() => formatValue(value), [formatValue, value]);
 
@@ -64,10 +65,10 @@ const Slider = forwardRef((props: SliderProps, ref) => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       focusThumbOnChange={false}
-      isDisabled={isDisabled}
       onChangeStart={onChangeStart}
       onChangeEnd={onChangeEnd}
       {...sliderProps}
+      {...controlProps}
     >
       <AnimatePresence>
         {marks?.length &&

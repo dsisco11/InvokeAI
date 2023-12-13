@@ -4,6 +4,8 @@ import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react';
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys);
 
+const container = defineStyle(() => ({}));
+
 const track = defineStyle(() => {
   return {
     bg: 'base.600',
@@ -48,13 +50,7 @@ const mark = defineStyle(() => {
 });
 
 const baseStyle = definePartsStyle((props) => ({
-  container: {
-    _disabled: {
-      opacity: 0.6,
-      cursor: 'default',
-      pointerEvents: 'none',
-    },
-  },
+  container: container(),
   track: track(),
   filledTrack: filledTrack(props),
   thumb: thumb(),

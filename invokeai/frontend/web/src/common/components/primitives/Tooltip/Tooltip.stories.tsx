@@ -1,6 +1,6 @@
 import { Button } from '@chakra-ui/react';
 import { Meta, StoryObj } from '@storybook/react';
-import { Tooltip } from 'common/components/Tooltip';
+import Tooltip from './Tooltip';
 
 const meta: Meta<typeof Tooltip> = {
   title: 'Tooltip',

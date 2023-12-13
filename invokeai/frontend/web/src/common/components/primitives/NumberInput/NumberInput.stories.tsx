@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import NumberInput from 'common/components/NumberInput/NumberInput';
+import NumberInput from './NumberInput';
 import { useState } from 'react';
 
 const meta: Meta<typeof NumberInput> = {

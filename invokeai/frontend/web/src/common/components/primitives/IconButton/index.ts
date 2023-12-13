@@ -1,4 +1,4 @@
-import { IconButtonProps } from 'common/components/IconButton/types';
+import { IconButtonProps } from './types';
 import IconButton from './IconButton';
 
 export { IconButton };

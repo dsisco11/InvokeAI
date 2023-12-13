@@ -1,4 +1,4 @@
-import { ButtonProps } from 'common/components/Button/types';
+import { ButtonProps } from './types';
 import Button from './Button';
 import { buttonTheme } from './theme';
 

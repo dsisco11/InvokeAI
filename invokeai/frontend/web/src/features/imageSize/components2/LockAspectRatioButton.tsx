@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { IconButton } from 'common/components/primitives/IconButton';
 import { isLockedToggled } from 'features/imageSize/store/imageSizeSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +14,7 @@ export const LockAspectRatioButton = () => {
   }, [dispatch]);
 
   return (
-    <IAIIconButton
+    <IconButton
       aria-label={t('parameters.lockAspectRatio')}
       isChecked={isLocked}
       onClick={onClick}

@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
+import { Button } from 'common/components/primitives/Button';
 import { isFreeChanged } from 'features/imageSize/store/imageSizeSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,13 +12,13 @@ export default function FreeAspectRatioButton() {
     dispatch(isFreeChanged(!isFree));
   }, [dispatch, isFree]);
   return (
-    <IAIButton
+    <Button
       isChecked={isFree}
       onClick={onClick}
       variant={isFree ? 'outline' : 'ghost'}
       size="sm"
     >
       {t('common.free')}
-    </IAIButton>
+    </Button>
   );
 }

@@ -5,5 +5,6 @@ import type {
 
 export type ControlProps = ChakraFormControlProps & {
   label: string;
+  labelW?: ChakraFormLabelProps['w'];
   labelProps?: ChakraFormLabelProps;
 };

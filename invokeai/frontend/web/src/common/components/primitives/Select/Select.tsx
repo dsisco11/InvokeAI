@@ -7,14 +7,12 @@ import {
 import { useMemo } from 'react';
 
 const Select = (props: SelectProps) => {
-  const { ...rest } = props;
+  const { containerSx, ...rest } = props;
   const chakraStyles = useMemo<CustomChakraStylesConfig>(
     () => ({
-      container: (_provided, _state) => ({
-        w: 'full',
-      }),
+      container: (provided, _state) => ({ ...provided, ...containerSx }),
     }),
-    []
+    [containerSx]
   );
 
   return (

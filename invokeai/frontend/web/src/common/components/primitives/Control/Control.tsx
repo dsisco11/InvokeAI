@@ -6,10 +6,17 @@ import { ControlProps } from './types';
 import { memo } from 'react';
 
 const Control = (props: ControlProps) => {
-  const { children, labelProps, ...formControlProps } = props;
+  const {
+    children,
+    labelW = 'min-content',
+    labelProps,
+    ...formControlProps
+  } = props;
   return (
     <ChakraFormControl minH={8} {...formControlProps}>
-      <ChakraFormLabel {...labelProps}>{props.label}</ChakraFormLabel>
+      <ChakraFormLabel w={labelW} flexShrink={0} flexGrow={0} {...labelProps}>
+        {props.label}
+      </ChakraFormLabel>
       {children}
     </ChakraFormControl>
   );

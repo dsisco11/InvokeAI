@@ -5,6 +5,8 @@ import React from 'react';
 import { initReactI18next } from 'react-i18next';
 import ThemeLocaleProvider from '../src/app/components/ThemeLocaleProvider2';
 import { createStore } from '../src/app/store/store';
+import { Provider } from 'react-redux';
+
 import { useGlobalModifiersInit } from '../src/common/hooks/useGlobalModifiers';
 // TODO: Disabled for IDE performance issues with our translation JSON
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -30,9 +32,11 @@ const preview: Preview = {
     (Story) => {
       useGlobalModifiersInit();
       return (
-        <ThemeLocaleProvider>
-          <Story />
-        </ThemeLocaleProvider>
+        <Provider store={store}>
+          <ThemeLocaleProvider>
+            <Story />
+          </ThemeLocaleProvider>
+        </Provider>
       );
     },
   ],

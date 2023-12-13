@@ -1,3 +1,4 @@
+import { ChakraProps } from '@chakra-ui/react';
 import {
   Props as ChakraReactSelectProps,
   ChakraStylesConfig,
@@ -10,7 +11,9 @@ export type SelectProps = ChakraReactSelectProps<
   SelectOption,
   false,
   GroupBase<SelectOption>
->;
+> & {
+  containerSx?: ChakraProps['sx'];
+};
 
 export type CustomChakraStylesConfig = ChakraStylesConfig<
   SelectOption,

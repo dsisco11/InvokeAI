@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Control from './Control';
-import { Slider } from 'common/components/primitives/Slider';
+import { ControlProps } from 'common/components/primitives/Control';
 import { NumberInput } from 'common/components/primitives/NumberInput';
+import { Select, SelectOption } from 'common/components/primitives/Select';
+import { Slider } from 'common/components/primitives/Slider';
 import { useState } from 'react';
-import { ControlProps } from 'common/components/primitives/Control/types';
-import Select from 'common/components/primitives/Select/Select';
-import { SelectOption } from 'common/components/primitives/Select/types';
+import Control from './Control';
 
 const meta: Meta<typeof Control> = {
   title: 'Primitives/Control',

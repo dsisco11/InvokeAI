@@ -1,10 +1,12 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISlider from 'common/components/IAISlider2/IAISlider';
+import { Slider } from 'common/components/primitives/Slider';
+import { Control } from 'common/components/primitives/Control';
 import { widthChanged } from 'features/imageSize/store/imageSizeSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { NumberInput } from 'common/components/primitives/NumberInput';
 
 const selector = createMemoizedSelector(
   [stateSelector],
@@ -48,21 +50,26 @@ const ParameterWidth = () => {
   }, [dispatch, initial]);
 
   return (
-    <IAISlider
-      label={t('parameters.width')}
-      value={width}
-      onChange={onChange}
-      onReset={onReset}
-      min={min}
-      max={max}
-      step={step}
-      fineStep={fineStep}
-      withInput
-      inputMax={inputMax}
-      marks={[min, initial, max]}
-      numberInputProps={{ w: 36 }}
-      formLabelProps={{ w: 20, flexShrink: 0 }}
-    />
+    <Control label={t('parameters.width')} labelW={16}>
+      <Slider
+        value={width}
+        onChange={onChange}
+        onReset={onReset}
+        min={min}
+        max={max}
+        step={step}
+        fineStep={fineStep}
+        marks={[min, initial, max]}
+      />
+      <NumberInput
+        value={width}
+        onChange={onChange}
+        min={min}
+        max={inputMax}
+        step={step}
+        fineStep={fineStep}
+      />
+    </Control>
   );
 };
 

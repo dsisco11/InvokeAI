@@ -16,7 +16,7 @@ const setDimensions = (state: ImageSizeState) => {
 };
 
 const initialImageSizeState: ImageSizeState = {
-  aspectRatioIndex: 3,
+  aspectRatioIndex: 4,
   width: 512,
   height: 512,
   isLocked: false,
@@ -86,6 +86,13 @@ export const imageSizeSlice = createSlice({
         state.isLocked = false;
       }
     },
+    dimensionsReset: (state, action: PayloadAction<number>) => {
+      state.width = action.payload;
+      state.height = action.payload;
+      state.aspectRatioIndex = 4;
+      state.isFree = false;
+      state.isLocked = false;
+    },
   },
 });
 
@@ -96,6 +103,7 @@ export const {
   heightChanged,
   isLockedToggled,
   isFreeChanged,
+  dimensionsReset,
 } = imageSizeSlice.actions;
 
 export default imageSizeSlice.reducer;

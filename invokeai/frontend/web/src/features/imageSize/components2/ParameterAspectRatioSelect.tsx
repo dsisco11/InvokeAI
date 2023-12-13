@@ -12,6 +12,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import SwapDimensionsButton from 'features/imageSize/components2/SwapDimensionsButton';
 import LockAspectRatioButton from 'features/imageSize/components2/LockAspectRatioButton';
+import SetOptimalSizeButton from 'features/imageSize/components2/SetOptimalSizeButton';
 
 const options: SelectOption[] = [{ label: 'Free', value: 'free' }].concat(
   ASPECT_RATIO_MAP.map((r, i) => ({
@@ -52,6 +53,7 @@ const ParameterAspectRatioSlider = () => {
       />
       <SwapDimensionsButton />
       <LockAspectRatioButton />
+      <SetOptimalSizeButton />
     </Control>
   );
 };

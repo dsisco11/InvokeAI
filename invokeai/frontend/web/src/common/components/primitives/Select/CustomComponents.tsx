@@ -36,6 +36,7 @@ export const CustomComponents: CustomSelectComponentConfig = {
                   fontSize="xs"
                   colorScheme="base"
                   variant="subtext"
+                  noOfLines={1}
                 >
                   {props.data.description}
                 </Text>
@@ -56,6 +57,7 @@ export const CustomComponents: CustomSelectComponentConfig = {
               fontSize="xs"
               colorScheme="base"
               variant="subtext"
+              noOfLines={1}
             >
               {props.data.description}
             </Text>

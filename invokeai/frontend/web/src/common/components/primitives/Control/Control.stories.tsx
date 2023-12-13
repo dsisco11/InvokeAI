@@ -3,6 +3,9 @@ import Control from './Control';
 import { Slider } from 'common/components/primitives/Slider';
 import { NumberInput } from 'common/components/primitives/NumberInput';
 import { useState } from 'react';
+import { ControlProps } from 'common/components/primitives/Control/types';
+import Select from 'common/components/primitives/Select/Select';
+import { SelectOption } from 'common/components/primitives/Select/types';
 
 const meta: Meta<typeof Control> = {
   title: 'Primitives/Control',
@@ -12,13 +15,14 @@ const meta: Meta<typeof Control> = {
     label: 'My Control',
     isDisabled: false,
     isInvalid: false,
+    w: 96,
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof Control>;
 
-const ControlWithSliderComponent = (props: Parameters<typeof Control>[0]) => {
+const ControlWithSliderComponent = (props: ControlProps) => {
   const [value, setValue] = useState(0);
   return (
     <Control {...props}>
@@ -26,9 +30,8 @@ const ControlWithSliderComponent = (props: Parameters<typeof Control>[0]) => {
     </Control>
   );
 };
-const ControlWithNumberInputComponent = (
-  props: Parameters<typeof Control>[0]
-) => {
+
+const ControlWithNumberInputComponent = (props: ControlProps) => {
   const [value, setValue] = useState(0);
   return (
     <Control {...props}>
@@ -43,10 +46,36 @@ const ControlWithNumberInputComponent = (
   );
 };
 
+const options: SelectOption[] = [
+  {
+    value: 'chocolate',
+    label: 'Chocolate',
+  },
+  {
+    value: 'strawberry',
+    label: 'Strawberry',
+  },
+  {
+    value: 'vanilla',
+    label: 'Vanilla',
+  },
+];
+const ControlWithSelectComponent = (props: ControlProps) => {
+  return (
+    <Control {...props}>
+      <Select defaultValue={options[0]} options={options} />
+    </Control>
+  );
+};
+
 export const ControlWithSlider: Story = {
   render: ControlWithSliderComponent,
 };
 
 export const ControlWithNumberInput: Story = {
   render: ControlWithNumberInputComponent,
+};
+
+export const ControlWithSelect: Story = {
+  render: ControlWithSelectComponent,
 };

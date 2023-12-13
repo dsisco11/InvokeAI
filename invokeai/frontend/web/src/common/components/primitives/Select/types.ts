@@ -1,11 +1,18 @@
 import {
   Props as ChakraReactSelectProps,
+  ChakraStylesConfig,
   GroupBase,
   OptionBase,
 } from 'chakra-react-select';
 import { ReactNode } from 'react';
 
 export type SelectProps = ChakraReactSelectProps<
+  SelectOption,
+  false,
+  GroupBase<SelectOption>
+>;
+
+export type CustomChakraStylesConfig = ChakraStylesConfig<
   SelectOption,
   false,
   GroupBase<SelectOption>

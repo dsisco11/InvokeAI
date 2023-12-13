@@ -6,7 +6,7 @@ import {
 } from 'common/components/primitives/Select/types';
 import { omit } from 'lodash-es';
 
-const OPTIONS: SelectOption[] = [
+const SELECT_STORY_OPTIONS: SelectOption[] = [
   {
     value: 'chocolate',
     label: 'Chocolate',
@@ -35,7 +35,7 @@ const meta: Meta<typeof Select> = {
   tags: ['autodocs'],
   component: Select,
   args: {
-    options: OPTIONS,
+    options: SELECT_STORY_OPTIONS,
   },
   argTypes: {
     options: {
@@ -44,9 +44,11 @@ const meta: Meta<typeof Select> = {
       },
       options: ['WithIcon', 'WithDescription', 'OnlyLabel'],
       mapping: {
-        WithIcon: OPTIONS,
-        WithDescription: OPTIONS.map((o) => omit(o, 'icon')),
-        OnlyLabel: OPTIONS.map((o) => omit(o, ['icon', 'description'])),
+        WithIcon: SELECT_STORY_OPTIONS,
+        WithDescription: SELECT_STORY_OPTIONS.map((o) => omit(o, 'icon')),
+        OnlyLabel: SELECT_STORY_OPTIONS.map((o) =>
+          omit(o, ['icon', 'description'])
+        ),
       },
     },
   },
@@ -56,7 +58,7 @@ export default meta;
 type Story = StoryObj<typeof Select>;
 
 const Component = (props: SelectProps) => {
-  return <Select {...props} defaultValue={OPTIONS[0]} />;
+  return <Select {...props} defaultValue={SELECT_STORY_OPTIONS[0]} />;
 };
 
 export const Default: Story = {

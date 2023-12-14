@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { Button } from 'common/components/primitives/Button';
+import { Button } from 'common/components/Button';
 import { isFreeChanged } from 'features/imageSize/store/imageSizeSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

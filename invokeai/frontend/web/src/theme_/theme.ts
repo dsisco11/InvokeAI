@@ -1,12 +1,12 @@
 import { ThemeOverride, ToastProviderProps } from '@chakra-ui/react';
-import { buttonTheme } from 'common/components/primitives/Button';
+import { buttonTheme } from 'common/components/Button';
 import {
   formLabelTheme,
   formTheme,
-} from 'common/components/primitives/Control/theme';
-import { numberInputTheme } from 'common/components/primitives/NumberInput';
-import { sliderTheme } from 'common/components/primitives/Slider';
-import { tooltipTheme } from 'common/components/primitives/Tooltip';
+} from 'common/components/Control/theme';
+import { numberInputTheme } from 'common/components/NumberInput';
+import { sliderTheme } from 'common/components/Slider';
+import { tooltipTheme } from 'common/components/Tooltip';
 import { headingTheme } from 'theme/components/heading';
 import { InvokeAIColors } from './colors/colors';
 import { accordionTheme } from './components/accordion';

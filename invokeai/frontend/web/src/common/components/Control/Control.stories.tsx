@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ControlProps } from 'common/components/primitives/Control';
-import { NumberInput } from 'common/components/primitives/NumberInput';
-import { Select, SelectOption } from 'common/components/primitives/Select';
-import { Slider } from 'common/components/primitives/Slider';
+import { ControlProps } from 'common/components/Control';
+import { NumberInput } from 'common/components/NumberInput';
+import { Select, SelectOption } from 'common/components/Select';
+import { Slider } from 'common/components/Slider';
 import { useState } from 'react';
 import Control from './Control';
 

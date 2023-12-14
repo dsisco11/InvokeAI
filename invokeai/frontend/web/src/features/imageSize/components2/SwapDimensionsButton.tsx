@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { IconButton } from 'common/components/primitives/IconButton';
+import { IconButton } from 'common/components/IconButton';
 import { dimensionsSwapped } from 'features/imageSize/store/imageSizeSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

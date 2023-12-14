@@ -7,7 +7,7 @@ import {
   useFormControl,
 } from '@chakra-ui/react';
 import { useStore } from '@nanostores/react';
-import { Tooltip } from 'common/components/primitives/Tooltip';
+import { Tooltip } from 'common/components/Tooltip';
 import { $modifiers } from 'common/hooks/useGlobalModifiers';
 import { AnimatePresence } from 'framer-motion';
 import { memo, useCallback, useMemo, useState } from 'react';

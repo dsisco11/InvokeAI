@@ -1,8 +1,8 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { SingleValue } from 'chakra-react-select';
-import { Select } from 'common/components/primitives/Select';
-import { Control } from 'common/components/primitives/Control';
-import { SelectOption } from 'common/components/primitives/Select/types';
+import { Select } from 'common/components/Select';
+import { Control } from 'common/components/Control';
+import { SelectOption } from 'common/components/Select/types';
 import { ASPECT_RATIO_MAP } from 'features/imageSize/store/constants';
 import {
   aspectRatioIndexChanged,

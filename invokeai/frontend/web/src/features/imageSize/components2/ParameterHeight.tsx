@@ -1,9 +1,9 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { Control } from 'common/components/primitives/Control';
-import { NumberInput } from 'common/components/primitives/NumberInput';
-import { Slider } from 'common/components/primitives/Slider';
+import { Control } from 'common/components/Control';
+import { NumberInput } from 'common/components/NumberInput';
+import { Slider } from 'common/components/Slider';
 import { heightChanged } from 'features/imageSize/store/imageSizeSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

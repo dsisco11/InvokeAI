@@ -1,8 +1,8 @@
 import { Flex } from '@chakra-ui/layout';
 import type { Meta, StoryObj } from '@storybook/react';
 import AspectRatioPreview from 'common/components/AspectRatioPreview/AspectRatioPreview';
-import { Control } from 'common/components/primitives/Control';
-import { Slider } from 'common/components/primitives/Slider';
+import { Control } from 'common/components/Control';
+import { Slider } from 'common/components/Slider';
 import { useState } from 'react';
 
 const meta: Meta<typeof AspectRatioPreview> = {

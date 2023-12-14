@@ -1,12 +1,12 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { Slider } from 'common/components/primitives/Slider';
-import { Control } from 'common/components/primitives/Control';
+import { Slider } from 'common/components/Slider';
+import { Control } from 'common/components/Control';
 import { widthChanged } from 'features/imageSize/store/imageSizeSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NumberInput } from 'common/components/primitives/NumberInput';
+import { NumberInput } from 'common/components/NumberInput';
 
 const selector = createMemoizedSelector(
   [stateSelector],

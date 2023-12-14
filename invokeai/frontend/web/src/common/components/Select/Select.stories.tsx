@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Select from 'common/components/primitives/Select/Select';
-import {
-  SelectOption,
-  SelectProps,
-} from 'common/components/primitives/Select/types';
+import Select from 'common/components/Select/Select';
+import { SelectOption, SelectProps } from 'common/components/Select/types';
 import { omit } from 'lodash-es';
 
 const SELECT_STORY_OPTIONS: SelectOption[] = [

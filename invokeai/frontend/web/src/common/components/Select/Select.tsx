@@ -1,9 +1,9 @@
 import { Select as ChakraReactSelect } from 'chakra-react-select';
-import { CustomComponents } from 'common/components/primitives/Select/CustomComponents';
+import { CustomComponents } from 'common/components/Select/CustomComponents';
 import {
   CustomChakraStylesConfig,
   SelectProps,
-} from 'common/components/primitives/Select/types';
+} from 'common/components/Select/types';
 import { useMemo } from 'react';
 
 const Select = (props: SelectProps) => {

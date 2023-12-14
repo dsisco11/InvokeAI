@@ -1,4 +1,4 @@
-import { IconButton } from 'common/components/primitives/IconButton';
+import { IconButton } from 'common/components/IconButton';
 import { ResetIconButtonProps } from './types';
 import { memo } from 'react';
 import { FaArrowsRotate } from 'react-icons/fa6';

@@ -5,7 +5,7 @@ import {
   SelectComponentsConfig,
   chakraComponents,
 } from 'chakra-react-select';
-import { SelectOption } from 'common/components/primitives/Select/types';
+import { SelectOption } from 'common/components/Select/types';
 
 type CustomSelectComponentConfig = SelectComponentsConfig<
   SelectOption,

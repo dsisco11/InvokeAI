@@ -39,6 +39,7 @@ const invokeAIPanel = defineStyle((props) => {
     bg: `${c}.800`,
     borderRadius: 'base',
     borderTopRadius: 'none',
+    p: 4,
   };
 });
 
@@ -51,7 +52,16 @@ const invokeAI = definePartsStyle((props) => ({
   icon: invokeAIIcon,
 }));
 
+const baseStyle = definePartsStyle(() => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 4,
+  },
+}));
+
 export const accordionTheme = defineMultiStyleConfig({
+  baseStyle,
   variants: { invokeAI },
   defaultProps: {
     variant: 'invokeAI',

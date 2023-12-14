@@ -1,4 +1,5 @@
 import { ThemeOverride, ToastProviderProps } from '@chakra-ui/react';
+import { accordionTheme } from 'common/components/Accordion/theme';
 import { buttonTheme } from 'common/components/Button';
 import { checkboxTheme } from 'common/components/Checkbox/theme';
 import { formLabelTheme, formTheme } from 'common/components/Control';
@@ -11,7 +12,6 @@ import { textareaTheme } from 'common/components/Textarea';
 import { tooltipTheme } from 'common/components/Tooltip';
 import { headingTheme } from 'theme/components/heading';
 import { InvokeAIColors } from './colors/colors';
-import { accordionTheme } from './components/accordion';
 import { editableTheme } from './components/editable';
 import { inputTheme } from './components/input';
 import { modalTheme } from './components/modal';
@@ -70,7 +70,7 @@ export const theme: ThemeOverride = {
   },
   colors: InvokeAIColors,
   components: {
-    Accordion: accordionTheme,
+    Accordion: accordionTheme, // done
     Button: buttonTheme, // done
     Checkbox: checkboxTheme, // done
     Editable: editableTheme,

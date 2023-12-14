@@ -1,5 +1,9 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
 
+const baseStyle = defineStyle(() => ({
+  fontSize: 'sm',
+}));
+
 const error = defineStyle(() => ({
   color: 'error.400',
 }));
@@ -9,6 +13,7 @@ const subtext = defineStyle(() => ({
 }));
 
 export const textTheme = defineStyleConfig({
+  baseStyle,
   variants: {
     subtext,
     error,

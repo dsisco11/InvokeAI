@@ -30,6 +30,15 @@ const ControlWithSliderComponent = (props: ControlProps) => {
   );
 };
 
+const ControlWithSliderAndHelperTextComponent = (props: ControlProps) => {
+  const [value, setValue] = useState(0);
+  return (
+    <Control {...props} helperText="This is some helpful text">
+      <Slider value={value} min={0} max={10} step={1} onChange={setValue} />
+    </Control>
+  );
+};
+
 const ControlWithNumberInputComponent = (props: ControlProps) => {
   const [value, setValue] = useState(0);
   return (
@@ -69,6 +78,10 @@ const ControlWithSelectComponent = (props: ControlProps) => {
 
 export const ControlWithSlider: Story = {
   render: ControlWithSliderComponent,
+};
+
+export const ControlWithSliderAndHelperText: Story = {
+  render: ControlWithSliderAndHelperTextComponent,
 };
 
 export const ControlWithNumberInput: Story = {

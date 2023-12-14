@@ -1,6 +1,8 @@
 import {
   FormControl as ChakraFormControl,
   FormLabel as ChakraFormLabel,
+  FormHelperText as ChakraFormHelperText,
+  Flex,
 } from '@chakra-ui/react';
 import { ControlProps } from './types';
 import { memo } from 'react';
@@ -8,13 +10,29 @@ import { memo } from 'react';
 const Control = (props: ControlProps) => {
   const {
     children,
+    helperText,
     labelW = 'min-content',
     labelProps,
     ...formControlProps
   } = props;
+
+  if (helperText) {
+    return (
+      <ChakraFormControl variant="withHelperText" {...formControlProps}>
+        <Flex>
+          <ChakraFormLabel w={labelW} {...labelProps}>
+            {props.label}
+          </ChakraFormLabel>
+          {children}
+        </Flex>
+        <ChakraFormHelperText>{helperText}</ChakraFormHelperText>
+      </ChakraFormControl>
+    );
+  }
+
   return (
-    <ChakraFormControl minH={8} {...formControlProps}>
-      <ChakraFormLabel w={labelW} flexShrink={0} flexGrow={0} {...labelProps}>
+    <ChakraFormControl {...formControlProps}>
+      <ChakraFormLabel w={labelW} {...labelProps}>
         {props.label}
       </ChakraFormLabel>
       {children}

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ImageSizeCollapse from './ImageSizeCollapse';
 
 const meta: Meta<typeof ImageSizeCollapse> = {
-  title: 'Components/ImageSizeCollapse',
+  title: 'Feature/ImageSizeCollapse',
   tags: ['autodocs'],
   component: ImageSizeCollapse,
 };

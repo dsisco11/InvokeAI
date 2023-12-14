@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { IconButton } from 'common/components/IconButton';
+import { InvIconButton } from 'common/components/InvIconButton';
 import { dimensionsReset } from 'features/imageSize/store/imageSizeSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -16,7 +16,7 @@ export const SetOptimalSizeButton = () => {
   }, [dispatch, optimalDimension]);
 
   return (
-    <IconButton
+    <InvIconButton
       aria-label={t('parameters.lockAspectRatio')}
       onClick={onClick}
       variant="ghost"

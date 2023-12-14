@@ -7,7 +7,6 @@ import { $headerComponent } from 'app/store/nanostores/headerComponent';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { PartialAppConfig } from 'app/types/invokeai';
 import ImageUploader from 'common/components/ImageUploader';
-import { Select } from 'chakra-react-select';
 import { useClearStorage } from 'common/hooks/useClearStorage';
 import ChangeBoardModal from 'features/changeBoardModal/components/ChangeBoardModal';
 import DeleteImageModal from 'features/deleteImageModal/components/DeleteImageModal';
@@ -82,7 +81,6 @@ const App = ({ config = DEFAULT_CONFIG, selectedImage }: Props) => {
               h: 'full',
             }}
           >
-            <Select options={[{ value: 'chocolate', label: 'Chocolate' }]} />
             {headerComponent || <SiteHeader />}
             <Flex
               sx={{

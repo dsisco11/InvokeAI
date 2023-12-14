@@ -1,8 +1,8 @@
 import { Flex } from '@chakra-ui/layout';
 import type { Meta, StoryObj } from '@storybook/react';
-import AspectRatioPreview from 'common/components/AspectRatioPreview/AspectRatioPreview';
-import { Control } from 'common/components/Control';
-import { Slider } from 'common/components/Slider';
+import { AspectRatioPreview } from './AspectRatioPreview';
+import { InvControl } from 'common/components/InvControl';
+import { InvSlider } from 'common/components/InvSlider';
 import { useState } from 'react';
 
 const meta: Meta<typeof AspectRatioPreview> = {
@@ -12,7 +12,7 @@ const meta: Meta<typeof AspectRatioPreview> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Control>;
+type Story = StoryObj<typeof InvControl>;
 
 const MIN = 64;
 const MAX = 1024;
@@ -29,8 +29,8 @@ const Component = () => {
   const [height, setHeight] = useState(INITIAL);
   return (
     <Flex w="full" flexDir="column">
-      <Control label="Width">
-        <Slider
+      <InvControl label="Width">
+        <InvSlider
           value={width}
           min={MIN}
           max={MAX}
@@ -39,9 +39,9 @@ const Component = () => {
           onChange={setWidth}
           marks={MARKS}
         />
-      </Control>
-      <Control label="Height">
-        <Slider
+      </InvControl>
+      <InvControl label="Height">
+        <InvSlider
           value={height}
           min={MIN}
           max={MAX}
@@ -50,7 +50,7 @@ const Component = () => {
           onChange={setHeight}
           marks={MARKS}
         />
-      </Control>
+      </InvControl>
       <Flex h={96} w={96} p={4}>
         <AspectRatioPreview width={width} height={height} />
       </Flex>
@@ -58,6 +58,6 @@ const Component = () => {
   );
 };
 
-export const AspectRatioWithSliderControls: Story = {
+export const AspectRatioWithSliderInvControls: Story = {
   render: Component,
 };

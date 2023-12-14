@@ -1,7 +1,7 @@
 import { Flex, Icon } from '@chakra-ui/react';
 import { AspectRatioPreviewProps } from './types';
 import { AnimatePresence, motion } from 'framer-motion';
-import { memo, useRef } from 'react';
+import { useRef } from 'react';
 import { FaImage } from 'react-icons/fa';
 import { useSize } from '@chakra-ui/react-use-size';
 import {
@@ -13,7 +13,7 @@ import {
 } from 'common/components/AspectRatioPreview/constants';
 import { useAspectRatioPreviewState } from 'common/components/AspectRatioPreview/hooks';
 
-const AspectRatioPreview = (props: AspectRatioPreviewProps) => {
+export const AspectRatioPreview = (props: AspectRatioPreviewProps) => {
   const { width: _width, height: _height, icon = FaImage } = props;
   const containerRef = useRef<HTMLDivElement>(null);
   const containerSize = useSize(containerRef);
@@ -62,5 +62,3 @@ const AspectRatioPreview = (props: AspectRatioPreviewProps) => {
     </Flex>
   );
 };
-
-export default memo(AspectRatioPreview);

@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { IconButton } from 'common/components/IconButton';
+import { InvIconButton } from 'common/components/InvIconButton';
 import { dimensionsSwapped } from 'features/imageSize/store/imageSizeSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +12,7 @@ export const SwapDimensionsButton = () => {
     dispatch(dimensionsSwapped());
   }, [dispatch]);
   return (
-    <IconButton
+    <InvIconButton
       aria-label={t('parameters.swapDimensions')}
       onClick={onClick}
       variant="ghost"

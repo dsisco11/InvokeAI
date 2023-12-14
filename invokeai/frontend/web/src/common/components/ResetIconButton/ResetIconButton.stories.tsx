@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ResetIconButton from './ResetIconButton';
+import { ResetIconButtonProps } from './types';
+import { ResetIconButton } from './ResetIconButton';
 
 const meta: Meta<typeof ResetIconButton> = {
   title: 'Components/ResetIconButton',
@@ -13,8 +14,8 @@ const meta: Meta<typeof ResetIconButton> = {
 export default meta;
 type Story = StoryObj<typeof ResetIconButton>;
 
-const Component = (props: Parameters<typeof ResetIconButton>[0]) => {
-  return <ResetIconButton {...props}>Invoke</ResetIconButton>;
+const Component = (props: ResetIconButtonProps) => {
+  return <ResetIconButton {...props}>oke</ResetIconButton>;
 };
 
 export const Default: Story = {

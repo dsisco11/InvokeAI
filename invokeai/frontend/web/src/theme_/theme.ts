@@ -1,15 +1,16 @@
 import { ThemeOverride, ToastProviderProps } from '@chakra-ui/react';
-import { accordionTheme } from 'common/components/Accordion/theme';
-import { buttonTheme } from 'common/components/Button';
-import { checkboxTheme } from 'common/components/Checkbox/theme';
-import { formLabelTheme, formTheme } from 'common/components/Control';
-import { menuTheme } from 'common/components/Menu/theme';
-import { numberInputTheme } from 'common/components/NumberInput';
-import { sliderTheme } from 'common/components/Slider';
-import { switchTheme } from 'common/components/Switch';
-import { textTheme } from 'common/components/Text';
-import { textareaTheme } from 'common/components/Textarea';
-import { tooltipTheme } from 'common/components/Tooltip';
+import { accordionTheme } from 'common/components/InvAccordion';
+import { badgeTheme } from 'common/components/InvBadge';
+import { buttonTheme } from 'common/components/InvButton';
+import { checkboxTheme } from 'common/components/InvCheckbox';
+import { formLabelTheme, formTheme } from 'common/components/InvControl';
+import { menuTheme } from 'common/components/InvMenu';
+import { numberInputTheme } from 'common/components/InvNumberInput';
+import { sliderTheme } from 'common/components/InvSlider';
+import { switchTheme } from 'common/components/InvSwitch';
+import { textTheme } from 'common/components/InvText';
+import { textareaTheme } from 'common/components/InvTextarea';
+import { tooltipTheme } from 'common/components/InvTooltip';
 import { headingTheme } from 'theme/components/heading';
 import { InvokeAIColors } from './colors/colors';
 import { editableTheme } from './components/editable';
@@ -21,7 +22,6 @@ import { no_scrollbar } from './components/scrollbar';
 import { skeletonTheme } from './components/skeleton';
 import { tabsTheme } from './components/tabs';
 import { reactflowStyles } from './custom/reactflow';
-import { badgeTheme } from 'common/components/Badge';
 
 export const theme: ThemeOverride = {
   config: {

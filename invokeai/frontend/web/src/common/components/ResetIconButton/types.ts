@@ -1,5 +1,8 @@
-import { IconButtonProps } from 'common/components/IconButton';
+import { InvIconButtonProps } from 'common/components/InvIconButton';
 
-export type ResetIconButtonProps = Omit<IconButtonProps, 'icon' | 'onClick'> & {
+export type ResetIconButtonProps = Omit<
+  InvIconButtonProps,
+  'icon' | 'onClick'
+> & {
   onReset: () => void;
 };

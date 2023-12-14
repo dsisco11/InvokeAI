@@ -1,9 +1,9 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { Control } from 'common/components/Control';
-import { NumberInput } from 'common/components/NumberInput';
-import { Slider } from 'common/components/Slider';
+import { InvControl } from 'common/components/InvControl';
+import { InvNumberInput } from 'common/components/InvNumberInput';
+import { InvSlider } from 'common/components/InvSlider';
 import { heightChanged } from 'features/imageSize/store/imageSizeSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -51,8 +51,8 @@ const ParameterHeight = () => {
   }, [dispatch, initial]);
 
   return (
-    <Control label={t('parameters.height')} labelW={16}>
-      <Slider
+    <InvControl label={t('parameters.height')} labelW={16}>
+      <InvSlider
         value={height}
         onChange={onChange}
         onReset={onReset}
@@ -62,7 +62,7 @@ const ParameterHeight = () => {
         fineStep={fineStep}
         marks={[min, initial, max]}
       />
-      <NumberInput
+      <InvNumberInput
         value={height}
         onChange={onChange}
         min={min}
@@ -70,7 +70,7 @@ const ParameterHeight = () => {
         step={step}
         fineStep={fineStep}
       />
-    </Control>
+    </InvControl>
   );
 };
 

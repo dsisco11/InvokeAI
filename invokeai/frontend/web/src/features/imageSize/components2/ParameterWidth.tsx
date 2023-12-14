@@ -1,12 +1,12 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { Slider } from 'common/components/Slider';
-import { Control } from 'common/components/Control';
+import { InvControl } from 'common/components/InvControl';
+import { InvNumberInput } from 'common/components/InvNumberInput';
+import { InvSlider } from 'common/components/InvSlider';
 import { widthChanged } from 'features/imageSize/store/imageSizeSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NumberInput } from 'common/components/NumberInput';
 
 const selector = createMemoizedSelector(
   [stateSelector],
@@ -50,8 +50,8 @@ const ParameterWidth = () => {
   }, [dispatch, initial]);
 
   return (
-    <Control label={t('parameters.width')} labelW={16}>
-      <Slider
+    <InvControl label={t('parameters.width')} labelW={16}>
+      <InvSlider
         value={width}
         onChange={onChange}
         onReset={onReset}
@@ -61,7 +61,7 @@ const ParameterWidth = () => {
         fineStep={fineStep}
         marks={[min, initial, max]}
       />
-      <NumberInput
+      <InvNumberInput
         value={width}
         onChange={onChange}
         min={min}
@@ -69,7 +69,7 @@ const ParameterWidth = () => {
         step={step}
         fineStep={fineStep}
       />
-    </Control>
+    </InvControl>
   );
 };
 

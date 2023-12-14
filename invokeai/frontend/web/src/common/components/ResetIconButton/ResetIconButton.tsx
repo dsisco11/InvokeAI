@@ -1,10 +1,9 @@
-import { IconButton } from 'common/components/IconButton';
+import { InvIconButton } from 'common/components/InvIconButton';
 import { ResetIconButtonProps } from './types';
-import { memo } from 'react';
 import { FaArrowsRotate } from 'react-icons/fa6';
 import { useTranslation } from 'react-i18next';
 
-const ResetIconButton = (props: ResetIconButtonProps) => {
+export const ResetIconButton = (props: ResetIconButtonProps) => {
   const { t } = useTranslation();
   const {
     onReset,
@@ -14,7 +13,7 @@ const ResetIconButton = (props: ResetIconButtonProps) => {
     ...rest
   } = props;
   return (
-    <IconButton
+    <InvIconButton
       aria-label={ariaLabel}
       size={size}
       variant={variant}
@@ -24,5 +23,3 @@ const ResetIconButton = (props: ResetIconButtonProps) => {
     />
   );
 };
-
-export default memo(ResetIconButton);

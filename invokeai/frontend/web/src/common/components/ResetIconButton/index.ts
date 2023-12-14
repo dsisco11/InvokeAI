@@ -1,5 +1,2 @@
-import ResetIconButton from './ResetIconButton';
-import type { ResetIconButtonProps } from './types';
-
-export { ResetIconButton };
-export type { ResetIconButtonProps };
+export { ResetIconButton } from './ResetIconButton';
+export type { ResetIconButtonProps } from './types';

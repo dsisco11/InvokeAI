@@ -3,11 +3,12 @@ import {
   FormLabel as ChakraFormLabel,
   FormHelperText as ChakraFormHelperText,
   Flex,
+  forwardRef,
 } from '@chakra-ui/react';
 import { ControlProps } from './types';
 import { memo } from 'react';
 
-const Control = (props: ControlProps) => {
+const Control = forwardRef((props: ControlProps, ref) => {
   const {
     children,
     helperText,
@@ -18,7 +19,11 @@ const Control = (props: ControlProps) => {
 
   if (helperText) {
     return (
-      <ChakraFormControl variant="withHelperText" {...formControlProps}>
+      <ChakraFormControl
+        ref={ref}
+        variant="withHelperText"
+        {...formControlProps}
+      >
         <Flex>
           <ChakraFormLabel w={labelW} {...labelProps}>
             {props.label}
@@ -31,13 +36,13 @@ const Control = (props: ControlProps) => {
   }
 
   return (
-    <ChakraFormControl {...formControlProps}>
+    <ChakraFormControl ref={ref} {...formControlProps}>
       <ChakraFormLabel w={labelW} {...labelProps}>
         {props.label}
       </ChakraFormLabel>
       {children}
     </ChakraFormControl>
   );
-};
+});
 
 export default memo(Control);

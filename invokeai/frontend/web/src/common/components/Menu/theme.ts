@@ -1,6 +1,5 @@
 import { menuAnatomy } from '@chakra-ui/anatomy';
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react';
-import { MotionProps } from 'framer-motion';
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(menuAnatomy.keys);
@@ -24,8 +23,6 @@ const invokeAI = definePartsStyle(() => ({
     color: 'base.150',
     bg: 'base.800',
     shadow: 'dark-lg',
-    border: 'none',
-    borderRadius: 'none',
   },
   item: {
     // this will style the MenuItem and MenuItemOption components
@@ -43,6 +40,15 @@ const invokeAI = definePartsStyle(() => ({
     svg: {
       opacity: 0.7,
       fontSize: 14,
+    },
+    "&[data-destructive='true']": {
+      color: 'error.500',
+      fill: 'error.300',
+      _hover: {
+        bg: 'error.500',
+        color: 'base.50',
+        fill: 'base.50',
+      },
     },
     "&[aria-selected='true']": {
       fontWeight: 600,
@@ -70,28 +76,3 @@ export const menuTheme = defineMultiStyleConfig({
     variant: 'invokeAI',
   },
 });
-
-export const menuListMotionProps: MotionProps = {
-  variants: {
-    enter: {
-      visibility: 'visible',
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.07,
-        ease: [0.4, 0, 0.2, 1],
-      },
-    },
-    exit: {
-      transitionEnd: {
-        visibility: 'hidden',
-      },
-      opacity: 0,
-      scale: 0.8,
-      transition: {
-        duration: 0.07,
-        easings: 'easeOut',
-      },
-    },
-  },
-};

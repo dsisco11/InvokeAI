@@ -21,6 +21,7 @@ import { no_scrollbar } from './components/scrollbar';
 import { skeletonTheme } from './components/skeleton';
 import { tabsTheme } from './components/tabs';
 import { reactflowStyles } from './custom/reactflow';
+import { badgeTheme } from 'common/components/Badge';
 
 export const theme: ThemeOverride = {
   config: {
@@ -71,6 +72,7 @@ export const theme: ThemeOverride = {
   colors: InvokeAIColors,
   components: {
     Accordion: accordionTheme, // done
+    Badge: badgeTheme, // done
     Button: buttonTheme, // done
     Checkbox: checkboxTheme, // done
     Editable: editableTheme,

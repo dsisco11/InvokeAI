@@ -25,6 +25,7 @@ const Component = (props: InvCollapseProps) => {
       {...props}
       label="The Best Flavours of Banana Sushi"
       badges={['Yum', 'Gourmet', 'Barf']}
+      defaultIsOpen
     >
       <InvTabs variant="collapse">
         <InvTabList>

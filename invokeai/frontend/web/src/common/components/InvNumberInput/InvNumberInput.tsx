@@ -1,4 +1,5 @@
 import {
+  Icon as ChakraIcon,
   NumberDecrementStepper as ChakraNumberDecrementStepper,
   NumberIncrementStepper as ChakraNumberIncrementStepper,
   NumberInput as ChakraNumberInput,
@@ -7,7 +8,6 @@ import {
   forwardRef,
 } from '@chakra-ui/react';
 import { useStore } from '@nanostores/react';
-import { InvNumberInputProps } from './types';
 import {
   $modifiers,
   useGlobalModifiersSetters,
@@ -21,6 +21,8 @@ import {
   useMemo,
   useState,
 } from 'react';
+import { FaMinus, FaPlus } from 'react-icons/fa6';
+import { InvNumberInputProps } from './types';
 
 const isValidCharacter = (char: string) => /^[0-9\-.]$/i.test(char);
 
@@ -111,6 +113,7 @@ export const InvNumberInput = forwardRef((props: InvNumberInputProps, ref) => {
       onPaste={stopPastePropagation}
       inputMode={isInteger ? 'numeric' : 'decimal'}
       precision={isInteger ? 0 : undefined}
+      variant="filled"
       {...numberInputProps}
     >
       <ChakraNumberInputField
@@ -122,11 +125,15 @@ export const InvNumberInput = forwardRef((props: InvNumberInputProps, ref) => {
         <ChakraNumberIncrementStepper
           onClick={stepperOnClick}
           {...numberIncrementStepperProps}
-        />
+        >
+          <ChakraIcon as={FaPlus} boxSize={2} />
+        </ChakraNumberIncrementStepper>
         <ChakraNumberDecrementStepper
           onClick={stepperOnClick}
           {...numberDecrementStepperProps}
-        />
+        >
+          <ChakraIcon as={FaMinus} boxSize={2} />
+        </ChakraNumberDecrementStepper>
       </ChakraNumberInputStepper>
     </ChakraNumberInput>
   );

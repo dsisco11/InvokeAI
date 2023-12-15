@@ -40,7 +40,7 @@ const ParameterAspectRatioSlider = () => {
         value={value}
         onChange={onChange}
         options={ASPECT_RATIO_OPTIONS}
-        containerSx={{ minW: 48 }}
+        sx={{ minW: 48 }}
       />
       <SwapDimensionsButton />
       <LockAspectRatioButton />

@@ -3,7 +3,6 @@ import {
   SliderFilledTrack as ChakraSliderFilledTrack,
   SliderThumb as ChakraSliderThumb,
   SliderTrack as ChakraSliderTrack,
-  forwardRef,
   useFormControl,
 } from '@chakra-ui/react';
 import { useStore } from '@nanostores/react';
@@ -14,7 +13,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { InvSliderMark } from './InvSliderMark';
 import { InvFormattedMark, InvSliderProps } from './types';
 
-export const InvSlider = forwardRef((props: InvSliderProps, ref) => {
+export const InvSlider = (props: InvSliderProps) => {
   const {
     value,
     min,
@@ -56,7 +55,6 @@ export const InvSlider = forwardRef((props: InvSliderProps, ref) => {
   );
   return (
     <ChakraSlider
-      ref={ref}
       value={value}
       min={min}
       max={max}
@@ -102,4 +100,4 @@ export const InvSlider = forwardRef((props: InvSliderProps, ref) => {
       </InvTooltip>
     </ChakraSlider>
   );
-});
+};

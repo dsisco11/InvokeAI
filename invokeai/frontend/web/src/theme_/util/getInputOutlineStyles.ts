@@ -1,4 +1,6 @@
-export const getInputOutlineStyles = () => ({
+import { SystemStyleObject } from '@chakra-ui/styled-system';
+
+export const getInputOutlineStyles = (): SystemStyleObject => ({
   outline: 'none',
   borderWidth: 2,
   borderStyle: 'solid',

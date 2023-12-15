@@ -1,4 +1,3 @@
-import { forwardRef } from '@chakra-ui/react';
 import {
   InvAccordion,
   InvAccordionButton,
@@ -7,9 +6,12 @@ import {
 } from 'common/components/InvAccordion';
 import { InvCollapseProps } from 'common/components/InvCollapse/types';
 
-export const InvCollapse = forwardRef((props: InvCollapseProps, ref) => {
+export const InvCollapse = (props: InvCollapseProps) => {
   return (
-    <InvAccordion ref={ref} allowToggle>
+    <InvAccordion
+      allowToggle
+      defaultIndex={props.defaultIsOpen ? 0 : undefined}
+    >
       <InvAccordionItem>
         <InvAccordionButton badges={props.badges}>
           {props.label}
@@ -18,4 +20,4 @@ export const InvCollapse = forwardRef((props: InvCollapseProps, ref) => {
       </InvAccordionItem>
     </InvAccordion>
   );
-});
+};

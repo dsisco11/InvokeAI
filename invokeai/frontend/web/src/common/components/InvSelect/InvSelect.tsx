@@ -4,12 +4,13 @@ import { CustomChakraStylesConfig, InvSelectProps } from './types';
 import { useMemo } from 'react';
 
 export const InvSelect = (props: InvSelectProps) => {
-  const { containerSx, ...rest } = props;
+  const { sx, ...rest } = props;
   const chakraStyles = useMemo<CustomChakraStylesConfig>(
     () => ({
-      container: (provided, _state) => ({ ...provided, ...containerSx }),
+      container: (provided, _state) => ({ ...provided, ...sx }),
+      option: (provided, _state) => ({ ...provided, p: 0 }),
     }),
-    [containerSx]
+    [sx]
   );
 
   return (
@@ -19,6 +20,7 @@ export const InvSelect = (props: InvSelectProps) => {
       selectedOptionColorScheme="base"
       components={CustomComponents}
       chakraStyles={chakraStyles}
+      variant="filled"
       {...rest}
     />
   );

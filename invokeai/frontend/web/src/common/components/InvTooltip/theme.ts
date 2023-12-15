@@ -5,7 +5,7 @@ const $arrowBg = cssVar('popper-arrow-bg');
 
 // define the base component styles
 const baseStyle = defineStyle(() => ({
-  borderRadius: 'base',
+  borderRadius: 'md',
   shadow: 'dark-lg',
   bg: 'base.200',
   [$arrowBg.variable]: 'colors.base.200',

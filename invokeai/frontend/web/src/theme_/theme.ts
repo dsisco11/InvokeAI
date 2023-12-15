@@ -1,26 +1,30 @@
 import { ThemeOverride, ToastProviderProps } from '@chakra-ui/react';
-import { accordionTheme } from 'common/components/InvAccordion';
-import { badgeTheme } from 'common/components/InvBadge';
-import { buttonTheme } from 'common/components/InvButton';
-import { checkboxTheme } from 'common/components/InvCheckbox';
-import { formLabelTheme, formTheme } from 'common/components/InvControl';
-import { menuTheme } from 'common/components/InvMenu';
-import { numberInputTheme } from 'common/components/InvNumberInput';
-import { sliderTheme } from 'common/components/InvSlider';
-import { switchTheme } from 'common/components/InvSwitch';
-import { textTheme } from 'common/components/InvText';
-import { textareaTheme } from 'common/components/InvTextarea';
-import { tooltipTheme } from 'common/components/InvTooltip';
-import { headingTheme } from 'theme/components/heading';
+import {
+  accordionTheme,
+  badgeTheme,
+  buttonTheme,
+  cardTheme,
+  checkboxTheme,
+  formLabelTheme,
+  formTheme,
+  inputTheme,
+  menuTheme,
+  numberInputTheme,
+  sliderTheme,
+  switchTheme,
+  tabsTheme,
+  textTheme,
+  textareaTheme,
+  tooltipTheme,
+} from 'common/components';
 import { InvokeAIColors } from './colors/colors';
 import { editableTheme } from './components/editable';
-import { inputTheme } from './components/input';
+import { headingTheme } from './components/heading';
 import { modalTheme } from './components/modal';
 import { popoverTheme } from './components/popover';
 import { progressTheme } from './components/progress';
 import { no_scrollbar } from './components/scrollbar';
 import { skeletonTheme } from './components/skeleton';
-import { tabsTheme } from 'common/components/InvTabs';
 import { reactflowStyles } from './custom/reactflow';
 
 export const theme: ThemeOverride = {
@@ -79,6 +83,7 @@ export const theme: ThemeOverride = {
     Accordion: accordionTheme, // done
     Badge: badgeTheme, // done
     Button: buttonTheme, // done
+    Card: cardTheme, // done
     Checkbox: checkboxTheme, // done
     Editable: editableTheme,
     Form: formTheme, // done
@@ -93,7 +98,7 @@ export const theme: ThemeOverride = {
     Skeleton: skeletonTheme,
     Slider: sliderTheme, // done
     Switch: switchTheme, // done
-    Tabs: tabsTheme,
+    Tabs: tabsTheme, // WIP
     Text: textTheme, // done
     Textarea: textareaTheme, // done
     Tooltip: tooltipTheme, // done

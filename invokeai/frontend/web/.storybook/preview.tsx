@@ -6,7 +6,7 @@ import { initReactI18next } from 'react-i18next';
 import ThemeLocaleProvider from '../src/app/components/ThemeLocaleProvider2';
 import { createStore } from '../src/app/store/store';
 import { Provider } from 'react-redux';
-
+import { $baseUrl } from '../src/app/store/nanostores/baseUrl';
 import { useGlobalModifiersInit } from '../src/common/hooks/useGlobalModifiers';
 // TODO: Disabled for IDE performance issues with our translation JSON
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -27,6 +27,7 @@ i18n.use(initReactI18next).init({
 });
 
 const store = createStore(undefined, false);
+$baseUrl.set('http://localhost:9090');
 
 const preview: Preview = {
   decorators: [
@@ -35,7 +36,7 @@ const preview: Preview = {
       return (
         <Provider store={store}>
           <ThemeLocaleProvider>
-            <Container maxW="container.md">
+            <Container maxW="container.sm">
               <Story />
             </Container>
           </ThemeLocaleProvider>

@@ -1,22 +1,22 @@
 import { inputAnatomy as parts } from '@chakra-ui/anatomy';
 import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system';
-import { getInputOutlineStyles } from 'theme_/util/getInputOutlineStyles';
+import { getInputFilledStyles } from 'theme_/util/getInputFilledStyles';
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys);
 
-const invokeAI = definePartsStyle(() => {
+const filled = definePartsStyle(() => {
   return {
-    field: getInputOutlineStyles(),
+    field: getInputFilledStyles(),
   };
 });
 
 export const inputTheme = defineMultiStyleConfig({
   variants: {
-    invokeAI,
+    filled,
   },
   defaultProps: {
     size: 'sm',
-    variant: 'invokeAI',
+    variant: 'filled',
   },
 });

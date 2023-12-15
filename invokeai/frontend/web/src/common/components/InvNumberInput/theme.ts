@@ -1,21 +1,16 @@
 import { numberInputAnatomy as parts } from '@chakra-ui/anatomy';
-import {
-  createMultiStyleConfigHelpers,
-  defineStyle,
-} from '@chakra-ui/styled-system';
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system';
+import { getInputFilledStyles } from 'theme_/util/getInputFilledStyles';
 import { getInputOutlineStyles } from 'theme_/util/getInputOutlineStyles';
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys);
 
-const invokeAIRoot = defineStyle(() => {
-  return {
+const invokeAI = definePartsStyle(() => ({
+  root: {
     height: 8,
-  };
-});
-
-const invokeAIField = defineStyle(() => {
-  return {
+  },
+  field: {
     border: 'none',
     fontWeight: '600',
     height: 'auto',
@@ -23,17 +18,11 @@ const invokeAIField = defineStyle(() => {
     ps: 2,
     pe: 6,
     ...getInputOutlineStyles(),
-  };
-});
-
-const invokeAIStepperGroup = defineStyle(() => {
-  return {
+  },
+  stepperGroup: {
     display: 'flex',
-  };
-});
-
-const invokeAIStepper = defineStyle(() => {
-  return {
+  },
+  stepper: {
     border: 'none',
     // expand arrow hitbox
     px: 2,
@@ -49,22 +38,52 @@ const invokeAIStepper = defineStyle(() => {
         color: 'base.100',
       },
     },
+  },
+}));
+
+const filled = definePartsStyle(() => {
+  return {
+    root: {},
+    field: getInputFilledStyles(),
+    stepperGroup: {
+      border: 'none',
+      w: 8,
+    },
+    stepper: {
+      color: 'base.200',
+      _hover: {
+        bg: 'base.700',
+        color: 'base.100',
+      },
+      _disabled: {
+        _hover: {
+          bg: 'base.800',
+          color: 'base.200',
+        },
+      },
+      _first: {
+        border: 'none',
+        margin: 0,
+        borderTopEndRadius: '3px',
+        borderBottomStartRadius: '3px',
+      },
+      _last: {
+        border: 'none',
+        margin: 0,
+        borderBottomEndRadius: '3px',
+        borderTopStartRadius: '3px',
+      },
+    },
   };
 });
-
-const invokeAI = definePartsStyle(() => ({
-  root: invokeAIRoot(),
-  field: invokeAIField(),
-  stepperGroup: invokeAIStepperGroup(),
-  stepper: invokeAIStepper(),
-}));
 
 export const numberInputTheme = defineMultiStyleConfig({
   variants: {
     invokeAI,
+    filled,
   },
   defaultProps: {
     size: 'sm',
-    variant: 'invokeAI',
+    variant: 'filled',
   },
 });

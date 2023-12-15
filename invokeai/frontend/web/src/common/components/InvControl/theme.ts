@@ -54,7 +54,7 @@ const formLabelBaseStyle = defineStyle(() => {
     mb: 0,
     flexShrink: 0,
     flexGrow: 0,
-    fontWeight: '400',
+    fontWeight: '600',
     transitionProperty: 'common',
     transitionDuration: 'normal',
     whiteSpace: 'nowrap',

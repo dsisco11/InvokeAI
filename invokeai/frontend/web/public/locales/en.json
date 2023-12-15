@@ -792,7 +792,7 @@
         "loraAlreadyAdded": "LoRA already added",
         "esrganModel": "ESRGAN Model",
         "loading": "loading",
-        "incompatibleBaseModel": "Incompatible base model: {{base_model}}",
+        "incompatibleBaseModel": "Incompatible base model",
         "noMainModelSelected": "No main model selected",
         "noLoRAsAvailable": "No LoRAs available",
         "noLoRAsLoaded": "No LoRAs Loaded",

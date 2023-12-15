@@ -45,7 +45,7 @@ const LoRASelect = () => {
         placeholder={
           options.length === 0 ? t('models.allLoRAsAdded') : t('models.addLora')
         }
-        value={undefined}
+        value={null}
         options={options}
         noOptionsMessage={noOptionsMessage}
         onChange={onChange}

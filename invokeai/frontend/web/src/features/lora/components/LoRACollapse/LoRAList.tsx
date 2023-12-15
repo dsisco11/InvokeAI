@@ -13,6 +13,10 @@ const selector = createMemoizedSelector(stateSelector, ({ lora }) => {
 export const LoRAList = memo(() => {
   const { lorasArray } = useAppSelector(selector);
 
+  if (!lorasArray.length) {
+    return null;
+  }
+
   return (
     <Flex flexWrap="wrap" gap={2}>
       {lorasArray.map((lora) => (

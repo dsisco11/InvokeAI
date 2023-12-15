@@ -59,7 +59,7 @@ const ParamControlAdapterModel = ({ id }: ParamControlAdapterModelProps) => {
         group: MODEL_TYPE_MAP[model.base_model],
         disabled,
         tooltip: disabled
-          ? t('models.incompatibleBaseModel', { base_model: model.base_model })
+          ? `${t('models.incompatibleBaseModel')}: ${model.base_model}`
           : undefined,
       });
     });

@@ -54,7 +54,7 @@ export const useLoRASelectOptions = () => {
         const options = group
           // Map LoRAs to options
           .map((lora) => {
-            const isCompatible = currentBaseModel !== lora.base_model;
+            const isCompatible = currentBaseModel === lora.base_model;
             const isAdded = Boolean(addedLoRAs[lora.id]);
             const tooltip = getTooltip(hasMainModel, isCompatible, isAdded);
             const isDisabled = !hasMainModel || !isCompatible || isAdded;

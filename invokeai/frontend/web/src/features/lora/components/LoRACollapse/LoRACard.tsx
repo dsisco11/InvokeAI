@@ -68,7 +68,7 @@ export const LoRACard = memo((props: LoRACardProps) => {
           min={-5}
           max={5}
           step={0.01}
-          w="72px"
+          w={20}
           flexShrink={0}
         />
       </InvCardBody>

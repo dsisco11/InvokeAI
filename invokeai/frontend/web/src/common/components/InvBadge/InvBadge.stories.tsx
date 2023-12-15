@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvBadge } from 'common/components/InvBadge/InvBadge';
-import { InvBadgeProps } from 'common/components/InvBadge/types';
+import { InvBadge } from './wrapper';
+import { InvBadgeProps } from './types';
 
 const meta: Meta<typeof InvBadge> = {
   title: 'Primitives/InvBadge',

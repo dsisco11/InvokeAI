@@ -9,6 +9,11 @@ const { definePartsStyle, defineMultiStyleConfig } =
 
 const invokeAIContainer = defineStyle({
   border: 'none',
+  bg: 'base.800',
+  borderRadius: 'base',
+  ':has(button:hover)': { bg: 'base.750' },
+  transitionProperty: 'common',
+  transitionDuration: '0.2s',
 });
 
 const invokeAIButton = defineStyle((props) => {
@@ -18,16 +23,16 @@ const invokeAIButton = defineStyle((props) => {
     fontSize: 'sm',
     border: 'none',
     borderRadius: 'base',
-    bg: `${c}.700`,
+    // bg: `${c}.700`,
     color: `${c}.100`,
     _hover: {
-      bg: `${c}.650`,
+      // bg: `${c}.650`,
     },
     _expanded: {
-      bg: `${c}.650`,
+      // bg: `${c}.650`,
       borderBottomRadius: 'none',
       _hover: {
-        bg: `${c}.600`,
+        // bg: `${c}.600`,
       },
     },
   };
@@ -36,9 +41,8 @@ const invokeAIButton = defineStyle((props) => {
 const invokeAIPanel = defineStyle((props) => {
   const { colorScheme: c } = props;
   return {
-    bg: `${c}.800`,
+    bg: `${c}.700`,
     borderRadius: 'base',
-    borderTopRadius: 'none',
     p: 4,
   };
 });

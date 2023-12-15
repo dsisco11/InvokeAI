@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvButton } from './InvButton';
-import { InvButtonProps } from 'common/components/InvButton/types';
+import { InvButton } from './wrapper';
+import { InvButtonProps } from './types';
 
 const meta: Meta<typeof InvButton> = {
   title: 'Primitives/InvButton',

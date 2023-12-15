@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvText } from './InvText';
-import { InvTextProps } from 'common/components/InvText/types';
+import { InvText } from './wrapper';
+import { InvTextProps } from './types';
 
 const meta: Meta<typeof InvText> = {
   title: 'Primitives/InvText',

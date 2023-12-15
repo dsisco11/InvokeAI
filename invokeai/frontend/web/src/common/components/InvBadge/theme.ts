@@ -4,7 +4,7 @@ const baseStyle = defineStyle({
   fontSize: 10,
   px: 2,
   py: 1,
-  borderRadius: 12,
+  borderRadius: 'base',
 });
 
 export const badgeTheme = defineStyleConfig({

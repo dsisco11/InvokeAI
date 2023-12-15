@@ -1,3 +1,3 @@
 export { buttonTheme } from './theme';
-export { InvButton } from './InvButton';
+export { InvButton } from './wrapper';
 export type { InvButtonProps } from './types';

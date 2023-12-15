@@ -46,6 +46,9 @@ export const theme: ThemeOverride = {
       ...reactflowStyles,
     }),
   },
+  radii: {
+    base: '12px',
+  },
   direction: 'ltr',
   fonts: {
     body: "'Inter Variable', sans-serif",

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvIconButton } from './InvIconButton';
+import { InvIconButton } from './wrapper';
 import { FaBoltLightning } from 'react-icons/fa6';
+import type {InvIconButtonProps} from './types'
 
 const meta: Meta<typeof InvIconButton> = {
   title: 'Primitives/InvIconButton',
@@ -14,7 +15,7 @@ const meta: Meta<typeof InvIconButton> = {
 export default meta;
 type Story = StoryObj<typeof InvIconButton>;
 
-const Component = (props: Parameters<typeof InvIconButton>[0]) => {
+const Component = (props: InvIconButtonProps) => {
   return <InvIconButton {...props} />;
 };
 

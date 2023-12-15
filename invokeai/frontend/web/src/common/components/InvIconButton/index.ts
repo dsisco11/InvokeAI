@@ -1,2 +1,2 @@
-export { InvIconButton } from './InvIconButton';
+export { InvIconButton } from './wrapper';
 export type { InvIconButtonProps } from './types';

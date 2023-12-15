@@ -8,12 +8,14 @@ export type {
   InvMenuOptionGroupProps,
   InvMenuProps,
 } from './types';
-export { InvMenu } from './InvMenu';
-export { InvMenuButton } from './InvMenuButton';
-export { InvMenuDivider } from './InvMenuDivider';
-export { InvMenuGroup } from './InvMenuGroup';
+export {
+  InvMenu,
+  InvMenuButton,
+  InvMenuDivider,
+  InvMenuGroup,
+  InvMenuItemOption,
+  InvMenuOptionGroup,
+} from './wrapper';
 export { InvMenuItem } from './InvMenuItem';
-export { InvMenuItemOption } from './InvMenuItemOption';
 export { InvMenuList } from './InvMenuList';
-export { InvMenuOptionGroup } from './InvMenuOptionGroup';
 export { menuTheme } from './theme';

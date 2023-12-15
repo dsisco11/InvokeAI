@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvAccordion } from 'common/components/InvAccordion/InvAccordion';
-import { InvAccordionItem } from 'common/components/InvAccordion/InvAccordionItem';
-import { InvAccordionButton } from 'common/components/InvAccordion/InvAccordionButton';
-import { InvAccordionIcon } from 'common/components/InvAccordion/InvAccordionIcon';
-import { InvAccordionPanel } from 'common/components/InvAccordion/InvAccordionPanel';
+import {
+  InvAccordion,
+  InvAccordionItem,
+  InvAccordionButton,
+  InvAccordionIcon,
+  InvAccordionPanel,
+} from './wrapper';
 import { Box } from '@chakra-ui/layout';
-import { InvAccordionProps } from 'common/components/InvAccordion/types';
+import { InvAccordionProps } from './types';
 
 const meta: Meta<typeof InvAccordion> = {
   title: 'Primitives/InvAccordion',

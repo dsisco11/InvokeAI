@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvSwitch } from './InvSwitch';
-import { InvSwitchProps } from 'common/components/InvSwitch/types';
+import { InvSwitch } from './wrapper';
+import { InvSwitchProps } from './types';
 
 const meta: Meta<typeof InvSwitch> = {
   title: 'Primitives/InvSwitch',

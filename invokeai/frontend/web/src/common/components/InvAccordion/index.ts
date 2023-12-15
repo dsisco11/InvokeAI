@@ -5,9 +5,11 @@ export type {
   InvAccordionPanelProps,
   InvAccordionIconProps,
 } from './types';
-export { InvAccordion } from './InvAccordion';
-export { InvAccordionButton } from './InvAccordionButton';
-export { InvAccordionIcon } from './InvAccordionIcon';
-export { InvAccordionItem } from './InvAccordionItem';
-export { InvAccordionPanel } from './InvAccordionPanel';
+export {
+  InvAccordion,
+  InvAccordionButton,
+  InvAccordionIcon,
+  InvAccordionItem,
+  InvAccordionPanel,
+} from './wrapper';
 export { accordionTheme } from './theme';

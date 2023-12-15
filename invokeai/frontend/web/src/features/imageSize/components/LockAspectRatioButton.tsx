@@ -1,28 +1,26 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvIconButton } from 'common/components/InvIconButton';
-import { dimensionsReset } from 'features/imageSize/store/imageSizeSlice';
+import { isLockedToggled } from 'features/imageSize/store/imageSizeSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { IoSparkles } from 'react-icons/io5';
+import { FaLink, FaLinkSlash } from 'react-icons/fa6';
 
-export const SetOptimalSizeButton = () => {
+export const LockAspectRatioButton = () => {
   const { t } = useTranslation();
-  const optimalDimension = useAppSelector((state) =>
-    state.generation.model?.base_model === 'sdxl' ? 1024 : 512
-  );
   const dispatch = useAppDispatch();
+  const isLocked = useAppSelector((state) => state.imageSize.isLocked);
   const onClick = useCallback(() => {
-    dispatch(dimensionsReset(optimalDimension));
-  }, [dispatch, optimalDimension]);
+    dispatch(isLockedToggled());
+  }, [dispatch]);
 
   return (
     <InvIconButton
       aria-label={t('parameters.lockAspectRatio')}
       onClick={onClick}
-      variant="ghost"
+      variant={isLocked ? 'outline' : 'ghost'}
       size="sm"
-      icon={<IoSparkles />}
+      icon={isLocked ? <FaLink /> : <FaLinkSlash />}
     />
   );
 };
-export default memo(SetOptimalSizeButton);
+export default memo(LockAspectRatioButton);

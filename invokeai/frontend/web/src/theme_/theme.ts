@@ -41,7 +41,7 @@ export const theme: ThemeOverride = {
   },
   styles: {
     global: () => ({
-      body: { bg: 'base.900', color: 'base.50' },
+      body: { bg: 'base.900', color: 'base.50', fontSize: 'sm' },
       '*': { ...no_scrollbar },
       ...reactflowStyles,
     }),

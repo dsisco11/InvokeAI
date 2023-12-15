@@ -14,6 +14,7 @@ export const InvSelect = (props: InvSelectProps) => {
 
   return (
     <ChakraReactSelect
+      menuPortalTarget={document.body}
       colorScheme="base"
       selectedOptionColorScheme="base"
       components={CustomComponents}

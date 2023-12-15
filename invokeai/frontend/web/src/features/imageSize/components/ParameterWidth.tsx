@@ -50,7 +50,7 @@ const ParameterWidth = () => {
   }, [dispatch, initial]);
 
   return (
-    <InvControl label={t('parameters.width')} labelW={16}>
+    <InvControl label={t('parameters.width')} labelW={12}>
       <InvSlider
         value={width}
         onChange={onChange}

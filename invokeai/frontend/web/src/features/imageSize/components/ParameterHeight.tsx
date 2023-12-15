@@ -51,7 +51,7 @@ const ParameterHeight = () => {
   }, [dispatch, initial]);
 
   return (
-    <InvControl label={t('parameters.height')} labelW={16}>
+    <InvControl label={t('parameters.height')} labelW={12}>
       <InvSlider
         value={height}
         onChange={onChange}

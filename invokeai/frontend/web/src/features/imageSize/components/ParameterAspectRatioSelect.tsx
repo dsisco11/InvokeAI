@@ -35,7 +35,7 @@ const ParameterAspectRatioSlider = () => {
   );
 
   return (
-    <InvControl label={t('parameters.aspect')} labelW={16}>
+    <InvControl label={t('parameters.aspect')} labelW={12}>
       <InvSelect
         value={value}
         onChange={onChange}

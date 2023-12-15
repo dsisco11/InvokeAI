@@ -12,6 +12,7 @@ import { useGlobalModifiersInit } from '../src/common/hooks/useGlobalModifiers';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import translationEN from '../public/locales/en.json';
+import { Container } from '@chakra-ui/react';
 
 i18n.use(initReactI18next).init({
   lng: 'en',
@@ -34,7 +35,9 @@ const preview: Preview = {
       return (
         <Provider store={store}>
           <ThemeLocaleProvider>
-            <Story />
+            <Container maxW="container.md">
+              <Story />
+            </Container>
           </ThemeLocaleProvider>
         </Provider>
       );

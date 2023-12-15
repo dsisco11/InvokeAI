@@ -1,15 +1,12 @@
 import { Flex, Text } from '@chakra-ui/layout';
 import {
   GroupBase,
-  IndicatorsContainerProps,
   OptionProps,
   SelectComponentsConfig,
   chakraComponents,
 } from 'chakra-react-select';
 import { InvTooltip } from 'common/components/InvTooltip';
 import { InvSelectOption } from './types';
-import { CloseIcon, Icon as ChakraIcon } from '@chakra-ui/icons';
-import { FaChevronDown } from 'react-icons/fa6';
 
 type CustomSelectComponentConfig = SelectComponentsConfig<
   InvSelectOption,
@@ -22,44 +19,14 @@ type CustomOptionProps = OptionProps<
   false,
   GroupBase<InvSelectOption>
 >;
-type CustomIndicatorsContainerProps = IndicatorsContainerProps<
-  InvSelectOption,
-  false,
-  GroupBase<InvSelectOption>
->;
 
 export const CustomComponents: CustomSelectComponentConfig = {
-  ClearIndicator: (props) => (
-    <chakraComponents.ClearIndicator {...props}>
-      <CloseIcon boxSize={4} />
-    </chakraComponents.ClearIndicator>
-  ),
-  DropdownIndicator: (props) => (
-    <chakraComponents.DropdownIndicator {...props}>
-      <ChakraIcon as={FaChevronDown} boxSize={2} />
-    </chakraComponents.DropdownIndicator>
-  ),
-  IndicatorsContainer: ({
-    children,
-    ...props
-  }: CustomIndicatorsContainerProps) => (
-    <chakraComponents.IndicatorsContainer {...props}>
-      <Flex
-        w={8}
-        alignItems="center"
-        justifyContent="center"
-        sx={{ '> div': { p: 0, w: 'full', h: 'full', bg: 'unset' } }}
-      >
-        {children}
-      </Flex>
-    </chakraComponents.IndicatorsContainer>
-  ),
   Option: ({ children, ...props }: CustomOptionProps) => {
     if (props.data.icon) {
       return (
         <chakraComponents.Option {...props}>
           <InvTooltip label={props.data.tooltip}>
-            <Flex w="full" h="full" p={1} px={2}>
+            <Flex w="full" h="full" p={1} ps={2} pe={2}>
               <Flex ps={1} pe={3} alignItems="center" justifyContent="center">
                 {props.data.icon}
               </Flex>
@@ -86,7 +53,7 @@ export const CustomComponents: CustomSelectComponentConfig = {
     return (
       <chakraComponents.Option {...props}>
         <InvTooltip label={props.data.tooltip}>
-          <Flex w="full" h="full" flexDir="column" p={1} px={2}>
+          <Flex w="full" h="full" flexDir="column" p={1} px={4}>
             <Text>{children}</Text>
             {props.data.description && (
               <Text

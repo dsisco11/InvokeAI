@@ -9,6 +9,13 @@ export const InvSelect = (props: InvSelectProps) => {
     () => ({
       container: (provided, _state) => ({ ...provided, ...sx }),
       option: (provided, _state) => ({ ...provided, p: 0 }),
+      indicatorsContainer: (provided, _state) => ({
+        ...provided,
+        w: 8,
+        alignItems: 'center',
+        justifyContent: 'center',
+        '> div': { p: 0, w: 'full', h: 'full', bg: 'unset' },
+      }),
     }),
     [sx]
   );

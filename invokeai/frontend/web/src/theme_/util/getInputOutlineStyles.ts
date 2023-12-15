@@ -4,7 +4,7 @@ export const getInputOutlineStyles = () => ({
   borderStyle: 'solid',
   borderColor: 'base.800',
   bg: 'base.900',
-  borderRadius: 'base',
+  borderRadius: 'md',
   color: 'base.100',
   boxShadow: 'none',
   _hover: {

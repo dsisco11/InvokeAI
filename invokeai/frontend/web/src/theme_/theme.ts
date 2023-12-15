@@ -20,7 +20,7 @@ import { popoverTheme } from './components/popover';
 import { progressTheme } from './components/progress';
 import { no_scrollbar } from './components/scrollbar';
 import { skeletonTheme } from './components/skeleton';
-import { tabsTheme } from './components/tabs';
+import { tabsTheme } from 'common/components/InvTabs';
 import { reactflowStyles } from './custom/reactflow';
 
 export const theme: ThemeOverride = {
@@ -48,6 +48,8 @@ export const theme: ThemeOverride = {
   },
   radii: {
     base: '12px',
+    md: '4px',
+    sm: '2px',
   },
   direction: 'ltr',
   fonts: {

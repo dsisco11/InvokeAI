@@ -1,13 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import {
-  InvAccordion,
-  InvAccordionItem,
-  InvAccordionButton,
-  InvAccordionIcon,
-  InvAccordionPanel,
-} from './wrapper';
-import { Box } from '@chakra-ui/layout';
+import { InvAccordion, InvAccordionItem, InvAccordionPanel } from './wrapper';
 import { InvAccordionProps } from './types';
+import { InvText } from 'common/components/InvText';
+import { InvAccordionButton } from './InvAccordionButton';
 
 const meta: Meta<typeof InvAccordion> = {
   title: 'Primitives/InvAccordion',
@@ -25,36 +20,26 @@ const Component = (props: InvAccordionProps) => {
   return (
     <InvAccordion {...props} defaultIndex={[0]} allowMultiple>
       <InvAccordionItem>
-        <h2>
-          <InvAccordionButton>
-            <Box as="span" flex="1" textAlign="left">
-              Section 1 title
-            </Box>
-            <InvAccordionIcon />
-          </InvAccordionButton>
-        </h2>
-        <InvAccordionPanel pb={4}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+        <InvAccordionButton>Section 1 title</InvAccordionButton>
+        <InvAccordionPanel p={4}>
+          <InvText>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </InvText>
         </InvAccordionPanel>
       </InvAccordionItem>
 
       <InvAccordionItem>
-        <h2>
-          <InvAccordionButton>
-            <Box as="span" flex="1" textAlign="left">
-              Section 2 title
-            </Box>
-            <InvAccordionIcon />
-          </InvAccordionButton>
-        </h2>
-        <InvAccordionPanel pb={4}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+        <InvAccordionButton>Section 2 title</InvAccordionButton>
+        <InvAccordionPanel p={4}>
+          <InvText>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </InvText>
         </InvAccordionPanel>
       </InvAccordionItem>
     </InvAccordion>

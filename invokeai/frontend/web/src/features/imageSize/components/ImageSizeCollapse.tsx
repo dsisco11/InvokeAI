@@ -25,7 +25,7 @@ export default function ImageSizeCollapse() {
       defaultIsOpen={true}
       badges={badges}
     >
-      <Flex gap={2} alignItems="center">
+      <Flex p={4} gap={2} alignItems="center">
         <Flex gap={2} flexDirection="column" width="full">
           <ParameterAspectRatioSelect />
           <ParameterWidth />

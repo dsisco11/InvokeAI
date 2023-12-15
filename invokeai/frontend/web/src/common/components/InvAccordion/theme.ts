@@ -11,7 +11,7 @@ const invokeAIContainer = defineStyle({
   border: 'none',
   bg: 'base.800',
   borderRadius: 'base',
-  ':has(button:hover)': { bg: 'base.750' },
+  ':has(&div &button:hover)': { bg: 'base.750' },
   transitionProperty: 'common',
   transitionDuration: '0.2s',
 });
@@ -19,6 +19,7 @@ const invokeAIContainer = defineStyle({
 const invokeAIButton = defineStyle((props) => {
   const { colorScheme: c } = props;
   return {
+    gap: 2,
     fontWeight: '600',
     fontSize: 'sm',
     border: 'none',
@@ -41,13 +42,15 @@ const invokeAIButton = defineStyle((props) => {
 const invokeAIPanel = defineStyle((props) => {
   const { colorScheme: c } = props;
   return {
-    bg: `${c}.700`,
+    bg: `${c}.750`,
     borderRadius: 'base',
-    p: 4,
+    p: 0,
   };
 });
 
-const invokeAIIcon = defineStyle({});
+const invokeAIIcon = defineStyle({
+  ms: 2,
+});
 
 const invokeAI = definePartsStyle((props) => ({
   container: invokeAIContainer,

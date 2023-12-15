@@ -2,6 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { InvCollapse } from './InvCollapse';
 import { InvText } from 'common/components/InvText';
 import { InvCollapseProps } from 'common/components/InvCollapse/types';
+import {
+  InvTabs,
+  InvTabList,
+  InvTab,
+  InvTabPanels,
+  InvTabPanel,
+} from 'common/components/InvTabs';
 
 const meta: Meta<typeof InvCollapse> = {
   title: 'Primitives/InvCollapse',
@@ -16,20 +23,43 @@ const Component = (props: InvCollapseProps) => {
   return (
     <InvCollapse
       {...props}
-      label="Ode to Banana Sushi"
-      badges={['SD1.x', 'LoRA', '1024x1024']}
+      label="The Best Flavours of Banana Sushi"
+      badges={['Yum', 'Gourmet', 'Barf']}
     >
-      <InvText>
-        Banana sushi is a delightful treat, a fusion of tropical sweetness and
-        traditional Japanese cuisine. The ripe, creamy banana pairs perfectly
-        with the slightly tangy sushi rice, wrapped in a crisp, seaweed sheet.
-        It&apos;s a surprising combination that delights the palate. The banana
-        sushi is often drizzled with a touch of honey or a sprinkle of toasted
-        sesame seeds, adding an extra layer of flavor and texture. This
-        innovative dessert sushi is a testament to the limitless creativity in
-        culinary arts. Enjoy this delicious, unique treat that breaks the
-        boundaries of conventional sushi.
-      </InvText>
+      <InvTabs variant="collapse">
+        <InvTabList>
+          <InvTab>Caramelized</InvTab>
+          <InvTab badges={[2]}>Peanut Butter</InvTab>
+          <InvTab badges={[4]}>Chocolate-Dipped</InvTab>
+        </InvTabList>
+
+        <InvTabPanels>
+          <InvTabPanel>
+            <InvText>
+              Slices of banana are caramelized with brown sugar and butter, then
+              rolled in sushi rice and topped with a drizzle of caramel sauce.
+              This variety offers a sweet and rich flavor, combining the
+              creaminess of banana with the indulgent taste of caramel.
+            </InvText>
+          </InvTabPanel>
+          <InvTabPanel>
+            <InvText>
+              A combination of creamy peanut butter and ripe banana slices,
+              wrapped in sushi rice and seaweed. This sushi delivers a
+              satisfying balance of nutty and sweet flavors, appealing to those
+              who enjoy classic peanut butter and banana pairings.
+            </InvText>
+          </InvTabPanel>
+          <InvTabPanel>
+            <InvText>
+              Banana slices are dipped in melted dark chocolate, then rolled in
+              sushi rice and sprinkled with toasted sesame seeds. This type
+              provides a decadent chocolate experience with a hint of nuttiness
+              and the natural sweetness of banana.
+            </InvText>
+          </InvTabPanel>
+        </InvTabPanels>
+      </InvTabs>
     </InvCollapse>
   );
 };

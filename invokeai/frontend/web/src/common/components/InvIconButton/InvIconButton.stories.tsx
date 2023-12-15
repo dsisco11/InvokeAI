@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvIconButton } from './wrapper';
 import { FaBoltLightning } from 'react-icons/fa6';
-import type {InvIconButtonProps} from './types'
+import type { InvIconButtonProps } from './types';
 
 const meta: Meta<typeof InvIconButton> = {
   title: 'Primitives/InvIconButton',

@@ -1,8 +1,7 @@
-import { Badge, Spacer, forwardRef } from '@chakra-ui/react';
+import { forwardRef } from '@chakra-ui/react';
 import {
   InvAccordion,
   InvAccordionButton,
-  InvAccordionIcon,
   InvAccordionItem,
   InvAccordionPanel,
 } from 'common/components/InvAccordion';
@@ -12,13 +11,8 @@ export const InvCollapse = forwardRef((props: InvCollapseProps, ref) => {
   return (
     <InvAccordion ref={ref} allowToggle>
       <InvAccordionItem>
-        <InvAccordionButton display="flex" gap={2}>
+        <InvAccordionButton badges={props.badges}>
           {props.label}
-          <Spacer />
-          {props.badges?.map((badge, i) => (
-            <Badge key={`${badge}.${i}`}>{badge}</Badge>
-          ))}
-          <InvAccordionIcon ms={2} />
         </InvAccordionButton>
         <InvAccordionPanel>{props.children}</InvAccordionPanel>
       </InvAccordionItem>

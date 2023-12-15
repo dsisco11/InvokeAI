@@ -101,13 +101,52 @@ const line = definePartsStyle(() => ({
   },
 }));
 
+const TAB_INACTIVE = 'base.700';
+const TAB_ACTIVE = 'base.750';
+
+const collapse = definePartsStyle(() => ({
+  indicator: {},
+  tablist: {
+    bg: TAB_ACTIVE,
+    borderRadius: 'base',
+  },
+  tab: {
+    flexGrow: 1,
+    gap: 4,
+    bg: TAB_INACTIVE,
+    fontSize: 'xs',
+    fontWeight: 600,
+    borderInlineEnd: 1,
+    borderInlineEndColor: TAB_ACTIVE,
+    borderInlineEndStyle: 'solid',
+    _first: {
+      borderTopStartRadius: 'base',
+    },
+    // select the tab next to the selected tab
+    '&[aria-selected="true"] + button': { borderBottomStartRadius: 'base' },
+    // select the tab prev to the selected tab
+    ':has(+ [aria-selected="true"])': { borderBottomEndRadius: 'base' },
+    _selected: {
+      bg: TAB_ACTIVE,
+    },
+    _last: {
+      borderTopEndRadius: 'base',
+      alignSelf: 'start',
+    },
+    transitionProperty: 'all',
+  },
+  tabpanels: { bg: TAB_ACTIVE, borderBottomRadius: 'base' },
+  tabpanel: {},
+}));
+
 export const tabsTheme = defineMultiStyleConfig({
   variants: {
     line,
     appTabs,
+    collapse,
   },
   defaultProps: {
-    variant: 'appTabs',
+    variant: 'line',
     colorScheme: 'accent',
   },
 });

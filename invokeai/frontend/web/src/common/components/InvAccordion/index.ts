@@ -7,9 +7,9 @@ export type {
 } from './types';
 export {
   InvAccordion,
-  InvAccordionButton,
   InvAccordionIcon,
   InvAccordionItem,
   InvAccordionPanel,
 } from './wrapper';
 export { accordionTheme } from './theme';
+export { InvAccordionButton } from './InvAccordionButton';

@@ -29,3 +29,7 @@ export type CustomChakraStylesConfig = ChakraStylesConfig<
   false,
   GroupBase<InvSelectOption>
 >;
+
+export type InvSelectFallbackProps = {
+  label: string;
+};

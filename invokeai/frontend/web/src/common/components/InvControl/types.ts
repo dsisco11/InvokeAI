@@ -4,7 +4,7 @@ import type {
 } from '@chakra-ui/react';
 
 export type InvControlProps = ChakraFormControlProps & {
-  label: string;
+  label?: string;
   helperText?: string;
   labelW?: ChakraFormLabelProps['w'];
   labelProps?: ChakraFormLabelProps;

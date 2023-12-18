@@ -1,20 +1,25 @@
-import { Flex, Text } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import { SingleValue } from 'chakra-react-select';
-import { InvControl, InvSelect, InvSelectOption } from 'common/components/';
+import {
+  InvControl,
+  InvSelect,
+  InvSelectFallback,
+  InvSelectOption,
+} from 'common/components/';
 import { useLoRASelectOptions } from 'features/lora/components/LoRACollapse/useLoRASelectOptions';
 import { loraAdded } from 'features/lora/store/loraSlice';
+import { t } from 'i18next';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetLoRAModelsQuery } from 'services/api/endpoints/models';
 
-const noOptionsMessage = () => 'No matching LoRAs';
+const noOptionsMessage = () => t('models.noMatchingLoRAs');
 
 const LoRASelect = () => {
   const dispatch = useAppDispatch();
   const { data } = useGetLoRAModelsQuery();
   const { t } = useTranslation();
-  const options = useLoRASelectOptions();
+  const { options, isLoading } = useLoRASelectOptions();
   const onChange = useCallback(
     (v: SingleValue<InvSelectOption>) => {
       if (!v) {
@@ -29,14 +34,12 @@ const LoRASelect = () => {
     [dispatch, data?.entities]
   );
 
+  if (isLoading) {
+    return <InvSelectFallback label={t('common.loading')} />;
+  }
+
   if (options.length === 0) {
-    return (
-      <Flex sx={{ justifyContent: 'center', p: 2 }}>
-        <Text sx={{ fontSize: 'sm', color: 'base.500', _dark: 'base.700' }}>
-          {t('models.noLoRAsInstalled')}
-        </Text>
-      </Flex>
-    );
+    return <InvSelectFallback label={t('models.noLoRAsInstalled')} />;
   }
 
   return (

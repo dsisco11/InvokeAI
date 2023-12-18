@@ -24,9 +24,11 @@ export const InvControl = forwardRef((props: InvControlProps, ref) => {
         {...formControlProps}
       >
         <Flex>
-          <ChakraFormLabel w={labelW} {...labelProps}>
-            {props.label}
-          </ChakraFormLabel>
+          {props.label && (
+            <ChakraFormLabel w={labelW} {...labelProps}>
+              {props.label}
+            </ChakraFormLabel>
+          )}
           {children}
         </Flex>
         <ChakraFormHelperText>{helperText}</ChakraFormHelperText>
@@ -36,9 +38,11 @@ export const InvControl = forwardRef((props: InvControlProps, ref) => {
 
   return (
     <ChakraFormControl ref={ref} {...formControlProps}>
-      <ChakraFormLabel w={labelW} {...labelProps}>
-        {props.label}
-      </ChakraFormLabel>
+      {props.label && (
+        <ChakraFormLabel w={labelW} {...labelProps}>
+          {props.label}
+        </ChakraFormLabel>
+      )}
       {children}
     </ChakraFormControl>
   );

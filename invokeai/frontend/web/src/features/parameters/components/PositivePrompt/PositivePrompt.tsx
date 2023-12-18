@@ -1,21 +1,13 @@
-import { Box, FormControl, useDisclosure } from '@chakra-ui/react';
+import { Box, useDisclosure } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
-import IAITextarea from 'common/components/IAITextarea';
-import AddEmbeddingButton from 'features/embedding/components/AddEmbeddingButton';
-import ParamEmbeddingPopover from 'features/embedding/components/ParamEmbeddingPopover';
+import { InvTextarea } from 'common/components';
+import AddEmbeddingButton from 'features/embedding/components/EmbeddingPopover/AddEmbeddingButton';
+import { EmbeddingPopover } from 'features/embedding/components/EmbeddingPopover/EmbeddingPopover';
 import { setPositivePrompt } from 'features/parameters/store/generationSlice';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
-import {
-  ChangeEvent,
-  KeyboardEvent,
-  memo,
-  useCallback,
-  useEffect,
-  useRef,
-} from 'react';
+import { ChangeEvent, KeyboardEvent, useCallback, useRef } from 'react';
 import { flushSync } from 'react-dom';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';
@@ -29,10 +21,7 @@ const promptInputSelector = createMemoizedSelector(
   }
 );
 
-/**
- * Prompt input text area.
- */
-const ParamPositiveConditioning = () => {
+export const PositivePrompt = () => {
   const dispatch = useAppDispatch();
   const { prompt } = useAppSelector(promptInputSelector);
   const promptRef = useRef<HTMLTextAreaElement>(null);
@@ -103,54 +92,37 @@ const ParamPositiveConditioning = () => {
     (e: KeyboardEvent<HTMLTextAreaElement>) => {
       if (isEmbeddingEnabled && e.key === '<') {
         onOpen();
+        e.preventDefault();
       }
     },
     [onOpen, isEmbeddingEnabled]
   );
 
-  useEffect(() => {
-    !isOpen && promptRef.current?.focus();
-  }, [isOpen]);
-
   return (
     <Box position="relative">
-      <FormControl>
-        <ParamEmbeddingPopover
-          isOpen={isOpen}
-          onClose={handleClose}
-          onSelect={handleSelectEmbedding}
-        >
-          <IAIInformationalPopover
-            feature="paramPositiveConditioning"
-            placement="right"
-          >
-            <IAITextarea
-              id="prompt"
-              name="prompt"
-              ref={promptRef}
-              value={prompt}
-              placeholder={t('parameters.positivePromptPlaceholder')}
-              onChange={handleChangePrompt}
-              onKeyDown={handleKeyDown}
-              resize="vertical"
-              minH={32}
-            />
-          </IAIInformationalPopover>
-        </ParamEmbeddingPopover>
-      </FormControl>
+      <EmbeddingPopover
+        isOpen={isOpen}
+        onClose={handleClose}
+        onSelect={handleSelectEmbedding}
+        width={promptRef.current?.clientWidth}
+      >
+        <InvTextarea
+          id="prompt"
+          name="prompt"
+          ref={promptRef}
+          value={prompt}
+          placeholder={t('parameters.positivePromptPlaceholder')}
+          onChange={handleChangePrompt}
+          onKeyDown={handleKeyDown}
+          resize="vertical"
+          minH={32}
+        />
+      </EmbeddingPopover>
       {!isOpen && isEmbeddingEnabled && (
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            insetInlineEnd: 0,
-          }}
-        >
+        <Box pos="absolute" insetBlockStart={0} insetInlineEnd={0}>
           <AddEmbeddingButton onClick={onOpen} />
         </Box>
       )}
     </Box>
   );
 };
-
-export default memo(ParamPositiveConditioning);

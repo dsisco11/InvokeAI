@@ -8,10 +8,13 @@ import {
   editableTheme,
   formLabelTheme,
   formTheme,
+  headingTheme,
   inputTheme,
   menuTheme,
   modalTheme,
   numberInputTheme,
+  popoverTheme,
+  progressTheme,
   sliderTheme,
   switchTheme,
   tabsTheme,
@@ -20,10 +23,7 @@ import {
   tooltipTheme,
 } from 'common/components';
 import { InvokeAIColors } from './colors/colors';
-import { headingTheme } from './components/heading';
-import { popoverTheme } from './components/popover';
-import { progressTheme } from './components/progress';
-import { no_scrollbar } from './components/scrollbar';
+import { no_scrollbar } from './custom/scrollbar';
 import { skeletonTheme } from './components/skeleton';
 import { reactflowStyles } from './custom/reactflow';
 

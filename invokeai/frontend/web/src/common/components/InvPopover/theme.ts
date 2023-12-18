@@ -3,7 +3,7 @@ import {
   createMultiStyleConfigHelpers,
   defineStyle,
 } from '@chakra-ui/styled-system';
-import { cssVar, mode } from '@chakra-ui/theme-tools';
+import { cssVar } from '@chakra-ui/theme-tools';
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys);
@@ -12,14 +12,11 @@ const $popperBg = cssVar('popper-bg');
 const $arrowBg = cssVar('popper-arrow-bg');
 const $arrowShadowColor = cssVar('popper-arrow-shadow-color');
 
-const invokeAIContent = defineStyle((props) => {
+const invokeAIContent = defineStyle(() => {
   return {
     [$arrowBg.variable]: 'colors.base.800',
     [$popperBg.variable]: 'colors.base.800',
-    [$arrowShadowColor.variable]: mode(
-      'colors.base.400',
-      'colors.base.600'
-    )(props),
+    [$arrowShadowColor.variable]: 'colors.base.600',
     minW: 'unset',
     width: 'unset',
     p: 4,
@@ -29,14 +26,11 @@ const invokeAIContent = defineStyle((props) => {
   };
 });
 
-const informationalContent = defineStyle((props) => {
+const informationalContent = defineStyle(() => {
   return {
     [$arrowBg.variable]: 'colors.base.700',
     [$popperBg.variable]: 'colors.base.700',
-    [$arrowShadowColor.variable]: mode(
-      'colors.base.400',
-      'colors.base.400'
-    )(props),
+    [$arrowShadowColor.variable]: 'colors.base.400',
     p: 4,
     bg: 'base.700',
     border: 'none',
@@ -44,13 +38,13 @@ const informationalContent = defineStyle((props) => {
   };
 });
 
-const invokeAI = definePartsStyle((props) => ({
-  content: invokeAIContent(props),
+const invokeAI = definePartsStyle(() => ({
+  content: invokeAIContent(),
   body: { padding: 0 },
 }));
 
-const informational = definePartsStyle((props) => ({
-  content: informationalContent(props),
+const informational = definePartsStyle(() => ({
+  content: informationalContent(),
   body: { padding: 0 },
 }));
 

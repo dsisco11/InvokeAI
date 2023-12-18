@@ -2,19 +2,19 @@ import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvTextarea } from 'common/components';
 import { EmbeddingPopover } from 'features/embedding/components/PromptWithEmbedding/EmbeddingPopover';
 import { usePrompt } from 'features/embedding/components/PromptWithEmbedding/usePrompt';
-import { setPositivePrompt } from 'features/parameters/store/generationSlice';
+import { setNegativePrompt } from 'features/parameters/store/generationSlice';
 import { useCallback, useRef } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';
 
-export const PositivePrompt = () => {
+export const NegativePrompt = () => {
   const dispatch = useAppDispatch();
-  const prompt = useAppSelector((state) => state.generation.positivePrompt);
+  const prompt = useAppSelector((state) => state.generation.negativePrompt);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const { t } = useTranslation();
   const handleChange = useCallback(
     (v: string) => {
-      dispatch(setPositivePrompt(v));
+      dispatch(setNegativePrompt(v));
     },
     [dispatch]
   );
@@ -43,15 +43,16 @@ export const PositivePrompt = () => {
       width={inputRef.current?.clientWidth}
     >
       <InvTextarea
-        id="prompt"
-        name="prompt"
+        id="negativePrompt"
+        name="negativePrompt"
         ref={inputRef}
         value={prompt}
-        placeholder={t('parameters.positivePromptPlaceholder')}
+        placeholder={t('parameters.negativePromptPlaceholder')}
         onChange={onChange}
         onKeyDown={onKeyDown}
         resize="vertical"
-        minH={32}
+        fontSize="sm"
+        minH={16}
       />
     </EmbeddingPopover>
   );

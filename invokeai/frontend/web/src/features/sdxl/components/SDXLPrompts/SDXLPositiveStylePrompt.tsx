@@ -2,19 +2,20 @@ import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvTextarea } from 'common/components';
 import { EmbeddingPopover } from 'features/embedding/components/PromptWithEmbedding/EmbeddingPopover';
 import { usePrompt } from 'features/embedding/components/PromptWithEmbedding/usePrompt';
-import { setPositivePrompt } from 'features/parameters/store/generationSlice';
+import { setPositiveStylePromptSDXL } from 'features/sdxl/store/sdxlSlice';
 import { useCallback, useRef } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';
+import { SDXLConcatLink } from './SDXLConcatLink';
 
-export const PositivePrompt = () => {
+export const SDXLPositiveStylePrompt = () => {
   const dispatch = useAppDispatch();
-  const prompt = useAppSelector((state) => state.generation.positivePrompt);
+  const prompt = useAppSelector((state) => state.sdxl.positiveStylePrompt);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const { t } = useTranslation();
   const handleChange = useCallback(
     (v: string) => {
-      dispatch(setPositivePrompt(v));
+      dispatch(setPositiveStylePromptSDXL(v));
     },
     [dispatch]
   );
@@ -47,12 +48,14 @@ export const PositivePrompt = () => {
         name="prompt"
         ref={inputRef}
         value={prompt}
-        placeholder={t('parameters.positivePromptPlaceholder')}
+        placeholder={t('sdxl.posStylePrompt')}
         onChange={onChange}
         onKeyDown={onKeyDown}
         resize="vertical"
-        minH={32}
+        fontSize="sm"
+        minH={16}
       />
+      <SDXLConcatLink />
     </EmbeddingPopover>
   );
 };

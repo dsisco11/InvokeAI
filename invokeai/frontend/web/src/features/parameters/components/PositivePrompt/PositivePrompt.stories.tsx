@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { PositivePrompt } from './PositivePrompt';
 
 const meta: Meta<typeof PositivePrompt> = {
-  title: 'Feature/Embeddings/PositivePrompt',
+  title: 'Feature/Prompt/PositivePrompt',
   tags: ['autodocs'],
   component: PositivePrompt,
 };

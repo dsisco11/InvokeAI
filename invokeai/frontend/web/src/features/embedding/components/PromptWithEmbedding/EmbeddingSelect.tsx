@@ -5,8 +5,8 @@ import {
   InvSelectFallback,
   InvSelectOption,
 } from 'common/components/';
-import { EmbeddingSelectProps } from 'features/embedding/components/EmbeddingPopover/types';
-import { useEmbeddingSelectOptions } from 'features/embedding/components/EmbeddingPopover/useEmbeddingSelectOptions';
+import { EmbeddingSelectProps } from 'features/embedding/components/PromptWithEmbedding/types';
+import { useEmbeddingSelectOptions } from 'features/embedding/components/PromptWithEmbedding/useEmbeddingSelectOptions';
 import { t } from 'i18next';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

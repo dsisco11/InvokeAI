@@ -1,4 +1,9 @@
-import { Box, Textarea as ChakraTextarea, forwardRef } from '@chakra-ui/react';
+import {
+  Box,
+  Textarea as ChakraTextarea,
+  Icon,
+  forwardRef,
+} from '@chakra-ui/react';
 import { useGlobalModifiersSetters } from 'common/hooks/useGlobalModifiers';
 import { stopPastePropagation } from 'common/util/stopPastePropagation';
 import { KeyboardEvent, useCallback } from 'react';
@@ -25,8 +30,8 @@ export const InvTextarea = forwardRef((props: InvTextareaProps, ref) => {
         {...rest}
       />
       {resize !== 'none' && (
-        <Box className="textarea-resize-handle" pos="absolute">
-          <IoResizeSharp />
+        <Box className="textarea-resize-handle" pos="absolute" lineHeight={0}>
+          <Icon as={IoResizeSharp} />
         </Box>
       )}
     </Box>

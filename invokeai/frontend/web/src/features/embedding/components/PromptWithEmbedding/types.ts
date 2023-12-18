@@ -8,5 +8,6 @@ export type EmbeddingSelectProps = {
 export type EmbeddingPopoverProps = PropsWithChildren &
   EmbeddingSelectProps & {
     isOpen: boolean;
+    onOpen: () => void;
     width?: number | string;
   };

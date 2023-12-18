@@ -3,7 +3,7 @@ import { EmbeddingSelect } from './EmbeddingSelect';
 import { EmbeddingSelectProps } from './types';
 
 const meta: Meta<typeof EmbeddingSelect> = {
-  title: 'Feature/Embeddings/EmbeddingSelect',
+  title: 'Feature/Prompt/EmbeddingSelect',
   tags: ['autodocs'],
   component: EmbeddingSelect,
 };

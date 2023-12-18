@@ -1,11 +1,13 @@
+import { Box } from '@chakra-ui/layout';
 import {
   InvPopover,
   InvPopoverBody,
   InvPopoverContent,
   InvPopoverTrigger,
 } from 'common/components';
-import { EmbeddingSelect } from 'features/embedding/components/EmbeddingPopover/EmbeddingSelect';
-import { EmbeddingPopoverProps } from 'features/embedding/components/EmbeddingPopover/types';
+import AddEmbeddingButton from 'features/embedding/components/PromptWithEmbedding/AddEmbeddingButton';
+import { EmbeddingSelect } from 'features/embedding/components/PromptWithEmbedding/EmbeddingSelect';
+import { EmbeddingPopoverProps } from 'features/embedding/components/PromptWithEmbedding/types';
 import { PARAMETERS_PANEL_WIDTH } from 'theme/util/constants';
 
 export const EmbeddingPopover = (props: EmbeddingPopoverProps) => {
@@ -13,6 +15,7 @@ export const EmbeddingPopover = (props: EmbeddingPopoverProps) => {
     onSelect,
     isOpen,
     onClose,
+    onOpen,
     width = PARAMETERS_PANEL_WIDTH,
     children,
   } = props;
@@ -28,10 +31,15 @@ export const EmbeddingPopover = (props: EmbeddingPopoverProps) => {
       returnFocusOnClose={true}
       isLazy
     >
-      <InvPopoverTrigger>{children}</InvPopoverTrigger>
+      <InvPopoverTrigger>
+        <Box position="relative">
+          {children}
+          <AddEmbeddingButton isOpen={isOpen} onOpen={onOpen} />
+        </Box>
+      </InvPopoverTrigger>
       <InvPopoverContent
         p={0}
-        top={-1}
+        insetBlockStart={-1}
         shadow="dark-lg"
         borderColor="accent.300"
         borderWidth="2px"

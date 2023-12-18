@@ -15,8 +15,8 @@ const invokeAIDialogContainer = defineStyle({});
 
 const invokeAIDialog = defineStyle(() => {
   return {
-    layerStyle: 'body',
     maxH: '80vh',
+    bg: 'base.800',
   };
 });
 
@@ -24,9 +24,6 @@ const invokeAIHeader = defineStyle(() => {
   return {
     fontWeight: '600',
     fontSize: 'lg',
-    layerStyle: 'body',
-    borderTopRadius: 'base',
-    borderInlineEndRadius: 'base',
   };
 });
 

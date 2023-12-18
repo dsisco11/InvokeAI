@@ -8,6 +8,7 @@ export * from './InvControl';
 export * from './InvIconButton';
 export * from './InvInput';
 export * from './InvMenu';
+export * from './InvModal';
 export * from './InvNumberInput';
 export * from './InvSelect';
 export * from './InvSlider';

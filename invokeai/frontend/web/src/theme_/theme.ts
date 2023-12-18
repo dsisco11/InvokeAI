@@ -9,6 +9,7 @@ import {
   formTheme,
   inputTheme,
   menuTheme,
+  modalTheme,
   numberInputTheme,
   sliderTheme,
   switchTheme,
@@ -20,7 +21,6 @@ import {
 import { InvokeAIColors } from './colors/colors';
 import { editableTheme } from './components/editable';
 import { headingTheme } from './components/heading';
-import { modalTheme } from './components/modal';
 import { popoverTheme } from './components/popover';
 import { progressTheme } from './components/progress';
 import { no_scrollbar } from './components/scrollbar';
@@ -89,7 +89,7 @@ export const theme: ThemeOverride = {
     Form: formTheme, // done
     FormLabel: formLabelTheme, // done
     Heading: headingTheme,
-    Input: inputTheme,
+    Input: inputTheme, // done
     Menu: menuTheme, // done
     Modal: modalTheme,
     NumberInput: numberInputTheme, // done

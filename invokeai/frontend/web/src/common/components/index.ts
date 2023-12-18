@@ -5,6 +5,7 @@ export * from './InvCard';
 export * from './InvCheckbox';
 export * from './InvCollapse';
 export * from './InvControl';
+export * from './InvEditable';
 export * from './InvIconButton';
 export * from './InvInput';
 export * from './InvMenu';

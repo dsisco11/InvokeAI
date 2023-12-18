@@ -5,6 +5,7 @@ import {
   buttonTheme,
   cardTheme,
   checkboxTheme,
+  editableTheme,
   formLabelTheme,
   formTheme,
   inputTheme,
@@ -19,7 +20,6 @@ import {
   tooltipTheme,
 } from 'common/components';
 import { InvokeAIColors } from './colors/colors';
-import { editableTheme } from './components/editable';
 import { headingTheme } from './components/heading';
 import { popoverTheme } from './components/popover';
 import { progressTheme } from './components/progress';
@@ -80,28 +80,28 @@ export const theme: ThemeOverride = {
   },
   colors: InvokeAIColors,
   components: {
-    Accordion: accordionTheme, // done
-    Badge: badgeTheme, // done
-    Button: buttonTheme, // done
-    Card: cardTheme, // done
-    Checkbox: checkboxTheme, // done
+    Accordion: accordionTheme,
+    Badge: badgeTheme,
+    Button: buttonTheme,
+    Card: cardTheme,
+    Checkbox: checkboxTheme,
     Editable: editableTheme,
-    Form: formTheme, // done
-    FormLabel: formLabelTheme, // done
+    Form: formTheme,
+    FormLabel: formLabelTheme,
     Heading: headingTheme,
-    Input: inputTheme, // done
-    Menu: menuTheme, // done
+    Input: inputTheme,
+    Menu: menuTheme,
     Modal: modalTheme,
-    NumberInput: numberInputTheme, // done
+    NumberInput: numberInputTheme,
     Popover: popoverTheme,
     Progress: progressTheme,
     Skeleton: skeletonTheme,
-    Slider: sliderTheme, // done
-    Switch: switchTheme, // done
+    Slider: sliderTheme,
+    Switch: switchTheme,
     Tabs: tabsTheme, // WIP
-    Text: textTheme, // done
-    Textarea: textareaTheme, // done
-    Tooltip: tooltipTheme, // done
+    Text: textTheme,
+    Textarea: textareaTheme,
+    Tooltip: tooltipTheme,
   },
 };
 

@@ -15,6 +15,7 @@ export * from './InvNumberInput';
 export * from './InvPopover';
 export * from './InvProgress';
 export * from './InvSelect';
+export * from './InvSkeleton';
 export * from './InvSlider';
 export * from './InvSwitch';
 export * from './InvTabs';

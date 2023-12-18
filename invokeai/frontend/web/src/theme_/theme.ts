@@ -15,6 +15,7 @@ import {
   numberInputTheme,
   popoverTheme,
   progressTheme,
+  skeletonTheme,
   sliderTheme,
   switchTheme,
   tabsTheme,
@@ -24,7 +25,6 @@ import {
 } from 'common/components';
 import { InvokeAIColors } from './colors/colors';
 import { no_scrollbar } from './custom/scrollbar';
-import { skeletonTheme } from './components/skeleton';
 import { reactflowStyles } from './custom/reactflow';
 
 export const theme: ThemeOverride = {

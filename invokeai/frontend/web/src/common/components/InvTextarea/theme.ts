@@ -1,25 +1,17 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
-import { getInputOutlineStyles } from 'theme_/util/getInputOutlineStyles';
+import { getInputFilledStyles } from 'theme_/util/getInputFilledStyles';
+
+const inputFilledStyles = getInputFilledStyles();
 
 const invokeAI = defineStyle(() => ({
-  ...getInputOutlineStyles(),
+  ...inputFilledStyles,
   '::-webkit-scrollbar': {
     display: 'initial',
   },
-  '::-webkit-resizer': {
-    backgroundImage: `linear-gradient(135deg,
-      var(--invokeai-colors-base-900) 0%,
-      var(--invokeai-colors-base-900) 70%,
-      var(--invokeai-colors-base-800) 70%,
-      var(--invokeai-colors-base-800) 100%)`,
-  },
-  _disabled: {
-    '::-webkit-resizer': {
-      backgroundImage: `linear-gradient(135deg,
-        var(--invokeai-colors-base-900) 0%,
-        var(--invokeai-colors-base-900) 70%,
-        var(--invokeai-colors-base-800) 70%,
-        var(--invokeai-colors-base-800) 100%)`,
+  '+ div': {
+    pointerEvents: 'none',
+    '& svg': {
+      transform: 'rotate(90deg)',
     },
   },
   p: 2,

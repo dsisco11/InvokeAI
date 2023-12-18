@@ -18,3 +18,12 @@ const Component = (props: InvTextareaProps) => {
 export const Default: Story = {
   render: Component,
 };
+
+export const Resizeable: Story = {
+  render: Component,
+  args: {
+    resize: 'vertical',
+    minW: '200px',
+    minH: '50px',
+  },
+};

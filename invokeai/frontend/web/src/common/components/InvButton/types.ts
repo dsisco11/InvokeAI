@@ -1,3 +1,6 @@
-import type { ButtonProps as ChakraButtonProps } from '@chakra-ui/react';
+import type { ButtonProps } from '@chakra-ui/react';
 
-export type InvButtonProps = ChakraButtonProps;
+export type InvButtonProps = ButtonProps & {
+  isChecked?: boolean;
+  tooltip?: string;
+};

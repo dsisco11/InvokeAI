@@ -1,7 +1,6 @@
-import { useColorMode, useToken } from '@chakra-ui/react';
+import { useToken } from '@chakra-ui/react';
 import { useChakraThemeTokens } from 'common/hooks/useChakraThemeTokens';
 import { useCallback } from 'react';
-import { mode } from 'theme/util/mode';
 
 export const useMantineSelectStyles = () => {
   const {
@@ -15,14 +14,10 @@ export const useMantineSelectStyles = () => {
     base700,
     base800,
     base900,
-    accent200,
-    accent300,
-    accent400,
     accent500,
     accent600,
   } = useChakraThemeTokens();
 
-  const { colorMode } = useColorMode();
   const [boxShadow] = useToken('shadows', ['dark-lg']);
   const [space1, space2, space6] = useToken('space', [1, 2, 6]);
   const [radiiBase] = useToken('radii', ['base']);
@@ -31,20 +26,20 @@ export const useMantineSelectStyles = () => {
   const styles = useCallback(
     () => ({
       label: {
-        color: mode(base700, base300)(colorMode),
+        color: base300,
       },
       separatorLabel: {
-        color: mode(base500, base500)(colorMode),
-        '::after': { borderTopColor: mode(base300, base700)(colorMode) },
+        color: base500,
+        '::after': { borderTopColor: base700 },
       },
       input: {
         border: 'unset',
-        backgroundColor: mode(base50, base900)(colorMode),
+        backgroundColor: base900,
         borderRadius: radiiBase,
         borderStyle: 'solid',
         borderWidth: '2px',
-        borderColor: mode(base200, base800)(colorMode),
-        color: mode(base900, base100)(colorMode),
+        borderColor: base800,
+        color: base100,
         minHeight: 'unset',
         lineHeight: lineHeightsBase,
         height: 'auto',
@@ -55,78 +50,75 @@ export const useMantineSelectStyles = () => {
         paddingTop: space1,
         paddingBottom: space1,
         fontWeight: 600,
-        '&:hover': { borderColor: mode(base300, base600)(colorMode) },
+        '&:hover': { borderColor: base600 },
         '&:focus': {
-          borderColor: mode(accent300, accent600)(colorMode),
+          borderColor: accent600,
         },
         '&:is(:focus, :hover)': {
-          borderColor: mode(base400, base500)(colorMode),
+          borderColor: base500,
         },
         '&:focus-within': {
-          borderColor: mode(accent200, accent600)(colorMode),
+          borderColor: accent600,
         },
         '&[data-disabled]': {
-          backgroundColor: mode(base300, base700)(colorMode),
-          color: mode(base600, base400)(colorMode),
+          backgroundColor: base700,
+          color: base400,
           cursor: 'not-allowed',
         },
       },
       value: {
-        backgroundColor: mode(base100, base900)(colorMode),
-        color: mode(base900, base100)(colorMode),
+        backgroundColor: base900,
+        color: base100,
         button: {
-          color: mode(base900, base100)(colorMode),
+          color: base100,
         },
         '&:hover': {
-          backgroundColor: mode(base300, base700)(colorMode),
+          backgroundColor: base700,
           cursor: 'pointer',
         },
       },
       dropdown: {
-        backgroundColor: mode(base200, base800)(colorMode),
-        borderColor: mode(base200, base800)(colorMode),
+        backgroundColor: base800,
+        borderColor: base800,
         boxShadow,
       },
       item: {
-        backgroundColor: mode(base200, base800)(colorMode),
-        color: mode(base800, base200)(colorMode),
+        backgroundColor: base800,
+        color: base200,
         padding: 6,
         '&[data-hovered]': {
-          color: mode(base900, base100)(colorMode),
-          backgroundColor: mode(base300, base700)(colorMode),
+          color: base100,
+          backgroundColor: base700,
         },
         '&[data-active]': {
-          backgroundColor: mode(base300, base700)(colorMode),
+          backgroundColor: base700,
           '&:hover': {
-            color: mode(base900, base100)(colorMode),
-            backgroundColor: mode(base300, base700)(colorMode),
+            color: base100,
+            backgroundColor: base700,
           },
         },
         '&[data-selected]': {
-          backgroundColor: mode(accent400, accent600)(colorMode),
-          color: mode(base50, base100)(colorMode),
+          backgroundColor: accent600,
+          color: base100,
           fontWeight: 600,
           '&:hover': {
-            backgroundColor: mode(accent500, accent500)(colorMode),
-            color: mode('white', base50)(colorMode),
+            backgroundColor: accent500,
+            color: base50,
           },
         },
         '&[data-disabled]': {
-          color: mode(base500, base600)(colorMode),
+          color: base600,
           cursor: 'not-allowed',
         },
       },
       rightSection: {
         width: 32,
         button: {
-          color: mode(base900, base100)(colorMode),
+          color: base100,
         },
       },
     }),
     [
-      accent200,
-      accent300,
-      accent400,
       accent500,
       accent600,
       base100,
@@ -140,7 +132,6 @@ export const useMantineSelectStyles = () => {
       base800,
       base900,
       boxShadow,
-      colorMode,
       lineHeightsBase,
       radiiBase,
       space1,

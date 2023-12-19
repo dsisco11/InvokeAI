@@ -1,3 +1,6 @@
 import type { IconButtonProps as ChakraIconButtonProps } from '@chakra-ui/react';
 
-export interface InvIconButtonProps extends ChakraIconButtonProps {}
+export type InvIconButtonProps = ChakraIconButtonProps & {
+  isChecked?: boolean;
+  tooltip?: string;
+};

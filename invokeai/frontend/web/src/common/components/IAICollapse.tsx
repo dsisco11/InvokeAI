@@ -5,12 +5,10 @@ import {
   Flex,
   Spacer,
   Text,
-  useColorMode,
   useDisclosure,
 } from '@chakra-ui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { PropsWithChildren, memo } from 'react';
-import { mode } from 'theme/util/mode';
 
 export type IAIToggleCollapseProps = PropsWithChildren & {
   label: string;
@@ -21,7 +19,6 @@ export type IAIToggleCollapseProps = PropsWithChildren & {
 const IAICollapse = (props: IAIToggleCollapseProps) => {
   const { label, activeLabel, children, defaultIsOpen = false } = props;
   const { isOpen, onToggle } = useDisclosure({ defaultIsOpen });
-  const { colorMode } = useColorMode();
 
   return (
     <Box>
@@ -34,10 +31,10 @@ const IAICollapse = (props: IAIToggleCollapseProps) => {
           gap: 2,
           borderTopRadius: 'base',
           borderBottomRadius: isOpen ? 0 : 'base',
-          bg: mode('base.250', 'base.750')(colorMode),
-          color: mode('base.900', 'base.100')(colorMode),
+          bg: 'base.750',
+          color: 'base.100',
           _hover: {
-            bg: mode('base.300', 'base.700')(colorMode),
+            bg: 'base.700',
           },
           fontSize: 'sm',
           fontWeight: 600,

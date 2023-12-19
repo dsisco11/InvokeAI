@@ -1,11 +1,4 @@
-import {
-  ChakraProps,
-  Flex,
-  FlexProps,
-  Icon,
-  Image,
-  useColorMode,
-} from '@chakra-ui/react';
+import { ChakraProps, Flex, FlexProps, Icon, Image } from '@chakra-ui/react';
 import {
   IAILoadingImageFallback,
   IAINoContentFallback,
@@ -24,7 +17,6 @@ import {
 } from 'react';
 import { FaImage, FaUpload } from 'react-icons/fa';
 import { ImageDTO, PostUploadAction } from 'services/api/types';
-import { mode } from 'theme/util/mode';
 import IAIDraggable from './IAIDraggable';
 import IAIDroppable from './IAIDroppable';
 import SelectionOverlay from './SelectionOverlay';
@@ -98,7 +90,6 @@ const IAIDndImage = (props: IAIDndImageProps) => {
     dataTestId,
   } = props;
 
-  const { colorMode } = useColorMode();
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseOver = useCallback(
     (e: MouseEvent<HTMLDivElement>) => {
@@ -128,10 +119,10 @@ const IAIDndImage = (props: IAIDndImageProps) => {
     ? {}
     : {
         cursor: 'pointer',
-        bg: mode('base.200', 'base.700')(colorMode),
+        bg: 'base.700',
         _hover: {
-          bg: mode('base.300', 'base.650')(colorMode),
-          color: mode('base.500', 'base.300')(colorMode),
+          bg: 'base.650',
+          color: 'base.300',
         },
       };
 
@@ -208,7 +199,7 @@ const IAIDndImage = (props: IAIDndImageProps) => {
                   borderRadius: 'base',
                   transitionProperty: 'common',
                   transitionDuration: '0.1s',
-                  color: mode('base.500', 'base.500')(colorMode),
+                  color: 'base.500',
                   ...uploadButtonStyles,
                 }}
                 {...getUploadButtonProps()}

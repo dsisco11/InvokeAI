@@ -1,5 +1,5 @@
 // Grid drawing adapted from https://longviewcoder.com/2021/12/08/konva-a-better-grid/
-import { useColorMode, useToken } from '@chakra-ui/react';
+import { useToken } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
@@ -15,7 +15,6 @@ const selector = createMemoizedSelector([stateSelector], ({ canvas }) => {
 const IAICanvasGrid = () => {
   const { stageScale, stageCoordinates, stageDimensions } =
     useAppSelector(selector);
-  const { colorMode } = useColorMode();
   const [gridLines, setGridLines] = useState<ReactNode[]>([]);
   const [gridLineColor] = useToken('colors', ['base.800']);
 
@@ -91,14 +90,7 @@ const IAICanvasGrid = () => {
     ));
 
     setGridLines(xLines.concat(yLines));
-  }, [
-    stageScale,
-    stageCoordinates,
-    stageDimensions,
-    unscale,
-    colorMode,
-    gridLineColor,
-  ]);
+  }, [stageScale, stageCoordinates, stageDimensions, unscale, gridLineColor]);
 
   return <Group>{gridLines}</Group>;
 };

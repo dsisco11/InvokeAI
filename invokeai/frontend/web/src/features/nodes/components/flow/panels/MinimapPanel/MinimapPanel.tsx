@@ -1,4 +1,4 @@
-import { Flex, chakra, useColorModeValue } from '@chakra-ui/react';
+import { Flex, chakra } from '@chakra-ui/react';
 import { RootState } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
 import { memo } from 'react';
@@ -9,16 +9,6 @@ const ChakraMiniMap = chakra(MiniMap);
 const MinimapPanel = () => {
   const shouldShowMinimapPanel = useAppSelector(
     (state: RootState) => state.nodes.shouldShowMinimapPanel
-  );
-
-  const nodeColor = useColorModeValue(
-    'var(--invokeai-colors-accent-300)',
-    'var(--invokeai-colors-accent-600)'
-  );
-
-  const maskColor = useColorModeValue(
-    'var(--invokeai-colors-blackAlpha-300)',
-    'var(--invokeai-colors-blackAlpha-600)'
   );
 
   return (
@@ -36,8 +26,8 @@ const MinimapPanel = () => {
               borderRadius: 'inherit',
             },
           }}
-          nodeColor={nodeColor}
-          maskColor={maskColor}
+          nodeColor="var(--invokeai-colors-accent-600)"
+          maskColor="var(--invokeai-colors-blackAlpha-600)"
         />
       )}
     </Flex>

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvIconButton } from './wrapper';
+import { InvIconButton } from './InvIconButton';
 import { FaBoltLightning } from 'react-icons/fa6';
 import type { InvIconButtonProps } from './types';
 

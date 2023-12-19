@@ -1,6 +1,6 @@
-import { SystemStyleObject, useColorModeValue } from '@chakra-ui/react';
+import { SystemStyleObject } from '@chakra-ui/react';
 import { MouseEvent, ReactElement, memo } from 'react';
-import IAIIconButton from './IAIIconButton';
+import { InvIconButton } from 'common/components';
 
 type Props = {
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
@@ -12,12 +12,8 @@ type Props = {
 const IAIDndImageIcon = (props: Props) => {
   const { onClick, tooltip, icon, styleOverrides } = props;
 
-  const resetIconShadow = useColorModeValue(
-    `drop-shadow(0px 0px 0.1rem var(--invokeai-colors-base-600))`,
-    `drop-shadow(0px 0px 0.1rem var(--invokeai-colors-base-800))`
-  );
   return (
-    <IAIIconButton
+    <InvIconButton
       onClick={onClick}
       aria-label={tooltip}
       tooltip={tooltip}
@@ -35,7 +31,7 @@ const IAIDndImageIcon = (props: Props) => {
           transitionDuration: 'normal',
           fill: 'base.100',
           _hover: { fill: 'base.50' },
-          filter: resetIconShadow,
+          filter: 'drop-shadow(0px 0px 0.1rem var(--invokeai-colors-base-800))',
         },
         ...styleOverrides,
       }}

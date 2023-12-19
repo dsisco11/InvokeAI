@@ -9,7 +9,6 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
-  useColorMode,
   useDisclosure,
 } from '@chakra-ui/react';
 import { VALID_LOG_LEVELS } from 'app/logging/logger';
@@ -186,8 +185,6 @@ const SettingsModal = ({ children, config }: SettingsModalProps) => {
     [dispatch]
   );
 
-  const { colorMode, toggleColorMode } = useColorMode();
-
   const isLocalizationEnabled =
     useFeatureStatus('localization').isFeatureEnabled;
   const language = useAppSelector(languageSelector);
@@ -287,11 +284,6 @@ const SettingsModal = ({ children, config }: SettingsModalProps) => {
 
               <StyledFlex>
                 <Heading size="sm">{t('settings.ui')}</Heading>
-                <SettingSwitch
-                  label={t('common.darkMode')}
-                  isChecked={colorMode === 'dark'}
-                  onChange={toggleColorMode}
-                />
                 <SettingSwitch
                   label={t('settings.showProgressInViewer')}
                   isChecked={shouldShowProgressInViewer}

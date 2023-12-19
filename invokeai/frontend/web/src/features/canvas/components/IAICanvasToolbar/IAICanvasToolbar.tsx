@@ -2,8 +2,13 @@ import { Box, ButtonGroup, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvIconButton } from 'common/components';
-import IAIMantineSelect from 'common/components/IAIMantineSelect';
+import {
+  InvControl,
+  InvIconButton,
+  InvSelect,
+  InvSelectOnChange,
+  InvTooltip,
+} from 'common/components';
 import { useCopyImageToClipboard } from 'common/hooks/useCopyImageToClipboard';
 import { useImageUploadButton } from 'common/hooks/useImageUploadButton';
 import { useSingleAndDoubleClick } from 'common/hooks/useSingleAndDoubleClick';
@@ -26,7 +31,7 @@ import {
   LAYER_NAMES_DICT,
 } from 'features/canvas/store/canvasTypes';
 import { getCanvasBaseLayer } from 'features/canvas/util/konvaInstanceProvider';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';
 import {
@@ -193,15 +198,22 @@ const IAICanvasToolbar = () => {
     dispatch(canvasDownloadedAsImage());
   }, [dispatch]);
 
-  const handleChangeLayer = useCallback(
-    (v: string) => {
-      const newLayer = v as CanvasLayer;
-      dispatch(setLayer(newLayer));
-      if (newLayer === 'mask' && !isMaskEnabled) {
+  const handleChangeLayer = useCallback<InvSelectOnChange>(
+    (v) => {
+      if (!v) {
+        return;
+      }
+      dispatch(setLayer(v.value as CanvasLayer));
+      if (v.value === 'mask' && !isMaskEnabled) {
         dispatch(setIsMaskEnabled(true));
       }
     },
     [dispatch, isMaskEnabled]
+  );
+
+  const value = useMemo(
+    () => LAYER_NAMES_DICT.filter((o) => o.value === layer)[0],
+    [layer]
   );
 
   return (
@@ -213,13 +225,15 @@ const IAICanvasToolbar = () => {
       }}
     >
       <Box w={24}>
-        <IAIMantineSelect
-          tooltip={`${t('unifiedCanvas.layer')} (Q)`}
-          value={layer}
-          data={LAYER_NAMES_DICT}
-          onChange={handleChangeLayer}
-          disabled={isStaging}
-        />
+        <InvTooltip label={`${t('unifiedCanvas.layer')} (Q)`}>
+          <InvControl isDisabled={isStaging}>
+            <InvSelect
+              value={value}
+              options={LAYER_NAMES_DICT}
+              onChange={handleChangeLayer}
+            />
+          </InvControl>
+        </InvTooltip>
       </Box>
 
       <IAICanvasMaskOptions />

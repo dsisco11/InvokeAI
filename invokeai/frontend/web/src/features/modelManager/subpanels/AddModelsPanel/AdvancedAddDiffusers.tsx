@@ -1,8 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
-import IAIMantineTextInput from 'common/components/IAIMantineInput';
+import { InvButton, InvControl, InvInput } from 'common/components';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { useTranslation } from 'react-i18next';
@@ -99,37 +98,35 @@ export default function AdvancedAddDiffusers(props: AdvancedAddDiffusersProps) {
       style={{ width: '100%' }}
     >
       <Flex flexDirection="column" gap={2}>
-        <IAIMantineTextInput
-          required
-          label={t('modelManager.model')}
-          {...advancedAddDiffusersForm.getInputProps('model_name')}
-        />
+        <InvControl isRequired label={t('modelManager.model')}>
+          <InvInput {...advancedAddDiffusersForm.getInputProps('model_name')} />
+        </InvControl>
         <BaseModelSelect
           label={t('modelManager.baseModel')}
           {...advancedAddDiffusersForm.getInputProps('base_model')}
         />
-        <IAIMantineTextInput
-          required
-          label={t('modelManager.modelLocation')}
-          placeholder={t('modelManager.modelLocationValidationMsg')}
-          {...advancedAddDiffusersForm.getInputProps('path')}
-          onBlur={handleBlurModelLocation}
-        />
-        <IAIMantineTextInput
-          label={t('modelManager.description')}
-          {...advancedAddDiffusersForm.getInputProps('description')}
-        />
-        <IAIMantineTextInput
-          label={t('modelManager.vaeLocation')}
-          {...advancedAddDiffusersForm.getInputProps('vae')}
-        />
+        <InvControl isRequired label={t('modelManager.modelLocation')}>
+          <InvInput
+            placeholder={t('modelManager.modelLocationValidationMsg')}
+            {...advancedAddDiffusersForm.getInputProps('path')}
+            onBlur={handleBlurModelLocation}
+          />
+        </InvControl>
+        <InvControl label={t('modelManager.description')}>
+          <InvInput
+            {...advancedAddDiffusersForm.getInputProps('description')}
+          />
+        </InvControl>
+        <InvControl label={t('modelManager.vaeLocation')}>
+          <InvInput {...advancedAddDiffusersForm.getInputProps('vae')} />
+        </InvControl>
         <ModelVariantSelect
           label={t('modelManager.variant')}
           {...advancedAddDiffusersForm.getInputProps('variant')}
         />
-        <IAIButton mt={2} type="submit">
+        <InvButton mt={2} type="submit">
           {t('modelManager.addModel')}
-        </IAIButton>
+        </InvButton>
       </Flex>
     </form>
   );

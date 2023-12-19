@@ -1,8 +1,7 @@
 import { Divider, Flex, Text } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
-import IAIMantineTextInput from 'common/components/IAIMantineInput';
+import { InvButton, InvControl, InvInput } from 'common/components';
 import { MODEL_TYPE_MAP } from 'features/parameters/types/constants';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
@@ -106,14 +105,12 @@ export default function DiffusersModelEdit(props: DiffusersModelEditProps) {
         )}
       >
         <Flex flexDirection="column" overflowY="scroll" gap={4}>
-          <IAIMantineTextInput
-            label={t('modelManager.name')}
-            {...diffusersEditForm.getInputProps('model_name')}
-          />
-          <IAIMantineTextInput
-            label={t('modelManager.description')}
-            {...diffusersEditForm.getInputProps('description')}
-          />
+          <InvControl label={t('modelManager.name')}>
+            <InvInput {...diffusersEditForm.getInputProps('model_name')} />
+          </InvControl>
+          <InvControl label={t('modelManager.description')}>
+            <InvInput {...diffusersEditForm.getInputProps('description')} />
+          </InvControl>
           <BaseModelSelect
             required
             {...diffusersEditForm.getInputProps('base_model')}
@@ -122,18 +119,15 @@ export default function DiffusersModelEdit(props: DiffusersModelEditProps) {
             required
             {...diffusersEditForm.getInputProps('variant')}
           />
-          <IAIMantineTextInput
-            required
-            label={t('modelManager.modelLocation')}
-            {...diffusersEditForm.getInputProps('path')}
-          />
-          <IAIMantineTextInput
-            label={t('modelManager.vaeLocation')}
-            {...diffusersEditForm.getInputProps('vae')}
-          />
-          <IAIButton type="submit" isLoading={isLoading}>
+          <InvControl isRequired label={t('modelManager.modelLocation')}>
+            <InvInput {...diffusersEditForm.getInputProps('path')} />
+          </InvControl>
+          <InvControl label={t('modelManager.vaeLocation')}>
+            <InvInput {...diffusersEditForm.getInputProps('vae')} />
+          </InvControl>
+          <InvButton type="submit" isLoading={isLoading}>
             {t('modelManager.updateModel')}
-          </IAIButton>
+          </InvButton>
         </Flex>
       </form>
     </Flex>

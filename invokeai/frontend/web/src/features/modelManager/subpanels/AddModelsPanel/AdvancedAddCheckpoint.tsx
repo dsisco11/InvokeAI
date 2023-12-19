@@ -1,9 +1,12 @@
 import { Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
-import IAIMantineTextInput from 'common/components/IAIMantineInput';
-import IAISimpleCheckbox from 'common/components/IAISimpleCheckbox';
+import {
+  InvButton,
+  InvCheckbox,
+  InvControl,
+  InvInput,
+} from 'common/components';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { FocusEventHandler, useCallback, useState } from 'react';
@@ -112,29 +115,30 @@ export default function AdvancedAddCheckpoint(
       style={{ width: '100%' }}
     >
       <Flex flexDirection="column" gap={2}>
-        <IAIMantineTextInput
-          label={t('modelManager.model')}
-          required
-          {...advancedAddCheckpointForm.getInputProps('model_name')}
-        />
-        <BaseModelSelect
-          label={t('modelManager.baseModel')}
-          {...advancedAddCheckpointForm.getInputProps('base_model')}
-        />
-        <IAIMantineTextInput
-          label={t('modelManager.modelLocation')}
-          required
-          {...advancedAddCheckpointForm.getInputProps('path')}
-          onBlur={handleBlurModelLocation}
-        />
-        <IAIMantineTextInput
-          label={t('modelManager.description')}
-          {...advancedAddCheckpointForm.getInputProps('description')}
-        />
-        <IAIMantineTextInput
-          label={t('modelManager.vaeLocation')}
-          {...advancedAddCheckpointForm.getInputProps('vae')}
-        />
+        <InvControl label={t('modelManager.model')} isRequired>
+          <InvInput
+            {...advancedAddCheckpointForm.getInputProps('model_name')}
+          />
+        </InvControl>
+        <InvControl label={t('modelManager.baseModel')}>
+          <BaseModelSelect
+            {...advancedAddCheckpointForm.getInputProps('base_model')}
+          />
+        </InvControl>
+        <InvControl label={t('modelManager.modelLocation')} isRequired>
+          <InvInput
+            {...advancedAddCheckpointForm.getInputProps('path')}
+            onBlur={handleBlurModelLocation}
+          />
+        </InvControl>
+        <InvControl label={t('modelManager.description')}>
+          <InvInput
+            {...advancedAddCheckpointForm.getInputProps('description')}
+          />
+        </InvControl>
+        <InvControl label={t('modelManager.vaeLocation')}>
+          <InvInput {...advancedAddCheckpointForm.getInputProps('vae')} />
+        </InvControl>
         <ModelVariantSelect
           label={t('modelManager.variant')}
           {...advancedAddCheckpointForm.getInputProps('variant')}
@@ -147,20 +151,24 @@ export default function AdvancedAddCheckpoint(
               {...advancedAddCheckpointForm.getInputProps('config')}
             />
           ) : (
-            <IAIMantineTextInput
-              required
+            <InvControl
               label={t('modelManager.customConfigFileLocation')}
-              {...advancedAddCheckpointForm.getInputProps('config')}
-            />
+              isRequired
+            >
+              <InvInput
+                {...advancedAddCheckpointForm.getInputProps('config')}
+              />
+            </InvControl>
           )}
-          <IAISimpleCheckbox
-            isChecked={useCustomConfig}
-            onChange={handleChangeUseCustomConfig}
-            label={t('modelManager.useCustomConfig')}
-          />
-          <IAIButton mt={2} type="submit">
+          <InvControl label={t('modelManager.useCustomConfig')}>
+            <InvCheckbox
+              isChecked={useCustomConfig}
+              onChange={handleChangeUseCustomConfig}
+            />
+          </InvControl>
+          <InvButton mt={2} type="submit">
             {t('modelManager.addModel')}
-          </IAIButton>
+          </InvButton>
         </Flex>
       </Flex>
     </form>

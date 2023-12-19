@@ -3,8 +3,7 @@ import { useAppDispatch } from 'app/store/storeHooks';
 import { useTranslation } from 'react-i18next';
 import { SelectItem } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import IAIButton from 'common/components/IAIButton';
-import IAIMantineTextInput from 'common/components/IAIMantineInput';
+import { InvButton, InvControl, InvInput } from 'common/components';
 import IAIMantineSelect from 'common/components/IAIMantineSelect';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
@@ -75,21 +74,22 @@ export default function SimpleAddModels() {
       style={{ width: '100%' }}
     >
       <Flex flexDirection="column" width="100%" gap={4}>
-        <IAIMantineTextInput
-          label={t('modelManager.modelLocation')}
-          placeholder={t('modelManager.simpleModelDesc')}
-          w="100%"
-          {...addModelForm.getInputProps('location')}
-        />
+        <InvControl label={t('modelManager.modelLocation')}>
+          <InvInput
+            placeholder={t('modelManager.simpleModelDesc')}
+            w="100%"
+            {...addModelForm.getInputProps('location')}
+          />
+        </InvControl>
         <IAIMantineSelect
           label={t('modelManager.predictionType')}
           data={predictionSelectData}
           defaultValue="none"
           {...addModelForm.getInputProps('prediction_type')}
         />
-        <IAIButton type="submit" isLoading={isLoading}>
+        <InvButton type="submit" isLoading={isLoading}>
           {t('modelManager.addModel')}
-        </IAIButton>
+        </InvButton>
       </Flex>
     </form>
   );

@@ -4,6 +4,7 @@ import {
   ChakraStylesConfig,
   GroupBase,
   OptionBase,
+  SingleValue,
 } from 'chakra-react-select';
 import { ReactNode } from 'react';
 export type {} from 'react-select/base';
@@ -33,3 +34,5 @@ export type CustomChakraStylesConfig = ChakraStylesConfig<
 export type InvSelectFallbackProps = {
   label: string;
 };
+
+export type InvSelectOnChange = (v: SingleValue<InvSelectOption>) => void;

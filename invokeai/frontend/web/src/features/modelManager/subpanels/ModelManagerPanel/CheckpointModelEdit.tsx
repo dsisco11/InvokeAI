@@ -1,9 +1,12 @@
 import { Badge, Divider, Flex, Text } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
-import IAIMantineTextInput from 'common/components/IAIMantineInput';
-import IAISimpleCheckbox from 'common/components/IAISimpleCheckbox';
+import {
+  InvButton,
+  InvCheckbox,
+  InvControl,
+  InvInput,
+} from 'common/components';
 import { MODEL_TYPE_MAP } from 'features/parameters/types/constants';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
@@ -144,14 +147,12 @@ export default function CheckpointModelEdit(props: CheckpointModelEditProps) {
           )}
         >
           <Flex flexDirection="column" overflowY="scroll" gap={4}>
-            <IAIMantineTextInput
-              label={t('modelManager.name')}
-              {...checkpointEditForm.getInputProps('model_name')}
-            />
-            <IAIMantineTextInput
-              label={t('modelManager.description')}
-              {...checkpointEditForm.getInputProps('description')}
-            />
+            <InvControl label={t('modelManager.name')}>
+              <InvInput {...checkpointEditForm.getInputProps('model_name')} />
+            </InvControl>
+            <InvControl label={t('modelManager.description')}>
+              <InvInput {...checkpointEditForm.getInputProps('description')} />
+            </InvControl>
             <BaseModelSelect
               required
               {...checkpointEditForm.getInputProps('base_model')}
@@ -160,15 +161,12 @@ export default function CheckpointModelEdit(props: CheckpointModelEditProps) {
               required
               {...checkpointEditForm.getInputProps('variant')}
             />
-            <IAIMantineTextInput
-              required
-              label={t('modelManager.modelLocation')}
-              {...checkpointEditForm.getInputProps('path')}
-            />
-            <IAIMantineTextInput
-              label={t('modelManager.vaeLocation')}
-              {...checkpointEditForm.getInputProps('vae')}
-            />
+            <InvControl isRequired label={t('modelManager.modelLocation')}>
+              <InvInput {...checkpointEditForm.getInputProps('path')} />
+            </InvControl>
+            <InvControl label={t('modelManager.vaeLocation')}>
+              <InvInput {...checkpointEditForm.getInputProps('vae')} />
+            </InvControl>
 
             <Flex flexDirection="column" gap={2}>
               {!useCustomConfig ? (
@@ -177,22 +175,21 @@ export default function CheckpointModelEdit(props: CheckpointModelEditProps) {
                   {...checkpointEditForm.getInputProps('config')}
                 />
               ) : (
-                <IAIMantineTextInput
-                  required
-                  label={t('modelManager.config')}
-                  {...checkpointEditForm.getInputProps('config')}
-                />
+                <InvControl isRequired label={t('modelManager.config')}>
+                  <InvInput {...checkpointEditForm.getInputProps('config')} />
+                </InvControl>
               )}
-              <IAISimpleCheckbox
-                isChecked={useCustomConfig}
-                onChange={handleChangeUseCustomConfig}
-                label="Use Custom Config"
-              />
+              <InvControl label="Use Custom Config">
+                <InvCheckbox
+                  isChecked={useCustomConfig}
+                  onChange={handleChangeUseCustomConfig}
+                />
+              </InvControl>
             </Flex>
 
-            <IAIButton type="submit" isLoading={isLoading}>
+            <InvButton type="submit" isLoading={isLoading}>
               {t('modelManager.updateModel')}
-            </IAIButton>
+            </InvButton>
           </Flex>
         </form>
       </Flex>

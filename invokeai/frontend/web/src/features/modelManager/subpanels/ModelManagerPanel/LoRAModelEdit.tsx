@@ -1,8 +1,7 @@
 import { Divider, Flex, Text } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
-import IAIMantineTextInput from 'common/components/IAIMantineInput';
+import { InvButton, InvControl, InvInput } from 'common/components';
 import {
   LORA_MODEL_FORMAT_MAP,
   MODEL_TYPE_MAP,
@@ -107,22 +106,19 @@ export default function LoRAModelEdit(props: LoRAModelEditProps) {
         )}
       >
         <Flex flexDirection="column" overflowY="scroll" gap={4}>
-          <IAIMantineTextInput
-            label={t('modelManager.name')}
-            {...loraEditForm.getInputProps('model_name')}
-          />
-          <IAIMantineTextInput
-            label={t('modelManager.description')}
-            {...loraEditForm.getInputProps('description')}
-          />
+          <InvControl label={t('modelManager.name')}>
+            <InvInput {...loraEditForm.getInputProps('model_name')} />
+          </InvControl>
+          <InvControl label={t('modelManager.description')}>
+            <InvInput {...loraEditForm.getInputProps('description')} />
+          </InvControl>
           <BaseModelSelect {...loraEditForm.getInputProps('base_model')} />
-          <IAIMantineTextInput
-            label={t('modelManager.modelLocation')}
-            {...loraEditForm.getInputProps('path')}
-          />
-          <IAIButton type="submit" isLoading={isLoading}>
+          <InvControl label={t('modelManager.modelLocation')}>
+            <InvInput {...loraEditForm.getInputProps('path')} />
+          </InvControl>
+          <InvButton type="submit" isLoading={isLoading}>
             {t('modelManager.updateModel')}
-          </IAIButton>
+          </InvButton>
         </Flex>
       </form>
     </Flex>

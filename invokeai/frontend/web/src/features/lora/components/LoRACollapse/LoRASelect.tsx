@@ -1,10 +1,9 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { SingleValue } from 'chakra-react-select';
 import {
   InvControl,
   InvSelect,
   InvSelectFallback,
-  InvSelectOption,
+  InvSelectOnChange,
 } from 'common/components/';
 import { useLoRASelectOptions } from 'features/lora/components/LoRACollapse/useLoRASelectOptions';
 import { loraAdded } from 'features/lora/store/loraSlice';
@@ -20,8 +19,8 @@ const LoRASelect = () => {
   const { data } = useGetLoRAModelsQuery();
   const { t } = useTranslation();
   const { options, isLoading } = useLoRASelectOptions();
-  const onChange = useCallback(
-    (v: SingleValue<InvSelectOption>) => {
+  const onChange = useCallback<InvSelectOnChange>(
+    (v) => {
       if (!v) {
         return;
       }

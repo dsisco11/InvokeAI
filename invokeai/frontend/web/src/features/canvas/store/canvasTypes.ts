@@ -1,14 +1,14 @@
 import { IRect, Vector2d } from 'konva/lib/types';
 import { RgbaColor } from 'react-colorful';
 
-export const LAYER_NAMES_DICT = [
+export type CanvasLayer = 'base' | 'mask';
+
+export const LAYER_NAMES_DICT: { label: string; value: CanvasLayer }[] = [
   { label: 'Base', value: 'base' },
   { label: 'Mask', value: 'mask' },
 ];
 
 export const LAYER_NAMES = ['base', 'mask'] as const;
-
-export type CanvasLayer = (typeof LAYER_NAMES)[number];
 
 export const BOUNDING_BOX_SCALES_DICT = [
   { label: 'None', value: 'none' },

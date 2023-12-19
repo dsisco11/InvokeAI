@@ -11,7 +11,7 @@ import { AnimatePresence } from 'framer-motion';
 import { ChangeEvent, KeyboardEvent, memo, useCallback, useRef } from 'react';
 import { flushSync } from 'react-dom';
 import { useTranslation } from 'react-i18next';
-import SDXLConcatLink from './SDXLPrompts/SDXLConcatLink';
+import { SDXLConcatLink } from './SDXLPrompts/SDXLConcatLink';
 
 const promptInputSelector = createMemoizedSelector(
   [stateSelector],

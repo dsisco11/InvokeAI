@@ -1,26 +1,30 @@
 import { ThemeOverride, ToastProviderProps } from '@chakra-ui/react';
-import { headingTheme } from 'theme/components/heading';
+import {
+  accordionTheme,
+  badgeTheme,
+  buttonTheme,
+  cardTheme,
+  checkboxTheme,
+  editableTheme,
+  formLabelTheme,
+  formTheme,
+  headingTheme,
+  inputTheme,
+  menuTheme,
+  modalTheme,
+  numberInputTheme,
+  popoverTheme,
+  progressTheme,
+  skeletonTheme,
+  sliderTheme,
+  switchTheme,
+  tabsTheme,
+  textTheme,
+  textareaTheme,
+  tooltipTheme,
+} from 'common/components';
 import { InvokeAIColors } from './colors/colors';
-import { accordionTheme } from './components/accordion';
-import { buttonTheme } from './components/button';
-import { checkboxTheme } from './components/checkbox';
-import { editableTheme } from './components/editable';
-import { formLabelTheme } from './components/formLabel';
-import { inputTheme } from './components/input';
-import { menuTheme } from './components/menu';
-import { modalTheme } from './components/modal';
-import { numberInputTheme } from './components/numberInput';
-import { popoverTheme } from './components/popover';
-import { progressTheme } from './components/progress';
-import { no_scrollbar } from './components/scrollbar';
-import { selectTheme } from './components/select';
-import { skeletonTheme } from './components/skeleton';
-import { sliderTheme } from './components/slider';
-import { switchTheme } from './components/switch';
-import { tabsTheme } from './components/tabs';
-import { textTheme } from './components/text';
-import { textareaTheme } from './components/textarea';
-import { tooltipTheme } from './components/tooltip';
+import { no_scrollbar } from './custom/scrollbar';
 import { reactflowStyles } from './custom/reactflow';
 
 export const theme: ThemeOverride = {
@@ -37,13 +41,19 @@ export const theme: ThemeOverride = {
     nodeBody: { bg: 'base.800', color: 'base.100' },
     nodeHeader: { bg: 'base.900', color: 'base.100' },
     nodeFooter: { bg: 'base.900', color: 'base.100' },
+    danger: { color: 'error.500 !important' },
   },
   styles: {
     global: () => ({
-      body: { bg: 'base.900', color: 'base.50' },
+      body: { bg: 'base.900', color: 'base.50', fontSize: 'sm' },
       '*': { ...no_scrollbar },
       ...reactflowStyles,
     }),
+  },
+  radii: {
+    base: '12px',
+    md: '4px',
+    sm: '2px',
   },
   direction: 'ltr',
   fonts: {
@@ -70,26 +80,28 @@ export const theme: ThemeOverride = {
   },
   colors: InvokeAIColors,
   components: {
-    Button: buttonTheme, // Button and IconButton
-    Input: inputTheme,
-    Editable: editableTheme,
-    Textarea: textareaTheme,
-    Tabs: tabsTheme,
-    Progress: progressTheme,
     Accordion: accordionTheme,
+    Badge: badgeTheme,
+    Button: buttonTheme,
+    Card: cardTheme,
+    Checkbox: checkboxTheme,
+    Editable: editableTheme,
+    Form: formTheme,
     FormLabel: formLabelTheme,
-    Switch: switchTheme,
+    Heading: headingTheme,
+    Input: inputTheme,
+    Menu: menuTheme,
+    Modal: modalTheme,
     NumberInput: numberInputTheme,
-    Select: selectTheme,
+    Popover: popoverTheme,
+    Progress: progressTheme,
     Skeleton: skeletonTheme,
     Slider: sliderTheme,
-    Popover: popoverTheme,
-    Modal: modalTheme,
-    Checkbox: checkboxTheme,
-    Menu: menuTheme,
+    Switch: switchTheme,
+    Tabs: tabsTheme, // WIP
     Text: textTheme,
+    Textarea: textareaTheme,
     Tooltip: tooltipTheme,
-    Heading: headingTheme,
   },
 };
 

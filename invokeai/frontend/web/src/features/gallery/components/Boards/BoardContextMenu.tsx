@@ -1,4 +1,4 @@
-import { MenuGroup, MenuItem, MenuList } from '@chakra-ui/react';
+import { InvMenuGroup, InvMenuItem, InvMenuList } from 'common/components/';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
@@ -16,7 +16,6 @@ import { FaDownload, FaPlus } from 'react-icons/fa';
 import { useBulkDownloadImagesMutation } from 'services/api/endpoints/images';
 import { useBoardName } from 'services/api/hooks/useBoardName';
 import { BoardDTO } from 'services/api/types';
-import { menuListMotionProps } from 'theme/components/menu';
 import GalleryBoardContextMenuItems from './GalleryBoardContextMenuItems';
 import NoBoardContextMenuItems from './NoBoardContextMenuItems';
 
@@ -93,23 +92,25 @@ const BoardContextMenu = ({
 
   const renderMenuFunc = useCallback(
     () => (
-      <MenuList
+      <InvMenuList
         sx={{ visibility: 'visible !important' }}
-        motionProps={menuListMotionProps}
         onContextMenu={skipEvent}
       >
-        <MenuGroup title={boardName}>
-          <MenuItem
+        <InvMenuGroup title={boardName}>
+          <InvMenuItem
             icon={<FaPlus />}
             isDisabled={isAutoAdd || autoAssignBoardOnClick}
             onClick={handleSetAutoAdd}
           >
             {t('boards.menuItemAutoAdd')}
-          </MenuItem>
+          </InvMenuItem>
           {isBulkDownloadEnabled && (
-            <MenuItem icon={<FaDownload />} onClickCapture={handleBulkDownload}>
+            <InvMenuItem
+              icon={<FaDownload />}
+              onClickCapture={handleBulkDownload}
+            >
               {t('boards.downloadBoard')}
-            </MenuItem>
+            </InvMenuItem>
           )}
           {!board && <NoBoardContextMenuItems />}
           {board && (
@@ -118,8 +119,8 @@ const BoardContextMenu = ({
               setBoardToDelete={setBoardToDelete}
             />
           )}
-        </MenuGroup>
-      </MenuList>
+        </InvMenuGroup>
+      </InvMenuList>
     ),
     [
       autoAssignBoardOnClick,

@@ -1,6 +1,6 @@
 import { inputAnatomy as parts } from '@chakra-ui/anatomy';
 import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system';
-import { getInputFilledStyles } from 'theme_/util/getInputFilledStyles';
+import { getInputFilledStyles } from 'theme/util/getInputFilledStyles';
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys);

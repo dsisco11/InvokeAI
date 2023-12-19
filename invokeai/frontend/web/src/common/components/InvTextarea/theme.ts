@@ -1,5 +1,5 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
-import { getInputFilledStyles } from 'theme_/util/getInputFilledStyles';
+import { getInputFilledStyles } from 'theme/util/getInputFilledStyles';
 
 const inputFilledStyles = getInputFilledStyles();
 

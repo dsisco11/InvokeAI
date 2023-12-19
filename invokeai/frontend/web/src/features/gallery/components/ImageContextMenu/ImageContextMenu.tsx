@@ -1,4 +1,4 @@
-import { MenuList } from '@chakra-ui/react';
+import { InvMenuList } from 'common/components';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
@@ -8,7 +8,6 @@ import {
 } from 'common/components/IAIContextMenu';
 import { MouseEvent, memo, useCallback } from 'react';
 import { ImageDTO } from 'services/api/types';
-import { menuListMotionProps } from 'theme/components/menu';
 import MultipleSelectionMenuItems from './MultipleSelectionMenuItems';
 import SingleSelectionMenuItems from './SingleSelectionMenuItems';
 
@@ -37,24 +36,22 @@ const ImageContextMenu = ({ imageDTO, children }: Props) => {
 
     if (selectionCount > 1) {
       return (
-        <MenuList
+        <InvMenuList
           sx={{ visibility: 'visible !important' }}
-          motionProps={menuListMotionProps}
           onContextMenu={skipEvent}
         >
           <MultipleSelectionMenuItems />
-        </MenuList>
+        </InvMenuList>
       );
     }
 
     return (
-      <MenuList
+      <InvMenuList
         sx={{ visibility: 'visible !important' }}
-        motionProps={menuListMotionProps}
         onContextMenu={skipEvent}
       >
         <SingleSelectionMenuItems imageDTO={imageDTO} />
-      </MenuList>
+      </InvMenuList>
     );
   }, [imageDTO, selectionCount, skipEvent]);
 

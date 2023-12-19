@@ -1,10 +1,10 @@
+import { useDisclosure } from '@chakra-ui/react';
 import {
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuList,
-  useDisclosure,
-} from '@chakra-ui/react';
+  InvMenu,
+  InvMenuButton,
+  InvMenuDivider,
+  InvMenuList,
+} from 'common/components';
 import IAIIconButton from 'common/components/IAIIconButton';
 import { useGlobalMenuCloseTrigger } from 'common/hooks/useGlobalMenuCloseTrigger';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
@@ -17,7 +17,6 @@ import UploadWorkflowMenuItem from 'features/workflowLibrary/components/Workflow
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaEllipsis } from 'react-icons/fa6';
-import { menuListMotionProps } from 'theme/components/menu';
 
 const WorkflowLibraryMenu = () => {
   const { t } = useTranslation();
@@ -27,23 +26,23 @@ const WorkflowLibraryMenu = () => {
     useFeatureStatus('workflowLibrary').isFeatureEnabled;
 
   return (
-    <Menu isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-      <MenuButton
+    <InvMenu isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
+      <InvMenuButton
         as={IAIIconButton}
         aria-label={t('workflows.workflowEditorMenu')}
         icon={<FaEllipsis />}
         pointerEvents="auto"
       />
-      <MenuList motionProps={menuListMotionProps} pointerEvents="auto">
+      <InvMenuList pointerEvents="auto">
         {isWorkflowLibraryEnabled && <SaveWorkflowMenuItem />}
         {isWorkflowLibraryEnabled && <SaveWorkflowAsMenuItem />}
         <DownloadWorkflowMenuItem />
         <UploadWorkflowMenuItem />
         <NewWorkflowMenuItem />
-        <MenuDivider />
+        <InvMenuDivider />
         <SettingsMenuItem />
-      </MenuList>
-    </Menu>
+      </InvMenuList>
+    </InvMenu>
   );
 };
 

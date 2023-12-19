@@ -1,4 +1,4 @@
-import { MenuGroup, MenuItem, MenuList } from '@chakra-ui/react';
+import { InvMenuGroup, InvMenuItem, InvMenuList } from 'common/components';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
@@ -16,7 +16,6 @@ import {
 import { MouseEvent, ReactNode, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaMinus, FaPlus } from 'react-icons/fa';
-import { menuListMotionProps } from 'theme/components/menu';
 
 type Props = {
   nodeId: string;
@@ -69,24 +68,24 @@ const FieldContextMenu = ({ nodeId, fieldName, kind, children }: Props) => {
     const menuItems: ReactNode[] = [];
     if (mayExpose && !isExposed) {
       menuItems.push(
-        <MenuItem
+        <InvMenuItem
           key={`${nodeId}.${fieldName}.expose-field`}
           icon={<FaPlus />}
           onClick={handleExposeField}
         >
           {t('nodes.addLinearView')}
-        </MenuItem>
+        </InvMenuItem>
       );
     }
     if (mayExpose && isExposed) {
       menuItems.push(
-        <MenuItem
+        <InvMenuItem
           key={`${nodeId}.${fieldName}.unexpose-field`}
           icon={<FaMinus />}
           onClick={handleUnexposeField}
         >
           {t('nodes.removeLinearView')}
-        </MenuItem>
+        </InvMenuItem>
       );
     }
     return menuItems;
@@ -103,17 +102,16 @@ const FieldContextMenu = ({ nodeId, fieldName, kind, children }: Props) => {
   const renderMenuFunc = useCallback(
     () =>
       !menuItems.length ? null : (
-        <MenuList
+        <InvMenuList
           sx={{ visibility: 'visible !important' }}
-          motionProps={menuListMotionProps}
           onContextMenu={skipEvent}
         >
-          <MenuGroup
+          <InvMenuGroup
             title={label || fieldTemplateTitle || t('nodes.unknownField')}
           >
             {menuItems}
-          </MenuGroup>
-        </MenuList>
+          </InvMenuGroup>
+        </InvMenuList>
       ),
     [fieldTemplateTitle, label, menuItems, skipEvent, t]
   );

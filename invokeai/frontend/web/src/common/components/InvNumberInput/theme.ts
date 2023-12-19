@@ -1,7 +1,7 @@
 import { numberInputAnatomy as parts } from '@chakra-ui/anatomy';
 import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system';
-import { getInputFilledStyles } from 'theme_/util/getInputFilledStyles';
-import { getInputOutlineStyles } from 'theme_/util/getInputOutlineStyles';
+import { getInputFilledStyles } from 'theme/util/getInputFilledStyles';
+import { getInputOutlineStyles } from 'theme/util/getInputOutlineStyles';
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys);

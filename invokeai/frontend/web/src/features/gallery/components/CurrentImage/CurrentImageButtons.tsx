@@ -1,10 +1,5 @@
-import {
-  ButtonGroup,
-  Flex,
-  Menu,
-  MenuButton,
-  MenuList,
-} from '@chakra-ui/react';
+import { ButtonGroup, Flex } from '@chakra-ui/react';
+import { InvMenu, InvMenuButton, InvMenuList } from 'common/components/';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { useAppToaster } from 'app/components/Toaster';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
@@ -41,7 +36,6 @@ import {
 import { FaCircleNodes, FaEllipsis } from 'react-icons/fa6';
 import { useGetImageDTOQuery } from 'services/api/endpoints/images';
 import { useDebouncedMetadata } from 'services/api/hooks/useDebouncedMetadata';
-import { menuListMotionProps } from 'theme/components/menu';
 
 const currentImageButtonsSelector = createMemoizedSelector(
   [stateSelector, activeTabNameSelector],
@@ -230,18 +224,18 @@ const CurrentImageButtons = () => {
         }}
       >
         <ButtonGroup isAttached={true} isDisabled={shouldDisableToolbarButtons}>
-          <Menu isLazy>
-            <MenuButton
+          <InvMenu isLazy>
+            <InvMenuButton
               as={IAIIconButton}
               aria-label={t('parameters.imageActions')}
               tooltip={t('parameters.imageActions')}
               isDisabled={!imageDTO}
               icon={<FaEllipsis />}
             />
-            <MenuList motionProps={menuListMotionProps}>
+            <InvMenuList>
               {imageDTO && <SingleSelectionMenuItems imageDTO={imageDTO} />}
-            </MenuList>
-          </Menu>
+            </InvMenuList>
+          </InvMenu>
         </ButtonGroup>
 
         <ButtonGroup isAttached={true} isDisabled={shouldDisableToolbarButtons}>

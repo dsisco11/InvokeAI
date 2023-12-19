@@ -1,13 +1,11 @@
+import { Flex, Spacer, useDisclosure } from '@chakra-ui/react';
 import {
-  Flex,
-  Menu,
-  MenuButton,
-  MenuGroup,
-  MenuItem,
-  MenuList,
-  Spacer,
-  useDisclosure,
-} from '@chakra-ui/react';
+  InvMenu,
+  InvMenuButton,
+  InvMenuGroup,
+  InvMenuItem,
+  InvMenuList,
+} from 'common/components';
 import IAIIconButton from 'common/components/IAIIconButton';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -19,7 +17,6 @@ import {
   FaGithub,
   FaKeyboard,
 } from 'react-icons/fa';
-import { menuListMotionProps } from 'theme/components/menu';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import HotkeysModal from './HotkeysModal/HotkeysModal';
 import InvokeAILogoComponent from './InvokeAILogoComponent';
@@ -50,61 +47,61 @@ const SiteHeader = () => {
       <Spacer />
       <StatusIndicator />
 
-      <Menu isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-        <MenuButton
+      <InvMenu isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
+        <InvMenuButton
           as={IAIIconButton}
           variant="link"
           aria-label={t('accessibility.menu')}
           icon={<FaBars />}
           sx={{ boxSize: 8 }}
         />
-        <MenuList motionProps={menuListMotionProps}>
-          <MenuGroup title={t('common.communityLabel')}>
+        <InvMenuList>
+          <InvMenuGroup title={t('common.communityLabel')}>
             {isGithubLinkEnabled && (
-              <MenuItem
+              <InvMenuItem
                 as="a"
                 href={githubLink}
                 target="_blank"
                 icon={<FaGithub />}
               >
                 {t('common.githubLabel')}
-              </MenuItem>
+              </InvMenuItem>
             )}
             {isBugLinkEnabled && (
-              <MenuItem
+              <InvMenuItem
                 as="a"
                 href={`${githubLink}/issues`}
                 target="_blank"
                 icon={<FaBug />}
               >
                 {t('common.reportBugLabel')}
-              </MenuItem>
+              </InvMenuItem>
             )}
             {isDiscordLinkEnabled && (
-              <MenuItem
+              <InvMenuItem
                 as="a"
                 href={discordLink}
                 target="_blank"
                 icon={<FaDiscord />}
               >
                 {t('common.discordLabel')}
-              </MenuItem>
+              </InvMenuItem>
             )}
-          </MenuGroup>
-          <MenuGroup title={t('common.settingsLabel')}>
+          </InvMenuGroup>
+          <InvMenuGroup title={t('common.settingsLabel')}>
             <HotkeysModal>
-              <MenuItem as="button" icon={<FaKeyboard />}>
+              <InvMenuItem as="button" icon={<FaKeyboard />}>
                 {t('common.hotkeysLabel')}
-              </MenuItem>
+              </InvMenuItem>
             </HotkeysModal>
             <SettingsModal>
-              <MenuItem as="button" icon={<FaCog />}>
+              <InvMenuItem as="button" icon={<FaCog />}>
                 {t('common.settingsLabel')}
-              </MenuItem>
+              </InvMenuItem>
             </SettingsModal>
-          </MenuGroup>
-        </MenuList>
-      </Menu>
+          </InvMenuGroup>
+        </InvMenuList>
+      </InvMenu>
     </Flex>
   );
 };

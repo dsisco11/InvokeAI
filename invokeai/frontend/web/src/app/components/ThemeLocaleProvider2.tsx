@@ -6,7 +6,7 @@ import 'overlayscrollbars/overlayscrollbars.css';
 import { ReactNode, memo, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import 'theme/css/overlayscrollbars.css';
-import { TOAST_OPTIONS, theme as invokeAITheme } from 'theme_/theme';
+import { TOAST_OPTIONS, theme as invokeAITheme } from 'theme/theme';
 
 type ThemeLocaleProviderProps = {
   children: ReactNode;

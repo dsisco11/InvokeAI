@@ -6,7 +6,7 @@ import {
   InvMenuItem,
   InvMenuList,
 } from 'common/components';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvIconButton } from 'common/components';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -49,7 +49,7 @@ const SiteHeader = () => {
 
       <InvMenu isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
         <InvMenuButton
-          as={IAIIconButton}
+          as={InvIconButton}
           variant="link"
           aria-label={t('accessibility.menu')}
           icon={<FaBars />}

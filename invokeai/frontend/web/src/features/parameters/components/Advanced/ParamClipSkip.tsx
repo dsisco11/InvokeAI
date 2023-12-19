@@ -1,7 +1,7 @@
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { setClipSkip } from 'features/parameters/store/generationSlice';
 import { CLIP_SKIP_MAP } from 'features/parameters/types/constants';
 import { useCallback, useMemo } from 'react';
@@ -48,20 +48,18 @@ export default function ParamClipSkip() {
 
   return (
     <IAIInformationalPopover feature="clipSkip" placement="top">
-      <IAISlider
-        label={t('parameters.clipSkip')}
-        aria-label={t('parameters.clipSkip')}
-        min={0}
-        max={max}
-        step={1}
-        value={clipSkip}
-        onChange={handleClipSkipChange}
-        withSliderMarks
-        sliderMarks={sliderMarks}
-        withInput
-        withReset
-        handleReset={handleClipSkipReset}
-      />
+      <InvControl label={t('parameters.clipSkip')}>
+        <InvSlider
+          value={clipSkip}
+          min={0}
+          max={max}
+          step={1}
+          onChange={handleClipSkipChange}
+          onReset={handleClipSkipReset}
+          withNumberInput
+          marks={sliderMarks}
+        />
+      </InvControl>
     </IAIInformationalPopover>
   );
 }

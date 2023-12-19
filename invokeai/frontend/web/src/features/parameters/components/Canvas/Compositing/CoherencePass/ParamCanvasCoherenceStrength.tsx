@@ -1,7 +1,7 @@
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { setCanvasCoherenceStrength } from 'features/parameters/store/generationSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -25,19 +25,19 @@ const ParamCanvasCoherenceStrength = () => {
 
   return (
     <IAIInformationalPopover feature="compositingStrength">
-      <IAISlider
-        label={t('parameters.coherenceStrength')}
-        min={0}
-        max={1}
-        step={0.01}
-        sliderNumberInputProps={{ max: 999 }}
-        value={canvasCoherenceStrength}
-        onChange={handleChange}
-        withInput
-        withSliderMarks
-        withReset
-        handleReset={handleReset}
-      />
+      <InvControl label={t('parameters.coherenceStrength')}>
+        <InvSlider
+          min={0}
+          max={1}
+          step={0.01}
+          value={canvasCoherenceStrength}
+          onChange={handleChange}
+          onReset={handleReset}
+          withNumberInput
+          numberInputMax={999}
+          marks
+        />
+      </InvControl>
     </IAIInformationalPopover>
   );
 };

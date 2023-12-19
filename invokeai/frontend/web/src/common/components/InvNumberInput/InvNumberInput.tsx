@@ -29,9 +29,9 @@ const isValidCharacter = (char: string) => /^[0-9\-.]$/i.test(char);
 export const InvNumberInput = forwardRef((props: InvNumberInputProps, ref) => {
   const {
     value,
-    min,
+    min = 0,
     max,
-    step: _step,
+    step: _step = 1,
     fineStep: _fineStep,
     onChange: _onChange,
     numberInputFieldProps,

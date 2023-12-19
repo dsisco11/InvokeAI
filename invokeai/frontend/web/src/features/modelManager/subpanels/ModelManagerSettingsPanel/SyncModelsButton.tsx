@@ -1,7 +1,6 @@
 import { ButtonProps } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvIconButton, InvButton } from 'common/components';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { useCallback } from 'react';
@@ -48,16 +47,16 @@ export default function SyncModelsButton(props: SyncModelsButtonProps) {
   }, [dispatch, syncModels, t]);
 
   return !iconMode ? (
-    <IAIButton
+    <InvButton
       isLoading={isLoading}
       onClick={syncModelsHandler}
       minW="max-content"
       {...rest}
     >
       {t('modelManager.syncModels')}
-    </IAIButton>
+    </InvButton>
   ) : (
-    <IAIIconButton
+    <InvIconButton
       icon={<FaSync />}
       tooltip={t('modelManager.syncModels')}
       aria-label={t('modelManager.syncModels')}

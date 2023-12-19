@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { setRefinerSteps } from 'features/sdxl/store/sdxlSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -23,20 +23,19 @@ const ParamSDXLRefinerSteps = () => {
   }, [dispatch]);
 
   return (
-    <IAISlider
-      label={t('sdxl.steps')}
-      min={1}
-      max={100}
-      step={1}
-      onChange={handleChange}
-      handleReset={handleReset}
-      value={refinerSteps}
-      withInput
-      withReset
-      withSliderMarks
-      sliderNumberInputProps={{ max: 500 }}
-      isDisabled={!isRefinerAvailable}
-    />
+    <InvControl label={t('sdxl.steps')} isDisabled={!isRefinerAvailable}>
+      <InvSlider
+        min={1}
+        max={100}
+        step={1}
+        onChange={handleChange}
+        onReset={handleReset}
+        value={refinerSteps}
+        marks
+        withNumberInput
+        numberInputMax={500}
+      />
+    </InvControl>
   );
 };
 

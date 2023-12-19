@@ -1,6 +1,6 @@
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISwitch from 'common/components/IAISwitch';
+import { InvControl, InvSwitch } from 'common/components';
 import { setHrfEnabled } from 'features/parameters/store/generationSlice';
 import { ChangeEvent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -20,11 +20,8 @@ export default function ParamHrfToggle() {
   );
 
   return (
-    <IAISwitch
-      label={t('hrf.enableHrf')}
-      isChecked={hrfEnabled}
-      onChange={handleHrfEnabled}
-      tooltip={t('hrf.enableHrfTooltip')}
-    />
+    <InvControl label={t('hrf.enableHrf')}>
+      <InvSwitch isChecked={hrfEnabled} onChange={handleHrfEnabled} />
+    </InvControl>
   );
 }

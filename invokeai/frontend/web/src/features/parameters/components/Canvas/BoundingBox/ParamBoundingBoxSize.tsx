@@ -2,7 +2,7 @@ import { Flex, FormControl, FormLabel, Spacer } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvIconButton } from 'common/components';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { flipBoundingBoxAxes } from 'features/canvas/store/canvasSlice';
 import ParamAspectRatio, {
@@ -91,7 +91,7 @@ export default function ParamBoundingBoxSize() {
           <FormLabel>{t('parameters.aspectRatio')}</FormLabel>
           <Spacer />
           <ParamAspectRatio />
-          <IAIIconButton
+          <InvIconButton
             tooltip={t('ui.swapSizes')}
             aria-label={t('ui.swapSizes')}
             size="sm"
@@ -99,7 +99,7 @@ export default function ParamBoundingBoxSize() {
             fontSize={20}
             onClick={handleToggleSize}
           />
-          <IAIIconButton
+          <InvIconButton
             tooltip={t('ui.lockRatio')}
             aria-label={t('ui.lockRatio')}
             size="sm"

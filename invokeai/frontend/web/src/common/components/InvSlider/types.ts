@@ -1,10 +1,6 @@
 import type {
+  ChakraProps,
   SliderProps as ChakraSliderProps,
-  SliderTrackProps as ChakraSliderTrackProps,
-  SliderInnerTrackProps as ChakraSliderInnerTrackProps,
-  SliderThumbProps as ChakraSliderThumbProps,
-  SliderMarkProps as ChakraSliderMarkProps,
-  TooltipProps as ChakraTooltipProps,
 } from '@chakra-ui/react';
 
 export type InvSliderProps = Omit<ChakraSliderProps, 'value'> & {
@@ -23,7 +19,7 @@ export type InvSliderProps = Omit<ChakraSliderProps, 'value'> & {
   /**
    * The default step
    */
-  step: number;
+  step?: number;
   /**
    * The fine step (when shift is pressed)
    */
@@ -45,33 +41,29 @@ export type InvSliderProps = Omit<ChakraSliderProps, 'value'> & {
    */
   isDisabled?: boolean;
   /**
-   * The marks to render below the slider
+   * The marks to render below the slider. If true, will use the min and max values.
    */
-  marks?: number[];
+  marks?: number[] | true;
   /**
    * Whether to show a tooltip over the slider thumb
    */
   withThumbTooltip?: boolean;
   /**
-   * Override props for the Chakra SliderTrack component
+   * Whether or not to render a number input
    */
-  sliderTrackProps?: ChakraSliderTrackProps;
+  withNumberInput?: boolean;
   /**
-   * Override props for the Chakra FilledTrack component
+   * The number input min (defaults to the slider min)
    */
-  sliderFilledTrackProps?: ChakraSliderInnerTrackProps;
+  numberInputMin?: number;
   /**
-   * Override props for the Chakra SliderThumb component
+   * The number input max (defaults to the slider max)
    */
-  sliderThumbProps?: ChakraSliderThumbProps;
+  numberInputMax?: number;
   /**
-   * Override props for the SliderThumb's Chakra Tooltip component
+   * The width of the number input
    */
-  sliderThumbTooltipProps?: ChakraTooltipProps;
-  /**
-   * Override props for the Chakra SliderMark component
-   */
-  sliderMarkProps?: ChakraSliderMarkProps;
+  numberInputWidth?: ChakraProps['width'];
 };
 
 export type InvFormattedMark = { value: number; label: string };

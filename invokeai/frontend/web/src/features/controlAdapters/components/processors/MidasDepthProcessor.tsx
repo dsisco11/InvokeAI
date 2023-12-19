@@ -1,4 +1,4 @@
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { CONTROLNET_PROCESSORS } from 'features/controlAdapters/store/constants';
 import { RequiredMidasDepthImageProcessorInvocation } from 'features/controlAdapters/store/types';
 import { memo, useCallback } from 'react';
@@ -45,32 +45,30 @@ const MidasDepthProcessor = (props: Props) => {
 
   return (
     <ProcessorWrapper>
-      <IAISlider
-        label={t('controlnet.amult')}
-        value={a_mult}
-        onChange={handleAMultChanged}
-        handleReset={handleAMultReset}
-        withReset
-        min={0}
-        max={20}
-        step={0.01}
-        withInput
-        withSliderMarks
-        isDisabled={!isEnabled}
-      />
-      <IAISlider
-        label={t('controlnet.bgth')}
-        value={bg_th}
-        onChange={handleBgThChanged}
-        handleReset={handleBgThReset}
-        withReset
-        min={0}
-        max={20}
-        step={0.01}
-        withInput
-        withSliderMarks
-        isDisabled={!isEnabled}
-      />
+      <InvControl label={t('controlnet.amult')} isDisabled={!isEnabled}>
+        <InvSlider
+          value={a_mult}
+          onChange={handleAMultChanged}
+          onReset={handleAMultReset}
+          min={0}
+          max={20}
+          step={0.01}
+          marks
+          withNumberInput
+        />
+      </InvControl>
+      <InvControl label={t('controlnet.bgth')} isDisabled={!isEnabled}>
+        <InvSlider
+          value={bg_th}
+          onChange={handleBgThChanged}
+          onReset={handleBgThReset}
+          min={0}
+          max={20}
+          step={0.01}
+          marks
+          withNumberInput
+        />
+      </InvControl>
     </ProcessorWrapper>
   );
 };

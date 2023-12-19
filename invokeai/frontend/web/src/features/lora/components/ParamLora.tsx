@@ -1,7 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIIconButton from 'common/components/IAIIconButton';
-import IAISlider from 'common/components/IAISlider';
+import { InvIconButton, InvControl, InvSlider } from 'common/components';
 import { memo, useCallback } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import {
@@ -38,21 +37,21 @@ const ParamLora = (props: Props) => {
   return (
     <IAIInformationalPopover feature="lora">
       <Flex sx={{ gap: 2.5, alignItems: 'flex-end' }}>
-        <IAISlider
-          label={lora.model_name}
-          value={lora.weight}
-          onChange={handleChange}
-          min={-1}
-          max={2}
-          step={0.01}
-          withInput
-          withReset
-          handleReset={handleReset}
-          withSliderMarks
-          sliderMarks={[-1, 0, 1, 2]}
-          sliderNumberInputProps={{ min: -50, max: 50 }}
-        />
-        <IAIIconButton
+        <InvControl label={lora.model_name}>
+          <InvSlider
+            value={lora.weight}
+            onChange={handleChange}
+            min={-1}
+            max={2}
+            step={0.01}
+            onReset={handleReset}
+            marks={[-1, 0, 1, 2]}
+            withNumberInput
+            numberInputMin={-50}
+            numberInputMax={50}
+          />
+        </InvControl>
+        <InvIconButton
           size="sm"
           onClick={handleRemoveLora}
           tooltip="Remove LoRA"

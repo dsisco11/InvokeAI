@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAINumberInput from 'common/components/IAINumberInput';
+import { InvControl, InvNumberInput } from 'common/components';
 import { setRefinerCFGScale } from 'features/sdxl/store/sdxlSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -17,17 +17,16 @@ const ParamSDXLRefinerCFGScale = () => {
   );
 
   return (
-    <IAINumberInput
-      label={t('sdxl.cfgScale')}
-      step={0.5}
-      min={1}
-      max={200}
-      onChange={handleChange}
-      value={refinerCFGScale}
-      isInteger={false}
-      numberInputFieldProps={{ textAlign: 'center' }}
-      isDisabled={!isRefinerAvailable}
-    />
+    <InvControl label={t('sdxl.cfgScale')} isDisabled={!isRefinerAvailable}>
+      <InvNumberInput
+        value={refinerCFGScale}
+        min={1}
+        max={200}
+        step={0.5}
+        fineStep={0.1}
+        onChange={handleChange}
+      />
+    </InvControl>
   );
 };
 

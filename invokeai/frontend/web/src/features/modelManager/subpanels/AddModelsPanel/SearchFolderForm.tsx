@@ -2,8 +2,7 @@ import { Flex, Text } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIIconButton from 'common/components/IAIIconButton';
-import IAIInput from 'common/components/IAIInput';
+import { InvIconButton, InvInput } from 'common/components';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaSearch, FaSync, FaTrash } from 'react-icons/fa';
@@ -78,7 +77,7 @@ function SearchFolderForm() {
             {t('common.folder')}
           </Text>
           {!searchFolder ? (
-            <IAIInput
+            <InvInput
               w="100%"
               size="md"
               {...searchFolderForm.getInputProps('folder')}
@@ -102,7 +101,7 @@ function SearchFolderForm() {
 
         <Flex gap={2}>
           {!searchFolder ? (
-            <IAIIconButton
+            <InvIconButton
               aria-label={t('modelManager.findModels')}
               tooltip={t('modelManager.findModels')}
               icon={<FaSearch />}
@@ -111,7 +110,7 @@ function SearchFolderForm() {
               type="submit"
             />
           ) : (
-            <IAIIconButton
+            <InvIconButton
               aria-label={t('modelManager.scanAgain')}
               tooltip={t('modelManager.scanAgain')}
               icon={<FaSync />}
@@ -121,7 +120,7 @@ function SearchFolderForm() {
             />
           )}
 
-          <IAIIconButton
+          <InvIconButton
             aria-label={t('modelManager.clearCheckpointFolder')}
             tooltip={t('modelManager.clearCheckpointFolder')}
             icon={<FaTrash />}

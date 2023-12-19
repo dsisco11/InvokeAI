@@ -1,7 +1,7 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { setRefinerStart } from 'features/sdxl/store/sdxlSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -30,20 +30,18 @@ const ParamSDXLRefinerStart = () => {
   );
 
   return (
-    <IAISlider
-      label={t('sdxl.refinerStart')}
-      step={0.01}
-      min={0}
-      max={1}
-      onChange={handleChange}
-      handleReset={handleReset}
-      value={refinerStart}
-      withInput
-      withReset
-      withSliderMarks
-      isInteger={false}
-      isDisabled={!isRefinerAvailable}
-    />
+    <InvControl label={t('sdxl.refinerStart')} isDisabled={!isRefinerAvailable}>
+      <InvSlider
+        step={0.01}
+        min={0}
+        max={1}
+        onChange={handleChange}
+        onReset={handleReset}
+        value={refinerStart}
+        withNumberInput
+        marks
+      />
+    </InvControl>
   );
 };
 

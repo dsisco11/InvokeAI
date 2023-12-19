@@ -1,7 +1,7 @@
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { setMaskBlur } from 'features/parameters/store/generationSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -25,18 +25,18 @@ export default function ParamMaskBlur() {
 
   return (
     <IAIInformationalPopover feature="compositingBlur">
-      <IAISlider
-        label={t('parameters.maskBlur')}
-        min={0}
-        max={64}
-        sliderNumberInputProps={{ max: 512 }}
-        value={maskBlur}
-        onChange={handleChange}
-        withInput
-        withSliderMarks
-        withReset
-        handleReset={handleReset}
-      />
+      <InvControl label={t('parameters.maskBlur')}>
+        <InvSlider
+          min={0}
+          max={64}
+          value={maskBlur}
+          onReset={handleReset}
+          onChange={handleChange}
+          marks
+          withNumberInput
+          numberInputMax={512}
+        />
+      </InvControl>
     </IAIInformationalPopover>
   );
 }

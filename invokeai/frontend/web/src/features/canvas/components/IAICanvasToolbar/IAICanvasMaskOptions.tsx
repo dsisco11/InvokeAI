@@ -2,11 +2,14 @@ import { Box, ButtonGroup, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
+import {
+  InvButton,
+  InvControl,
+  InvCheckbox,
+  InvIconButton,
+} from 'common/components';
 import IAIColorPicker from 'common/components/IAIColorPicker';
-import IAIIconButton from 'common/components/IAIIconButton';
 import IAIPopover from 'common/components/IAIPopover';
-import IAISimpleCheckbox from 'common/components/IAISimpleCheckbox';
 import { canvasMaskSavedToGallery } from 'features/canvas/store/actions';
 import { isStagingSelector } from 'features/canvas/store/canvasSelectors';
 import {
@@ -121,7 +124,7 @@ const IAICanvasMaskOptions = () => {
     <IAIPopover
       triggerComponent={
         <ButtonGroup>
-          <IAIIconButton
+          <InvIconButton
             aria-label={t('unifiedCanvas.maskingOptions')}
             tooltip={t('unifiedCanvas.maskingOptions')}
             icon={<FaMask />}
@@ -132,25 +135,27 @@ const IAICanvasMaskOptions = () => {
       }
     >
       <Flex direction="column" gap={2}>
-        <IAISimpleCheckbox
-          label={`${t('unifiedCanvas.enableMask')} (H)`}
-          isChecked={isMaskEnabled}
-          onChange={handleToggleEnableMask}
-        />
-        <IAISimpleCheckbox
-          label={t('unifiedCanvas.preserveMaskedArea')}
-          isChecked={shouldPreserveMaskedArea}
-          onChange={handleChangePreserveMaskedArea}
-        />
+        <InvControl label={`${t('unifiedCanvas.enableMask')} (H)`}>
+          <InvCheckbox
+            isChecked={isMaskEnabled}
+            onChange={handleToggleEnableMask}
+          />
+        </InvControl>
+        <InvControl label={t('unifiedCanvas.preserveMaskedArea')}>
+          <InvCheckbox
+            isChecked={shouldPreserveMaskedArea}
+            onChange={handleChangePreserveMaskedArea}
+          />
+        </InvControl>
         <Box sx={{ paddingTop: 2, paddingBottom: 2 }}>
           <IAIColorPicker color={maskColor} onChange={handleChangeMaskColor} />
         </Box>
-        <IAIButton size="sm" leftIcon={<FaSave />} onClick={handleSaveMask}>
+        <InvButton size="sm" leftIcon={<FaSave />} onClick={handleSaveMask}>
           {t('unifiedCanvas.saveMask')}
-        </IAIButton>
-        <IAIButton size="sm" leftIcon={<FaTrash />} onClick={handleClearMask}>
+        </InvButton>
+        <InvButton size="sm" leftIcon={<FaTrash />} onClick={handleClearMask}>
           {t('unifiedCanvas.clearMask')}
-        </IAIButton>
+        </InvButton>
       </Flex>
     </IAIPopover>
   );

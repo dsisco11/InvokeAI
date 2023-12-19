@@ -1,7 +1,7 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { setInfillPatchmatchDownscaleSize } from 'features/parameters/store/generationSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -34,18 +34,20 @@ const ParamInfillPatchmatchDownscaleSize = () => {
   }, [dispatch]);
 
   return (
-    <IAISlider
+    <InvControl
       isDisabled={infillMethod !== 'patchmatch'}
       label={t('parameters.patchmatchDownScaleSize')}
-      min={1}
-      max={10}
-      value={infillPatchmatchDownscaleSize}
-      onChange={handleChange}
-      withInput
-      withSliderMarks
-      withReset
-      handleReset={handleReset}
-    />
+    >
+      <InvSlider
+        min={1}
+        max={10}
+        value={infillPatchmatchDownscaleSize}
+        onChange={handleChange}
+        withNumberInput
+        marks
+        onReset={handleReset}
+      />
+    </InvControl>
   );
 };
 

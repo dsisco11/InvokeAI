@@ -1,6 +1,6 @@
 import { ButtonGroup } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvIconButton } from 'common/components';
 import {
   // shouldShowFieldTypeLegendChanged,
   shouldShowMinimapPanelChanged,
@@ -48,19 +48,19 @@ const ViewportControls = () => {
 
   return (
     <ButtonGroup isAttached orientation="vertical">
-      <IAIIconButton
+      <InvIconButton
         tooltip={t('nodes.zoomInNodes')}
         aria-label={t('nodes.zoomInNodes')}
         onClick={handleClickedZoomIn}
         icon={<FaMagnifyingGlassPlus />}
       />
-      <IAIIconButton
+      <InvIconButton
         tooltip={t('nodes.zoomOutNodes')}
         aria-label={t('nodes.zoomOutNodes')}
         onClick={handleClickedZoomOut}
         icon={<FaMagnifyingGlassMinus />}
       />
-      <IAIIconButton
+      <InvIconButton
         tooltip={t('nodes.fitViewportNodes')}
         aria-label={t('nodes.fitViewportNodes')}
         onClick={handleClickedFitView}
@@ -73,14 +73,14 @@ const ViewportControls = () => {
             : t('nodes.showLegendNodes')
         }
       >
-        <IAIIconButton
+        <InvIconButton
           aria-label="Toggle field type legend"
           isChecked={shouldShowFieldTypeLegend}
           onClick={handleClickedToggleFieldTypeLegend}
           icon={<FaInfo />}
         />
       </Tooltip> */}
-      <IAIIconButton
+      <InvIconButton
         tooltip={
           shouldShowMinimapPanel
             ? t('nodes.hideMinimapnodes')

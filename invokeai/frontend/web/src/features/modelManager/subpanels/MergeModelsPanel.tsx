@@ -5,7 +5,7 @@ import IAIInput from 'common/components/IAIInput';
 import IAIMantineSearchableSelect from 'common/components/IAIMantineSearchableSelect';
 import IAIMantineSelect from 'common/components/IAIMantineSelect';
 import IAISimpleCheckbox from 'common/components/IAISimpleCheckbox';
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { pickBy } from 'lodash-es';
@@ -274,21 +274,21 @@ export default function MergeModelsPanel() {
           bg: 'base.800',
         }}
       >
-        <IAISlider
+        <InvControl
           label={t('modelManager.alpha')}
-          min={0.01}
-          max={0.99}
-          step={0.01}
-          value={modelMergeAlpha}
-          onChange={handleChangeModelMergeAlpha}
-          withInput
-          withReset
-          handleReset={handleResetModelMergeAlpha}
-          withSliderMarks
-        />
-        <Text variant="subtext" fontSize="sm">
-          {t('modelManager.modelMergeAlphaHelp')}
-        </Text>
+          helperText={t('modelManager.modelMergeAlphaHelp')}
+        >
+          <InvSlider
+            min={0.01}
+            max={0.99}
+            step={0.01}
+            value={modelMergeAlpha}
+            onChange={handleChangeModelMergeAlpha}
+            onReset={handleResetModelMergeAlpha}
+            withNumberInput
+            marks
+          />
+        </InvControl>
       </Flex>
 
       <Flex

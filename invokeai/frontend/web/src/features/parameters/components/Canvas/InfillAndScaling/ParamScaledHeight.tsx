@@ -1,7 +1,7 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { roundToMultiple } from 'common/util/roundDownToMultiple';
 import { setScaledBoundingBoxDimensions } from 'features/canvas/store/canvasSlice';
 import { memo, useCallback } from 'react';
@@ -69,20 +69,19 @@ const ParamScaledHeight = () => {
   }, [aspectRatio, dispatch, initial, scaledBoundingBoxDimensions.width]);
 
   return (
-    <IAISlider
-      isDisabled={!isManual}
-      label={t('parameters.scaledHeight')}
-      min={64}
-      max={1536}
-      step={64}
-      value={scaledBoundingBoxDimensions.height}
-      onChange={handleChangeScaledHeight}
-      sliderNumberInputProps={{ max: 4096 }}
-      withSliderMarks
-      withInput
-      withReset
-      handleReset={handleResetScaledHeight}
-    />
+    <InvControl isDisabled={!isManual} label={t('parameters.scaledHeight')}>
+      <InvSlider
+        min={64}
+        max={1536}
+        step={64}
+        value={scaledBoundingBoxDimensions.height}
+        onChange={handleChangeScaledHeight}
+        marks
+        withNumberInput
+        numberInputMax={4096}
+        onReset={handleResetScaledHeight}
+      />
+    </InvControl>
   );
 };
 

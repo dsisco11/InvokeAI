@@ -1,11 +1,11 @@
 import { useDisclosure } from '@chakra-ui/react';
 import {
+  InvIconButton,
   InvMenu,
   InvMenuButton,
   InvMenuDivider,
   InvMenuList,
 } from 'common/components';
-import IAIIconButton from 'common/components/IAIIconButton';
 import { useGlobalMenuCloseTrigger } from 'common/hooks/useGlobalMenuCloseTrigger';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import DownloadWorkflowMenuItem from 'features/workflowLibrary/components/WorkflowLibraryMenu/DownloadWorkflowMenuItem';
@@ -28,7 +28,7 @@ const WorkflowLibraryMenu = () => {
   return (
     <InvMenu isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
       <InvMenuButton
-        as={IAIIconButton}
+        as={InvIconButton}
         aria-label={t('workflows.workflowEditorMenu')}
         icon={<FaEllipsis />}
         pointerEvents="auto"

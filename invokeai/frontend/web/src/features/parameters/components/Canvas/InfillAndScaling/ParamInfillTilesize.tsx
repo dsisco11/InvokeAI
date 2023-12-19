@@ -1,7 +1,7 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { setInfillTileSize } from 'features/parameters/store/generationSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -33,19 +33,21 @@ const ParamInfillTileSize = () => {
   }, [dispatch]);
 
   return (
-    <IAISlider
+    <InvControl
       isDisabled={infillMethod !== 'tile'}
       label={t('parameters.tileSize')}
-      min={16}
-      max={64}
-      sliderNumberInputProps={{ max: 256 }}
-      value={infillTileSize}
-      onChange={handleChange}
-      withInput
-      withSliderMarks
-      withReset
-      handleReset={handleReset}
-    />
+    >
+      <InvSlider
+        min={16}
+        max={64}
+        numberInputMax={256}
+        value={infillTileSize}
+        onChange={handleChange}
+        withNumberInput
+        marks
+        onReset={handleReset}
+      />
+    </InvControl>
   );
 };
 

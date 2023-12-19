@@ -1,6 +1,6 @@
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISwitch from 'common/components/IAISwitch';
+import { InvControl, InvSwitch } from 'common/components';
 import { setShouldFitToWidthHeight } from 'features/parameters/store/generationSlice';
 import { ChangeEvent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -22,10 +22,11 @@ export default function ImageToImageFit() {
   const { t } = useTranslation();
 
   return (
-    <IAISwitch
-      label={t('parameters.imageFit')}
-      isChecked={shouldFitToWidthHeight}
-      onChange={handleChangeFit}
-    />
+    <InvControl label={t('parameters.imageFit')}>
+      <InvSwitch
+        isChecked={shouldFitToWidthHeight}
+        onChange={handleChangeFit}
+      />
+    </InvControl>
   );
 }

@@ -14,15 +14,15 @@ export type InvNumberInputProps = Omit<ChakraNumberInputProps, 'onChange'> & {
   /**
    * The minimum value
    */
-  min: number;
+  min?: number;
   /**
    * The maximum value
    */
-  max: number;
+  max?: number;
   /**
    * The default step
    */
-  step: number;
+  step?: number;
   /**
    * The fine step (used when shift is pressed)
    */

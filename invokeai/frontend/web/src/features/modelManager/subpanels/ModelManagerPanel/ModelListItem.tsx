@@ -3,8 +3,7 @@ import { Badge, Flex, Text, Tooltip } from '@chakra-ui/react';
 import { makeToast } from 'features/system/util/makeToast';
 import { useAppDispatch } from 'app/store/storeHooks';
 import IAIAlertDialog from 'common/components/IAIAlertDialog';
-import IAIButton from 'common/components/IAIButton';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvIconButton, InvButton } from 'common/components';
 import { addToast } from 'features/system/store/systemSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -81,7 +80,7 @@ export default function ModelListItem(props: ModelListItemProps) {
   return (
     <Flex sx={{ gap: 2, alignItems: 'center', w: 'full' }}>
       <Flex
-        as={IAIButton}
+        as={InvButton}
         isChecked={isSelected}
         sx={{
           justifyContent: 'start',
@@ -116,7 +115,7 @@ export default function ModelListItem(props: ModelListItemProps) {
         acceptCallback={handleModelDelete}
         acceptButtonText={t('modelManager.delete')}
         triggerComponent={
-          <IAIIconButton
+          <InvIconButton
             icon={<DeleteIcon />}
             aria-label={t('modelManager.deleteConfig')}
             colorScheme="error"

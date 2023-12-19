@@ -1,6 +1,5 @@
 import { ButtonGroup } from '@chakra-ui/react';
-import IAIButton from 'common/components/IAIButton';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvButton, InvIconButton } from 'common/components';
 import { Dispatch, SetStateAction, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -54,7 +53,7 @@ const WorkflowLibraryPagination = ({ page, setPage, data }: Props) => {
 
   return (
     <ButtonGroup>
-      <IAIIconButton
+      <InvIconButton
         variant="ghost"
         onClick={handlePrevPage}
         isDisabled={page === 0}
@@ -62,7 +61,7 @@ const WorkflowLibraryPagination = ({ page, setPage, data }: Props) => {
         icon={<FaChevronLeft />}
       />
       {pages.map((p) => (
-        <IAIButton
+        <InvButton
           w={10}
           isDisabled={data.pages === 1}
           onClick={p.page === page ? undefined : p.onClick}
@@ -71,9 +70,9 @@ const WorkflowLibraryPagination = ({ page, setPage, data }: Props) => {
           transitionDuration="0s" // the delay in animation looks jank
         >
           {p.page + 1}
-        </IAIButton>
+        </InvButton>
       ))}
-      <IAIIconButton
+      <InvIconButton
         variant="ghost"
         onClick={handleNextPage}
         isDisabled={page === data.pages - 1}

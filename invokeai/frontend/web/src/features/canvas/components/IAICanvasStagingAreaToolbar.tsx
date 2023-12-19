@@ -3,8 +3,7 @@ import { skipToken } from '@reduxjs/toolkit/query';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvButton, InvIconButton } from 'common/components';
 import { stagingAreaImageSaved } from 'features/canvas/store/actions';
 import {
   commitStagingAreaImage,
@@ -136,7 +135,7 @@ const IAICanvasStagingAreaToolbar = () => {
       onMouseLeave={handleMouseOut}
     >
       <ButtonGroup isAttached borderRadius="base" shadow="dark-lg">
-        <IAIIconButton
+        <InvIconButton
           tooltip={`${t('unifiedCanvas.previous')} (Left)`}
           aria-label={`${t('unifiedCanvas.previous')} (Left)`}
           icon={<FaArrowLeft />}
@@ -144,13 +143,13 @@ const IAICanvasStagingAreaToolbar = () => {
           colorScheme="accent"
           isDisabled={!shouldShowStagingImage}
         />
-        <IAIButton
+        <InvButton
           colorScheme="base"
           pointerEvents="none"
           isDisabled={!shouldShowStagingImage}
           minW={20}
-        >{`${currentIndex + 1}/${total}`}</IAIButton>
-        <IAIIconButton
+        >{`${currentIndex + 1}/${total}`}</InvButton>
+        <InvIconButton
           tooltip={`${t('unifiedCanvas.next')} (Right)`}
           aria-label={`${t('unifiedCanvas.next')} (Right)`}
           icon={<FaArrowRight />}
@@ -160,14 +159,14 @@ const IAICanvasStagingAreaToolbar = () => {
         />
       </ButtonGroup>
       <ButtonGroup isAttached borderRadius="base" shadow="dark-lg">
-        <IAIIconButton
+        <InvIconButton
           tooltip={`${t('unifiedCanvas.accept')} (Enter)`}
           aria-label={`${t('unifiedCanvas.accept')} (Enter)`}
           icon={<FaCheck />}
           onClick={handleAccept}
           colorScheme="accent"
         />
-        <IAIIconButton
+        <InvIconButton
           tooltip={
             shouldShowStagingImage
               ? t('unifiedCanvas.showResultsOn')
@@ -183,7 +182,7 @@ const IAICanvasStagingAreaToolbar = () => {
           onClick={handleToggleShouldShowStagingImage}
           colorScheme="accent"
         />
-        <IAIIconButton
+        <InvIconButton
           tooltip={t('unifiedCanvas.saveToGallery')}
           aria-label={t('unifiedCanvas.saveToGallery')}
           isDisabled={!imageDTO || !imageDTO.is_intermediate}
@@ -191,7 +190,7 @@ const IAICanvasStagingAreaToolbar = () => {
           onClick={handleSaveToGallery}
           colorScheme="accent"
         />
-        <IAIIconButton
+        <InvIconButton
           tooltip={t('unifiedCanvas.discardAll')}
           aria-label={t('unifiedCanvas.discardAll')}
           icon={<FaTimes />}

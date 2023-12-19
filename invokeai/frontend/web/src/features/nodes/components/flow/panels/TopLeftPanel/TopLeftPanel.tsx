@@ -1,7 +1,6 @@
 import { Flex } from '@chakra-ui/layout';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvButton, InvIconButton } from 'common/components';
 import { useGetNodesNeedUpdate } from 'features/nodes/hooks/useGetNodesNeedUpdate';
 import { updateAllNodesRequested } from 'features/nodes/store/actions';
 import { addNodePopoverOpened } from 'features/nodes/store/nodesSlice';
@@ -22,19 +21,19 @@ const TopLeftPanel = () => {
 
   return (
     <Flex sx={{ gap: 2, position: 'absolute', top: 2, insetInlineStart: 2 }}>
-      <IAIIconButton
+      <InvIconButton
         tooltip={t('nodes.addNodeToolTip')}
         aria-label={t('nodes.addNode')}
         icon={<FaPlus />}
         onClick={handleOpenAddNodePopover}
       />
       {nodesNeedUpdate && (
-        <IAIButton
+        <InvButton
           leftIcon={<FaExclamationTriangle />}
           onClick={handleClickUpdateNodes}
         >
           {t('nodes.updateAllNodes')}
-        </IAIButton>
+        </InvButton>
       )}
     </Flex>
   );

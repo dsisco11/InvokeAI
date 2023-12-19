@@ -1,6 +1,6 @@
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { setHorizontalSymmetrySteps } from 'features/parameters/store/generationSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -27,17 +27,17 @@ export default function ParamSymmetryHorizontal() {
   }, [dispatch]);
 
   return (
-    <IAISlider
-      label={t('parameters.hSymmetryStep')}
-      value={horizontalSymmetrySteps}
-      onChange={handleChange}
-      min={0}
-      max={steps}
-      step={1}
-      withInput
-      withSliderMarks
-      withReset
-      handleReset={handleReset}
-    />
+    <InvControl label={t('parameters.hSymmetryStep')}>
+      <InvSlider
+        value={horizontalSymmetrySteps}
+        onChange={handleChange}
+        min={0}
+        max={steps}
+        step={1}
+        withNumberInput
+        marks
+        onReset={handleReset}
+      />
+    </InvControl>
   );
 }

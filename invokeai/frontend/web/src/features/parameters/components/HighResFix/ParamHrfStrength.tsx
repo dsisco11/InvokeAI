@@ -2,7 +2,7 @@ import { Tooltip } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { setHrfStrength } from 'features/parameters/store/generationSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -46,19 +46,21 @@ const ParamHrfStrength = () => {
 
   return (
     <Tooltip label={t('hrf.strengthTooltip')} placement="right" hasArrow>
-      <IAISlider
+      <InvControl
         label={t('parameters.denoisingStrength')}
-        min={min}
-        max={sliderMax}
-        step={step}
-        value={hrfStrength}
-        onChange={handleHrfStrengthChange}
-        withSliderMarks
-        withInput
-        withReset
-        handleReset={handleHrfStrengthReset}
         isDisabled={!hrfEnabled}
-      />
+      >
+        <InvSlider
+          min={min}
+          max={sliderMax}
+          step={step}
+          value={hrfStrength}
+          onChange={handleHrfStrengthChange}
+          marks
+          withNumberInput
+          onReset={handleHrfStrengthReset}
+        />
+      </InvControl>
     </Tooltip>
   );
 };

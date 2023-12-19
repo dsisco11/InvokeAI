@@ -5,7 +5,7 @@ import {
   Flex,
   Text,
 } from '@chakra-ui/react';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvIconButton } from 'common/components';
 import { useCancelQueueItem } from 'features/queue/hooks/useCancelQueueItem';
 import { getSecondsFromTimestamps } from 'features/queue/util/getSecondsFromTimestamps';
 import { MouseEvent, memo, useCallback, useMemo } from 'react';
@@ -133,7 +133,7 @@ const QueueItemComponent = ({ index, item, context }: InnerItemProps) => {
         </Flex>
         <Flex alignItems="center" w={COLUMN_WIDTHS.actions} pe={3}>
           <ButtonGroup size="xs" variant="ghost">
-            <IAIIconButton
+            <InvIconButton
               onClick={handleCancelQueueItem}
               isDisabled={isCanceled}
               isLoading={isLoading}

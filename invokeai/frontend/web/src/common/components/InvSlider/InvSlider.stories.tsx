@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { InvSlider } from './InvSlider';
 import { useCallback, useState } from 'react';
 import { InvSliderProps } from 'common/components/InvSlider/types';
+import { InvControl } from 'common/components/InvControl';
 
 const meta: Meta<typeof InvSlider> = {
   title: 'Primitives/InvSlider',
@@ -24,7 +25,14 @@ const Component = (props: InvSliderProps) => {
     setValue(0);
   }, []);
   return (
-    <InvSlider {...props} value={value} onChange={setValue} onReset={onReset} />
+    <InvControl label="Slider">
+      <InvSlider
+        {...props}
+        value={value}
+        onChange={setValue}
+        onReset={onReset}
+      />
+    </InvControl>
   );
 };
 
@@ -34,5 +42,13 @@ export const Default: Story = {
     fineStep: 0.1,
     withThumbTooltip: true,
     formatValue: (v: number) => `${v} eggs`,
+  },
+};
+
+export const WithNumberInput: Story = {
+  render: Component,
+  args: {
+    withNumberInput: true,
+    numberInputWidth: 24,
   },
 };

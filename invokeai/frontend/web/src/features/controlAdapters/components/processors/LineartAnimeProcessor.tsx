@@ -1,4 +1,4 @@
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { CONTROLNET_PROCESSORS } from 'features/controlAdapters/store/constants';
 import { RequiredLineartAnimeImageProcessorInvocation } from 'features/controlAdapters/store/types';
 import { memo, useCallback } from 'react';
@@ -49,30 +49,34 @@ const LineartAnimeProcessor = (props: Props) => {
 
   return (
     <ProcessorWrapper>
-      <IAISlider
+      <InvControl
         label={t('controlnet.detectResolution')}
-        value={detect_resolution}
-        onChange={handleDetectResolutionChanged}
-        handleReset={handleDetectResolutionReset}
-        withReset
-        min={0}
-        max={4096}
-        withInput
-        withSliderMarks
         isDisabled={!isEnabled}
-      />
-      <IAISlider
+      >
+        <InvSlider
+          value={detect_resolution}
+          onChange={handleDetectResolutionChanged}
+          onReset={handleDetectResolutionReset}
+          min={0}
+          max={4096}
+          withNumberInput
+          marks
+        />
+      </InvControl>
+      <InvControl
         label={t('controlnet.imageResolution')}
-        value={image_resolution}
-        onChange={handleImageResolutionChanged}
-        handleReset={handleImageResolutionReset}
-        withReset
-        min={0}
-        max={4096}
-        withInput
-        withSliderMarks
         isDisabled={!isEnabled}
-      />
+      >
+        <InvSlider
+          value={image_resolution}
+          onChange={handleImageResolutionChanged}
+          onReset={handleImageResolutionReset}
+          min={0}
+          max={4096}
+          withNumberInput
+          marks
+        />
+      </InvControl>
     </ProcessorWrapper>
   );
 };

@@ -1,4 +1,4 @@
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { CONTROLNET_PROCESSORS } from 'features/controlAdapters/store/constants';
 import { RequiredCannyImageProcessorInvocation } from 'features/controlAdapters/store/types';
 import { memo, useCallback } from 'react';
@@ -49,30 +49,26 @@ const CannyProcessor = (props: CannyProcessorProps) => {
 
   return (
     <ProcessorWrapper>
-      <IAISlider
-        isDisabled={!isEnabled}
-        label={t('controlnet.lowThreshold')}
-        value={low_threshold}
-        onChange={handleLowThresholdChanged}
-        handleReset={handleLowThresholdReset}
-        withReset
-        min={0}
-        max={255}
-        withInput
-        withSliderMarks
-      />
-      <IAISlider
-        isDisabled={!isEnabled}
-        label={t('controlnet.highThreshold')}
-        value={high_threshold}
-        onChange={handleHighThresholdChanged}
-        handleReset={handleHighThresholdReset}
-        withReset
-        min={0}
-        max={255}
-        withInput
-        withSliderMarks
-      />
+      <InvControl label={t('controlnet.lowThreshold')} isDisabled={!isEnabled}>
+        <InvSlider
+          value={low_threshold}
+          onChange={handleLowThresholdChanged}
+          onReset={handleLowThresholdReset}
+          min={0}
+          max={255}
+          withNumberInput
+        />
+      </InvControl>
+      <InvControl label={t('controlnet.highThreshold')} isDisabled={!isEnabled}>
+        <InvSlider
+          value={high_threshold}
+          onChange={handleHighThresholdChanged}
+          onReset={handleHighThresholdReset}
+          min={0}
+          max={255}
+          withNumberInput
+        />
+      </InvControl>
     </ProcessorWrapper>
   );
 };

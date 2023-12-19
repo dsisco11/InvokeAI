@@ -12,8 +12,7 @@ import {
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
-import IAISwitch from 'common/components/IAISwitch';
+import { InvButton, InvControl, InvSwitch } from 'common/components';
 import { imageDeletionConfirmed } from 'features/deleteImageModal/store/actions';
 import {
   getImageUsage,
@@ -119,20 +118,21 @@ const DeleteImageModal = () => {
                   : t('gallery.deleteImagePermanent')}
               </Text>
               <Text>{t('common.areYouSure')}</Text>
-              <IAISwitch
-                label={t('common.dontAskMeAgain')}
-                isChecked={!shouldConfirmOnDelete}
-                onChange={handleChangeShouldConfirmOnDelete}
-              />
+              <InvControl label={t('common.dontAskMeAgain')}>
+                <InvSwitch
+                  isChecked={!shouldConfirmOnDelete}
+                  onChange={handleChangeShouldConfirmOnDelete}
+                />
+              </InvControl>
             </Flex>
           </AlertDialogBody>
           <AlertDialogFooter>
-            <IAIButton ref={cancelRef} onClick={handleClose}>
+            <InvButton ref={cancelRef} onClick={handleClose}>
               {t('boards.cancel')}
-            </IAIButton>
-            <IAIButton colorScheme="error" onClick={handleDelete} ml={3}>
+            </InvButton>
+            <InvButton colorScheme="error" onClick={handleDelete} ml={3}>
               {t('controlnet.delete')}
-            </IAIButton>
+            </InvButton>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialogOverlay>

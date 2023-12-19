@@ -1,4 +1,4 @@
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { CONTROLNET_PROCESSORS } from 'features/controlAdapters/store/constants';
 import { RequiredMediapipeFaceProcessorInvocation } from 'features/controlAdapters/store/types';
 import { memo, useCallback } from 'react';
@@ -45,31 +45,29 @@ const MediapipeFaceProcessor = (props: Props) => {
 
   return (
     <ProcessorWrapper>
-      <IAISlider
-        label={t('controlnet.maxFaces')}
-        value={max_faces}
-        onChange={handleMaxFacesChanged}
-        handleReset={handleMaxFacesReset}
-        withReset
-        min={1}
-        max={20}
-        withInput
-        withSliderMarks
-        isDisabled={!isEnabled}
-      />
-      <IAISlider
-        label={t('controlnet.minConfidence')}
-        value={min_confidence}
-        onChange={handleMinConfidenceChanged}
-        handleReset={handleMinConfidenceReset}
-        withReset
-        min={0}
-        max={1}
-        step={0.01}
-        withInput
-        withSliderMarks
-        isDisabled={!isEnabled}
-      />
+      <InvControl label={t('controlnet.maxFaces')} isDisabled={!isEnabled}>
+        <InvSlider
+          value={max_faces}
+          onChange={handleMaxFacesChanged}
+          onReset={handleMaxFacesReset}
+          min={1}
+          max={20}
+          marks
+          withNumberInput
+        />
+      </InvControl>
+      <InvControl label={t('controlnet.minConfidence')} isDisabled={!isEnabled}>
+        <InvSlider
+          value={min_confidence}
+          onChange={handleMinConfidenceChanged}
+          onReset={handleMinConfidenceReset}
+          min={0}
+          max={1}
+          step={0.01}
+          marks
+          withNumberInput
+        />
+      </InvControl>
     </ProcessorWrapper>
   );
 };

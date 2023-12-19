@@ -12,24 +12,24 @@ import { AnimatePresence } from 'framer-motion';
 import { useCallback, useMemo, useState } from 'react';
 import { InvSliderMark } from './InvSliderMark';
 import { InvFormattedMark, InvSliderProps } from './types';
+import { InvNumberInput } from 'common/components/InvNumberInput';
 
 export const InvSlider = (props: InvSliderProps) => {
   const {
     value,
     min,
     max,
-    step: _step,
+    step: _step = 1,
     fineStep: _fineStep,
     onChange,
     onReset,
     formatValue = (v: number) => v.toString(),
     marks: _marks,
     withThumbTooltip: withTooltip = false,
-    sliderThumbProps,
-    sliderThumbTooltipProps,
-    sliderTrackProps,
-    sliderFilledTrackProps,
-    sliderMarkProps,
+    withNumberInput = false,
+    numberInputMin = min,
+    numberInputMax = max,
+    numberInputWidth,
     ...sliderProps
   } = props;
   const [isMouseOverSlider, setIsMouseOverSlider] = useState(false);
@@ -49,55 +49,66 @@ export const InvSlider = (props: InvSliderProps) => {
   const onChangeStart = useCallback(() => setIsChanging(true), []);
   const onChangeEnd = useCallback(() => setIsChanging(false), []);
 
-  const marks = useMemo<InvFormattedMark[]>(
-    () => _marks?.map((m) => ({ value: m, label: formatValue(m) })) ?? [],
-    [_marks, formatValue]
-  );
+  const marks = useMemo<InvFormattedMark[]>(() => {
+    if (_marks === true) {
+      return [min, max].map((m) => ({ value: m, label: formatValue(m) }));
+    }
+    if (_marks) {
+      return _marks?.map((m) => ({ value: m, label: formatValue(m) }));
+    }
+    return [];
+  }, [_marks, formatValue, max, min]);
   return (
-    <ChakraSlider
-      value={value}
-      min={min}
-      max={max}
-      step={step}
-      onChange={onChange}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      focusThumbOnChange={false}
-      onChangeStart={onChangeStart}
-      onChangeEnd={onChangeEnd}
-      {...sliderProps}
-      {...controlProps}
-    >
-      <AnimatePresence>
-        {marks?.length &&
-          (isMouseOverSlider || isChanging) &&
-          marks.map((m, i) => (
-            <InvSliderMark
-              key={m.value}
-              {...sliderMarkProps}
-              value={m.value}
-              label={m.label}
-              index={i}
-              total={marks.length}
-            />
-          ))}
-      </AnimatePresence>
-
-      <ChakraSliderTrack {...sliderTrackProps}>
-        <ChakraSliderFilledTrack {...sliderFilledTrackProps} />
-      </ChakraSliderTrack>
-
-      <InvTooltip
-        isOpen={withTooltip && (isMouseOverSlider || isChanging)}
-        label={label}
-        {...sliderThumbTooltipProps}
+    <>
+      <ChakraSlider
+        value={value}
+        min={min}
+        max={max}
+        step={step}
+        onChange={onChange}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        focusThumbOnChange={false}
+        onChangeStart={onChangeStart}
+        onChangeEnd={onChangeEnd}
+        {...sliderProps}
+        {...controlProps}
       >
-        <ChakraSliderThumb
-          onDoubleClick={onReset}
-          zIndex={0}
-          {...sliderThumbProps}
+        <AnimatePresence>
+          {marks?.length &&
+            (isMouseOverSlider || isChanging) &&
+            marks.map((m, i) => (
+              <InvSliderMark
+                key={m.value}
+                value={m.value}
+                label={m.label}
+                index={i}
+                total={marks.length}
+              />
+            ))}
+        </AnimatePresence>
+
+        <ChakraSliderTrack>
+          <ChakraSliderFilledTrack />
+        </ChakraSliderTrack>
+
+        <InvTooltip
+          isOpen={withTooltip && (isMouseOverSlider || isChanging)}
+          label={label}
+        >
+          <ChakraSliderThumb onDoubleClick={onReset} zIndex={0} />
+        </InvTooltip>
+      </ChakraSlider>
+      {withNumberInput && (
+        <InvNumberInput
+          value={value}
+          min={numberInputMin}
+          max={numberInputMax}
+          step={step}
+          onChange={onChange}
+          w={numberInputWidth}
         />
-      </InvTooltip>
-    </ChakraSlider>
+      )}
+    </>
   );
 };

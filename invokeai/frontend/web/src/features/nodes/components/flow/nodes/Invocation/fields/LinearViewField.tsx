@@ -7,7 +7,7 @@ import {
   Tooltip,
 } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvIconButton } from 'common/components';
 import NodeSelectionOverlay from 'common/components/NodeSelectionOverlay';
 import { useMouseOverNode } from 'features/nodes/hooks/useMouseOverNode';
 import { workflowExposedFieldRemoved } from 'features/nodes/store/workflowSlice';
@@ -75,7 +75,7 @@ const LinearViewField = ({ nodeId, fieldName }: Props) => {
               <Icon as={FaInfoCircle} />
             </Flex>
           </Tooltip>
-          <IAIIconButton
+          <InvIconButton
             aria-label={t('nodes.removeLinearView')}
             tooltip={t('nodes.removeLinearView')}
             variant="ghost"

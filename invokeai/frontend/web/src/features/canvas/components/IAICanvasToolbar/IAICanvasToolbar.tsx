@@ -2,7 +2,7 @@ import { Box, ButtonGroup, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvIconButton } from 'common/components';
 import IAIMantineSelect from 'common/components/IAIMantineSelect';
 import { useCopyImageToClipboard } from 'common/hooks/useCopyImageToClipboard';
 import { useImageUploadButton } from 'common/hooks/useImageUploadButton';
@@ -226,14 +226,14 @@ const IAICanvasToolbar = () => {
       <IAICanvasToolChooserOptions />
 
       <ButtonGroup isAttached>
-        <IAIIconButton
+        <InvIconButton
           aria-label={`${t('unifiedCanvas.move')} (V)`}
           tooltip={`${t('unifiedCanvas.move')} (V)`}
           icon={<FaArrowsAlt />}
           isChecked={tool === 'move' || isStaging}
           onClick={handleSelectMoveTool}
         />
-        <IAIIconButton
+        <InvIconButton
           aria-label={`${t('unifiedCanvas.resetView')} (R)`}
           tooltip={`${t('unifiedCanvas.resetView')} (R)`}
           icon={<FaCrosshairs />}
@@ -242,14 +242,14 @@ const IAICanvasToolbar = () => {
       </ButtonGroup>
 
       <ButtonGroup isAttached>
-        <IAIIconButton
+        <InvIconButton
           aria-label={`${t('unifiedCanvas.mergeVisible')} (Shift+M)`}
           tooltip={`${t('unifiedCanvas.mergeVisible')} (Shift+M)`}
           icon={<FaLayerGroup />}
           onClick={handleMergeVisible}
           isDisabled={isStaging}
         />
-        <IAIIconButton
+        <InvIconButton
           aria-label={`${t('unifiedCanvas.saveToGallery')} (Shift+S)`}
           tooltip={`${t('unifiedCanvas.saveToGallery')} (Shift+S)`}
           icon={<FaSave />}
@@ -257,7 +257,7 @@ const IAICanvasToolbar = () => {
           isDisabled={isStaging}
         />
         {isClipboardAPIAvailable && (
-          <IAIIconButton
+          <InvIconButton
             aria-label={`${t('unifiedCanvas.copyToClipboard')} (Cmd/Ctrl+C)`}
             tooltip={`${t('unifiedCanvas.copyToClipboard')} (Cmd/Ctrl+C)`}
             icon={<FaCopy />}
@@ -265,7 +265,7 @@ const IAICanvasToolbar = () => {
             isDisabled={isStaging}
           />
         )}
-        <IAIIconButton
+        <InvIconButton
           aria-label={`${t('unifiedCanvas.downloadAsImage')} (Shift+D)`}
           tooltip={`${t('unifiedCanvas.downloadAsImage')} (Shift+D)`}
           icon={<FaDownload />}
@@ -279,7 +279,7 @@ const IAICanvasToolbar = () => {
       </ButtonGroup>
 
       <ButtonGroup isAttached>
-        <IAIIconButton
+        <InvIconButton
           aria-label={`${t('common.upload')}`}
           tooltip={`${t('common.upload')}`}
           icon={<FaUpload />}
@@ -287,7 +287,7 @@ const IAICanvasToolbar = () => {
           {...getUploadButtonProps()}
         />
         <input {...getUploadInputProps()} />
-        <IAIIconButton
+        <InvIconButton
           aria-label={`${t('unifiedCanvas.clearCanvas')}`}
           tooltip={`${t('unifiedCanvas.clearCanvas')}`}
           icon={<FaTrash />}

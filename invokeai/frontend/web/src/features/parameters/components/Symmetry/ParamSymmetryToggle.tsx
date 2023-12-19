@@ -1,6 +1,6 @@
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISwitch from 'common/components/IAISwitch';
+import { InvControl, InvSwitch } from 'common/components';
 import { setShouldUseSymmetry } from 'features/parameters/store/generationSlice';
 import { ChangeEvent, useCallback } from 'react';
 
@@ -18,10 +18,8 @@ export default function ParamSymmetryToggle() {
   );
 
   return (
-    <IAISwitch
-      label="Enable Symmetry"
-      isChecked={shouldUseSymmetry}
-      onChange={handleChange}
-    />
+    <InvControl label="Enable Symmetry">
+      <InvSwitch isChecked={shouldUseSymmetry} onChange={handleChange} />
+    </InvControl>
   );
 }

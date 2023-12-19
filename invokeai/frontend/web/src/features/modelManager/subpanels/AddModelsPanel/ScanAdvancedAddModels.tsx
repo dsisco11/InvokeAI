@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvIconButton } from 'common/components';
 import IAIMantineSelect from 'common/components/IAIMantineSelect';
 import { motion } from 'framer-motion';
 import { useCallback, useEffect, useState, useMemo } from 'react';
@@ -88,7 +88,7 @@ export default function ScanAdvancedAddModels() {
             ? 'Add Checkpoint Model'
             : 'Add Diffusers Model'}
         </Text>
-        <IAIIconButton
+        <InvIconButton
           icon={<FaTimes />}
           aria-label={t('modelManager.closeAdvanced')}
           onClick={handleClickSetAdvanced}

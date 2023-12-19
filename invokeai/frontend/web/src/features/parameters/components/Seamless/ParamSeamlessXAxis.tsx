@@ -1,7 +1,7 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISwitch from 'common/components/IAISwitch';
+import { InvControl, InvSwitch } from 'common/components';
 import { setSeamlessXAxis } from 'features/parameters/store/generationSlice';
 import { ChangeEvent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -26,12 +26,9 @@ const ParamSeamlessXAxis = () => {
   );
 
   return (
-    <IAISwitch
-      label={t('parameters.seamlessXAxis')}
-      aria-label={t('parameters.seamlessXAxis')}
-      isChecked={seamlessXAxis}
-      onChange={handleChange}
-    />
+    <InvControl label={t('parameters.seamlessXAxis')}>
+      <InvSwitch isChecked={seamlessXAxis} onChange={handleChange} />
+    </InvControl>
   );
 };
 

@@ -1,4 +1,4 @@
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { CONTROLNET_PROCESSORS } from 'features/controlAdapters/store/constants';
 import { RequiredColorMapImageProcessorInvocation } from 'features/controlAdapters/store/types';
 import { memo, useCallback } from 'react';
@@ -36,22 +36,22 @@ const ColorMapProcessor = (props: ColorMapProcessorProps) => {
 
   return (
     <ProcessorWrapper>
-      <IAISlider
-        isDisabled={!isEnabled}
+      <InvControl
         label={t('controlnet.colorMapTileSize')}
-        value={color_map_tile_size}
-        onChange={handleColorMapTileSizeChanged}
-        handleReset={handleColorMapTileSizeReset}
-        withReset
-        min={1}
-        max={256}
-        step={1}
-        withInput
-        withSliderMarks
-        sliderNumberInputProps={{
-          max: 4096,
-        }}
-      />
+        isDisabled={!isEnabled}
+      >
+        <InvSlider
+          value={color_map_tile_size}
+          onChange={handleColorMapTileSizeChanged}
+          onReset={handleColorMapTileSizeReset}
+          min={1}
+          max={256}
+          step={1}
+          marks
+          withNumberInput
+          numberInputMax={4096}
+        />
+      </InvControl>
     </ProcessorWrapper>
   );
 };

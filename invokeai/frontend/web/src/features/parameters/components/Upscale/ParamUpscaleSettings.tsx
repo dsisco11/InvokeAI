@@ -1,9 +1,14 @@
 import { Flex, useDisclosure } from '@chakra-ui/react';
 import { upscaleRequested } from 'app/store/middleware/listenerMiddleware/listeners/upscaleRequested';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
-import IAIIconButton from 'common/components/IAIIconButton';
-import IAIPopover from 'common/components/IAIPopover';
+import {
+  InvButton,
+  InvIconButton,
+  InvPopover,
+  InvPopoverTrigger,
+  InvPopoverContent,
+  InvPopoverBody,
+} from 'common/components';
 import { useIsAllowedToUpscale } from 'features/parameters/hooks/useIsAllowedToUpscale';
 import { useIsQueueMutationInProgress } from 'features/queue/hooks/useIsQueueMutationInProgress';
 import { memo, useCallback } from 'react';
@@ -31,35 +36,36 @@ const ParamUpscalePopover = (props: Props) => {
   }, [dispatch, imageDTO, isAllowedToUpscale, onClose]);
 
   return (
-    <IAIPopover
-      isOpen={isOpen}
-      onClose={onClose}
-      triggerComponent={
-        <IAIIconButton
+    <InvPopover isOpen={isOpen} onClose={onClose}>
+      <InvPopoverTrigger>
+        <InvIconButton
           tooltip={t('parameters.upscale')}
           onClick={onOpen}
           icon={<FaExpand />}
           aria-label={t('parameters.upscale')}
         />
-      }
-    >
-      <Flex
-        sx={{
-          flexDirection: 'column',
-          gap: 4,
-        }}
-      >
-        <ParamESRGANModel />
-        <IAIButton
-          tooltip={detail}
-          size="sm"
-          isDisabled={!imageDTO || inProgress || !isAllowedToUpscale}
-          onClick={handleClickUpscale}
-        >
-          {t('parameters.upscaleImage')}
-        </IAIButton>
-      </Flex>
-    </IAIPopover>
+      </InvPopoverTrigger>
+      <InvPopoverContent>
+        <InvPopoverBody>
+          <Flex
+            sx={{
+              flexDirection: 'column',
+              gap: 4,
+            }}
+          >
+            <ParamESRGANModel />
+            <InvButton
+              tooltip={detail}
+              size="sm"
+              isDisabled={!imageDTO || inProgress || !isAllowedToUpscale}
+              onClick={handleClickUpscale}
+            >
+              {t('parameters.upscaleImage')}
+            </InvButton>
+          </Flex>
+        </InvPopoverBody>
+      </InvPopoverContent>
+    </InvPopover>
   );
 };
 

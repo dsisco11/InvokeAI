@@ -2,7 +2,7 @@ import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
-import IAINumberInput from 'common/components/IAINumberInput';
+import { InvControl, InvNumberInput } from 'common/components';
 import {
   clampSymmetrySteps,
   setSteps,
@@ -49,16 +49,16 @@ const ParamSteps = () => {
 
   return (
     <IAIInformationalPopover feature="paramSteps">
-      <IAINumberInput
-        label={t('parameters.steps')}
-        min={min}
-        max={inputMax}
-        step={step}
-        onChange={handleChange}
-        value={steps}
-        numberInputFieldProps={{ textAlign: 'center' }}
-        onBlur={handleBlur}
-      />
+      <InvControl label={t('parameters.steps')}>
+        <InvNumberInput
+          min={min}
+          max={inputMax}
+          step={step}
+          onChange={handleChange}
+          value={steps}
+          onBlur={handleBlur}
+        />
+      </InvControl>
     </IAIInformationalPopover>
   );
 };

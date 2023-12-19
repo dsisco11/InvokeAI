@@ -1,6 +1,6 @@
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISwitch from 'common/components/IAISwitch';
+import { InvControl, InvSwitch } from 'common/components';
 import { setShouldUseSDXLRefiner } from 'features/sdxl/store/sdxlSlice';
 import { ChangeEvent, useCallback } from 'react';
 import { useIsRefinerAvailable } from 'services/api/hooks/useIsRefinerAvailable';
@@ -23,11 +23,11 @@ export default function ParamUseSDXLRefiner() {
   );
 
   return (
-    <IAISwitch
-      label={t('sdxl.useRefiner')}
-      isChecked={shouldUseSDXLRefiner}
-      onChange={handleUseSDXLRefinerChange}
-      isDisabled={!isRefinerAvailable}
-    />
+    <InvControl label={t('sdxl.useRefiner')} isDisabled={!isRefinerAvailable}>
+      <InvSwitch
+        isChecked={shouldUseSDXLRefiner}
+        onChange={handleUseSDXLRefinerChange}
+      />
+    </InvControl>
   );
 }

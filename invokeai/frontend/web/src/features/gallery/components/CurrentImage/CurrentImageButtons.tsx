@@ -1,12 +1,16 @@
 import { ButtonGroup, Flex } from '@chakra-ui/react';
-import { InvMenu, InvMenuButton, InvMenuList } from 'common/components/';
+import {
+  InvIconButton,
+  InvMenu,
+  InvMenuButton,
+  InvMenuList,
+} from 'common/components/';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { useAppToaster } from 'app/components/Toaster';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { upscaleRequested } from 'app/store/middleware/listenerMiddleware/listeners/upscaleRequested';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIIconButton from 'common/components/IAIIconButton';
 import { DeleteImageButton } from 'features/deleteImageModal/components/DeleteImageButton';
 import { imagesToDeleteSelected } from 'features/deleteImageModal/store/slice';
 import SingleSelectionMenuItems from 'features/gallery/components/ImageContextMenu/SingleSelectionMenuItems';
@@ -226,7 +230,7 @@ const CurrentImageButtons = () => {
         <ButtonGroup isAttached={true} isDisabled={shouldDisableToolbarButtons}>
           <InvMenu isLazy>
             <InvMenuButton
-              as={IAIIconButton}
+              as={InvIconButton}
               aria-label={t('parameters.imageActions')}
               tooltip={t('parameters.imageActions')}
               isDisabled={!imageDTO}
@@ -239,7 +243,7 @@ const CurrentImageButtons = () => {
         </ButtonGroup>
 
         <ButtonGroup isAttached={true} isDisabled={shouldDisableToolbarButtons}>
-          <IAIIconButton
+          <InvIconButton
             icon={<FaCircleNodes />}
             tooltip={`${t('nodes.loadWorkflow')} (W)`}
             aria-label={`${t('nodes.loadWorkflow')} (W)`}
@@ -247,7 +251,7 @@ const CurrentImageButtons = () => {
             onClick={handleLoadWorkflow}
             isLoading={getAndLoadEmbeddedWorkflowResult.isLoading}
           />
-          <IAIIconButton
+          <InvIconButton
             isLoading={isLoadingMetadata}
             icon={<FaQuoteRight />}
             tooltip={`${t('parameters.usePrompt')} (P)`}
@@ -255,7 +259,7 @@ const CurrentImageButtons = () => {
             isDisabled={!metadata?.positive_prompt}
             onClick={handleUsePrompt}
           />
-          <IAIIconButton
+          <InvIconButton
             isLoading={isLoadingMetadata}
             icon={<FaSeedling />}
             tooltip={`${t('parameters.useSeed')} (S)`}
@@ -263,7 +267,7 @@ const CurrentImageButtons = () => {
             isDisabled={metadata?.seed === null || metadata?.seed === undefined}
             onClick={handleUseSeed}
           />
-          <IAIIconButton
+          <InvIconButton
             isLoading={isLoadingMetadata}
             icon={<FaRulerVertical />}
             tooltip={`${t('parameters.useSize')} (D)`}
@@ -276,7 +280,7 @@ const CurrentImageButtons = () => {
             }
             onClick={handleUseSize}
           />
-          <IAIIconButton
+          <InvIconButton
             isLoading={isLoadingMetadata}
             icon={<FaAsterisk />}
             tooltip={`${t('parameters.useAll')} (A)`}
@@ -293,7 +297,7 @@ const CurrentImageButtons = () => {
         )}
 
         <ButtonGroup isAttached={true}>
-          <IAIIconButton
+          <InvIconButton
             icon={<FaCode />}
             tooltip={`${t('parameters.info')} (I)`}
             aria-label={`${t('parameters.info')} (I)`}
@@ -303,7 +307,7 @@ const CurrentImageButtons = () => {
         </ButtonGroup>
 
         <ButtonGroup isAttached={true}>
-          <IAIIconButton
+          <InvIconButton
             aria-label={t('settings.displayInProgress')}
             tooltip={t('settings.displayInProgress')}
             icon={<FaHourglassHalf />}

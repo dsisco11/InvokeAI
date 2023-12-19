@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/layout';
 import { Portal } from '@chakra-ui/portal';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvIconButton } from 'common/components';
 import { RefObject, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdPhotoLibrary } from 'react-icons/md';
@@ -34,7 +34,7 @@ const FloatingGalleryButton = ({
         top="50%"
         insetInlineEnd="1.63rem"
       >
-        <IAIIconButton
+        <InvIconButton
           tooltip="Show Gallery (G)"
           tooltipProps={{ placement: 'top' }}
           aria-label={t('accessibility.showGalleryPanel')}

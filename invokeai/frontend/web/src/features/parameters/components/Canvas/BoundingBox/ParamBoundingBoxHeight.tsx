@@ -1,7 +1,7 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAISlider from 'common/components/IAISlider';
+import { InvControl, InvSlider } from 'common/components';
 import { roundToMultiple } from 'common/util/roundDownToMultiple';
 import { isStagingSelector } from 'features/canvas/store/canvasSelectors';
 import { setBoundingBoxDimensions } from 'features/canvas/store/canvasSlice';
@@ -73,20 +73,22 @@ const ParamBoundingBoxWidth = () => {
   }, [aspectRatio, boundingBoxDimensions, dispatch, initial]);
 
   return (
-    <IAISlider
+    <InvControl
       label={t('parameters.boundingBoxHeight')}
-      min={64}
-      max={1536}
-      step={64}
-      value={boundingBoxDimensions.height}
-      onChange={handleChangeHeight}
       isDisabled={isStaging}
-      sliderNumberInputProps={{ max: 4096 }}
-      withSliderMarks
-      withInput
-      withReset
-      handleReset={handleResetHeight}
-    />
+    >
+      <InvSlider
+        min={64}
+        max={1536}
+        step={64}
+        value={boundingBoxDimensions.height}
+        onChange={handleChangeHeight}
+        onReset={handleResetHeight}
+        marks
+        withNumberInput
+        numberInputMax={4096}
+      />
+    </InvControl>
   );
 };
 

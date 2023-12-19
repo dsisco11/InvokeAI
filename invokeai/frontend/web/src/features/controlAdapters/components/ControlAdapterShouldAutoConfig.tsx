@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAISwitch from 'common/components/IAISwitch';
+import { InvControl, InvSwitch } from 'common/components';
 import { controlAdapterAutoConfigToggled } from 'features/controlAdapters/store/controlAdaptersSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -26,13 +26,12 @@ const ControlAdapterShouldAutoConfig = ({ id }: Props) => {
   }
 
   return (
-    <IAISwitch
-      label={t('controlnet.autoConfigure')}
-      aria-label={t('controlnet.autoConfigure')}
-      isChecked={shouldAutoConfig}
-      onChange={handleShouldAutoConfigChanged}
-      isDisabled={!isEnabled}
-    />
+    <InvControl label={t('controlnet.autoConfigure')} isDisabled={!isEnabled}>
+      <InvSwitch
+        isChecked={shouldAutoConfig}
+        onChange={handleShouldAutoConfigChanged}
+      />
+    </InvControl>
   );
 };
 

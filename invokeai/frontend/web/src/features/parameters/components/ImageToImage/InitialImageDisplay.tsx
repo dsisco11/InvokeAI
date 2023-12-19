@@ -2,7 +2,7 @@ import { Flex, Spacer, Text } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvIconButton } from 'common/components';
 import { useImageUploadButton } from 'common/hooks/useImageUploadButton';
 import { useRecallParameters } from 'features/parameters/hooks/useRecallParameters';
 import { clearInitialImage } from 'features/parameters/store/generationSlice';
@@ -82,20 +82,20 @@ const InitialImageDisplay = () => {
           {t('metadata.initImage')}
         </Text>
         <Spacer />
-        <IAIIconButton
+        <InvIconButton
           tooltip="Upload Initial Image"
           aria-label="Upload Initial Image"
           icon={<FaUpload />}
           {...getUploadButtonProps()}
         />
-        <IAIIconButton
+        <InvIconButton
           tooltip={`${t('parameters.useSize')} (Shift+D)`}
           aria-label={`${t('parameters.useSize')} (Shift+D)`}
           icon={<FaRulerVertical />}
           onClick={handleUseSizeInitialImage}
           isDisabled={isResetButtonDisabled}
         />
-        <IAIIconButton
+        <InvIconButton
           tooltip="Reset Initial Image"
           aria-label="Reset Initial Image"
           icon={<FaUndo />}

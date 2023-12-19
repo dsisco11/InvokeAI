@@ -1,4 +1,4 @@
-import IAIIconButton from 'common/components/IAIIconButton';
+import { InvIconButton } from 'common/components';
 import { memo } from 'react';
 import { FaCode } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
@@ -11,7 +11,7 @@ const AddEmbeddingButton = (props: Props) => {
   const { onClick } = props;
   const { t } = useTranslation();
   return (
-    <IAIIconButton
+    <InvIconButton
       size="sm"
       aria-label={t('embedding.addEmbedding')}
       tooltip={t('embedding.addEmbedding')}

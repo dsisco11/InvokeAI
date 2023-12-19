@@ -10,8 +10,7 @@ import {
 import ParamControlAdapterModel from './parameters/ParamControlAdapterModel';
 import ParamControlAdapterWeight from './parameters/ParamControlAdapterWeight';
 import { ChevronUpIcon } from '@chakra-ui/icons';
-import IAIIconButton from 'common/components/IAIIconButton';
-import IAISwitch from 'common/components/IAISwitch';
+import { InvControl, InvIconButton, InvSwitch } from 'common/components';
 import { activeTabNameSelector } from 'features/ui/store/uiSelectors';
 import { useTranslation } from 'react-i18next';
 import { useToggle } from 'react-use';
@@ -74,14 +73,13 @@ const ControlAdapterConfig = (props: { id: string; number: number }) => {
       <Flex
         sx={{ gap: 2, alignItems: 'center', justifyContent: 'space-between' }}
       >
-        <IAISwitch
-          label={t(`controlnet.${controlAdapterType}`, { number })}
-          aria-label={t('controlnet.toggleControlNet')}
-          isChecked={isEnabled}
-          onChange={handleToggleIsEnabled}
-          formControlProps={{ w: 'full' }}
-          formLabelProps={{ fontWeight: 600 }}
-        />
+        <InvControl label={t(`controlnet.${controlAdapterType}`, { number })}>
+          <InvSwitch
+            aria-label={t('controlnet.toggleControlNet')}
+            isChecked={isEnabled}
+            onChange={handleToggleIsEnabled}
+          />
+        </InvControl>
       </Flex>
       <Flex sx={{ gap: 2, alignItems: 'center' }}>
         <Box
@@ -97,14 +95,14 @@ const ControlAdapterConfig = (props: { id: string; number: number }) => {
         {activeTabName === 'unifiedCanvas' && (
           <ControlNetCanvasImageImports id={id} />
         )}
-        <IAIIconButton
+        <InvIconButton
           size="sm"
           tooltip={t('controlnet.duplicate')}
           aria-label={t('controlnet.duplicate')}
           onClick={handleDuplicate}
           icon={<FaCopy />}
         />
-        <IAIIconButton
+        <InvIconButton
           size="sm"
           tooltip={t('controlnet.delete')}
           aria-label={t('controlnet.delete')}
@@ -112,7 +110,7 @@ const ControlAdapterConfig = (props: { id: string; number: number }) => {
           onClick={handleDelete}
           icon={<FaTrash />}
         />
-        <IAIIconButton
+        <InvIconButton
           size="sm"
           tooltip={
             isExpanded

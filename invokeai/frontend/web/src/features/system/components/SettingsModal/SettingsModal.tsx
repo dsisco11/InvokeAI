@@ -36,7 +36,6 @@ import { LANGUAGES } from 'features/system/store/types';
 import {
   setShouldAutoChangeDimensions,
   setShouldShowProgressInViewer,
-  setShouldUseSliders,
 } from 'features/ui/store/uiSlice';
 import {
   ChangeEvent,
@@ -67,16 +66,11 @@ const selector = createMemoizedSelector([stateSelector], ({ system, ui }) => {
     shouldEnableInformationalPopovers,
   } = system;
 
-  const {
-    shouldUseSliders,
-    shouldShowProgressInViewer,
-    shouldAutoChangeDimensions,
-  } = ui;
+  const { shouldShowProgressInViewer, shouldAutoChangeDimensions } = ui;
 
   return {
     shouldConfirmOnDelete,
     enableImageDebugging,
-    shouldUseSliders,
     shouldShowProgressInViewer,
     consoleLogLevel,
     shouldLogToConsole,
@@ -146,7 +140,6 @@ const SettingsModal = ({ children, config }: SettingsModalProps) => {
   const {
     shouldConfirmOnDelete,
     enableImageDebugging,
-    shouldUseSliders,
     shouldShowProgressInViewer,
     consoleLogLevel,
     shouldLogToConsole,
@@ -214,12 +207,6 @@ const SettingsModal = ({ children, config }: SettingsModalProps) => {
   const handleChangeShouldUseWatermarker = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       dispatch(shouldUseWatermarkerChanged(e.target.checked));
-    },
-    [dispatch]
-  );
-  const handleChangeShouldUseSliders = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
-      dispatch(setShouldUseSliders(e.target.checked));
     },
     [dispatch]
   );
@@ -304,11 +291,6 @@ const SettingsModal = ({ children, config }: SettingsModalProps) => {
                   label={t('common.darkMode')}
                   isChecked={colorMode === 'dark'}
                   onChange={toggleColorMode}
-                />
-                <SettingSwitch
-                  label={t('settings.useSlidersForAll')}
-                  isChecked={shouldUseSliders}
-                  onChange={handleChangeShouldUseSliders}
                 />
                 <SettingSwitch
                   label={t('settings.showProgressInViewer')}

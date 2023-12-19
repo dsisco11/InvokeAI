@@ -17,15 +17,13 @@ import ParamUseSDXLRefiner from './SDXLRefiner/ParamUseSDXLRefiner';
 
 const selector = createMemoizedSelector(stateSelector, (state) => {
   const { shouldUseSDXLRefiner } = state.sdxl;
-  const { shouldUseSliders } = state.ui;
   return {
     activeLabel: shouldUseSDXLRefiner ? 'Enabled' : undefined,
-    shouldUseSliders,
   };
 });
 
 const ParamSDXLRefinerCollapse = () => {
-  const { activeLabel, shouldUseSliders } = useAppSelector(selector);
+  const { activeLabel } = useAppSelector(selector);
   const { t } = useTranslation();
   const isRefinerAvailable = useIsRefinerAvailable();
 
@@ -46,7 +44,7 @@ const ParamSDXLRefinerCollapse = () => {
       <Flex sx={{ gap: 2, flexDir: 'column' }}>
         <ParamUseSDXLRefiner />
         <ParamSDXLRefinerModelSelect />
-        <Flex gap={2} flexDirection={shouldUseSliders ? 'column' : 'row'}>
+        <Flex gap={2} flexDirection="row">
           <ParamSDXLRefinerSteps />
           <ParamSDXLRefinerCFGScale />
         </Flex>

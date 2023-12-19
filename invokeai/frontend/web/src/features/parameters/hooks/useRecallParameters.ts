@@ -30,9 +30,9 @@ import {
   modelSelected,
 } from 'features/parameters/store/actions';
 import {
+  heightChanged,
   setCfgRescaleMultiplier,
   setCfgScale,
-  setHeight,
   setHrfEnabled,
   setHrfMethod,
   setHrfStrength,
@@ -42,8 +42,8 @@ import {
   setScheduler,
   setSeed,
   setSteps,
-  setWidth,
   vaeSelected,
+  widthChanged,
 } from 'features/parameters/store/generationSlice';
 import {
   isParameterCFGRescaleMultiplier,
@@ -370,7 +370,7 @@ export const useRecallParameters = () => {
         parameterNotSetToast();
         return;
       }
-      dispatch(setWidth(width));
+      dispatch(widthChanged(width));
       parameterSetToast();
     },
     [dispatch, parameterSetToast, parameterNotSetToast]
@@ -385,7 +385,7 @@ export const useRecallParameters = () => {
         parameterNotSetToast();
         return;
       }
-      dispatch(setHeight(height));
+      dispatch(heightChanged(height));
       parameterSetToast();
     },
     [dispatch, parameterSetToast, parameterNotSetToast]
@@ -404,8 +404,8 @@ export const useRecallParameters = () => {
         allParameterNotSetToast();
         return;
       }
-      dispatch(setHeight(height));
-      dispatch(setWidth(width));
+      dispatch(heightChanged(height));
+      dispatch(widthChanged(width));
       allParameterSetToast();
     },
     [dispatch, allParameterSetToast, allParameterNotSetToast]
@@ -883,11 +883,11 @@ export const useRecallParameters = () => {
       }
 
       if (isParameterWidth(width)) {
-        dispatch(setWidth(width));
+        dispatch(widthChanged(width));
       }
 
       if (isParameterHeight(height)) {
-        dispatch(setHeight(height));
+        dispatch(heightChanged(height));
       }
 
       if (isParameterStrength(strength)) {

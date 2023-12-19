@@ -145,7 +145,7 @@ const IAICanvasBoundingBox = (props: IAICanvasBoundingBoxPreviewProps) => {
     const y = Math.round(rect.y());
 
     if (aspectRatio) {
-      const newHeight = roundToMultiple(width / aspectRatio, 64);
+      const newHeight = roundToMultiple(width / aspectRatio.value, 64);
       dispatch(
         setBoundingBoxDimensions({
           width: width,

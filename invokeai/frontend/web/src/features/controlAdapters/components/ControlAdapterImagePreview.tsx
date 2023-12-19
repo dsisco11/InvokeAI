@@ -14,7 +14,10 @@ import {
   TypesafeDraggableData,
   TypesafeDroppableData,
 } from 'features/dnd/types';
-import { setHeight, setWidth } from 'features/parameters/store/generationSlice';
+import {
+  heightChanged,
+  widthChanged,
+} from 'features/parameters/store/generationSlice';
 import { activeTabNameSelector } from 'features/ui/store/uiSelectors';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -115,8 +118,8 @@ const ControlAdapterImagePreview = ({ isSmall, id }: Props) => {
         })
       );
     } else {
-      dispatch(setWidth(controlImage.width));
-      dispatch(setHeight(controlImage.height));
+      dispatch(widthChanged(controlImage.width));
+      dispatch(heightChanged(controlImage.height));
     }
   }, [controlImage, activeTabName, dispatch]);
 

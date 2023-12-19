@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvCollapse } from 'common/components/';
+import { InvSingleAccordion } from 'common/components/';
 import LoRASelect from 'features/lora/components/LoRACollapse/LoRASelect';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { size } from 'lodash-es';
@@ -18,7 +18,7 @@ const LoRACollapse = () => {
   }
 
   return (
-    <InvCollapse
+    <InvSingleAccordion
       label={t('modelManager.loraModels')}
       defaultIsOpen={true}
       badges={loraCount ? [loraCount] : undefined}
@@ -27,7 +27,7 @@ const LoRACollapse = () => {
         <LoRASelect />
         <LoRAList />
       </Flex>
-    </InvCollapse>
+    </InvSingleAccordion>
   );
 };
 

@@ -4,7 +4,7 @@ import {
   roundDownToMultiple,
   roundToMultiple,
 } from 'common/util/roundDownToMultiple';
-import { setAspectRatio } from 'features/parameters/store/generationSlice';
+import { aspectRatioSelected } from 'features/parameters/store/generationSlice';
 import { IRect, Vector2d } from 'konva/lib/types';
 import { clamp, cloneDeep } from 'lodash-es';
 import { RgbaColor } from 'react-colorful';
@@ -31,6 +31,7 @@ import {
 } from './canvasTypes';
 import { appSocketQueueItemStatusChanged } from 'services/events/actions';
 import { queueApi } from 'services/api/endpoints/queue';
+import { ASPECT_RATIO_MAP } from 'features/ImageSettings';
 
 export const initialLayerState: CanvasLayerState = {
   objects: [],
@@ -800,15 +801,17 @@ export const canvasSlice = createSlice({
         );
       }
     });
-    builder.addCase(setAspectRatio, (state, action) => {
-      const ratio = action.payload;
-      if (ratio) {
+    builder.addCase(aspectRatioSelected, (state, action) => {
+      const aspectRatioID = action.payload;
+      if (aspectRatioID !== 'Free') {
         state.boundingBoxDimensions.height = roundToMultiple(
-          state.boundingBoxDimensions.width / ratio,
+          state.boundingBoxDimensions.width /
+            ASPECT_RATIO_MAP[aspectRatioID].ratio,
           64
         );
         state.scaledBoundingBoxDimensions.height = roundToMultiple(
-          state.scaledBoundingBoxDimensions.width / ratio,
+          state.scaledBoundingBoxDimensions.width /
+            ASPECT_RATIO_MAP[aspectRatioID].ratio,
           64
         );
       }

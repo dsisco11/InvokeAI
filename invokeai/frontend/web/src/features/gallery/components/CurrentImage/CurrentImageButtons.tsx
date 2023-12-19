@@ -16,7 +16,7 @@ import { DeleteImageButton } from 'features/deleteImageModal/components/DeleteIm
 import { imagesToDeleteSelected } from 'features/deleteImageModal/store/slice';
 import SingleSelectionMenuItems from 'features/gallery/components/ImageContextMenu/SingleSelectionMenuItems';
 import { sentImageToImg2Img } from 'features/gallery/store/actions';
-import ParamUpscalePopover from 'features/parameters/components/Parameters/Upscale/ParamUpscaleSettings';
+import ParamUpscalePopover from 'features/parameters/components/Upscale/ParamUpscaleSettings';
 import { useRecallParameters } from 'features/parameters/hooks/useRecallParameters';
 import { initialImageSelected } from 'features/parameters/store/actions';
 import { useIsQueueMutationInProgress } from 'features/queue/hooks/useIsQueueMutationInProgress';

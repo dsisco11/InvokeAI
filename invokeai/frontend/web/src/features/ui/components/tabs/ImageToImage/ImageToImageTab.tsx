@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import InitialImageDisplay from 'features/parameters/components/Parameters/ImageToImage/InitialImageDisplay';
+import InitialImageDisplay from 'features/parameters/components/ImageToImage/InitialImageDisplay';
 import { usePanelStorage } from 'features/ui/hooks/usePanelStorage';
 import { memo, useCallback, useRef } from 'react';
 import {

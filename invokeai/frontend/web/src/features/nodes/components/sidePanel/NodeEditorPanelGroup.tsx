@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import ParamIterations from 'features/parameters/components/Parameters/Core/ParamIterations';
+import ParamIterations from 'features/parameters/components/Core/ParamIterations';
 import QueueControls from 'features/queue/components/QueueControls';
 import ResizeHandle from 'features/ui/components/tabs/ResizeHandle';
 import { usePanelStorage } from 'features/ui/hooks/usePanelStorage';

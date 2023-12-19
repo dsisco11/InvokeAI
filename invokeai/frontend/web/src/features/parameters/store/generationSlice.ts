@@ -2,7 +2,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { roundToMultiple } from 'common/util/roundDownToMultiple';
 import { configChanged } from 'features/system/store/configSlice';
-import { clamp } from 'lodash-es';
+import { clamp, cloneDeep } from 'lodash-es';
 import { ImageDTO } from 'services/api/types';
 import { isAnyControlAdapterAdded } from 'features/controlAdapters/store/controlAdaptersSlice';
 import { CLIP_SKIP_MAP } from 'features/parameters/types/constants';
@@ -25,6 +25,11 @@ import {
   zParameterModel,
   ParameterCFGRescaleMultiplier,
 } from 'features/parameters/types/parameterSchemas';
+import {
+  AspectRatioID,
+  calculateNewSize,
+  ASPECT_RATIO_MAP,
+} from 'features/ImageSettings';
 
 export interface GenerationState {
   hrfEnabled: boolean;
@@ -68,8 +73,11 @@ export interface GenerationState {
   clipSkip: number;
   shouldUseCpuNoise: boolean;
   shouldShowAdvancedOptions: boolean;
-  aspectRatio: number | null;
-  shouldLockAspectRatio: boolean;
+  aspectRatio: {
+    id: AspectRatioID;
+    value: number;
+    isLocked: boolean;
+  };
 }
 
 export const initialGenerationState: GenerationState = {
@@ -113,8 +121,11 @@ export const initialGenerationState: GenerationState = {
   clipSkip: 0,
   shouldUseCpuNoise: true,
   shouldShowAdvancedOptions: false,
-  aspectRatio: null,
-  shouldLockAspectRatio: false,
+  aspectRatio: {
+    id: '1:1',
+    value: 1,
+    isLocked: false,
+  },
 };
 
 const initialState: GenerationState = initialGenerationState;
@@ -161,17 +172,6 @@ export const generationSlice = createSlice({
     },
     setPerlin: (state, action: PayloadAction<number>) => {
       state.perlin = action.payload;
-    },
-    setHeight: (state, action: PayloadAction<number>) => {
-      state.height = action.payload;
-    },
-    setWidth: (state, action: PayloadAction<number>) => {
-      state.width = action.payload;
-    },
-    toggleSize: (state) => {
-      const [width, height] = [state.width, state.height];
-      state.width = height;
-      state.height = width;
     },
     setScheduler: (state, action: PayloadAction<ParameterScheduler>) => {
       state.scheduler = action.payload;
@@ -297,15 +297,92 @@ export const generationSlice = createSlice({
     shouldUseCpuNoiseChanged: (state, action: PayloadAction<boolean>) => {
       state.shouldUseCpuNoise = action.payload;
     },
-    setAspectRatio: (state, action: PayloadAction<number | null>) => {
-      const newAspectRatio = action.payload;
-      state.aspectRatio = newAspectRatio;
-      if (newAspectRatio) {
-        state.height = roundToMultiple(state.width / newAspectRatio, 8);
+    aspectRatioSelected: (
+      state,
+      action: PayloadAction<GenerationState['aspectRatio']['id']>
+    ) => {
+      const aspectRatioID = action.payload;
+      state.aspectRatio.id = aspectRatioID;
+      if (aspectRatioID === 'Free') {
+        // If the new aspect ratio is free, we only unlock
+        state.aspectRatio.isLocked = false;
+      } else {
+        // The new aspect ratio not free, so we need to coerce the size & lock
+        state.aspectRatio.isLocked = true;
+        const aspectRatio = ASPECT_RATIO_MAP[aspectRatioID].ratio;
+        state.aspectRatio.value = aspectRatio;
+        const { width, height } = calculateNewSize(
+          aspectRatio,
+          state.width,
+          state.height
+        );
+        state.width = width;
+        state.height = height;
       }
     },
-    setShouldLockAspectRatio: (state, action: PayloadAction<boolean>) => {
-      state.shouldLockAspectRatio = action.payload;
+    dimensionsSwapped: (state) => {
+      // We always invert the aspect ratio
+      const aspectRatio = 1 / state.aspectRatio.value;
+      state.aspectRatio.value = aspectRatio;
+      if (state.aspectRatio.id === 'Free') {
+        // If the aspect ratio is free, we just swap the dimensions
+        const oldWidth = state.width;
+        const oldHeight = state.height;
+        state.width = oldHeight;
+        state.height = oldWidth;
+      } else {
+        // Else we need to calculate the new size
+        const { width, height } = calculateNewSize(
+          aspectRatio,
+          state.width,
+          state.height
+        );
+        state.width = width;
+        state.height = height;
+        // Update the aspect ratio ID to match the new aspect ratio
+        state.aspectRatio.id = ASPECT_RATIO_MAP[state.aspectRatio.id].inverseID;
+      }
+    },
+    widthChanged: (state, action: PayloadAction<GenerationState['width']>) => {
+      const width = action.payload;
+      let height = state.height;
+      if (state.aspectRatio.isLocked) {
+        // When locked, we calculate the new height based on the aspect ratio
+        height = roundToMultiple(width / state.aspectRatio.value, 8);
+      } else {
+        // Else we unlock, set the aspect ratio to free, and update the aspect ratio itself
+        state.aspectRatio.isLocked = false;
+        state.aspectRatio.id = 'Free';
+        state.aspectRatio.value = width / height;
+      }
+      state.width = width;
+      state.height = height;
+    },
+    heightChanged: (
+      state,
+      action: PayloadAction<GenerationState['height']>
+    ) => {
+      const height = action.payload;
+      let width = state.width;
+      if (state.aspectRatio.isLocked) {
+        // When locked, we calculate the new width based on the aspect ratio
+        width = roundToMultiple(height * state.aspectRatio.value, 8);
+      } else {
+        // Else we unlock, set the aspect ratio to free, and update the aspect ratio itself
+        state.aspectRatio.isLocked = false;
+        state.aspectRatio.id = 'Free';
+        state.aspectRatio.value = width / height;
+      }
+      state.height = height;
+      state.width = width;
+    },
+    isLockedToggled: (state) => {
+      state.aspectRatio.isLocked = !state.aspectRatio.isLocked;
+    },
+    sizeReset: (state, action: PayloadAction<number>) => {
+      state.aspectRatio = cloneDeep(initialGenerationState.aspectRatio);
+      state.width = action.payload;
+      state.height = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -345,9 +422,6 @@ export const {
   resetSeed,
   setCfgScale,
   setCfgRescaleMultiplier,
-  setWidth,
-  setHeight,
-  toggleSize,
   setImg2imgStrength,
   setInfillMethod,
   setIterations,
@@ -383,8 +457,12 @@ export const {
   setHrfStrength,
   setHrfMethod,
   shouldUseCpuNoiseChanged,
-  setAspectRatio,
-  setShouldLockAspectRatio,
+  aspectRatioSelected,
+  dimensionsSwapped,
+  widthChanged,
+  heightChanged,
+  isLockedToggled,
+  sizeReset,
   vaePrecisionChanged,
 } = generationSlice.actions;
 

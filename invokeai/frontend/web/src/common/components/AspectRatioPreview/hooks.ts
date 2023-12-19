@@ -1,7 +1,4 @@
-import {
-  ICON_HIGH_CUTOFF,
-  ICON_LOW_CUTOFF,
-} from 'common/components/AspectRatioPreview/constants';
+import { ICON_HIGH_CUTOFF, ICON_LOW_CUTOFF } from './constants';
 import { useMemo } from 'react';
 
 type Dimensions = {

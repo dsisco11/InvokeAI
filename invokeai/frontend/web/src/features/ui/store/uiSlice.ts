@@ -10,7 +10,6 @@ export const initialUIState: UIState = {
   shouldShowImageDetails: false,
   shouldUseCanvasBetaLayout: false,
   shouldShowExistingModelsInSearch: false,
-  shouldUseSliders: false,
   shouldHidePreview: false,
   shouldShowProgressInViewer: true,
   shouldShowEmbeddingPicker: false,
@@ -41,9 +40,6 @@ export const uiSlice = createSlice({
       action: PayloadAction<boolean>
     ) => {
       state.shouldShowExistingModelsInSearch = action.payload;
-    },
-    setShouldUseSliders: (state, action: PayloadAction<boolean>) => {
-      state.shouldUseSliders = action.payload;
     },
     setShouldShowProgressInViewer: (state, action: PayloadAction<boolean>) => {
       state.shouldShowProgressInViewer = action.payload;
@@ -82,7 +78,6 @@ export const {
   setShouldShowImageDetails,
   setShouldUseCanvasBetaLayout,
   setShouldShowExistingModelsInSearch,
-  setShouldUseSliders,
   setShouldHidePreview,
   setShouldShowProgressInViewer,
   favoriteSchedulersChanged,

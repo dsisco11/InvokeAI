@@ -1,12 +1,10 @@
 import { Flex } from '@chakra-ui/react';
-import {
-  PositivePrompt,
-  NegativePrompt,
-} from 'features/parameters/components/Prompts';
 import { SDXLConcatButton } from './SDXLConcatButton';
-import { SDXLNegativeStylePrompt } from './SDXLNegativeStylePrompt';
-import { SDXLPositiveStylePrompt } from './SDXLPositiveStylePrompt';
+import { ParamSDXLNegativeStylePrompt } from './ParamSDXLNegativeStylePrompt';
+import { ParamSDXLPositiveStylePrompt } from './ParamSDXLPositiveStylePrompt';
 import { useAppSelector } from 'app/store/storeHooks';
+import { ParamPositivePrompt } from 'features/parameters/components/Core/ParamPositivePrompt';
+import { ParamNegativePrompt } from 'features/parameters/components/Core/ParamNegativePrompt';
 
 export const SDXLPrompts = () => {
   const shouldConcatSDXLStylePrompt = useAppSelector(
@@ -14,11 +12,11 @@ export const SDXLPrompts = () => {
   );
   return (
     <Flex flexDir="column" gap={2} pos="relative">
-      <PositivePrompt />
+      <ParamPositivePrompt />
       <SDXLConcatButton />
-      {!shouldConcatSDXLStylePrompt && <SDXLPositiveStylePrompt />}
-      <NegativePrompt />
-      {!shouldConcatSDXLStylePrompt && <SDXLNegativeStylePrompt />}
+      {!shouldConcatSDXLStylePrompt && <ParamSDXLPositiveStylePrompt />}
+      <ParamNegativePrompt />
+      {!shouldConcatSDXLStylePrompt && <ParamSDXLNegativeStylePrompt />}
     </Flex>
   );
 };

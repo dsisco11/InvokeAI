@@ -10,8 +10,8 @@ import {
   MOTION_ICON_ANIMATE,
   MOTION_ICON_EXIT,
   MOTION_ICON_INITIAL,
-} from 'common/components/AspectRatioPreview/constants';
-import { useAspectRatioPreviewState } from 'common/components/AspectRatioPreview/hooks';
+} from './constants';
+import { useAspectRatioPreviewState } from './hooks';
 
 export const AspectRatioPreview = (props: AspectRatioPreviewProps) => {
   const { width: _width, height: _height, icon = FaImage } = props;

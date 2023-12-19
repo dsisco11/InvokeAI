@@ -53,6 +53,7 @@
     "common": {
         "accept": "Accept",
         "advanced": "Advanced",
+        "advancedOptions": "Advanced Options",
         "ai": "ai",
         "areYouSure": "Are you sure?",
         "auto": "Auto",

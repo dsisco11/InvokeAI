@@ -8,8 +8,8 @@ import { loraRemoved } from 'features/lora/store/loraSlice';
 import { modelSelected } from 'features/parameters/store/actions';
 import {
   modelChanged,
-  setHeight,
-  setWidth,
+  heightChanged,
+  widthChanged,
   vaeSelected,
 } from 'features/parameters/store/generationSlice';
 import { addToast } from 'features/system/store/systemSlice';
@@ -89,12 +89,12 @@ export const addModelSelectedListener = () => {
         state.ui.shouldAutoChangeDimensions
       ) {
         if (['sdxl', 'sdxl-refiner'].includes(newModel.base_model)) {
-          dispatch(setWidth(1024));
-          dispatch(setHeight(1024));
+          dispatch(widthChanged(1024));
+          dispatch(heightChanged(1024));
           dispatch(setBoundingBoxDimensions({ width: 1024, height: 1024 }));
         } else {
-          dispatch(setWidth(512));
-          dispatch(setHeight(512));
+          dispatch(widthChanged(512));
+          dispatch(heightChanged(512));
           dispatch(setBoundingBoxDimensions({ width: 512, height: 512 }));
         }
       }

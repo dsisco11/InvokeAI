@@ -1194,7 +1194,8 @@
     },
     "sdxl": {
         "cfgScale": "CFG Scale",
-        "concatPromptStyle": "Concatenate Prompt & Style",
+        "concatPromptStyle": "Concatenating Prompt & Style",
+        "freePromptStyle": "Manual Style Prompting",
         "denoisingStrength": "Denoising Strength",
         "loading": "Loading...",
         "negAestheticScore": "Negative Aesthetic Score",

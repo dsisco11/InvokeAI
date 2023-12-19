@@ -6,15 +6,19 @@ import {
 import { SDXLConcatButton } from './SDXLConcatButton';
 import { SDXLNegativeStylePrompt } from './SDXLNegativeStylePrompt';
 import { SDXLPositiveStylePrompt } from './SDXLPositiveStylePrompt';
+import { useAppSelector } from 'app/store/storeHooks';
 
 export const SDXLPrompts = () => {
+  const shouldConcatSDXLStylePrompt = useAppSelector(
+    (state) => state.sdxl.shouldConcatSDXLStylePrompt
+  );
   return (
     <Flex flexDir="column" gap={2} pos="relative">
       <PositivePrompt />
       <SDXLConcatButton />
-      <SDXLPositiveStylePrompt />
+      {!shouldConcatSDXLStylePrompt && <SDXLPositiveStylePrompt />}
       <NegativePrompt />
-      <SDXLNegativeStylePrompt />
+      {!shouldConcatSDXLStylePrompt && <SDXLNegativeStylePrompt />}
     </Flex>
   );
 };

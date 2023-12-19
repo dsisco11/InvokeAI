@@ -4,7 +4,7 @@ import { InvIconButton, InvTooltip } from 'common/components';
 import { FaLink, FaUnlink } from 'react-icons/fa';
 import { setShouldConcatSDXLStylePrompt } from 'features/sdxl/store/sdxlSlice';
 import { useTranslation } from 'react-i18next';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 export const SDXLConcatButton = () => {
   const shouldConcatSDXLStylePrompt = useAppSelector(
@@ -18,10 +18,18 @@ export const SDXLConcatButton = () => {
     dispatch(setShouldConcatSDXLStylePrompt(!shouldConcatSDXLStylePrompt));
   }, [dispatch, shouldConcatSDXLStylePrompt]);
 
+  const label = useMemo(
+    () =>
+      shouldConcatSDXLStylePrompt
+        ? t('sdxl.concatPromptStyle')
+        : t('sdxl.freePromptStyle'),
+    [shouldConcatSDXLStylePrompt, t]
+  );
+
   return (
-    <InvTooltip label={t('sdxl.concatPromptStyle')}>
+    <InvTooltip label={label}>
       <InvIconButton
-        aria-label={t('sdxl.concatPromptStyle')}
+        aria-label={label}
         onClick={handleShouldConcatPromptChange}
         icon={shouldConcatSDXLStylePrompt ? <FaLink /> : <FaUnlink />}
         size="xs"

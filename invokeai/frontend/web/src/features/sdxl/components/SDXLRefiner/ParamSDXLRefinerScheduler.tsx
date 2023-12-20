@@ -10,16 +10,12 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useIsRefinerAvailable } from 'services/api/hooks/useIsRefinerAvailable';
 
-const selector = createMemoizedSelector(stateSelector, ({ ui, sdxl }) => {
+const selector = createMemoizedSelector(stateSelector, ({ sdxl }) => {
   const { refinerScheduler } = sdxl;
-  const { favoriteSchedulers: enabledSchedulers } = ui;
 
   const data = map(SCHEDULER_LABEL_MAP, (label, name) => ({
     value: name,
     label: label,
-    group: enabledSchedulers.includes(name as ParameterScheduler)
-      ? 'Favorites'
-      : undefined,
   })).sort((a, b) => a.label.localeCompare(b.label));
 
   return {

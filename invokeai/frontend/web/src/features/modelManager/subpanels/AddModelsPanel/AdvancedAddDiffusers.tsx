@@ -101,10 +101,11 @@ export default function AdvancedAddDiffusers(props: AdvancedAddDiffusersProps) {
         <InvControl isRequired label={t('modelManager.model')}>
           <InvInput {...advancedAddDiffusersForm.getInputProps('model_name')} />
         </InvControl>
-        <BaseModelSelect
-          label={t('modelManager.baseModel')}
-          {...advancedAddDiffusersForm.getInputProps('base_model')}
-        />
+        <InvControl label={t('modelManager.baseModel')}>
+          <BaseModelSelect
+            {...advancedAddDiffusersForm.getInputProps('base_model')}
+          />
+        </InvControl>
         <InvControl isRequired label={t('modelManager.modelLocation')}>
           <InvInput
             placeholder={t('modelManager.modelLocationValidationMsg')}
@@ -120,10 +121,12 @@ export default function AdvancedAddDiffusers(props: AdvancedAddDiffusersProps) {
         <InvControl label={t('modelManager.vaeLocation')}>
           <InvInput {...advancedAddDiffusersForm.getInputProps('vae')} />
         </InvControl>
-        <ModelVariantSelect
-          label={t('modelManager.variant')}
-          {...advancedAddDiffusersForm.getInputProps('variant')}
-        />
+        <InvControl label={t('modelManager.variant')}>
+          <ModelVariantSelect
+            {...advancedAddDiffusersForm.getInputProps('variant')}
+          />
+        </InvControl>
+
         <InvButton mt={2} type="submit">
           {t('modelManager.addModel')}
         </InvButton>

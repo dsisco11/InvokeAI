@@ -139,15 +139,16 @@ export default function AdvancedAddCheckpoint(
         <InvControl label={t('modelManager.vaeLocation')}>
           <InvInput {...advancedAddCheckpointForm.getInputProps('vae')} />
         </InvControl>
-        <ModelVariantSelect
-          label={t('modelManager.variant')}
-          {...advancedAddCheckpointForm.getInputProps('variant')}
-        />
+        <InvControl label={t('modelManager.variant')}>
+          <ModelVariantSelect
+            {...advancedAddCheckpointForm.getInputProps('variant')}
+          />
+        </InvControl>
         <Flex flexDirection="column" width="100%" gap={2}>
           {!useCustomConfig ? (
             <CheckpointConfigsSelect
               required
-              width="100%"
+              sx={{ w: 'full' }}
               {...advancedAddCheckpointForm.getInputProps('config')}
             />
           ) : (

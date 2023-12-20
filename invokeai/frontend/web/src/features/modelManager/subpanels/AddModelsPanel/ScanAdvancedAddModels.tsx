@@ -1,17 +1,21 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvIconButton } from 'common/components';
-import IAIMantineSelect from 'common/components/IAIMantineSelect';
+import {
+  InvControl,
+  InvIconButton,
+  InvSelect,
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components';
 import { motion } from 'framer-motion';
 import { useCallback, useEffect, useState, useMemo } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
 import AdvancedAddCheckpoint from './AdvancedAddCheckpoint';
 import AdvancedAddDiffusers from './AdvancedAddDiffusers';
-import { ManualAddMode } from './AdvancedAddModels';
+import { ManualAddMode, isManualAddMode } from './AdvancedAddModels';
 import { useTranslation } from 'react-i18next';
-import { SelectItem } from '@mantine/core';
 
 export default function ScanAdvancedAddModels() {
   const advancedAddScanModel = useAppSelector(
@@ -20,7 +24,7 @@ export default function ScanAdvancedAddModels() {
 
   const { t } = useTranslation();
 
-  const advancedAddModeData: SelectItem[] = useMemo(
+  const options: InvSelectOption[] = useMemo(
     () => [
       { label: t('modelManager.diffusersModels'), value: 'diffusers' },
       { label: t('modelManager.checkpointOrSafetensors'), value: 'checkpoint' },
@@ -49,17 +53,22 @@ export default function ScanAdvancedAddModels() {
     [dispatch]
   );
 
-  const handleChangeAddMode = useCallback((v: string | null) => {
-    if (!v) {
+  const handleChangeAddMode = useCallback<InvSelectOnChange>((v) => {
+    if (!isManualAddMode(v?.value)) {
       return;
     }
-    setAdvancedAddMode(v as ManualAddMode);
-    if (v === 'checkpoint') {
+    setAdvancedAddMode(v.value);
+    if (v.value === 'checkpoint') {
       setIsCheckpoint(true);
     } else {
       setIsCheckpoint(false);
     }
   }, []);
+
+  const value = useMemo(
+    () => options.find((o) => o.value === advancedAddMode),
+    [options, advancedAddMode]
+  );
 
   if (!advancedAddScanModel) {
     return null;
@@ -95,12 +104,13 @@ export default function ScanAdvancedAddModels() {
           size="sm"
         />
       </Flex>
-      <IAIMantineSelect
-        label={t('modelManager.modelType')}
-        value={advancedAddMode}
-        data={advancedAddModeData}
-        onChange={handleChangeAddMode}
-      />
+      <InvControl label={t('modelManager.modelType')}>
+        <InvSelect
+          value={value}
+          options={options}
+          onChange={handleChangeAddMode}
+        />
+      </InvControl>
       {isCheckpoint ? (
         <AdvancedAddCheckpoint
           key={advancedAddScanModel}

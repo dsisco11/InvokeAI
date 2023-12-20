@@ -247,6 +247,7 @@
         "prompt": "Prompt",
         "resetControlImage": "Reset Control Image",
         "resize": "Resize",
+        "resizeSimple": "Resize (Simple)",
         "resizeMode": "Resize Mode",
         "safe": "Safe",
         "saveControlImage": "Save Control Image",

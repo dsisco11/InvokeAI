@@ -19,7 +19,7 @@ import {
 } from 'services/events/actions';
 import { calculateStepPercentage } from 'features/system/util/calculateStepPercentage';
 import { makeToast } from 'features/system/util/makeToast';
-import { LANGUAGES, SystemState } from './types';
+import { Language, SystemState } from './types';
 
 export const initialSystemState: SystemState = {
   isInitialized: false,
@@ -66,7 +66,7 @@ export const systemSlice = createSlice({
     ) => {
       state.shouldAntialiasProgressImage = action.payload;
     },
-    languageChanged: (state, action: PayloadAction<keyof typeof LANGUAGES>) => {
+    languageChanged: (state, action: PayloadAction<Language>) => {
       state.language = action.payload;
     },
     shouldUseNSFWCheckerChanged(state, action: PayloadAction<boolean>) {

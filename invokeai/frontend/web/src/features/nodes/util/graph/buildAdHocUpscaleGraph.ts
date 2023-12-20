@@ -1,5 +1,5 @@
 import { BoardId } from 'features/gallery/store/types';
-import { ESRGANModelName } from 'features/parameters/store/postprocessingSlice';
+import { ParamESRGANModelName } from 'features/parameters/store/postprocessingSlice';
 import {
   ESRGANInvocation,
   Graph,
@@ -11,7 +11,7 @@ import { addCoreMetadataNode, upsertMetadata } from './metadata';
 
 type Arg = {
   image_name: string;
-  esrganModelName: ESRGANModelName;
+  esrganModelName: ParamESRGANModelName;
   autoAddBoardId: BoardId;
 };
 

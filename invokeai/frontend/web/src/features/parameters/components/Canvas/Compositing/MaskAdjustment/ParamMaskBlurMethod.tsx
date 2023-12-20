@@ -1,15 +1,18 @@
-import { SelectItem } from '@mantine/core';
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
-import IAIMantineSelect from 'common/components/IAIMantineSelect';
+import {
+  InvControl,
+  InvSelect,
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components';
 import { setMaskBlurMethod } from 'features/parameters/store/generationSlice';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { isParameterMaskBlurMethod } from 'features/parameters/types/parameterSchemas';
 
-type MaskBlurMethods = 'box' | 'gaussian';
-
-const maskBlurMethods: SelectItem[] = [
+const options: InvSelectOption[] = [
   { label: 'Box Blur', value: 'box' },
   { label: 'Gaussian Blur', value: 'gaussian' },
 ];
@@ -21,24 +24,26 @@ export default function ParamMaskBlurMethod() {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
-  const handleMaskBlurMethodChange = useCallback(
-    (v: string | null) => {
-      if (!v) {
+  const onChange = useCallback<InvSelectOnChange>(
+    (v) => {
+      if (!isParameterMaskBlurMethod(v?.value)) {
         return;
       }
-      dispatch(setMaskBlurMethod(v as MaskBlurMethods));
+      dispatch(setMaskBlurMethod(v.value));
     },
     [dispatch]
   );
 
+  const value = useMemo(
+    () => options.find((o) => o.value === maskBlurMethod),
+    [maskBlurMethod]
+  );
+
   return (
     <IAIInformationalPopover feature="compositingBlurMethod">
-      <IAIMantineSelect
-        value={maskBlurMethod}
-        onChange={handleMaskBlurMethodChange}
-        label={t('parameters.maskBlurMethod')}
-        data={maskBlurMethods}
-      />
+      <InvControl label={t('parameters.maskBlurMethod')}>
+        <InvSelect value={value} onChange={onChange} options={options} />
+      </InvControl>
     </IAIInformationalPopover>
   );
 }

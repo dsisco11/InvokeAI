@@ -1,6 +1,4 @@
-import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
-import { stateSelector } from 'app/store/store';
-import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import { useAppDispatch } from 'app/store/storeHooks';
 import IAIMantineSearchableSelect from 'common/components/IAIMantineSearchableSelect';
 import { fieldSchedulerValueChanged } from 'features/nodes/store/nodesSlice';
 import {
@@ -13,21 +11,10 @@ import { map } from 'lodash-es';
 import { memo, useCallback } from 'react';
 import { FieldComponentProps } from './types';
 
-const selector = createMemoizedSelector([stateSelector], ({ ui }) => {
-  const { favoriteSchedulers: enabledSchedulers } = ui;
-
-  const data = map(SCHEDULER_LABEL_MAP, (label, name) => ({
-    value: name,
-    label: label,
-    group: enabledSchedulers.includes(name as ParameterScheduler)
-      ? 'Favorites'
-      : undefined,
-  })).sort((a, b) => a.label.localeCompare(b.label));
-
-  return {
-    data,
-  };
-});
+const data = map(SCHEDULER_LABEL_MAP, (label, name) => ({
+  value: name,
+  label: label,
+})).sort((a, b) => a.label.localeCompare(b.label));
 
 const SchedulerFieldInputComponent = (
   props: FieldComponentProps<
@@ -37,7 +24,6 @@ const SchedulerFieldInputComponent = (
 ) => {
   const { nodeId, field } = props;
   const dispatch = useAppDispatch();
-  const { data } = useAppSelector(selector);
 
   const handleChange = useCallback(
     (value: string | null) => {

@@ -1,17 +1,25 @@
-import { SelectItem } from '@mantine/core';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIMantineSelect from 'common/components/IAIMantineSelect';
+import { GroupBase } from 'chakra-react-select';
+import {
+  InvControl,
+  InvSelect,
+  InvSelectOnChange,
+  InvSelectOption,
+  InvTooltip,
+} from 'common/components';
 import { fieldT2IAdapterModelValueChanged } from 'features/nodes/store/nodesSlice';
 import {
   T2IAdapterModelFieldInputInstance,
   T2IAdapterModelFieldInputTemplate,
 } from 'features/nodes/types/field';
-import { FieldComponentProps } from './types';
-import { MODEL_TYPE_MAP } from 'features/parameters/types/constants';
-import { modelIdToT2IAdapterModelParam } from 'features/parameters/util/modelIdToT2IAdapterModelParam';
-import { forEach } from 'lodash-es';
+import { groupBy, reduce } from 'lodash-es';
 import { memo, useCallback, useMemo } from 'react';
-import { useGetT2IAdapterModelsQuery } from 'services/api/endpoints/models';
+import {
+  t2iAdapterModelsAdapter,
+  useGetT2IAdapterModelsQuery,
+} from 'services/api/endpoints/models';
+import { FieldComponentProps } from './types';
+const selectAll = t2iAdapterModelsAdapter.getSelectors().selectAll;
 
 const T2IAdapterModelFieldInputComponent = (
   props: FieldComponentProps<
@@ -24,6 +32,10 @@ const T2IAdapterModelFieldInputComponent = (
   const dispatch = useAppDispatch();
 
   const { data: t2iAdapterModels } = useGetT2IAdapterModelsQuery();
+  const t2iAdapterModelsArray = useMemo(
+    () => (t2iAdapterModels ? selectAll(t2iAdapterModels) : []),
+    [t2iAdapterModels]
+  );
 
   // grab the full model entity from the RTK Query cache
   const selectedModel = useMemo(
@@ -38,37 +50,34 @@ const T2IAdapterModelFieldInputComponent = (
     ]
   );
 
-  const data = useMemo(() => {
-    if (!t2iAdapterModels) {
-      return [];
-    }
+  const options = useMemo<GroupBase<InvSelectOption>[]>(() => {
+    const _options = reduce(
+      groupBy(t2iAdapterModelsArray, (m) => m.base_model),
+      (acc, val, label) => {
+        acc.push({
+          label,
+          options: val.map((v) => ({
+            value: v.id,
+            label: v.model_name,
+          })),
+        });
+        return acc;
+      },
+      [] as GroupBase<InvSelectOption>[]
+    );
 
-    const data: SelectItem[] = [];
+    return _options;
+  }, [t2iAdapterModelsArray]);
 
-    forEach(t2iAdapterModels.entities, (model, id) => {
-      if (!model) {
-        return;
-      }
-
-      data.push({
-        value: id,
-        label: model.model_name,
-        group: MODEL_TYPE_MAP[model.base_model],
-      });
-    });
-
-    return data;
-  }, [t2iAdapterModels]);
-
-  const handleValueChanged = useCallback(
-    (v: string | null) => {
+  const onChange = useCallback<InvSelectOnChange>(
+    (v) => {
       if (!v) {
         return;
       }
 
-      const newT2IAdapterModel = modelIdToT2IAdapterModelParam(v);
+      const modelEntity = t2iAdapterModels?.entities[v.value];
 
-      if (!newT2IAdapterModel) {
+      if (!modelEntity) {
         return;
       }
 
@@ -76,24 +85,33 @@ const T2IAdapterModelFieldInputComponent = (
         fieldT2IAdapterModelValueChanged({
           nodeId,
           fieldName: field.name,
-          value: newT2IAdapterModel,
+          value: modelEntity,
         })
       );
     },
-    [dispatch, field.name, nodeId]
+    [t2iAdapterModels?.entities, dispatch, field.name, nodeId]
+  );
+
+  const value = useMemo(
+    () =>
+      options
+        .flatMap((o) => o.options)
+        .find((m) => m.value === selectedModel?.id),
+    [options, selectedModel?.id]
   );
 
   return (
-    <IAIMantineSelect
-      className="nowheel nodrag"
-      tooltip={selectedModel?.description}
-      value={selectedModel?.id ?? null}
-      placeholder="Pick one"
-      error={!selectedModel}
-      data={data}
-      onChange={handleValueChanged}
-      sx={{ width: '100%' }}
-    />
+    <InvTooltip label={selectedModel?.description}>
+      <InvControl className="nowheel nodrag" isInvalid={!selectedModel}>
+        <InvSelect
+          value={value}
+          placeholder="Pick one"
+          options={options}
+          onChange={onChange}
+          sx={{ width: '100%' }}
+        />
+      </InvControl>
+    </InvTooltip>
   );
 };
 

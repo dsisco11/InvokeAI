@@ -1,4 +1,3 @@
-import { ParameterScheduler } from 'features/parameters/types/parameterSchemas';
 import { InvokeTabName } from './tabMap';
 
 export type Coordinates = {
@@ -16,13 +15,10 @@ export type Rect = Coordinates & Dimensions;
 export interface UIState {
   activeTab: InvokeTabName;
   shouldShowImageDetails: boolean;
-  shouldUseCanvasBetaLayout: boolean;
   shouldShowExistingModelsInSearch: boolean;
   shouldHidePreview: boolean;
   shouldShowProgressInViewer: boolean;
-  shouldShowEmbeddingPicker: boolean;
   shouldAutoChangeDimensions: boolean;
-  favoriteSchedulers: ParameterScheduler[];
   globalMenuCloseTrigger: number;
   panels: Record<string, string>;
 }

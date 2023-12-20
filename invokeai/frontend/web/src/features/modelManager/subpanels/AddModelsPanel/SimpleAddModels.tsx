@@ -1,15 +1,19 @@
 import { Flex } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import { useTranslation } from 'react-i18next';
-import { SelectItem } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { InvButton, InvControl, InvInput } from 'common/components';
-import IAIMantineSelect from 'common/components/IAIMantineSelect';
+import {
+  InvButton,
+  InvControl,
+  InvInput,
+  InvSelect,
+  InvSelectOption,
+} from 'common/components';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { useImportMainModelsMutation } from 'services/api/endpoints/models';
 
-const predictionSelectData: SelectItem[] = [
+const options: InvSelectOption[] = [
   { label: 'None', value: 'none' },
   { label: 'v_prediction', value: 'v_prediction' },
   { label: 'epsilon', value: 'epsilon' },
@@ -81,12 +85,13 @@ export default function SimpleAddModels() {
             {...addModelForm.getInputProps('location')}
           />
         </InvControl>
-        <IAIMantineSelect
-          label={t('modelManager.predictionType')}
-          data={predictionSelectData}
-          defaultValue="none"
-          {...addModelForm.getInputProps('prediction_type')}
-        />
+        <InvControl label={t('modelManager.predictionType')}>
+          <InvSelect
+            options={options}
+            defaultValue={options[0]}
+            {...addModelForm.getInputProps('prediction_type')}
+          />
+        </InvControl>
         <InvButton type="submit" isLoading={isLoading}>
           {t('modelManager.addModel')}
         </InvButton>

@@ -10,26 +10,19 @@ import { map } from 'lodash-es';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const selector = createMemoizedSelector(
-  [stateSelector],
-  ({ ui, generation }) => {
-    const { scheduler } = generation;
-    const { favoriteSchedulers: enabledSchedulers } = ui;
+const selector = createMemoizedSelector([stateSelector], ({ generation }) => {
+  const { scheduler } = generation;
 
-    const data = map(SCHEDULER_LABEL_MAP, (label, name) => ({
-      value: name,
-      label: label,
-      group: enabledSchedulers.includes(name as ParameterScheduler)
-        ? 'Favorites'
-        : undefined,
-    })).sort((a, b) => a.label.localeCompare(b.label));
+  const data = map(SCHEDULER_LABEL_MAP, (label, name) => ({
+    value: name,
+    label: label,
+  })).sort((a, b) => a.label.localeCompare(b.label));
 
-    return {
-      scheduler,
-      data,
-    };
-  }
-);
+  return {
+    scheduler,
+    data,
+  };
+});
 
 const ParamScheduler = () => {
   const dispatch = useAppDispatch();

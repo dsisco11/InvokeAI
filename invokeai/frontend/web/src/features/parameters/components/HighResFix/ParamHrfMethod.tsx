@@ -1,10 +1,15 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIMantineSelect from 'common/components/IAIMantineSelect';
+import {
+  InvControl,
+  InvSelect,
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components';
 import { setHrfMethod } from 'features/parameters/store/generationSlice';
-import { ParameterHRFMethod } from 'features/parameters/types/parameterSchemas';
-import { memo, useCallback } from 'react';
+import { isParameterHRFMethod } from 'features/parameters/types/parameterSchemas';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const selector = createMemoizedSelector(stateSelector, ({ generation }) => {
@@ -12,32 +17,35 @@ const selector = createMemoizedSelector(stateSelector, ({ generation }) => {
   return { hrfMethod, hrfEnabled };
 });
 
-const DATA = ['ESRGAN', 'bilinear'];
+const options: InvSelectOption[] = [
+  { label: 'ESRGAN', value: 'ESRGAN' },
+  { label: 'bilinear', value: 'bilinear' },
+];
 
-// Dropdown selection for the type of high resolution fix method to use.
 const ParamHrfMethodSelect = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const { hrfMethod, hrfEnabled } = useAppSelector(selector);
 
-  const handleChange = useCallback(
-    (v: ParameterHRFMethod | null) => {
-      if (!v) {
+  const onChange = useCallback<InvSelectOnChange>(
+    (v) => {
+      if (!isParameterHRFMethod(v?.value)) {
         return;
       }
-      dispatch(setHrfMethod(v));
+      dispatch(setHrfMethod(v.value));
     },
     [dispatch]
   );
 
+  const value = useMemo(
+    () => options.find((o) => o.value === hrfMethod),
+    [hrfMethod]
+  );
+
   return (
-    <IAIMantineSelect
-      label={t('hrf.upscaleMethod')}
-      value={hrfMethod}
-      data={DATA}
-      onChange={handleChange}
-      disabled={!hrfEnabled}
-    />
+    <InvControl label={t('hrf.upscaleMethod')} isDisabled={!hrfEnabled}>
+      <InvSelect value={value} options={options} onChange={onChange} />
+    </InvControl>
   );
 };
 

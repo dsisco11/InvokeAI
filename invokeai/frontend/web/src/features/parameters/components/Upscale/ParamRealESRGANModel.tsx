@@ -1,39 +1,50 @@
-import { SelectItem } from '@mantine/core';
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIMantineSelect from 'common/components/IAIMantineSelect';
-import IAIMantineSelectItemWithTooltip from 'common/components/IAIMantineSelectItemWithTooltip';
 import {
-  ESRGANModelName,
   esrganModelNameChanged,
+  isParamESRGANModelName,
 } from 'features/parameters/store/postprocessingSlice';
 import { useTranslation } from 'react-i18next';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
+import { GroupBase } from 'chakra-react-select';
+import {
+  InvControl,
+  InvSelect,
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components';
 
-export const ESRGAN_MODEL_NAMES: SelectItem[] = [
+const options: GroupBase<InvSelectOption>[] = [
   {
-    label: 'RealESRGAN x2 Plus',
-    value: 'RealESRGAN_x2plus.pth',
-    tooltip: 'Attempts to retain sharpness, low smoothing',
-    group: 'x2 Upscalers',
+    label: 'x2 Upscalers',
+    options: [
+      {
+        label: 'RealESRGAN x2 Plus',
+        value: 'RealESRGAN_x2plus.pth',
+        description: 'Attempts to retain sharpness, low smoothing',
+      },
+    ],
   },
   {
-    label: 'RealESRGAN x4 Plus',
-    value: 'RealESRGAN_x4plus.pth',
-    tooltip: 'Best for photos and highly detailed images, medium smoothing',
-    group: 'x4 Upscalers',
-  },
-  {
-    label: 'RealESRGAN x4 Plus (anime 6B)',
-    value: 'RealESRGAN_x4plus_anime_6B.pth',
-    tooltip: 'Best for anime/manga, high smoothing',
-    group: 'x4 Upscalers',
-  },
-  {
-    label: 'ESRGAN SRx4',
-    value: 'ESRGAN_SRx4_DF2KOST_official-ff704c30.pth',
-    tooltip: 'Retains sharpness, low smoothing',
-    group: 'x4 Upscalers',
+    label: 'x4 Upscalers',
+    options: [
+      {
+        label: 'RealESRGAN x4 Plus',
+        value: 'RealESRGAN_x4plus.pth',
+        description:
+          'Best for photos and highly detailed images, medium smoothing',
+      },
+      {
+        label: 'RealESRGAN x4 Plus (anime 6B)',
+        value: 'RealESRGAN_x4plus_anime_6B.pth',
+        description: 'Best for anime/manga, high smoothing',
+      },
+      {
+        label: 'ESRGAN SRx4',
+        value: 'ESRGAN_SRx4_DF2KOST_official-ff704c30.pth',
+        description: 'Retains sharpness, low smoothing',
+      },
+    ],
   },
 ];
 
@@ -46,18 +57,27 @@ export default function ParamESRGANModel() {
 
   const dispatch = useAppDispatch();
 
-  const handleChange = useCallback(
-    (v: string) => dispatch(esrganModelNameChanged(v as ESRGANModelName)),
+  const onChange = useCallback<InvSelectOnChange>(
+    (v) => {
+      if (!isParamESRGANModelName(v?.value)) {
+        return;
+      }
+      dispatch(esrganModelNameChanged(v.value));
+    },
     [dispatch]
   );
 
+  const value = useMemo(
+    () =>
+      options
+        .flatMap((o) => o.options)
+        .find((m) => m.value === esrganModelName),
+    [esrganModelName]
+  );
+
   return (
-    <IAIMantineSelect
-      label={t('models.esrganModel')}
-      value={esrganModelName}
-      itemComponent={IAIMantineSelectItemWithTooltip}
-      onChange={handleChange}
-      data={ESRGAN_MODEL_NAMES}
-    />
+    <InvControl label={t('models.esrganModel')}>
+      <InvSelect value={value} onChange={onChange} options={options} />
+    </InvControl>
   );
 }

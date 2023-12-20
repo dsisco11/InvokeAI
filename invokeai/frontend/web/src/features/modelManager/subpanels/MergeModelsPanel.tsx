@@ -1,11 +1,16 @@
 import { Flex, Radio, RadioGroup, Text, Tooltip } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
+import {
+  InvControl,
+  InvSelect,
+  InvSelectOnChange,
+  InvSelectOption,
+  InvSlider,
+} from 'common/components';
 import IAIButton from 'common/components/IAIButton';
 import IAIInput from 'common/components/IAIInput';
 import IAIMantineSearchableSelect from 'common/components/IAIMantineSearchableSelect';
-import IAIMantineSelect from 'common/components/IAIMantineSelect';
 import IAISimpleCheckbox from 'common/components/IAISimpleCheckbox';
-import { InvControl, InvSlider } from 'common/components';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { pickBy } from 'lodash-es';
@@ -18,7 +23,7 @@ import {
 } from 'services/api/endpoints/models';
 import { BaseModelType, MergeModelConfig } from 'services/api/types';
 
-const baseModelTypeSelectData = [
+const baseModelTypeSelectOptions: InvSelectOption[] = [
   { label: 'Stable Diffusion 1', value: 'sd-1' },
   { label: 'Stable Diffusion 2', value: 'sd-2' },
 ];
@@ -38,7 +43,10 @@ export default function MergeModelsPanel() {
   const [mergeModels, { isLoading }] = useMergeMainModelsMutation();
 
   const [baseModel, setBaseModel] = useState<BaseModelType>('sd-1');
-
+  const valueBaseModel = useMemo(
+    () => baseModelTypeSelectOptions.find((o) => o.value === baseModel),
+    [baseModel]
+  );
   const sd1DiffusersModels = pickBy(
     data?.entities,
     (value, _) =>
@@ -94,8 +102,14 @@ export default function MergeModelsPanel() {
     modelsMap[baseModel as keyof typeof modelsMap]
   ).filter((model) => model !== modelOne && model !== modelTwo);
 
-  const handleBaseModelChange = useCallback((v: string) => {
-    setBaseModel(v as BaseModelType);
+  const onChangeBaseModel = useCallback<InvSelectOnChange>((v) => {
+    if (!v) {
+      return;
+    }
+    if (!(v.value === 'sd-1' || v.value === 'sd-2')) {
+      return;
+    }
+    setBaseModel(v.value);
     setModelOne(null);
     setModelTwo(null);
   }, []);
@@ -226,13 +240,13 @@ export default function MergeModelsPanel() {
       </Flex>
 
       <Flex columnGap={4}>
-        <IAIMantineSelect
-          label={t('modelManager.modelType')}
-          w="100%"
-          data={baseModelTypeSelectData}
-          value={baseModel}
-          onChange={handleBaseModelChange}
-        />
+        <InvControl label={t('modelManager.modelType')} sx={{ w: 'full' }}>
+          <InvSelect
+            options={baseModelTypeSelectOptions}
+            value={valueBaseModel}
+            onChange={onChangeBaseModel}
+          />
+        </InvControl>
         <IAIMantineSearchableSelect
           label={t('modelManager.modelOne')}
           w="100%"

@@ -1,10 +1,14 @@
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import {
+  InvControl,
+  InvSelect,
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
-import { IAISelectDataType } from 'common/components/IAIMantineSearchableSelect';
-import IAIMantineSelect from 'common/components/IAIMantineSelect';
 import { setCanvasCoherenceMode } from 'features/parameters/store/generationSlice';
-import { ParameterCanvasCoherenceMode } from 'features/parameters/types/parameterSchemas';
+import { isParameterCanvasCoherenceMode } from 'features/parameters/types/parameterSchemas';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -15,7 +19,7 @@ const ParamCanvasCoherenceMode = () => {
   );
   const { t } = useTranslation();
 
-  const coherenceModeSelectData: IAISelectDataType[] = useMemo(
+  const options = useMemo<InvSelectOption[]>(
     () => [
       { label: t('parameters.unmasked'), value: 'unmasked' },
       { label: t('unifiedCanvas.mask'), value: 'mask' },
@@ -24,25 +28,27 @@ const ParamCanvasCoherenceMode = () => {
     [t]
   );
 
-  const handleCoherenceModeChange = useCallback(
-    (v: string | null) => {
-      if (!v) {
+  const onChange = useCallback<InvSelectOnChange>(
+    (v) => {
+      if (!isParameterCanvasCoherenceMode(v?.value)) {
         return;
       }
 
-      dispatch(setCanvasCoherenceMode(v as ParameterCanvasCoherenceMode));
+      dispatch(setCanvasCoherenceMode(v.value));
     },
     [dispatch]
   );
 
+  const value = useMemo(
+    () => options.find((o) => o.value === canvasCoherenceMode),
+    [canvasCoherenceMode, options]
+  );
+
   return (
     <IAIInformationalPopover feature="compositingCoherenceMode">
-      <IAIMantineSelect
-        label={t('parameters.coherenceMode')}
-        data={coherenceModeSelectData}
-        value={canvasCoherenceMode}
-        onChange={handleCoherenceModeChange}
-      />
+      <InvControl label={t('parameters.coherenceMode')}>
+        <InvSelect options={options} value={value} onChange={onChange} />
+      </InvControl>
     </IAIInformationalPopover>
   );
 };

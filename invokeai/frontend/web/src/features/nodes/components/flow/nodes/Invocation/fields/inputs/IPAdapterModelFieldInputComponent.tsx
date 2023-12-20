@@ -1,17 +1,26 @@
-import { SelectItem } from '@mantine/core';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIMantineSelect from 'common/components/IAIMantineSelect';
 import { fieldIPAdapterModelValueChanged } from 'features/nodes/store/nodesSlice';
 import {
   IPAdapterModelFieldInputTemplate,
   IPAdapterModelFieldInputInstance,
 } from 'features/nodes/types/field';
 import { FieldComponentProps } from './types';
-import { MODEL_TYPE_MAP } from 'features/parameters/types/constants';
-import { modelIdToIPAdapterModelParam } from 'features/parameters/util/modelIdToIPAdapterModelParams';
-import { forEach } from 'lodash-es';
+import { groupBy, reduce } from 'lodash-es';
+import {
+  InvControl,
+  InvSelect,
+  InvSelectOnChange,
+  InvSelectOption,
+  InvTooltip,
+} from 'common/components';
 import { memo, useCallback, useMemo } from 'react';
-import { useGetIPAdapterModelsQuery } from 'services/api/endpoints/models';
+import {
+  ipAdapterModelsAdapter,
+  useGetIPAdapterModelsQuery,
+} from 'services/api/endpoints/models';
+import { GroupBase } from 'chakra-react-select';
+
+const selectAll = ipAdapterModelsAdapter.getSelectors().selectAll;
 
 const IPAdapterModelFieldInputComponent = (
   props: FieldComponentProps<
@@ -24,7 +33,10 @@ const IPAdapterModelFieldInputComponent = (
   const dispatch = useAppDispatch();
 
   const { data: ipAdapterModels } = useGetIPAdapterModelsQuery();
-
+  const ipAdapterModelsArray = useMemo(
+    () => (ipAdapterModels ? selectAll(ipAdapterModels) : []),
+    [ipAdapterModels]
+  );
   // grab the full model entity from the RTK Query cache
   const selectedModel = useMemo(
     () =>
@@ -38,37 +50,31 @@ const IPAdapterModelFieldInputComponent = (
     ]
   );
 
-  const data = useMemo(() => {
-    if (!ipAdapterModels) {
-      return [];
-    }
+  const options = useMemo<GroupBase<InvSelectOption>[]>(() => {
+    return reduce(
+      groupBy(ipAdapterModelsArray, (m) => m.base_model),
+      (acc, val, label) => {
+        acc.push({
+          label,
+          options: val.map((v) => ({
+            value: v.id,
+            label: v.model_name,
+          })),
+        });
+        return acc;
+      },
+      [] as GroupBase<InvSelectOption>[]
+    );
+  }, [ipAdapterModelsArray]);
 
-    const data: SelectItem[] = [];
-
-    forEach(ipAdapterModels.entities, (model, id) => {
-      if (!model) {
-        return;
-      }
-
-      data.push({
-        value: id,
-        label: model.model_name,
-        group: MODEL_TYPE_MAP[model.base_model],
-      });
-    });
-
-    return data;
-  }, [ipAdapterModels]);
-
-  const handleValueChanged = useCallback(
-    (v: string | null) => {
+  const handleValueChanged = useCallback<InvSelectOnChange>(
+    (v) => {
       if (!v) {
         return;
       }
+      const modelEntity = ipAdapterModels?.entities[v.value];
 
-      const newIPAdapterModel = modelIdToIPAdapterModelParam(v);
-
-      if (!newIPAdapterModel) {
+      if (!modelEntity) {
         return;
       }
 
@@ -76,24 +82,33 @@ const IPAdapterModelFieldInputComponent = (
         fieldIPAdapterModelValueChanged({
           nodeId,
           fieldName: field.name,
-          value: newIPAdapterModel,
+          value: modelEntity,
         })
       );
     },
-    [dispatch, field.name, nodeId]
+    [dispatch, field.name, ipAdapterModels?.entities, nodeId]
+  );
+
+  const value = useMemo(
+    () =>
+      options
+        .flatMap((o) => o.options)
+        .find((m) => m.value === selectedModel?.id),
+    [options, selectedModel?.id]
   );
 
   return (
-    <IAIMantineSelect
-      className="nowheel nodrag"
-      tooltip={selectedModel?.description}
-      value={selectedModel?.id ?? null}
-      placeholder="Pick one"
-      error={!selectedModel}
-      data={data}
-      onChange={handleValueChanged}
-      sx={{ width: '100%' }}
-    />
+    <InvTooltip label={selectedModel?.description}>
+      <InvControl className="nowheel nodrag" isInvalid={!selectedModel}>
+        <InvSelect
+          value={value}
+          placeholder="Pick one"
+          options={options}
+          onChange={handleValueChanged}
+          sx={{ width: '100%' }}
+        />
+      </InvControl>
+    </InvTooltip>
   );
 };
 

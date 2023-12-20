@@ -22,6 +22,7 @@ import {
   ZoeDepthImageProcessorInvocation,
 } from 'services/api/types';
 import { O } from 'ts-toolbelt';
+import { z } from 'zod';
 
 /**
  * Any ControlNet processor node
@@ -370,9 +371,15 @@ export type ControlMode = NonNullable<
   components['schemas']['ControlNetInvocation']['control_mode']
 >;
 
-export type ResizeMode = NonNullable<
-  components['schemas']['ControlNetInvocation']['resize_mode']
->;
+export const zResizeMode = z.enum([
+  'just_resize',
+  'crop_resize',
+  'fill_resize',
+  'just_resize_simple',
+]);
+export type ResizeMode = z.infer<typeof zResizeMode>;
+export const isResizeMode = (v: unknown): v is ResizeMode =>
+  zResizeMode.safeParse(v).success;
 
 export type ControlNetConfig = {
   type: 'controlnet';

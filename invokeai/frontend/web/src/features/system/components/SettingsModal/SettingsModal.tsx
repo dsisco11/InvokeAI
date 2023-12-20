@@ -1,5 +1,4 @@
 import { Flex, useDisclosure } from '@chakra-ui/react';
-import { VALID_LOG_LEVELS } from 'app/logging/logger';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
@@ -17,13 +16,8 @@ import {
   InvModalHeader,
   InvModalOverlay,
 } from 'common/components';
-import IAIMantineSelect from 'common/components/IAIMantineSelect';
 import { useClearStorage } from 'common/hooks/useClearStorage';
-import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
-import { languageSelector } from 'features/system/store/systemSelectors';
 import {
-  consoleLogLevelChanged,
-  languageChanged,
   setEnableImageDebugging,
   setShouldConfirmOnDelete,
   setShouldEnableInformationalPopovers,
@@ -32,7 +26,6 @@ import {
   shouldUseNSFWCheckerChanged,
   shouldUseWatermarkerChanged,
 } from 'features/system/store/systemSlice';
-import { LANGUAGES } from 'features/system/store/types';
 import {
   setShouldAutoChangeDimensions,
   setShouldShowProgressInViewer,
@@ -47,17 +40,16 @@ import {
   useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LogLevelName } from 'roarr';
 import { useGetAppConfigQuery } from 'services/api/endpoints/appInfo';
 import SettingsClearIntermediates from './SettingsClearIntermediates';
-import SettingsSchedulers from './SettingsSchedulers';
 import StyledFlex from './StyledFlex';
+import { SettingsLanguageSelect } from './SettingsLanguageSelect';
+import { SettingsLogLevelSelect } from './SettingsLogLevelSelect';
 
 const selector = createMemoizedSelector([stateSelector], ({ system, ui }) => {
   const {
     shouldConfirmOnDelete,
     enableImageDebugging,
-    consoleLogLevel,
     shouldLogToConsole,
     shouldAntialiasProgressImage,
     shouldUseNSFWChecker,
@@ -71,7 +63,6 @@ const selector = createMemoizedSelector([stateSelector], ({ system, ui }) => {
     shouldConfirmOnDelete,
     enableImageDebugging,
     shouldShowProgressInViewer,
-    consoleLogLevel,
     shouldLogToConsole,
     shouldAntialiasProgressImage,
     shouldUseNSFWChecker,
@@ -140,7 +131,6 @@ const SettingsModal = ({ children, config }: SettingsModalProps) => {
     shouldConfirmOnDelete,
     enableImageDebugging,
     shouldShowProgressInViewer,
-    consoleLogLevel,
     shouldLogToConsole,
     shouldAntialiasProgressImage,
     shouldUseNSFWChecker,
@@ -164,30 +154,12 @@ const SettingsModal = ({ children, config }: SettingsModalProps) => {
     }
   }, [countdown]);
 
-  const handleLogLevelChanged = useCallback(
-    (v: string) => {
-      dispatch(consoleLogLevelChanged(v as LogLevelName));
-    },
-    [dispatch]
-  );
-
-  const handleLanguageChanged = useCallback(
-    (l: string) => {
-      dispatch(languageChanged(l as keyof typeof LANGUAGES));
-    },
-    [dispatch]
-  );
-
   const handleLogToConsoleChanged = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       dispatch(shouldLogToConsoleChanged(e.target.checked));
     },
     [dispatch]
   );
-
-  const isLocalizationEnabled =
-    useFeatureStatus('localization').isFeatureEnabled;
-  const language = useAppSelector(languageSelector);
 
   const handleChangeShouldConfirmOnDelete = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -268,7 +240,6 @@ const SettingsModal = ({ children, config }: SettingsModalProps) => {
 
               <StyledFlex>
                 <InvHeading size="sm">{t('settings.generation')}</InvHeading>
-                <SettingsSchedulers />
                 <InvControl
                   label={t('settings.enableNSFWChecker')}
                   isDisabled={!isNSFWCheckerAvailable}
@@ -309,18 +280,7 @@ const SettingsModal = ({ children, config }: SettingsModalProps) => {
                     onChange={handleChangeShouldAutoChangeDimensions}
                   />
                 </InvControl>
-                {shouldShowLocalizationToggle && (
-                  <IAIMantineSelect
-                    disabled={!isLocalizationEnabled}
-                    label={t('common.languagePickerLabel')}
-                    value={language}
-                    data={Object.entries(LANGUAGES).map(([value, label]) => ({
-                      value,
-                      label,
-                    }))}
-                    onChange={handleLanguageChanged}
-                  />
-                )}
+                {shouldShowLocalizationToggle && <SettingsLanguageSelect />}
                 <InvControl label={t('settings.enableInformationalPopovers')}>
                   <InvSwitch
                     isChecked={shouldEnableInformationalPopovers}
@@ -338,13 +298,7 @@ const SettingsModal = ({ children, config }: SettingsModalProps) => {
                       onChange={handleLogToConsoleChanged}
                     />
                   </InvControl>
-                  <IAIMantineSelect
-                    disabled={!shouldLogToConsole}
-                    label={t('settings.consoleLogLevel')}
-                    onChange={handleLogLevelChanged}
-                    value={consoleLogLevel}
-                    data={VALID_LOG_LEVELS.concat()}
-                  />
+                  <SettingsLogLevelSelect />
                   <InvControl label={t('settings.enableImageDebugging')}>
                     <InvSwitch
                       isChecked={enableImageDebugging}

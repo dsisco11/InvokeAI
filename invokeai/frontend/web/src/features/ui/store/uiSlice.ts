@@ -1,20 +1,16 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { initialImageChanged } from 'features/parameters/store/generationSlice';
-import { ParameterScheduler } from 'features/parameters/types/parameterSchemas';
 import { InvokeTabName } from './tabMap';
 import { UIState } from './uiTypes';
 
 export const initialUIState: UIState = {
   activeTab: 'txt2img',
   shouldShowImageDetails: false,
-  shouldUseCanvasBetaLayout: false,
   shouldShowExistingModelsInSearch: false,
   shouldHidePreview: false,
   shouldShowProgressInViewer: true,
-  shouldShowEmbeddingPicker: false,
   shouldAutoChangeDimensions: false,
-  favoriteSchedulers: [],
   globalMenuCloseTrigger: 0,
   panels: {},
 };
@@ -29,9 +25,6 @@ export const uiSlice = createSlice({
     setShouldShowImageDetails: (state, action: PayloadAction<boolean>) => {
       state.shouldShowImageDetails = action.payload;
     },
-    setShouldUseCanvasBetaLayout: (state, action: PayloadAction<boolean>) => {
-      state.shouldUseCanvasBetaLayout = action.payload;
-    },
     setShouldHidePreview: (state, action: PayloadAction<boolean>) => {
       state.shouldHidePreview = action.payload;
     },
@@ -43,15 +36,6 @@ export const uiSlice = createSlice({
     },
     setShouldShowProgressInViewer: (state, action: PayloadAction<boolean>) => {
       state.shouldShowProgressInViewer = action.payload;
-    },
-    favoriteSchedulersChanged: (
-      state,
-      action: PayloadAction<ParameterScheduler[]>
-    ) => {
-      state.favoriteSchedulers = action.payload;
-    },
-    toggleEmbeddingPicker: (state) => {
-      state.shouldShowEmbeddingPicker = !state.shouldShowEmbeddingPicker;
     },
     setShouldAutoChangeDimensions: (state, action: PayloadAction<boolean>) => {
       state.shouldAutoChangeDimensions = action.payload;
@@ -76,12 +60,9 @@ export const uiSlice = createSlice({
 export const {
   setActiveTab,
   setShouldShowImageDetails,
-  setShouldUseCanvasBetaLayout,
   setShouldShowExistingModelsInSearch,
   setShouldHidePreview,
   setShouldShowProgressInViewer,
-  favoriteSchedulersChanged,
-  toggleEmbeddingPicker,
   setShouldAutoChangeDimensions,
   bumpGlobalMenuCloseTrigger,
   panelsChanged,

@@ -1,19 +1,17 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIMantineSelect from 'common/components/IAIMantineSelect';
+import {
+  InvControl,
+  InvSelect,
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-  SeedBehaviour,
+  isSeedBehaviour,
   seedBehaviourChanged,
 } from 'features/dynamicPrompts/store/dynamicPromptsSlice';
-import IAIMantineSelectItemWithDescription from 'common/components/IAIMantineSelectItemWithDescription';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
-
-type Item = {
-  label: string;
-  value: SeedBehaviour;
-  description: string;
-};
 
 const ParamDynamicPromptsSeedBehaviour = () => {
   const dispatch = useAppDispatch();
@@ -22,7 +20,7 @@ const ParamDynamicPromptsSeedBehaviour = () => {
     (state) => state.dynamicPrompts.seedBehaviour
   );
 
-  const data = useMemo<Item[]>(() => {
+  const options = useMemo<InvSelectOption[]>(() => {
     return [
       {
         value: 'PER_ITERATION',
@@ -37,25 +35,26 @@ const ParamDynamicPromptsSeedBehaviour = () => {
     ];
   }, [t]);
 
-  const handleChange = useCallback(
-    (v: string | null) => {
-      if (!v) {
+  const handleChange = useCallback<InvSelectOnChange>(
+    (v) => {
+      if (!isSeedBehaviour(v?.value)) {
         return;
       }
-      dispatch(seedBehaviourChanged(v as SeedBehaviour));
+      dispatch(seedBehaviourChanged(v.value));
     },
     [dispatch]
   );
 
+  const value = useMemo(
+    () => options.find((o) => o.value === seedBehaviour),
+    [options, seedBehaviour]
+  );
+
   return (
     <IAIInformationalPopover feature="dynamicPromptsSeedBehaviour">
-      <IAIMantineSelect
-        label={t('dynamicPrompts.seedBehaviour.label')}
-        value={seedBehaviour}
-        data={data}
-        itemComponent={IAIMantineSelectItemWithDescription}
-        onChange={handleChange}
-      />
+      <InvControl label={t('dynamicPrompts.seedBehaviour.label')}>
+        <InvSelect value={value} options={options} onChange={handleChange} />
+      </InvControl>
     </IAIInformationalPopover>
   );
 };

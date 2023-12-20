@@ -1,10 +1,9 @@
 import { Flex } from '@chakra-ui/react';
-import IAIButton from 'common/components/IAIButton';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import AddModels from './AddModelsPanel/AddModels';
 import ScanModels from './AddModelsPanel/ScanModels';
-import { InvButtonGroup } from 'common/components';
+import { InvButton, InvButtonGroup } from 'common/components';
 
 type AddModelTabs = 'add' | 'scan';
 
@@ -18,22 +17,22 @@ export default function ImportModelsPanel() {
   return (
     <Flex flexDirection="column" gap={4}>
       <InvButtonGroup>
-        <IAIButton
+        <InvButton
           onClick={handleClickAddTab}
           isChecked={addModelTab == 'add'}
           size="sm"
           width="100%"
         >
           {t('modelManager.addModel')}
-        </IAIButton>
-        <IAIButton
+        </InvButton>
+        <InvButton
           onClick={handleClickScanTab}
           isChecked={addModelTab == 'scan'}
           size="sm"
           width="100%"
         >
           {t('modelManager.scanForModels')}
-        </IAIButton>
+        </InvButton>
       </InvButtonGroup>
 
       {addModelTab == 'add' && <AddModels />}

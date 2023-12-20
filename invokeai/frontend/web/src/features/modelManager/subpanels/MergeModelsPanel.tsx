@@ -1,13 +1,13 @@
 import { Flex, Radio, RadioGroup, Text, Tooltip } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import {
+  InvButton,
   InvControl,
   InvSelect,
   InvSelectOnChange,
   InvSelectOption,
   InvSlider,
 } from 'common/components';
-import IAIButton from 'common/components/IAIButton';
 import IAIInput from 'common/components/IAIInput';
 import IAISimpleCheckbox from 'common/components/IAISimpleCheckbox';
 import { addToast } from 'features/system/store/systemSlice';
@@ -416,13 +416,13 @@ export default function MergeModelsPanel() {
         fontWeight="500"
       />
 
-      <IAIButton
+      <InvButton
         onClick={mergeModelsHandler}
         isLoading={isLoading}
         isDisabled={modelOne === null || modelTwo === null}
       >
         {t('modelManager.merge')}
-      </IAIButton>
+      </InvButton>
     </Flex>
   );
 }

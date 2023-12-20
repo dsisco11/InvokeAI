@@ -1,10 +1,9 @@
 import { Flex } from '@chakra-ui/react';
-import IAIButton from 'common/components/IAIButton';
 import { useCallback, useState } from 'react';
 import AdvancedAddModels from './AdvancedAddModels';
 import SimpleAddModels from './SimpleAddModels';
 import { useTranslation } from 'react-i18next';
-import { InvButtonGroup } from 'common/components';
+import { InvButton, InvButtonGroup } from 'common/components';
 
 export default function AddModels() {
   const { t } = useTranslation();
@@ -25,20 +24,20 @@ export default function AddModels() {
       gap={4}
     >
       <InvButtonGroup>
-        <IAIButton
+        <InvButton
           size="sm"
           isChecked={addModelMode == 'simple'}
           onClick={handleAddModelSimple}
         >
           {t('common.simple')}
-        </IAIButton>
-        <IAIButton
+        </InvButton>
+        <InvButton
           size="sm"
           isChecked={addModelMode == 'advanced'}
           onClick={handleAddModelAdvanced}
         >
           {t('common.advanced')}
-        </IAIButton>
+        </InvButton>
       </InvButtonGroup>
       <Flex
         sx={{

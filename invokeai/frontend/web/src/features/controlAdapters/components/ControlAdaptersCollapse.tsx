@@ -2,8 +2,7 @@ import { Divider, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvButtonGroup } from 'common/components';
-import IAIButton from 'common/components/IAIButton';
+import { InvButton, InvButtonGroup } from 'common/components';
 import IAICollapse from 'common/components/IAICollapse';
 import ControlAdapterConfig from 'features/controlAdapters/components/ControlAdapterConfig';
 import { useAddControlAdapter } from 'features/controlAdapters/hooks/useAddControlAdapter';
@@ -94,7 +93,7 @@ const ControlAdaptersCollapse = () => {
     >
       <Flex sx={{ flexDir: 'column', gap: 2 }}>
         <InvButtonGroup size="sm" w="full" justifyContent="space-between">
-          <IAIButton
+          <InvButton
             tooltip={t('controlnet.addControlNet')}
             leftIcon={<FaPlus />}
             onClick={addControlNet}
@@ -103,8 +102,8 @@ const ControlAdaptersCollapse = () => {
             isDisabled={isAddControlNetDisabled}
           >
             {t('common.controlNet')}
-          </IAIButton>
-          <IAIButton
+          </InvButton>
+          <InvButton
             tooltip={t('controlnet.addIPAdapter')}
             leftIcon={<FaPlus />}
             onClick={addIPAdapter}
@@ -113,8 +112,8 @@ const ControlAdaptersCollapse = () => {
             isDisabled={isAddIPAdapterDisabled}
           >
             {t('common.ipAdapter')}
-          </IAIButton>
-          <IAIButton
+          </InvButton>
+          <InvButton
             tooltip={t('controlnet.addT2IAdapter')}
             leftIcon={<FaPlus />}
             onClick={addT2IAdapter}
@@ -123,7 +122,7 @@ const ControlAdaptersCollapse = () => {
             isDisabled={isAddT2IAdapterDisabled}
           >
             {t('common.t2iAdapter')}
-          </IAIButton>
+          </InvButton>
         </InvButtonGroup>
         {controlAdapterIds.map((id, i) => (
           <Fragment key={id}>

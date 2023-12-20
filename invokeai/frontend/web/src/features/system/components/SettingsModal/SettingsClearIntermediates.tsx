@@ -4,7 +4,6 @@ import { controlAdaptersReset } from 'features/controlAdapters/store/controlAdap
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetQueueStatusQuery } from 'services/api/endpoints/queue';
-import IAIButton from 'common/components/IAIButton';
 import {
   useClearIntermediatesMutation,
   useGetIntermediatesCountQuery,
@@ -12,6 +11,7 @@ import {
 import { resetCanvas } from 'features/canvas/store/canvasSlice';
 import { addToast } from 'features/system/store/systemSlice';
 import StyledFlex from './StyledFlex';
+import { InvButton } from 'common/components';
 
 export default function SettingsClearIntermediates() {
   const { t } = useTranslation();
@@ -62,7 +62,7 @@ export default function SettingsClearIntermediates() {
   return (
     <StyledFlex>
       <Heading size="sm">{t('settings.clearIntermediates')}</Heading>
-      <IAIButton
+      <InvButton
         tooltip={
           hasPendingItems ? t('settings.clearIntermediatesDisabled') : undefined
         }
@@ -74,7 +74,7 @@ export default function SettingsClearIntermediates() {
         {t('settings.clearIntermediatesWithCount', {
           count: intermediatesCount ?? 0,
         })}
-      </IAIButton>
+      </InvButton>
       <Text fontWeight="bold">{t('settings.clearIntermediatesDesc1')}</Text>
       <Text variant="subtext">{t('settings.clearIntermediatesDesc2')}</Text>
       <Text variant="subtext">{t('settings.clearIntermediatesDesc3')}</Text>

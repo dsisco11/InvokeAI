@@ -1,13 +1,9 @@
 import { CloseIcon } from '@chakra-ui/icons';
-import {
-  IconButton,
-  Input,
-  InputGroup,
-  InputRightElement,
-} from '@chakra-ui/react';
+import { Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import { InvIconButton } from 'common/components';
 import { boardSearchTextChanged } from 'features/gallery/store/gallerySlice';
 import {
   ChangeEvent,
@@ -78,7 +74,7 @@ const BoardsSearch = () => {
       />
       {boardSearchText && boardSearchText.length && (
         <InputRightElement>
-          <IconButton
+          <InvIconButton
             onClick={clearBoardSearch}
             size="xs"
             variant="ghost"

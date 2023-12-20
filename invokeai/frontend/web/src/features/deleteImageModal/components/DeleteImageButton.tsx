@@ -1,10 +1,9 @@
-import { IconButtonProps } from '@chakra-ui/react';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvIconButton } from 'common/components';
+import { InvIconButton, InvIconButtonProps } from 'common/components';
 import { useTranslation } from 'react-i18next';
 import { FaTrash } from 'react-icons/fa';
 
-type DeleteImageButtonProps = Omit<IconButtonProps, 'aria-label'> & {
+type DeleteImageButtonProps = Omit<InvIconButtonProps, 'aria-label'> & {
   onClick: () => void;
 };
 

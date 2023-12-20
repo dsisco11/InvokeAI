@@ -17,7 +17,7 @@ import {
   useRef,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import IAIButton from './IAIButton';
+import { InvButton } from './InvButton';
 
 type Props = {
   acceptButtonText?: string;
@@ -77,12 +77,12 @@ const IAIAlertDialog = forwardRef((props: Props, ref) => {
             <AlertDialogBody>{children}</AlertDialogBody>
 
             <AlertDialogFooter>
-              <IAIButton ref={cancelRef} onClick={handleCancel}>
+              <InvButton ref={cancelRef} onClick={handleCancel}>
                 {cancelButtonText}
-              </IAIButton>
-              <IAIButton colorScheme="error" onClick={handleAccept} ml={3}>
+              </InvButton>
+              <InvButton colorScheme="error" onClick={handleAccept} ml={3}>
                 {acceptButtonText}
-              </IAIButton>
+              </InvButton>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialogOverlay>

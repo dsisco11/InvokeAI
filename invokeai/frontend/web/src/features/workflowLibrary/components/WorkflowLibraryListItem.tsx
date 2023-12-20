@@ -1,5 +1,4 @@
 import { Flex, Heading, Spacer, Text } from '@chakra-ui/react';
-import IAIButton from 'common/components/IAIButton';
 import dateFormat, { masks } from 'dateformat';
 import { useDeleteLibraryWorkflow } from 'features/workflowLibrary/hooks/useDeleteLibraryWorkflow';
 import { useGetAndLoadLibraryWorkflow } from 'features/workflowLibrary/hooks/useGetAndLoadLibraryWorkflow';
@@ -8,6 +7,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { WorkflowRecordListItemDTO } from 'services/api/types';
 import { useAppSelector } from 'app/store/storeHooks';
+import { InvButton } from 'common/components';
 
 type Props = {
   workflowDTO: WorkflowRecordListItemDTO;
@@ -76,16 +76,16 @@ const WorkflowLibraryListItem = ({ workflowDTO }: Props) => {
             )}
           </Flex>
         </Flex>
-        <IAIButton
+        <InvButton
           isDisabled={isOpen}
           onClick={handleGetAndLoadWorkflow}
           isLoading={getAndLoadWorkflowResult.isLoading}
           aria-label={t('workflows.openWorkflow')}
         >
           {t('common.load')}
-        </IAIButton>
+        </InvButton>
         {workflowDTO.category === 'user' && (
-          <IAIButton
+          <InvButton
             colorScheme="error"
             isDisabled={isOpen}
             onClick={handleDeleteWorkflow}
@@ -93,7 +93,7 @@ const WorkflowLibraryListItem = ({ workflowDTO }: Props) => {
             aria-label={t('workflows.deleteWorkflow')}
           >
             {t('common.delete')}
-          </IAIButton>
+          </InvButton>
         )}
       </Flex>
     </Flex>

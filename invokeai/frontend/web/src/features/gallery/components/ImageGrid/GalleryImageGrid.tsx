@@ -1,7 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { EntityId } from '@reduxjs/toolkit';
 import { useAppSelector } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
 import { IAINoContentFallback } from 'common/components/IAIImageFallback';
 import { VirtuosoGalleryContext } from 'features/gallery/components/ImageGrid/types';
 import { $useNextPrevImageState } from 'features/gallery/hooks/useNextPrevImage';
@@ -28,6 +27,7 @@ import { useBoardTotal } from 'services/api/hooks/useBoardTotal';
 import GalleryImage from './GalleryImage';
 import ImageGridItemContainer from './ImageGridItemContainer';
 import ImageGridListContainer from './ImageGridListContainer';
+import { InvButton } from 'common/components';
 
 const overlayScrollbarsConfig: UseOverlayScrollbarsParams = {
   defer: true,
@@ -180,7 +180,7 @@ const GalleryImageGrid = () => {
             overscan={10}
           />
         </Box>
-        <IAIButton
+        <InvButton
           onClick={handleLoadMoreImages}
           isDisabled={!areMoreAvailable}
           isLoading={isFetching}
@@ -188,7 +188,7 @@ const GalleryImageGrid = () => {
           flexShrink={0}
         >
           {`Load More (${currentData.ids.length} of ${currentViewTotal})`}
-        </IAIButton>
+        </InvButton>
       </>
     );
   }

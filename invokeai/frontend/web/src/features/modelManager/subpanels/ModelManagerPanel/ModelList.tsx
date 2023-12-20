@@ -1,6 +1,5 @@
 import { Flex, Spinner, Text } from '@chakra-ui/react';
 import { EntityState } from '@reduxjs/toolkit';
-import IAIButton from 'common/components/IAIButton';
 import IAIInput from 'common/components/IAIInput';
 import { forEach } from 'lodash-es';
 import { ChangeEvent, PropsWithChildren, memo } from 'react';
@@ -16,7 +15,7 @@ import {
   useGetOnnxModelsQuery,
 } from 'services/api/endpoints/models';
 import ModelListItem from './ModelListItem';
-import { InvButtonGroup } from 'common/components';
+import { InvButton, InvButtonGroup } from 'common/components';
 
 type ModelListProps = {
   selectedModelId: string | undefined;
@@ -100,48 +99,48 @@ const ModelList = (props: ModelListProps) => {
     <Flex flexDirection="column" rowGap={4} width="50%" minWidth="50%">
       <Flex flexDirection="column" gap={4} paddingInlineEnd={4}>
         <InvButtonGroup>
-          <IAIButton
+          <InvButton
             onClick={setModelFormatFilter.bind(null, 'all')}
             isChecked={modelFormatFilter === 'all'}
             size="sm"
           >
             {t('modelManager.allModels')}
-          </IAIButton>
-          <IAIButton
+          </InvButton>
+          <InvButton
             size="sm"
             onClick={setModelFormatFilter.bind(null, 'diffusers')}
             isChecked={modelFormatFilter === 'diffusers'}
           >
             {t('modelManager.diffusersModels')}
-          </IAIButton>
-          <IAIButton
+          </InvButton>
+          <InvButton
             size="sm"
             onClick={setModelFormatFilter.bind(null, 'checkpoint')}
             isChecked={modelFormatFilter === 'checkpoint'}
           >
             {t('modelManager.checkpointModels')}
-          </IAIButton>
-          <IAIButton
+          </InvButton>
+          <InvButton
             size="sm"
             onClick={setModelFormatFilter.bind(null, 'onnx')}
             isChecked={modelFormatFilter === 'onnx'}
           >
             {t('modelManager.onnxModels')}
-          </IAIButton>
-          <IAIButton
+          </InvButton>
+          <InvButton
             size="sm"
             onClick={setModelFormatFilter.bind(null, 'olive')}
             isChecked={modelFormatFilter === 'olive'}
           >
             {t('modelManager.oliveModels')}
-          </IAIButton>
-          <IAIButton
+          </InvButton>
+          <InvButton
             size="sm"
             onClick={setModelFormatFilter.bind(null, 'lora')}
             isChecked={modelFormatFilter === 'lora'}
           >
             {t('modelManager.loraModels')}
-          </IAIButton>
+          </InvButton>
         </InvButtonGroup>
 
         <IAIInput

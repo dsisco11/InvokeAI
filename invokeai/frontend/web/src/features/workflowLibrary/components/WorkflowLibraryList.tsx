@@ -2,20 +2,20 @@ import { CloseIcon } from '@chakra-ui/icons';
 import {
   Divider,
   Flex,
-  IconButton,
   Input,
   InputGroup,
   InputRightElement,
   Spacer,
 } from '@chakra-ui/react';
 import {
+  InvButton,
   InvButtonGroup,
   InvControl,
+  InvIconButton,
   InvSelect,
   InvSelectOnChange,
   InvSelectOption,
 } from 'common/components';
-import IAIButton from 'common/components/IAIButton';
 import {
   IAINoContentFallback,
   IAINoContentFallbackWithSpinner,
@@ -161,20 +161,20 @@ const WorkflowLibraryList = () => {
     <>
       <Flex gap={4} alignItems="center" h={10} flexShrink={0} flexGrow={0}>
         <InvButtonGroup>
-          <IAIButton
+          <InvButton
             variant={category === 'user' ? undefined : 'ghost'}
             onClick={handleSetUserCategory}
             isChecked={category === 'user'}
           >
             {t('workflows.userWorkflows')}
-          </IAIButton>
-          <IAIButton
+          </InvButton>
+          <InvButton
             variant={category === 'default' ? undefined : 'ghost'}
             onClick={handleSetDefaultCategory}
             isChecked={category === 'default'}
           >
             {t('workflows.defaultWorkflows')}
-          </IAIButton>
+          </InvButton>
         </InvButtonGroup>
         <Spacer />
         {category === 'user' && (
@@ -218,7 +218,7 @@ const WorkflowLibraryList = () => {
           />
           {query.trim().length && (
             <InputRightElement>
-              <IconButton
+              <InvIconButton
                 onClick={resetFilterText}
                 size="xs"
                 variant="ghost"

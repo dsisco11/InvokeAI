@@ -2,7 +2,6 @@ import { Flex, Text } from '@chakra-ui/react';
 import { makeToast } from 'features/system/util/makeToast';
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
 import IAIInput from 'common/components/IAIInput';
 import IAIScrollArea from 'common/components/IAIScrollArea';
 import { addToast } from 'features/system/store/systemSlice';
@@ -17,6 +16,7 @@ import {
 } from 'services/api/endpoints/models';
 import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
 import { ALL_BASE_MODELS } from 'services/api/constants';
+import { InvButton } from 'common/components';
 
 export default function FoundModelsList() {
   const searchFolder = useAppSelector(
@@ -131,19 +131,19 @@ export default function FoundModelsList() {
           </Flex>
           {showActions ? (
             <Flex gap={2}>
-              <IAIButton
+              <InvButton
                 id={model}
                 onClick={quickAddHandler}
                 isLoading={isLoading}
               >
                 {t('modelManager.quickAdd')}
-              </IAIButton>
-              <IAIButton
+              </InvButton>
+              <InvButton
                 onClick={handleClickSetAdvanced.bind(null, model)}
                 isLoading={isLoading}
               >
                 {t('modelManager.advanced')}
-              </IAIButton>
+              </InvButton>
             </Flex>
           ) : (
             <Text

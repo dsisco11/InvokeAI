@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
+import { InvButton } from 'common/components';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaSyncAlt } from 'react-icons/fa';
@@ -14,14 +14,14 @@ const ReloadNodeTemplatesButton = () => {
   }, [dispatch]);
 
   return (
-    <IAIButton
+    <InvButton
       leftIcon={<FaSyncAlt />}
       tooltip={t('nodes.reloadNodeTemplates')}
       aria-label={t('nodes.reloadNodeTemplates')}
       onClick={handleReloadSchema}
     >
       {t('nodes.reloadNodeTemplates')}
-    </IAIButton>
+    </InvButton>
   );
 };
 

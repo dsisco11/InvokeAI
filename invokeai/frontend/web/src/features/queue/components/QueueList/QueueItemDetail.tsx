@@ -1,6 +1,5 @@
 import { Flex, Heading, Spinner, Text } from '@chakra-ui/react';
-import { InvButtonGroup } from 'common/components';
-import IAIButton from 'common/components/IAIButton';
+import { InvButton, InvButtonGroup } from 'common/components';
 import DataViewer from 'features/gallery/components/ImageMetadataViewer/DataViewer';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
 import { useCancelBatch } from 'features/queue/hooks/useCancelBatch';
@@ -70,7 +69,7 @@ const QueueItemComponent = ({ queueItemDTO }: Props) => {
         <QueueItemData label={t('queue.batch')} data={batch_id} />
         <QueueItemData label={t('queue.session')} data={session_id} />
         <InvButtonGroup size="xs" orientation="vertical">
-          <IAIButton
+          <InvButton
             onClick={cancelQueueItem}
             isLoading={isLoadingCancelQueueItem}
             isDisabled={
@@ -83,8 +82,8 @@ const QueueItemComponent = ({ queueItemDTO }: Props) => {
             colorScheme="error"
           >
             {t('queue.cancelItem')}
-          </IAIButton>
-          <IAIButton
+          </InvButton>
+          <InvButton
             onClick={cancelBatch}
             isLoading={isLoadingCancelBatch}
             isDisabled={isCanceled}
@@ -93,7 +92,7 @@ const QueueItemComponent = ({ queueItemDTO }: Props) => {
             colorScheme="error"
           >
             {t('queue.cancelBatch')}
-          </IAIButton>
+          </InvButton>
         </InvButtonGroup>
       </Flex>
       {queueItem?.error && (

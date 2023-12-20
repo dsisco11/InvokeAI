@@ -12,7 +12,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { useAppSelector } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
+import { InvButton } from 'common/components';
 import { useSaveWorkflowAs } from 'features/workflowLibrary/hooks/useSaveWorkflowAs';
 import { getWorkflowCopyName } from 'features/workflowLibrary/util/getWorkflowCopyName';
 import { ChangeEvent, memo, useCallback, useRef, useState } from 'react';
@@ -70,10 +70,10 @@ const SaveWorkflowAsButton = () => {
             </AlertDialogBody>
 
             <AlertDialogFooter>
-              <IAIButton onClick={onClose}>{t('common.cancel')}</IAIButton>
-              <IAIButton colorScheme="accent" onClick={onSave} ml={3}>
+              <InvButton onClick={onClose}>{t('common.cancel')}</InvButton>
+              <InvButton colorScheme="accent" onClick={onSave} ml={3}>
                 {t('common.saveAs')}
-              </IAIButton>
+              </InvButton>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialogOverlay>

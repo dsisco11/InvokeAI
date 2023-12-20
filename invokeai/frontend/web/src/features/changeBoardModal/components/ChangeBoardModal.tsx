@@ -12,12 +12,12 @@ import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import {
+  InvButton,
   InvControl,
   InvSelect,
   InvSelectOnChange,
   InvSelectOption,
 } from 'common/components';
-import IAIButton from 'common/components/IAIButton';
 import {
   changeBoardReset,
   isModalOpenChanged,
@@ -136,12 +136,12 @@ const ChangeBoardModal = () => {
             </Flex>
           </AlertDialogBody>
           <AlertDialogFooter>
-            <IAIButton ref={cancelRef} onClick={handleClose}>
+            <InvButton ref={cancelRef} onClick={handleClose}>
               {t('boards.cancel')}
-            </IAIButton>
-            <IAIButton colorScheme="accent" onClick={handleChangeBoard} ml={3}>
+            </InvButton>
+            <InvButton colorScheme="accent" onClick={handleChangeBoard} ml={3}>
               {t('boards.move')}
-            </IAIButton>
+            </InvButton>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialogOverlay>

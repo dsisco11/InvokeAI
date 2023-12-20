@@ -1,9 +1,10 @@
-import { Box, Flex, IconButton, Tooltip } from '@chakra-ui/react';
+import { Box, Flex, Tooltip } from '@chakra-ui/react';
 import { isString } from 'lodash-es';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import { memo, useCallback, useMemo } from 'react';
 import { FaCopy, FaDownload } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import { InvIconButton } from 'common/components';
 
 type Props = {
   label: string;
@@ -77,7 +78,7 @@ const DataViewer = (props: Props) => {
       <Flex sx={{ position: 'absolute', top: 0, insetInlineEnd: 0, p: 2 }}>
         {withDownload && (
           <Tooltip label={`${t('gallery.download')} ${label} JSON`}>
-            <IconButton
+            <InvIconButton
               aria-label={`${t('gallery.download')} ${label} JSON`}
               icon={<FaDownload />}
               variant="ghost"
@@ -88,7 +89,7 @@ const DataViewer = (props: Props) => {
         )}
         {withCopy && (
           <Tooltip label={`${t('gallery.copy')} ${label} JSON`}>
-            <IconButton
+            <InvIconButton
               aria-label={`${t('gallery.copy')} ${label} JSON`}
               icon={<FaCopy />}
               variant="ghost"

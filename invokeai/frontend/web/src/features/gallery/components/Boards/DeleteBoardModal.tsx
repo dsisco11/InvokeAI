@@ -13,7 +13,7 @@ import { skipToken } from '@reduxjs/toolkit/query';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
+import { InvButton } from 'common/components';
 import ImageUsageMessage from 'features/deleteImageModal/components/ImageUsageMessage';
 import { getImageUsage } from 'features/deleteImageModal/store/selectors';
 import { ImageUsage } from 'features/deleteImageModal/store/types';
@@ -148,23 +148,23 @@ const DeleteBoardModal = (props: Props) => {
             <Flex
               sx={{ justifyContent: 'space-between', width: 'full', gap: 2 }}
             >
-              <IAIButton ref={cancelRef} onClick={handleClose}>
+              <InvButton ref={cancelRef} onClick={handleClose}>
                 {t('boards.cancel')}
-              </IAIButton>
-              <IAIButton
+              </InvButton>
+              <InvButton
                 colorScheme="warning"
                 isLoading={isLoading}
                 onClick={handleDeleteBoardOnly}
               >
                 {t('boards.deleteBoardOnly')}
-              </IAIButton>
-              <IAIButton
+              </InvButton>
+              <InvButton
                 colorScheme="error"
                 isLoading={isLoading}
                 onClick={handleDeleteBoardAndImages}
               >
                 {t('boards.deleteBoardAndImages')}
-              </IAIButton>
+              </InvButton>
             </Flex>
           </AlertDialogFooter>
         </AlertDialogContent>

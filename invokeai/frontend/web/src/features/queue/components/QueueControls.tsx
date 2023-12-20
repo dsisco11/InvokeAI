@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Flex, Spacer } from '@chakra-ui/react';
+import { Flex, Spacer } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import CancelCurrentQueueItemButton from 'features/queue/components/CancelCurrentQueueItemButton';
 import ClearQueueButton from 'features/queue/components/ClearQueueButton';
@@ -12,6 +12,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetQueueStatusQuery } from 'services/api/endpoints/queue';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
+import { InvButton, InvButtonGroup } from 'common/components';
 
 const QueueControls = () => {
   const isPauseEnabled = useFeatureStatus('pauseQueue').isFeatureEnabled;
@@ -30,15 +31,15 @@ const QueueControls = () => {
       }}
     >
       <Flex gap={2} w="full">
-        <ButtonGroup isAttached flexGrow={2}>
+        <InvButtonGroup flexGrow={2}>
           <QueueBackButton />
           {isPrependEnabled ? <QueueFrontButton asIconButton /> : <></>}
           <CancelCurrentQueueItemButton asIconButton />
-        </ButtonGroup>
-        <ButtonGroup isAttached>
+        </InvButtonGroup>
+        <InvButtonGroup>
           {isResumeEnabled ? <ResumeProcessorButton asIconButton /> : <></>}
           {isPauseEnabled ? <PauseProcessorButton asIconButton /> : <></>}
-        </ButtonGroup>
+        </InvButtonGroup>
         <ClearQueueButton asIconButton />
       </Flex>
       <Flex h={3} w="full">
@@ -84,7 +85,7 @@ const QueueCounts = memo(() => {
       data-testid="queue-count"
     >
       <Spacer />
-      <Button
+      <InvButton
         onClick={handleClick}
         size="sm"
         variant="link"
@@ -97,7 +98,7 @@ const QueueCounts = memo(() => {
               pending,
             })
           : t('queue.queueEmpty')}
-      </Button>
+      </InvButton>
     </Flex>
   );
 });

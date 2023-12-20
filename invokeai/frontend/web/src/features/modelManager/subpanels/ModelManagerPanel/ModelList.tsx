@@ -1,4 +1,4 @@
-import { ButtonGroup, Flex, Spinner, Text } from '@chakra-ui/react';
+import { Flex, Spinner, Text } from '@chakra-ui/react';
 import { EntityState } from '@reduxjs/toolkit';
 import IAIButton from 'common/components/IAIButton';
 import IAIInput from 'common/components/IAIInput';
@@ -16,6 +16,7 @@ import {
   useGetOnnxModelsQuery,
 } from 'services/api/endpoints/models';
 import ModelListItem from './ModelListItem';
+import { InvButtonGroup } from 'common/components';
 
 type ModelListProps = {
   selectedModelId: string | undefined;
@@ -98,7 +99,7 @@ const ModelList = (props: ModelListProps) => {
   return (
     <Flex flexDirection="column" rowGap={4} width="50%" minWidth="50%">
       <Flex flexDirection="column" gap={4} paddingInlineEnd={4}>
-        <ButtonGroup isAttached>
+        <InvButtonGroup>
           <IAIButton
             onClick={setModelFormatFilter.bind(null, 'all')}
             isChecked={modelFormatFilter === 'all'}
@@ -141,7 +142,7 @@ const ModelList = (props: ModelListProps) => {
           >
             {t('modelManager.loraModels')}
           </IAIButton>
-        </ButtonGroup>
+        </InvButtonGroup>
 
         <IAIInput
           onChange={handleSearchFilter}

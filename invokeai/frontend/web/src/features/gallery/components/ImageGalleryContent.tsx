@@ -1,6 +1,5 @@
 import {
   Box,
-  ButtonGroup,
   Flex,
   Tab,
   TabList,
@@ -20,6 +19,7 @@ import BoardsList from './Boards/BoardsList/BoardsList';
 import GalleryBoardName from './GalleryBoardName';
 import GallerySettingsPopover from './GallerySettingsPopover';
 import GalleryImageGrid from './ImageGrid/GalleryImageGrid';
+import { InvButtonGroup } from 'common/components';
 
 const selector = createMemoizedSelector([stateSelector], (state) => {
   const { galleryView } = state.gallery;
@@ -91,12 +91,7 @@ const ImageGalleryContent = () => {
             sx={{ w: 'full' }}
           >
             <TabList>
-              <ButtonGroup
-                isAttached
-                sx={{
-                  w: 'full',
-                }}
-              >
+              <InvButtonGroup w="full">
                 <Tab
                   as={IAIButton}
                   size="sm"
@@ -123,7 +118,7 @@ const ImageGalleryContent = () => {
                 >
                   {t('gallery.assets')}
                 </Tab>
-              </ButtonGroup>
+              </InvButtonGroup>
             </TabList>
           </Tabs>
         </Flex>

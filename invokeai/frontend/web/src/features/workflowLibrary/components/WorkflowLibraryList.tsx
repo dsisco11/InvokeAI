@@ -1,6 +1,5 @@
 import { CloseIcon } from '@chakra-ui/icons';
 import {
-  ButtonGroup,
   Divider,
   Flex,
   IconButton,
@@ -10,6 +9,7 @@ import {
   Spacer,
 } from '@chakra-ui/react';
 import {
+  InvButtonGroup,
   InvControl,
   InvSelect,
   InvSelectOnChange,
@@ -160,7 +160,7 @@ const WorkflowLibraryList = () => {
   return (
     <>
       <Flex gap={4} alignItems="center" h={10} flexShrink={0} flexGrow={0}>
-        <ButtonGroup>
+        <InvButtonGroup>
           <IAIButton
             variant={category === 'user' ? undefined : 'ghost'}
             onClick={handleSetUserCategory}
@@ -175,7 +175,7 @@ const WorkflowLibraryList = () => {
           >
             {t('workflows.defaultWorkflows')}
           </IAIButton>
-        </ButtonGroup>
+        </InvButtonGroup>
         <Spacer />
         {category === 'user' && (
           <>

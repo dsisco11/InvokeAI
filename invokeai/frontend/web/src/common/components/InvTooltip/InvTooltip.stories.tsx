@@ -1,7 +1,7 @@
-import { Button } from '@chakra-ui/react';
 import { Meta, StoryObj } from '@storybook/react';
 import { InvTooltip } from './InvTooltip';
 import { InvTooltipProps } from './types';
+import { InvButton } from 'common/components';
 
 const meta: Meta<typeof InvTooltip> = {
   title: 'Primitives/InvTooltip',
@@ -19,7 +19,7 @@ type Story = StoryObj<typeof InvTooltip>;
 
 const render = (props: InvTooltipProps) => (
   <InvTooltip {...props}>
-    <Button>Invoke</Button>
+    <InvButton>Invoke</InvButton>
   </InvTooltip>
 );
 

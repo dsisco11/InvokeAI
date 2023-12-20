@@ -1,10 +1,11 @@
-import { ButtonGroup, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { memo } from 'react';
 import ClearQueueButton from './ClearQueueButton';
 import PauseProcessorButton from './PauseProcessorButton';
 import PruneQueueButton from './PruneQueueButton';
 import ResumeProcessorButton from './ResumeProcessorButton';
+import { InvButtonGroup } from 'common/components';
 
 const QueueTabQueueControls = () => {
   const isPauseEnabled = useFeatureStatus('pauseQueue').isFeatureEnabled;
@@ -12,17 +13,17 @@ const QueueTabQueueControls = () => {
   return (
     <Flex layerStyle="second" borderRadius="base" p={2} gap={2}>
       {isPauseEnabled || isResumeEnabled ? (
-        <ButtonGroup w={28} orientation="vertical" isAttached size="sm">
+        <InvButtonGroup w={28} orientation="vertical" size="sm">
           {isResumeEnabled ? <ResumeProcessorButton /> : <></>}
           {isPauseEnabled ? <PauseProcessorButton /> : <></>}
-        </ButtonGroup>
+        </InvButtonGroup>
       ) : (
         <></>
       )}
-      <ButtonGroup w={28} orientation="vertical" isAttached size="sm">
+      <InvButtonGroup w={28} orientation="vertical" size="sm">
         <PruneQueueButton />
         <ClearQueueButton />
-      </ButtonGroup>
+      </InvButtonGroup>
     </Flex>
   );
 };

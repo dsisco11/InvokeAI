@@ -1,4 +1,5 @@
-import { ButtonGroup, Flex, Heading, Spinner, Text } from '@chakra-ui/react';
+import { Flex, Heading, Spinner, Text } from '@chakra-ui/react';
+import { InvButtonGroup } from 'common/components';
 import IAIButton from 'common/components/IAIButton';
 import DataViewer from 'features/gallery/components/ImageMetadataViewer/DataViewer';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
@@ -68,7 +69,7 @@ const QueueItemComponent = ({ queueItemDTO }: Props) => {
         <QueueItemData label={t('queue.item')} data={item_id} />
         <QueueItemData label={t('queue.batch')} data={batch_id} />
         <QueueItemData label={t('queue.session')} data={session_id} />
-        <ButtonGroup size="xs" orientation="vertical">
+        <InvButtonGroup size="xs" orientation="vertical">
           <IAIButton
             onClick={cancelQueueItem}
             isLoading={isLoadingCancelQueueItem}
@@ -93,7 +94,7 @@ const QueueItemComponent = ({ queueItemDTO }: Props) => {
           >
             {t('queue.cancelBatch')}
           </IAIButton>
-        </ButtonGroup>
+        </InvButtonGroup>
       </Flex>
       {queueItem?.error && (
         <Flex

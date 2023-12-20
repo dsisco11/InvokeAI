@@ -5,13 +5,13 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogOverlay,
-  Button,
   Flex,
   MenuItem,
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import { InvButton } from 'common/components';
 import { nodeEditorReset } from 'features/nodes/store/nodesSlice';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
@@ -76,12 +76,12 @@ const NewWorkflowMenuItem = () => {
           </AlertDialogBody>
 
           <AlertDialogFooter>
-            <Button ref={cancelRef} onClick={onClose}>
+            <InvButton ref={cancelRef} onClick={onClose}>
               {t('common.cancel')}
-            </Button>
-            <Button colorScheme="error" ml={3} onClick={handleNewWorkflow}>
+            </InvButton>
+            <InvButton colorScheme="error" ml={3} onClick={handleNewWorkflow}>
               {t('common.accept')}
-            </Button>
+            </InvButton>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

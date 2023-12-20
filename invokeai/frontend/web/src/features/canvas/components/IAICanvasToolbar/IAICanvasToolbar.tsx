@@ -1,8 +1,9 @@
-import { Box, ButtonGroup, Flex } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import {
+  InvButtonGroup,
   InvControl,
   InvIconButton,
   InvSelect,
@@ -239,7 +240,7 @@ const IAICanvasToolbar = () => {
       <IAICanvasMaskOptions />
       <IAICanvasToolChooserOptions />
 
-      <ButtonGroup isAttached>
+      <InvButtonGroup>
         <InvIconButton
           aria-label={`${t('unifiedCanvas.move')} (V)`}
           tooltip={`${t('unifiedCanvas.move')} (V)`}
@@ -253,9 +254,9 @@ const IAICanvasToolbar = () => {
           icon={<FaCrosshairs />}
           onClick={handleClickResetCanvasView}
         />
-      </ButtonGroup>
+      </InvButtonGroup>
 
-      <ButtonGroup isAttached>
+      <InvButtonGroup>
         <InvIconButton
           aria-label={`${t('unifiedCanvas.mergeVisible')} (Shift+M)`}
           tooltip={`${t('unifiedCanvas.mergeVisible')} (Shift+M)`}
@@ -286,13 +287,13 @@ const IAICanvasToolbar = () => {
           onClick={handleDownloadAsImage}
           isDisabled={isStaging}
         />
-      </ButtonGroup>
-      <ButtonGroup isAttached>
+      </InvButtonGroup>
+      <InvButtonGroup>
         <IAICanvasUndoButton />
         <IAICanvasRedoButton />
-      </ButtonGroup>
+      </InvButtonGroup>
 
-      <ButtonGroup isAttached>
+      <InvButtonGroup>
         <InvIconButton
           aria-label={`${t('common.upload')}`}
           tooltip={`${t('common.upload')}`}
@@ -309,10 +310,10 @@ const IAICanvasToolbar = () => {
           colorScheme="error"
           isDisabled={isStaging}
         />
-      </ButtonGroup>
-      <ButtonGroup isAttached>
+      </InvButtonGroup>
+      <InvButtonGroup>
         <IAICanvasSettingsButtonPopover />
-      </ButtonGroup>
+      </InvButtonGroup>
     </Flex>
   );
 };

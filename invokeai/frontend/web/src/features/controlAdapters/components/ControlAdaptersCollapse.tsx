@@ -1,7 +1,8 @@
-import { ButtonGroup, Divider, Flex } from '@chakra-ui/react';
+import { Divider, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
+import { InvButtonGroup } from 'common/components';
 import IAIButton from 'common/components/IAIButton';
 import IAICollapse from 'common/components/IAICollapse';
 import ControlAdapterConfig from 'features/controlAdapters/components/ControlAdapterConfig';
@@ -92,7 +93,7 @@ const ControlAdaptersCollapse = () => {
       activeLabel={activeLabel}
     >
       <Flex sx={{ flexDir: 'column', gap: 2 }}>
-        <ButtonGroup size="sm" w="full" justifyContent="space-between">
+        <InvButtonGroup size="sm" w="full" justifyContent="space-between">
           <IAIButton
             tooltip={t('controlnet.addControlNet')}
             leftIcon={<FaPlus />}
@@ -123,7 +124,7 @@ const ControlAdaptersCollapse = () => {
           >
             {t('common.t2iAdapter')}
           </IAIButton>
-        </ButtonGroup>
+        </InvButtonGroup>
         {controlAdapterIds.map((id, i) => (
           <Fragment key={id}>
             <Divider />

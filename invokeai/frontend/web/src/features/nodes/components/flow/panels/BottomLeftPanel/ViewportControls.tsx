@@ -1,6 +1,5 @@
-import { ButtonGroup } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvIconButton } from 'common/components';
+import { InvButtonGroup, InvIconButton } from 'common/components';
 import {
   // shouldShowFieldTypeLegendChanged,
   shouldShowMinimapPanelChanged,
@@ -47,7 +46,7 @@ const ViewportControls = () => {
   }, [shouldShowMinimapPanel, dispatch]);
 
   return (
-    <ButtonGroup isAttached orientation="vertical">
+    <InvButtonGroup orientation="vertical">
       <InvIconButton
         tooltip={t('nodes.zoomInNodes')}
         aria-label={t('nodes.zoomInNodes')}
@@ -95,7 +94,7 @@ const ViewportControls = () => {
         onClick={handleClickedToggleMiniMapPanel}
         icon={<FaMapMarkerAlt />}
       />
-    </ButtonGroup>
+    </InvButtonGroup>
   );
 };
 

@@ -1,8 +1,9 @@
-import { Box, ButtonGroup, Flex } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import {
+  InvButtonGroup,
   InvControl,
   InvIconButton,
   InvNumberInput,
@@ -203,7 +204,7 @@ const IAICanvasToolChooserOptions = () => {
   );
 
   return (
-    <ButtonGroup isAttached>
+    <InvButtonGroup>
       <InvIconButton
         aria-label={`${t('unifiedCanvas.brush')} (B)`}
         tooltip={`${t('unifiedCanvas.brush')} (B)`}
@@ -289,7 +290,7 @@ const IAICanvasToolChooserOptions = () => {
           </InvPopoverBody>
         </InvPopoverContent>
       </InvPopover>
-    </ButtonGroup>
+    </InvButtonGroup>
   );
 };
 

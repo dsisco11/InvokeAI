@@ -1,5 +1,5 @@
-import { ButtonGroup, ChakraProps, Flex, Portal } from '@chakra-ui/react';
-import { InvIconButton } from 'common/components';
+import { ChakraProps, Flex, Portal } from '@chakra-ui/react';
+import { InvButtonGroup, InvIconButton } from 'common/components';
 import CancelCurrentQueueItemButton from 'features/queue/components/CancelCurrentQueueItemButton';
 import ClearQueueButton from 'features/queue/components/ClearQueueButton';
 import QueueBackButton from 'features/queue/components/QueueBackButton';
@@ -44,7 +44,7 @@ const FloatingSidePanelButtons = ({
         gap={2}
         h={48}
       >
-        <ButtonGroup isAttached orientation="vertical" flexGrow={3}>
+        <InvButtonGroup orientation="vertical" flexGrow={3}>
           <InvIconButton
             tooltip={t('parameters.showOptionsPanel')}
             aria-label={t('parameters.showOptionsPanel')}
@@ -57,7 +57,7 @@ const FloatingSidePanelButtons = ({
             asIconButton
             sx={floatingButtonStyles}
           />
-        </ButtonGroup>
+        </InvButtonGroup>
         <ClearQueueButton asIconButton sx={floatingButtonStyles} />
       </Flex>
     </Portal>

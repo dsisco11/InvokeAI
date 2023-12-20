@@ -1,5 +1,6 @@
-import { ButtonGroup, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import {
+  InvButtonGroup,
   InvIconButton,
   InvMenu,
   InvMenuButton,
@@ -227,7 +228,7 @@ const CurrentImageButtons = () => {
           gap: 2,
         }}
       >
-        <ButtonGroup isAttached={true} isDisabled={shouldDisableToolbarButtons}>
+        <InvButtonGroup isDisabled={shouldDisableToolbarButtons}>
           <InvMenu isLazy>
             <InvMenuButton
               as={InvIconButton}
@@ -240,9 +241,9 @@ const CurrentImageButtons = () => {
               {imageDTO && <SingleSelectionMenuItems imageDTO={imageDTO} />}
             </InvMenuList>
           </InvMenu>
-        </ButtonGroup>
+        </InvButtonGroup>
 
-        <ButtonGroup isAttached={true} isDisabled={shouldDisableToolbarButtons}>
+        <InvButtonGroup isDisabled={shouldDisableToolbarButtons}>
           <InvIconButton
             icon={<FaCircleNodes />}
             tooltip={`${t('nodes.loadWorkflow')} (W)`}
@@ -288,15 +289,15 @@ const CurrentImageButtons = () => {
             isDisabled={!metadata}
             onClick={handleClickUseAllParameters}
           />
-        </ButtonGroup>
+        </InvButtonGroup>
 
         {isUpscalingEnabled && (
-          <ButtonGroup isAttached={true} isDisabled={isQueueMutationInProgress}>
+          <InvButtonGroup isDisabled={isQueueMutationInProgress}>
             {isUpscalingEnabled && <ParamUpscalePopover imageDTO={imageDTO} />}
-          </ButtonGroup>
+          </InvButtonGroup>
         )}
 
-        <ButtonGroup isAttached={true}>
+        <InvButtonGroup>
           <InvIconButton
             icon={<FaCode />}
             tooltip={`${t('parameters.info')} (I)`}
@@ -304,9 +305,9 @@ const CurrentImageButtons = () => {
             isChecked={shouldShowImageDetails}
             onClick={handleClickShowImageDetails}
           />
-        </ButtonGroup>
+        </InvButtonGroup>
 
-        <ButtonGroup isAttached={true}>
+        <InvButtonGroup>
           <InvIconButton
             aria-label={t('settings.displayInProgress')}
             tooltip={t('settings.displayInProgress')}
@@ -314,11 +315,11 @@ const CurrentImageButtons = () => {
             isChecked={shouldShowProgressInViewer}
             onClick={handleClickProgressImagesToggle}
           />
-        </ButtonGroup>
+        </InvButtonGroup>
 
-        <ButtonGroup isAttached={true}>
+        <InvButtonGroup>
           <DeleteImageButton onClick={handleDelete} />
-        </ButtonGroup>
+        </InvButtonGroup>
       </Flex>
     </>
   );

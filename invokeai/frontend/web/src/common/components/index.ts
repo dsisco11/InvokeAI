@@ -1,6 +1,7 @@
 export * from './InvAccordion';
 export * from './InvBadge';
 export * from './InvButton';
+export * from './InvButtonGroup';
 export * from './InvCard';
 export * from './InvCheckbox';
 export * from './InvSingleAccordion';

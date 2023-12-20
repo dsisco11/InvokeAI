@@ -1,11 +1,5 @@
-import {
-  ButtonGroup,
-  ChakraProps,
-  Collapse,
-  Flex,
-  Text,
-} from '@chakra-ui/react';
-import { InvIconButton } from 'common/components';
+import { ChakraProps, Collapse, Flex, Text } from '@chakra-ui/react';
+import { InvButtonGroup, InvIconButton } from 'common/components';
 import { useCancelQueueItem } from 'features/queue/hooks/useCancelQueueItem';
 import { getSecondsFromTimestamps } from 'features/queue/util/getSecondsFromTimestamps';
 import { MouseEvent, memo, useCallback, useMemo } from 'react';
@@ -132,7 +126,7 @@ const QueueItemComponent = ({ index, item, context }: InnerItemProps) => {
           )}
         </Flex>
         <Flex alignItems="center" w={COLUMN_WIDTHS.actions} pe={3}>
-          <ButtonGroup size="xs" variant="ghost">
+          <InvButtonGroup size="xs" variant="ghost">
             <InvIconButton
               onClick={handleCancelQueueItem}
               isDisabled={isCanceled}
@@ -140,7 +134,7 @@ const QueueItemComponent = ({ index, item, context }: InnerItemProps) => {
               aria-label={t('queue.cancelItem')}
               icon={<FaTimes />}
             />
-          </ButtonGroup>
+          </InvButtonGroup>
         </Flex>
       </Flex>
 

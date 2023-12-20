@@ -1,4 +1,4 @@
-import { Box, ButtonGroup, Flex } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
@@ -7,6 +7,7 @@ import {
   InvControl,
   InvCheckbox,
   InvIconButton,
+  InvButtonGroup,
 } from 'common/components';
 import IAIColorPicker from 'common/components/IAIColorPicker';
 import IAIPopover from 'common/components/IAIPopover';
@@ -123,7 +124,7 @@ const IAICanvasMaskOptions = () => {
   return (
     <IAIPopover
       triggerComponent={
-        <ButtonGroup>
+        <InvButtonGroup>
           <InvIconButton
             aria-label={t('unifiedCanvas.maskingOptions')}
             tooltip={t('unifiedCanvas.maskingOptions')}
@@ -131,7 +132,7 @@ const IAICanvasMaskOptions = () => {
             isChecked={layer === 'mask'}
             isDisabled={isStaging}
           />
-        </ButtonGroup>
+        </InvButtonGroup>
       }
     >
       <Flex direction="column" gap={2}>

@@ -1,9 +1,9 @@
-import { ButtonGroup, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvButton, InvIconButton } from 'common/components';
+import { InvButton, InvButtonGroup, InvIconButton } from 'common/components';
 import { stagingAreaImageSaved } from 'features/canvas/store/actions';
 import {
   commitStagingAreaImage,
@@ -134,7 +134,7 @@ const IAICanvasStagingAreaToolbar = () => {
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseOut}
     >
-      <ButtonGroup isAttached borderRadius="base" shadow="dark-lg">
+      <InvButtonGroup borderRadius="base" shadow="dark-lg">
         <InvIconButton
           tooltip={`${t('unifiedCanvas.previous')} (Left)`}
           aria-label={`${t('unifiedCanvas.previous')} (Left)`}
@@ -157,8 +157,8 @@ const IAICanvasStagingAreaToolbar = () => {
           colorScheme="accent"
           isDisabled={!shouldShowStagingImage}
         />
-      </ButtonGroup>
-      <ButtonGroup isAttached borderRadius="base" shadow="dark-lg">
+      </InvButtonGroup>
+      <InvButtonGroup borderRadius="base" shadow="dark-lg">
         <InvIconButton
           tooltip={`${t('unifiedCanvas.accept')} (Enter)`}
           aria-label={`${t('unifiedCanvas.accept')} (Enter)`}
@@ -198,7 +198,7 @@ const IAICanvasStagingAreaToolbar = () => {
           colorScheme="error"
           fontSize={20}
         />
-      </ButtonGroup>
+      </InvButtonGroup>
     </Flex>
   );
 };

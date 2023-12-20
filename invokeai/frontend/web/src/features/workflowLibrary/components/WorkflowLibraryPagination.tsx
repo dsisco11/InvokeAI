@@ -1,5 +1,4 @@
-import { ButtonGroup } from '@chakra-ui/react';
-import { InvButton, InvIconButton } from 'common/components';
+import { InvButton, InvButtonGroup, InvIconButton } from 'common/components';
 import { Dispatch, SetStateAction, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -52,7 +51,7 @@ const WorkflowLibraryPagination = ({ page, setPage, data }: Props) => {
   }, [data.pages, page, setPage]);
 
   return (
-    <ButtonGroup>
+    <InvButtonGroup>
       <InvIconButton
         variant="ghost"
         onClick={handlePrevPage}
@@ -79,7 +78,7 @@ const WorkflowLibraryPagination = ({ page, setPage, data }: Props) => {
         aria-label={t('common.nextPage')}
         icon={<FaChevronRight />}
       />
-    </ButtonGroup>
+    </InvButtonGroup>
   );
 };
 

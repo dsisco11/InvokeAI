@@ -1,5 +1,4 @@
 import ParamDynamicPromptsCollapse from 'features/dynamicPrompts/components/ParamDynamicPromptsCollapse';
-import ParamLoraCollapse from 'features/lora/components/ParamLoraCollapse';
 import ParamAdvancedCollapse from 'features/parameters/components/Advanced/ParamAdvancedCollapse';
 import ParamCompositingSettingsCollapse from 'features/parameters/components/Canvas/Compositing/ParamCompositingSettingsCollapse';
 import ParamInfillAndScalingCollapse from 'features/parameters/components/Canvas/InfillAndScaling/ParamInfillAndScalingCollapse';
@@ -7,6 +6,7 @@ import ControlAdaptersCollapse from 'features/controlAdapters/components/Control
 import ParamSDXLRefinerCollapse from './ParamSDXLRefinerCollapse';
 import SDXLUnifiedCanvasTabCoreParameters from './SDXLUnifiedCanvasTabCoreParameters';
 import { SDXLPrompts } from 'features/sdxl/components/SDXLPrompts';
+import LoRACollapse from 'features/lora/components/LoRACollapse';
 
 export default function SDXLUnifiedCanvasTabParameters() {
   return (
@@ -15,7 +15,7 @@ export default function SDXLUnifiedCanvasTabParameters() {
       <SDXLUnifiedCanvasTabCoreParameters />
       <ParamSDXLRefinerCollapse />
       <ControlAdaptersCollapse />
-      <ParamLoraCollapse />
+      <LoRACollapse />
       <ParamDynamicPromptsCollapse />
       <ParamInfillAndScalingCollapse />
       <ParamCompositingSettingsCollapse />

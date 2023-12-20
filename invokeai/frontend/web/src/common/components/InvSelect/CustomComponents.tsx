@@ -22,6 +22,9 @@ type CustomOptionProps = OptionProps<
 
 export const CustomComponents: CustomSelectComponentConfig = {
   Option: ({ children, ...props }: CustomOptionProps) => {
+    delete props.innerProps.onMouseMove;
+    delete props.innerProps.onMouseOver;
+
     if (props.data.icon) {
       return (
         <chakraComponents.Option {...props}>

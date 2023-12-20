@@ -1,107 +1,74 @@
-import { SelectItem } from '@mantine/core';
+import { Flex } from '@chakra-ui/layout';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIMantineSearchableSelect from 'common/components/IAIMantineSearchableSelect';
-import IAIMantineSelectItemWithTooltip from 'common/components/IAIMantineSelectItemWithTooltip';
+import {
+  InvControl,
+  InvSelect,
+  useGroupedModelInvSelect,
+} from 'common/components';
+import SyncModelsButton from 'features/modelManager/subpanels/ModelManagerSettingsPanel/SyncModelsButton';
 import { fieldVaeModelValueChanged } from 'features/nodes/store/nodesSlice';
 import {
-  VAEModelFieldInputTemplate,
   VAEModelFieldInputInstance,
+  VAEModelFieldInputTemplate,
 } from 'features/nodes/types/field';
+import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
+import { memo, useCallback } from 'react';
+import {
+  VaeModelConfigEntity,
+  useGetVaeModelsQuery,
+} from 'services/api/endpoints/models';
 import { FieldComponentProps } from './types';
-import { MODEL_TYPE_MAP } from 'features/parameters/types/constants';
-import { modelIdToVAEModelParam } from 'features/parameters/util/modelIdToVAEModelParam';
-import { forEach } from 'lodash-es';
-import { memo, useCallback, useMemo } from 'react';
-import { useGetVaeModelsQuery } from 'services/api/endpoints/models';
 
-const VAEModelFieldInputComponent = (
-  props: FieldComponentProps<
-    VAEModelFieldInputInstance,
-    VAEModelFieldInputTemplate
-  >
-) => {
+type Props = FieldComponentProps<
+  VAEModelFieldInputInstance,
+  VAEModelFieldInputTemplate
+>;
+
+const VAEModelFieldInputComponent = (props: Props) => {
   const { nodeId, field } = props;
-  const vae = field.value;
+  const isSyncModelEnabled = useFeatureStatus('syncModels').isFeatureEnabled;
   const dispatch = useAppDispatch();
-  const { data: vaeModels } = useGetVaeModelsQuery();
-
-  const data = useMemo(() => {
-    if (!vaeModels) {
-      return [];
-    }
-
-    const data: SelectItem[] = [
-      {
-        value: 'default',
-        label: 'Default',
-        group: 'Default',
-      },
-    ];
-
-    forEach(vaeModels.entities, (vae, id) => {
-      if (!vae) {
+  const { data, isLoading } = useGetVaeModelsQuery();
+  const _onChange = useCallback(
+    (value: VaeModelConfigEntity | null) => {
+      if (!value) {
         return;
       }
-
-      data.push({
-        value: id,
-        label: vae.model_name,
-        group: MODEL_TYPE_MAP[vae.base_model],
-      });
-    });
-
-    return data.sort((a, b) => (a.disabled && !b.disabled ? 1 : -1));
-  }, [vaeModels]);
-
-  // grab the full model entity from the RTK Query cache
-  const selectedVaeModel = useMemo(
-    () =>
-      vaeModels?.entities[`${vae?.base_model}/vae/${vae?.model_name}`] ?? null,
-    [vaeModels?.entities, vae]
-  );
-
-  const handleChangeModel = useCallback(
-    (v: string | null) => {
-      if (!v) {
-        return;
-      }
-
-      const newVaeModel = modelIdToVAEModelParam(v);
-
-      if (!newVaeModel) {
-        return;
-      }
-
       dispatch(
         fieldVaeModelValueChanged({
           nodeId,
           fieldName: field.name,
-          value: newVaeModel,
+          value,
         })
       );
     },
     [dispatch, field.name, nodeId]
   );
+  const { options, value, onChange, placeholder, noOptionsMessage } =
+    useGroupedModelInvSelect({
+      modelEntities: data,
+      onChange: _onChange,
+      selectedModel: field.value ? { ...field.value, model_type: 'vae' } : null,
+      isLoading,
+    });
 
   return (
-    <IAIMantineSearchableSelect
-      className="nowheel nodrag"
-      itemComponent={IAIMantineSelectItemWithTooltip}
-      tooltip={selectedVaeModel?.description}
-      value={selectedVaeModel?.id ?? 'default'}
-      placeholder="Default"
-      data={data}
-      onChange={handleChangeModel}
-      disabled={data.length === 0}
-      error={!selectedVaeModel}
-      clearable
-      sx={{
-        width: '100%',
-        '.mantine-Select-dropdown': {
-          width: '16rem !important',
-        },
-      }}
-    />
+    <Flex sx={{ w: 'full', alignItems: 'center', gap: 2 }}>
+      <InvControl
+        className="nowheel nodrag"
+        isDisabled={!options.length}
+        isInvalid={!value}
+      >
+        <InvSelect
+          value={value}
+          placeholder={placeholder}
+          options={options}
+          onChange={onChange}
+          noOptionsMessage={noOptionsMessage}
+        />
+      </InvControl>
+      {isSyncModelEnabled && <SyncModelsButton className="nodrag" iconMode />}
+    </Flex>
   );
 };
 

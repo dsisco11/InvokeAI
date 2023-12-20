@@ -16,7 +16,7 @@ import floorCoordinates from 'features/canvas/util/floorCoordinates';
 import getScaledBoundingBoxDimensions from 'features/canvas/util/getScaledBoundingBoxDimensions';
 import roundDimensionsTo64 from 'features/canvas/util/roundDimensionsTo64';
 import {
-  BoundingBoxScale,
+  BoundingBoxScaleMethod,
   CanvasBaseLine,
   CanvasImage,
   CanvasLayer,
@@ -715,7 +715,7 @@ export const canvasSlice = createSlice({
     },
     setBoundingBoxScaleMethod: (
       state,
-      action: PayloadAction<BoundingBoxScale>
+      action: PayloadAction<BoundingBoxScaleMethod>
     ) => {
       state.boundingBoxScaleMethod = action.payload;
 

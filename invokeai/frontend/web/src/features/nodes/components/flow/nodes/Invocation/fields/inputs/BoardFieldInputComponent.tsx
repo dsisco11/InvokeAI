@@ -1,63 +1,79 @@
-import { SelectItem } from '@mantine/core';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIMantineSearchableSelect from 'common/components/IAIMantineSearchableSelect';
+import {
+  InvControl,
+  InvSelect,
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components';
 import { fieldBoardValueChanged } from 'features/nodes/store/nodesSlice';
 import {
-  BoardFieldInputTemplate,
   BoardFieldInputInstance,
+  BoardFieldInputTemplate,
 } from 'features/nodes/types/field';
-import { FieldComponentProps } from './types';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useListAllBoardsQuery } from 'services/api/endpoints/boards';
+import { FieldComponentProps } from './types';
+import { useTranslation } from 'react-i18next';
 
 const BoardFieldInputComponent = (
   props: FieldComponentProps<BoardFieldInputInstance, BoardFieldInputTemplate>
 ) => {
   const { nodeId, field } = props;
   const dispatch = useAppDispatch();
-
-  const { data, hasBoards } = useListAllBoardsQuery(undefined, {
+  const { t } = useTranslation();
+  const { options, hasBoards } = useListAllBoardsQuery(undefined, {
     selectFromResult: ({ data }) => {
-      const boards: SelectItem[] = [
+      const options: InvSelectOption[] = [
         {
           label: 'None',
           value: 'none',
         },
-      ];
-      data?.forEach(({ board_id, board_name }) => {
-        boards.push({
+      ].concat(
+        (data ?? []).map(({ board_id, board_name }) => ({
           label: board_name,
           value: board_id,
-        });
-      });
+        }))
+      );
       return {
-        data: boards,
-        hasBoards: boards.length > 1,
+        options,
+        hasBoards: options.length > 1,
       };
     },
   });
 
-  const handleChange = useCallback(
-    (v: string | null) => {
+  const onChange = useCallback<InvSelectOnChange>(
+    (v) => {
+      if (!v) {
+        return;
+      }
       dispatch(
         fieldBoardValueChanged({
           nodeId,
           fieldName: field.name,
-          value: v && v !== 'none' ? { board_id: v } : undefined,
+          value: v.value !== 'none' ? { board_id: v.value } : undefined,
         })
       );
     },
     [dispatch, field.name, nodeId]
   );
 
+  const value = useMemo(
+    () => options.find((o) => o.value === field.value?.board_id),
+    [options, field.value]
+  );
+
+  const noOptionsMessage = useCallback(() => t('boards.noMatching'), [t]);
+
   return (
-    <IAIMantineSearchableSelect
-      className="nowheel nodrag"
-      value={field.value?.board_id ?? 'none'}
-      data={data}
-      onChange={handleChange}
-      disabled={!hasBoards}
-    />
+    <InvControl className="nowheel nodrag" isDisabled={!hasBoards}>
+      <InvSelect
+        value={value}
+        options={options}
+        onChange={onChange}
+        placeholder={t('boards.selectBoard')}
+        noOptionsMessage={noOptionsMessage}
+      />
+    </InvControl>
   );
 };
 

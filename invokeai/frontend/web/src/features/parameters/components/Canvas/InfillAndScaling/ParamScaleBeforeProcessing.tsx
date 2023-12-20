@@ -1,45 +1,50 @@
-import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
-import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
-import IAIMantineSearchableSelect from 'common/components/IAIMantineSearchableSelect';
-import { setBoundingBoxScaleMethod } from 'features/canvas/store/canvasSlice';
 import {
-  BOUNDING_BOX_SCALES_DICT,
-  BoundingBoxScale,
-} from 'features/canvas/store/canvasTypes';
-import { memo, useCallback } from 'react';
+  InvControl,
+  InvSelect,
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components';
+import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
+import { setBoundingBoxScaleMethod } from 'features/canvas/store/canvasSlice';
+import { isBoundingBoxScaleMethod } from 'features/canvas/store/canvasTypes';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const selector = createMemoizedSelector([stateSelector], ({ canvas }) => {
-  const { boundingBoxScaleMethod: boundingBoxScale } = canvas;
-
-  return {
-    boundingBoxScale,
-  };
-});
+export const OPTIONS: InvSelectOption[] = [
+  { label: 'None', value: 'none' },
+  { label: 'Auto', value: 'auto' },
+  { label: 'Manual', value: 'manual' },
+];
 
 const ParamScaleBeforeProcessing = () => {
   const dispatch = useAppDispatch();
-  const { boundingBoxScale } = useAppSelector(selector);
+  const boundingBoxScaleMethod = useAppSelector(
+    (state) => state.canvas.boundingBoxScaleMethod
+  );
 
   const { t } = useTranslation();
 
-  const handleChangeBoundingBoxScaleMethod = useCallback(
-    (v: string) => {
-      dispatch(setBoundingBoxScaleMethod(v as BoundingBoxScale));
+  const onChange = useCallback<InvSelectOnChange>(
+    (v) => {
+      if (!isBoundingBoxScaleMethod(v?.value)) {
+        return;
+      }
+      dispatch(setBoundingBoxScaleMethod(v.value));
     },
     [dispatch]
   );
 
+  const value = useMemo(
+    () => OPTIONS.find((o) => o.value === boundingBoxScaleMethod),
+    [boundingBoxScaleMethod]
+  );
+
   return (
     <IAIInformationalPopover feature="scaleBeforeProcessing">
-      <IAIMantineSearchableSelect
-        label={t('parameters.scaleBeforeProcessing')}
-        data={BOUNDING_BOX_SCALES_DICT}
-        value={boundingBoxScale}
-        onChange={handleChangeBoundingBoxScaleMethod}
-      />
+      <InvControl label={t('parameters.scaleBeforeProcessing')}>
+        <InvSelect value={value} options={OPTIONS} onChange={onChange} />
+      </InvControl>
     </IAIInformationalPopover>
   );
 };

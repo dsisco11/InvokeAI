@@ -1,12 +1,12 @@
-import ParamDynamicPromptsCollapse from 'features/dynamicPrompts/components/ParamDynamicPromptsCollapse';
-import ParamLoraCollapse from 'features/lora/components/ParamLoraCollapse';
-import ParamAdvancedCollapse from 'features/parameters/components/Advanced/ParamAdvancedCollapse';
 import ControlAdaptersCollapse from 'features/controlAdapters/components/ControlAdaptersCollapse';
-import ParamSymmetryCollapse from 'features/parameters/components/Symmetry/ParamSymmetryCollapse';
+import ParamDynamicPromptsCollapse from 'features/dynamicPrompts/components/ParamDynamicPromptsCollapse';
+import LoRACollapse from 'features/lora/components/LoRACollapse';
+import ParamAdvancedCollapse from 'features/parameters/components/Advanced/ParamAdvancedCollapse';
 import ParamHrfCollapse from 'features/parameters/components/HighResFix/ParamHrfCollapse';
+import { Prompts } from 'features/parameters/components/Prompts';
+import ParamSymmetryCollapse from 'features/parameters/components/Symmetry/ParamSymmetryCollapse';
 import { memo } from 'react';
 import TextToImageTabCoreParameters from './TextToImageTabCoreParameters';
-import { Prompts } from 'features/parameters/components/Prompts';
 
 const TextToImageTabParameters = () => {
   return (
@@ -14,7 +14,7 @@ const TextToImageTabParameters = () => {
       <Prompts />
       <TextToImageTabCoreParameters />
       <ControlAdaptersCollapse />
-      <ParamLoraCollapse />
+      <LoRACollapse />
       <ParamDynamicPromptsCollapse />
       <ParamSymmetryCollapse />
       <ParamHrfCollapse />

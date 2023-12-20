@@ -1,114 +1,63 @@
 import { useAppDispatch } from 'app/store/storeHooks';
+import { InvControl, InvSelect, InvTooltip } from 'common/components';
+import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
 import { fieldControlNetModelValueChanged } from 'features/nodes/store/nodesSlice';
 import {
-  ControlNetModelFieldInputTemplate,
   ControlNetModelFieldInputInstance,
+  ControlNetModelFieldInputTemplate,
 } from 'features/nodes/types/field';
-import { FieldComponentProps } from './types';
-import { groupBy, reduce } from 'lodash-es';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import {
-  controlNetModelsAdapter,
+  ControlNetModelConfigEntity,
   useGetControlNetModelsQuery,
 } from 'services/api/endpoints/models';
-import {
-  InvControl,
-  InvSelect,
-  InvSelectOnChange,
-  InvSelectOption,
-  InvTooltip,
-} from 'common/components';
-import { GroupBase } from 'chakra-react-select';
+import { FieldComponentProps } from './types';
 
-const selectAll = controlNetModelsAdapter.getSelectors().selectAll;
+type Props = FieldComponentProps<
+  ControlNetModelFieldInputInstance,
+  ControlNetModelFieldInputTemplate
+>;
 
-const ControlNetModelFieldInputComponent = (
-  props: FieldComponentProps<
-    ControlNetModelFieldInputInstance,
-    ControlNetModelFieldInputTemplate
-  >
-) => {
+const ControlNetModelFieldInputComponent = (props: Props) => {
   const { nodeId, field } = props;
-  const controlNetModel = field.value;
   const dispatch = useAppDispatch();
+  const { data, isLoading } = useGetControlNetModelsQuery();
 
-  const { data: controlNetModels } = useGetControlNetModelsQuery();
-  const controlNetModelsArray = useMemo(
-    () => (controlNetModels ? selectAll(controlNetModels) : []),
-    [controlNetModels]
-  );
-  // grab the full model entity from the RTK Query cache
-  const selectedModel = useMemo(
-    () =>
-      controlNetModels?.entities[
-        `${controlNetModel?.base_model}/controlnet/${controlNetModel?.model_name}`
-      ] ?? null,
-    [
-      controlNetModel?.base_model,
-      controlNetModel?.model_name,
-      controlNetModels?.entities,
-    ]
-  );
-
-  const options = useMemo<GroupBase<InvSelectOption>[]>(() => {
-    const _options = reduce(
-      groupBy(controlNetModelsArray, (m) => m.base_model),
-      (acc, val, label) => {
-        acc.push({
-          label,
-          options: val.map((v) => ({
-            value: v.id,
-            label: v.model_name,
-          })),
-        });
-        return acc;
-      },
-      [] as GroupBase<InvSelectOption>[]
-    );
-
-    return _options;
-  }, [controlNetModelsArray]);
-
-  const handleValueChanged = useCallback<InvSelectOnChange>(
-    (v) => {
-      if (!v) {
+  const _onChange = useCallback(
+    (value: ControlNetModelConfigEntity | null) => {
+      if (!value) {
         return;
       }
-
-      const modelEntity = controlNetModels?.entities[v.value];
-
-      if (!modelEntity) {
-        return;
-      }
-
       dispatch(
         fieldControlNetModelValueChanged({
           nodeId,
           fieldName: field.name,
-          value: modelEntity,
+          value,
         })
       );
     },
-    [controlNetModels?.entities, dispatch, field.name, nodeId]
+    [dispatch, field.name, nodeId]
   );
 
-  const value = useMemo(
-    () =>
-      options
-        .flatMap((o) => o.options)
-        .find((m) => m.value === selectedModel?.id),
-    [options, selectedModel?.id]
-  );
+  const { options, value, onChange, placeholder, noOptionsMessage } =
+    useGroupedModelInvSelect({
+      modelEntities: data,
+      onChange: _onChange,
+      selectedModel: field.value
+        ? { ...field.value, model_type: 'controlnet' }
+        : undefined,
+      isLoading,
+    });
 
   return (
-    <InvTooltip label={selectedModel?.description}>
-      <InvControl className="nowheel nodrag" isInvalid={!selectedModel}>
+    <InvTooltip label={value?.description}>
+      <InvControl className="nowheel nodrag" isInvalid={!value}>
         <InvSelect
           value={value}
-          placeholder="Pick one"
+          placeholder={placeholder}
           options={options}
-          onChange={handleValueChanged}
-          sx={{ width: '100%' }}
+          onChange={onChange}
+          noOptionsMessage={noOptionsMessage}
         />
       </InvControl>
     </InvTooltip>

@@ -6,3 +6,4 @@ export type {
 } from './types';
 export { InvSelect } from './InvSelect';
 export { InvSelectFallback } from './InvSelectFallback';
+export { useGroupedModelInvSelect } from './useGroupedModelInvSelect';

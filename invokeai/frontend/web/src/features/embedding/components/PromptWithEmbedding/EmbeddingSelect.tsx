@@ -1,15 +1,14 @@
-import { SingleValue } from 'chakra-react-select';
-import {
-  InvControl,
-  InvSelect,
-  InvSelectFallback,
-  InvSelectOption,
-} from 'common/components/';
+import { useAppSelector } from 'app/store/storeHooks';
+import { InvControl, InvSelect, InvSelectFallback } from 'common/components/';
+import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
 import { EmbeddingSelectProps } from 'features/embedding/components/PromptWithEmbedding/types';
-import { useEmbeddingSelectOptions } from 'features/embedding/components/PromptWithEmbedding/useEmbeddingSelectOptions';
 import { t } from 'i18next';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import {
+  TextualInversionModelConfigEntity,
+  useGetTextualInversionModelsQuery,
+} from 'services/api/endpoints/models';
 
 const noOptionsMessage = () => t('embedding.noMatchingEmbedding');
 
@@ -18,16 +17,35 @@ export const EmbeddingSelect = ({
   onClose,
 }: EmbeddingSelectProps) => {
   const { t } = useTranslation();
-  const { options, isLoading } = useEmbeddingSelectOptions();
-  const onChange = useCallback(
-    (v: SingleValue<InvSelectOption>) => {
-      if (!v) {
+
+  const currentBaseModel = useAppSelector(
+    (state) => state.generation.model?.base_model
+  );
+
+  const getIsDisabled = (
+    embedding: TextualInversionModelConfigEntity
+  ): boolean => {
+    const isCompatible = currentBaseModel === embedding.base_model;
+    const hasMainModel = Boolean(currentBaseModel);
+    return !hasMainModel || !isCompatible;
+  };
+  const { data, isLoading } = useGetTextualInversionModelsQuery();
+
+  const _onChange = useCallback(
+    (embedding: TextualInversionModelConfigEntity | null) => {
+      if (!embedding) {
         return;
       }
-      onSelect(v.value);
+      onSelect(embedding.model_name);
     },
     [onSelect]
   );
+
+  const { options, onChange } = useGroupedModelInvSelect({
+    modelEntities: data,
+    getIsDisabled,
+    onChange: _onChange,
+  });
 
   if (isLoading) {
     return <InvSelectFallback label={t('common.loading')} />;

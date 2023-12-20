@@ -3,7 +3,7 @@ import {
   zControlNetModelField,
   zIPAdapterModelField,
   zLoRAModelField,
-  zMainOrONNXModelField,
+  zMainModelField,
   zSDXLRefinerModelField,
   zSchedulerField,
   zT2IAdapterModelField,
@@ -125,7 +125,7 @@ export const isParameterAspectRatio = (
 // #endregion
 
 // #region Model
-export const zParameterModel = zMainOrONNXModelField;
+export const zParameterModel = zMainModelField;
 export type ParameterModel = z.infer<typeof zParameterModel>;
 export const isParameterModel = (val: unknown): val is ParameterModel =>
   zParameterModel.safeParse(val).success;

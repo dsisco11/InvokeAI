@@ -1,23 +1,22 @@
-import { Box, Flex } from '@chakra-ui/react';
-import { SelectItem } from '@mantine/core';
+import { Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
-import IAIMantineSearchableSelect from 'common/components/IAIMantineSearchableSelect';
+import {
+  InvControl,
+  InvSelect,
+  useGroupedModelInvSelect,
+} from 'common/components';
 import SyncModelsButton from 'features/modelManager/subpanels/ModelManagerSettingsPanel/SyncModelsButton';
 import { modelSelected } from 'features/parameters/store/actions';
-import { MODEL_TYPE_MAP } from 'features/parameters/types/constants';
-import { modelIdToMainModelParam } from 'features/parameters/util/modelIdToMainModelParam';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
-import { activeTabNameSelector } from 'features/ui/store/uiSelectors';
-import { forEach } from 'lodash-es';
-import { memo, useCallback, useMemo } from 'react';
+import { pick } from 'lodash-es';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NON_REFINER_BASE_MODELS } from 'services/api/constants';
 import {
+  MainModelConfigEntity,
   useGetMainModelsQuery,
-  useGetOnnxModelsQuery,
 } from 'services/api/endpoints/models';
 
 const selector = createMemoizedSelector(stateSelector, (state) => ({
@@ -31,110 +30,43 @@ const ParamMainModelSelect = () => {
   const { model } = useAppSelector(selector);
 
   const isSyncModelEnabled = useFeatureStatus('syncModels').isFeatureEnabled;
-  const { data: mainModels, isLoading } = useGetMainModelsQuery(
-    NON_REFINER_BASE_MODELS
-  );
-  const { data: onnxModels, isLoading: onnxLoading } = useGetOnnxModelsQuery(
-    NON_REFINER_BASE_MODELS
-  );
+  const { data, isLoading } = useGetMainModelsQuery(NON_REFINER_BASE_MODELS);
 
-  const activeTabName = useAppSelector(activeTabNameSelector);
-
-  const data = useMemo(() => {
-    if (!mainModels) {
-      return [];
-    }
-
-    const data: SelectItem[] = [];
-
-    forEach(mainModels.entities, (model, id) => {
+  const _onChange = useCallback(
+    (model: MainModelConfigEntity | null) => {
       if (!model) {
         return;
       }
-
-      data.push({
-        value: id,
-        label: model.model_name,
-        group: MODEL_TYPE_MAP[model.base_model],
-      });
-    });
-    forEach(onnxModels?.entities, (model, id) => {
-      if (
-        !model ||
-        activeTabName === 'unifiedCanvas' ||
-        activeTabName === 'img2img'
-      ) {
-        return;
-      }
-
-      data.push({
-        value: id,
-        label: model.model_name,
-        group: MODEL_TYPE_MAP[model.base_model],
-      });
-    });
-
-    return data;
-  }, [mainModels, onnxModels, activeTabName]);
-
-  // grab the full model entity from the RTK Query cache
-  // TODO: maybe we should just store the full model entity in state?
-  const selectedModel = useMemo(
-    () =>
-      (mainModels?.entities[`${model?.base_model}/main/${model?.model_name}`] ||
-        onnxModels?.entities[
-          `${model?.base_model}/onnx/${model?.model_name}`
-        ]) ??
-      null,
-    [mainModels?.entities, model, onnxModels?.entities]
-  );
-
-  const handleChangeModel = useCallback(
-    (v: string | null) => {
-      if (!v) {
-        return;
-      }
-
-      const newModel = modelIdToMainModelParam(v);
-
-      if (!newModel) {
-        return;
-      }
-
-      dispatch(modelSelected(newModel));
+      dispatch(
+        modelSelected(pick(model, ['base_model', 'model_name', 'model_type']))
+      );
     },
     [dispatch]
   );
+  const { options, value, onChange, placeholder, noOptionsMessage } =
+    useGroupedModelInvSelect({
+      modelEntities: data,
+      onChange: _onChange,
+      selectedModel: model,
+      isLoading,
+    });
 
-  return isLoading || onnxLoading ? (
-    <IAIMantineSearchableSelect
-      label={t('modelManager.model')}
-      placeholder="Loading..."
-      disabled={true}
-      data={[]}
-    />
-  ) : (
-    <Flex w="100%" alignItems="center" gap={3}>
-      <IAIInformationalPopover feature="paramModel">
-        <IAIMantineSearchableSelect
-          tooltip={selectedModel?.description}
-          label={t('modelManager.model')}
-          value={selectedModel?.id}
-          placeholder={
-            data.length > 0 ? 'Select a model' : 'No models available'
-          }
-          data={data}
-          error={data.length === 0}
-          disabled={data.length === 0}
-          onChange={handleChangeModel}
-          w="100%"
+  return (
+    <Flex w="100%" alignItems="center" gap={2}>
+      <InvControl
+        label={t('modelManager.model')}
+        isDisabled={!options.length}
+        isInvalid={!options.length}
+      >
+        <InvSelect
+          value={value}
+          placeholder={placeholder}
+          options={options}
+          onChange={onChange}
+          noOptionsMessage={noOptionsMessage}
         />
-      </IAIInformationalPopover>
-      {isSyncModelEnabled && (
-        <Box mt={6}>
-          <SyncModelsButton iconMode />
-        </Box>
-      )}
+      </InvControl>
+      {isSyncModelEnabled && <SyncModelsButton iconMode />}
     </Flex>
   );
 };

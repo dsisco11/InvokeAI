@@ -114,8 +114,7 @@ export const addHrfToGraph = (
   // Double check hrf is enabled.
   if (
     !state.generation.hrfEnabled ||
-    state.config.disabledSDFeatures.includes('hrf') ||
-    state.generation.model?.model_type === 'onnx' // TODO: ONNX support
+    state.config.disabledSDFeatures.includes('hrf')
   ) {
     return;
   }

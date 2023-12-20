@@ -1,19 +1,22 @@
-import { Box, Flex } from '@chakra-ui/react';
-import { SelectItem } from '@mantine/core';
+import { Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIMantineSearchableSelect from 'common/components/IAIMantineSearchableSelect';
+import {
+  InvControl,
+  InvSelect,
+  useGroupedModelInvSelect,
+} from 'common/components';
 import SyncModelsButton from 'features/modelManager/subpanels/ModelManagerSettingsPanel/SyncModelsButton';
-import { MODEL_TYPE_MAP } from 'features/parameters/types/constants';
-import { modelIdToSDXLRefinerModelParam } from 'features/parameters/util/modelIdToSDXLRefinerModelParam';
 import { refinerModelChanged } from 'features/sdxl/store/sdxlSlice';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
-import { forEach } from 'lodash-es';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { REFINER_BASE_MODELS } from 'services/api/constants';
-import { useGetMainModelsQuery } from 'services/api/endpoints/models';
+import {
+  MainModelConfigEntity,
+  useGetMainModelsQuery,
+} from 'services/api/endpoints/models';
 
 const selector = createMemoizedSelector(stateSelector, (state) => ({
   model: state.sdxl.refinerModel,
@@ -22,89 +25,47 @@ const selector = createMemoizedSelector(stateSelector, (state) => ({
 const ParamSDXLRefinerModelSelect = () => {
   const dispatch = useAppDispatch();
   const isSyncModelEnabled = useFeatureStatus('syncModels').isFeatureEnabled;
-
   const { model } = useAppSelector(selector);
   const { t } = useTranslation();
-
-  const { data: refinerModels, isLoading } =
-    useGetMainModelsQuery(REFINER_BASE_MODELS);
-
-  const data = useMemo(() => {
-    if (!refinerModels) {
-      return [];
-    }
-
-    const data: SelectItem[] = [];
-
-    forEach(refinerModels.entities, (model, id) => {
+  const { data, isLoading } = useGetMainModelsQuery(REFINER_BASE_MODELS);
+  const _onChange = useCallback(
+    (model: MainModelConfigEntity | null) => {
       if (!model) {
         return;
       }
-
-      data.push({
-        value: id,
-        label: model.model_name,
-        group: MODEL_TYPE_MAP[model.base_model],
-      });
-    });
-
-    return data;
-  }, [refinerModels]);
-
-  // grab the full model entity from the RTK Query cache
-  // TODO: maybe we should just store the full model entity in state?
-  const selectedModel = useMemo(
-    () =>
-      refinerModels?.entities[
-        `${model?.base_model}/main/${model?.model_name}`
-      ] ?? null,
-    [refinerModels?.entities, model]
-  );
-
-  const handleChangeModel = useCallback(
-    (v: string | null) => {
-      if (!v) {
-        return;
-      }
-
-      const newModel = modelIdToSDXLRefinerModelParam(v);
-
-      if (!newModel) {
-        return;
-      }
-
-      dispatch(refinerModelChanged(newModel));
+      dispatch(
+        refinerModelChanged({
+          base_model: 'sdxl-refiner',
+          model_name: model.model_name,
+          model_type: model.model_type,
+        })
+      );
     },
     [dispatch]
   );
-
-  return isLoading ? (
-    <IAIMantineSearchableSelect
-      label={t('sdxl.refinermodel')}
-      placeholder={t('sdxl.loading')}
-      disabled={true}
-      data={[]}
-    />
-  ) : (
+  const { options, value, onChange, placeholder, noOptionsMessage } =
+    useGroupedModelInvSelect({
+      modelEntities: data,
+      onChange: _onChange,
+      selectedModel: model,
+      isLoading,
+    });
+  return (
     <Flex w="100%" alignItems="center" gap={2}>
-      <IAIMantineSearchableSelect
-        tooltip={selectedModel?.description}
+      <InvControl
         label={t('sdxl.refinermodel')}
-        value={selectedModel?.id}
-        placeholder={
-          data.length > 0 ? t('sdxl.selectAModel') : t('sdxl.noModelsAvailable')
-        }
-        data={data}
-        error={data.length === 0}
-        disabled={data.length === 0}
-        onChange={handleChangeModel}
-        w="100%"
-      />
-      {isSyncModelEnabled && (
-        <Box mt={7}>
-          <SyncModelsButton iconMode />
-        </Box>
-      )}
+        isDisabled={!options.length}
+        isInvalid={!options.length}
+      >
+        <InvSelect
+          value={value}
+          placeholder={placeholder}
+          options={options}
+          onChange={onChange}
+          noOptionsMessage={noOptionsMessage}
+        />
+      </InvControl>
+      {isSyncModelEnabled && <SyncModelsButton iconMode />}
     </Flex>
   );
 };

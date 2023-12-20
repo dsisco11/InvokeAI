@@ -1,7 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 import { useAppSelector } from 'app/store/storeHooks';
 import { InvSingleAccordion } from 'common/components/';
-import LoRASelect from 'features/lora/components/LoRACollapse/LoRASelect';
+import LoRASelect from 'features/lora/components/LoRASelect';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { size } from 'lodash-es';
 import { memo } from 'react';

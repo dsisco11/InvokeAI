@@ -1,26 +1,17 @@
 import { useAppDispatch } from 'app/store/storeHooks';
+import { InvControl, InvSelect, InvTooltip } from 'common/components';
+import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
 import { fieldIPAdapterModelValueChanged } from 'features/nodes/store/nodesSlice';
 import {
-  IPAdapterModelFieldInputTemplate,
   IPAdapterModelFieldInputInstance,
+  IPAdapterModelFieldInputTemplate,
 } from 'features/nodes/types/field';
-import { FieldComponentProps } from './types';
-import { groupBy, reduce } from 'lodash-es';
+import { memo, useCallback } from 'react';
 import {
-  InvControl,
-  InvSelect,
-  InvSelectOnChange,
-  InvSelectOption,
-  InvTooltip,
-} from 'common/components';
-import { memo, useCallback, useMemo } from 'react';
-import {
-  ipAdapterModelsAdapter,
+  IPAdapterModelConfigEntity,
   useGetIPAdapterModelsQuery,
 } from 'services/api/endpoints/models';
-import { GroupBase } from 'chakra-react-select';
-
-const selectAll = ipAdapterModelsAdapter.getSelectors().selectAll;
+import { FieldComponentProps } from './types';
 
 const IPAdapterModelFieldInputComponent = (
   props: FieldComponentProps<
@@ -29,82 +20,41 @@ const IPAdapterModelFieldInputComponent = (
   >
 ) => {
   const { nodeId, field } = props;
-  const ipAdapterModel = field.value;
   const dispatch = useAppDispatch();
-
   const { data: ipAdapterModels } = useGetIPAdapterModelsQuery();
-  const ipAdapterModelsArray = useMemo(
-    () => (ipAdapterModels ? selectAll(ipAdapterModels) : []),
-    [ipAdapterModels]
-  );
-  // grab the full model entity from the RTK Query cache
-  const selectedModel = useMemo(
-    () =>
-      ipAdapterModels?.entities[
-        `${ipAdapterModel?.base_model}/ip_adapter/${ipAdapterModel?.model_name}`
-      ] ?? null,
-    [
-      ipAdapterModel?.base_model,
-      ipAdapterModel?.model_name,
-      ipAdapterModels?.entities,
-    ]
-  );
 
-  const options = useMemo<GroupBase<InvSelectOption>[]>(() => {
-    return reduce(
-      groupBy(ipAdapterModelsArray, (m) => m.base_model),
-      (acc, val, label) => {
-        acc.push({
-          label,
-          options: val.map((v) => ({
-            value: v.id,
-            label: v.model_name,
-          })),
-        });
-        return acc;
-      },
-      [] as GroupBase<InvSelectOption>[]
-    );
-  }, [ipAdapterModelsArray]);
-
-  const handleValueChanged = useCallback<InvSelectOnChange>(
-    (v) => {
-      if (!v) {
+  const _onChange = useCallback(
+    (value: IPAdapterModelConfigEntity | null) => {
+      if (!value) {
         return;
       }
-      const modelEntity = ipAdapterModels?.entities[v.value];
-
-      if (!modelEntity) {
-        return;
-      }
-
       dispatch(
         fieldIPAdapterModelValueChanged({
           nodeId,
           fieldName: field.name,
-          value: modelEntity,
+          value,
         })
       );
     },
-    [dispatch, field.name, ipAdapterModels?.entities, nodeId]
+    [dispatch, field.name, nodeId]
   );
 
-  const value = useMemo(
-    () =>
-      options
-        .flatMap((o) => o.options)
-        .find((m) => m.value === selectedModel?.id),
-    [options, selectedModel?.id]
-  );
+  const { options, value, onChange } = useGroupedModelInvSelect({
+    modelEntities: ipAdapterModels,
+    onChange: _onChange,
+    selectedModel: field.value
+      ? { ...field.value, model_type: 'ip_adapter' }
+      : undefined,
+  });
 
   return (
-    <InvTooltip label={selectedModel?.description}>
-      <InvControl className="nowheel nodrag" isInvalid={!selectedModel}>
+    <InvTooltip label={value?.description}>
+      <InvControl className="nowheel nodrag" isInvalid={!value}>
         <InvSelect
           value={value}
           placeholder="Pick one"
           options={options}
-          onChange={handleValueChanged}
+          onChange={onChange}
           sx={{ width: '100%' }}
         />
       </InvControl>

@@ -1,53 +1,53 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIMantineSearchableSelect from 'common/components/IAIMantineSearchableSelect';
+import { InvControl, InvSelect, InvSelectOnChange } from 'common/components';
 import { fieldSchedulerValueChanged } from 'features/nodes/store/nodesSlice';
 import {
   SchedulerFieldInputInstance,
   SchedulerFieldInputTemplate,
 } from 'features/nodes/types/field';
-import { SCHEDULER_LABEL_MAP } from 'features/parameters/types/constants';
-import { ParameterScheduler } from 'features/parameters/types/parameterSchemas';
-import { map } from 'lodash-es';
-import { memo, useCallback } from 'react';
+import { SCHEDULER_OPTIONS } from 'features/parameters/types/constants';
+import { isParameterScheduler } from 'features/parameters/types/parameterSchemas';
+import { memo, useCallback, useMemo } from 'react';
 import { FieldComponentProps } from './types';
 
-const data = map(SCHEDULER_LABEL_MAP, (label, name) => ({
-  value: name,
-  label: label,
-})).sort((a, b) => a.label.localeCompare(b.label));
+type Props = FieldComponentProps<
+  SchedulerFieldInputInstance,
+  SchedulerFieldInputTemplate
+>;
 
-const SchedulerFieldInputComponent = (
-  props: FieldComponentProps<
-    SchedulerFieldInputInstance,
-    SchedulerFieldInputTemplate
-  >
-) => {
+const SchedulerFieldInputComponent = (props: Props) => {
   const { nodeId, field } = props;
   const dispatch = useAppDispatch();
 
-  const handleChange = useCallback(
-    (value: string | null) => {
-      if (!value) {
+  const onChange = useCallback<InvSelectOnChange>(
+    (v) => {
+      if (!isParameterScheduler(v?.value)) {
         return;
       }
       dispatch(
         fieldSchedulerValueChanged({
           nodeId,
           fieldName: field.name,
-          value: value as ParameterScheduler,
+          value: v.value,
         })
       );
     },
     [dispatch, field.name, nodeId]
   );
 
+  const value = useMemo(
+    () => SCHEDULER_OPTIONS.find((o) => o.value === field?.value),
+    [field?.value]
+  );
+
   return (
-    <IAIMantineSearchableSelect
-      className="nowheel nodrag"
-      value={field.value}
-      data={data}
-      onChange={handleChange}
-    />
+    <InvControl className="nowheel nodrag">
+      <InvSelect
+        value={value}
+        options={SCHEDULER_OPTIONS}
+        onChange={onChange}
+      />
+    </InvControl>
   );
 };
 

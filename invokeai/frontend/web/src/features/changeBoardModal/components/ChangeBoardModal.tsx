@@ -11,8 +11,13 @@ import {
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import {
+  InvControl,
+  InvSelect,
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components';
 import IAIButton from 'common/components/IAIButton';
-import IAIMantineSearchableSelect from 'common/components/IAIMantineSearchableSelect';
 import {
   changeBoardReset,
   isModalOpenChanged,
@@ -46,19 +51,19 @@ const ChangeBoardModal = () => {
   const [removeImagesFromBoard] = useRemoveImagesFromBoardMutation();
   const { t } = useTranslation();
 
-  const data = useMemo(() => {
-    const data: { label: string; value: string }[] = [
-      { label: t('boards.uncategorized'), value: 'none' },
-    ];
-    (boards ?? []).forEach((board) =>
-      data.push({
+  const options = useMemo<InvSelectOption[]>(() => {
+    return [{ label: t('boards.uncategorized'), value: 'none' }].concat(
+      (boards ?? []).map((board) => ({
         label: board.board_name,
         value: board.board_id,
-      })
+      }))
     );
-
-    return data;
   }, [boards, t]);
+
+  const value = useMemo(
+    () => options.find((o) => o.value === selectedBoard),
+    [options, selectedBoard]
+  );
 
   const handleClose = useCallback(() => {
     dispatch(changeBoardReset());
@@ -88,10 +93,12 @@ const ChangeBoardModal = () => {
     selectedBoard,
   ]);
 
-  const handleSetSelectedBoard = useCallback(
-    (v: string | null) => setSelectedBoard(v),
-    []
-  );
+  const onChange = useCallback<InvSelectOnChange>((v) => {
+    if (!v) {
+      return;
+    }
+    setSelectedBoard(v.value);
+  }, []);
 
   const cancelRef = useRef<HTMLButtonElement>(null);
 
@@ -116,15 +123,16 @@ const ChangeBoardModal = () => {
                 })}
                 :
               </Text>
-              <IAIMantineSearchableSelect
-                placeholder={
-                  isFetching ? t('boards.loading') : t('boards.selectBoard')
-                }
-                disabled={isFetching}
-                onChange={handleSetSelectedBoard}
-                value={selectedBoard}
-                data={data}
-              />
+              <InvControl isDisabled={isFetching}>
+                <InvSelect
+                  placeholder={
+                    isFetching ? t('boards.loading') : t('boards.selectBoard')
+                  }
+                  onChange={onChange}
+                  value={value}
+                  options={options}
+                />
+              </InvControl>
             </Flex>
           </AlertDialogBody>
           <AlertDialogFooter>

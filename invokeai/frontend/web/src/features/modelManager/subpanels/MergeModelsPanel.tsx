@@ -9,7 +9,6 @@ import {
 } from 'common/components';
 import IAIButton from 'common/components/IAIButton';
 import IAIInput from 'common/components/IAIInput';
-import IAIMantineSearchableSelect from 'common/components/IAIMantineSearchableSelect';
 import IAISimpleCheckbox from 'common/components/IAISimpleCheckbox';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
@@ -72,7 +71,6 @@ export default function MergeModelsPanel() {
   const [modelTwo, setModelTwo] = useState<string | null>(
     Object.keys(modelsMap[baseModel as keyof typeof modelsMap])?.[1] ?? null
   );
-
   const [modelThree, setModelThree] = useState<string | null>(null);
 
   const [mergedModelName, setMergedModelName] = useState<string>('');
@@ -90,17 +88,29 @@ export default function MergeModelsPanel() {
 
   const [modelMergeForce, setModelMergeForce] = useState<boolean>(false);
 
-  const modelOneList = Object.keys(
-    modelsMap[baseModel as keyof typeof modelsMap]
-  ).filter((model) => model !== modelTwo && model !== modelThree);
+  const optionsModelOne = useMemo(
+    () =>
+      Object.keys(modelsMap[baseModel as keyof typeof modelsMap])
+        .filter((model) => model !== modelTwo && model !== modelThree)
+        .map((model) => ({ label: model, value: model })),
+    [modelsMap, baseModel, modelTwo, modelThree]
+  );
 
-  const modelTwoList = Object.keys(
-    modelsMap[baseModel as keyof typeof modelsMap]
-  ).filter((model) => model !== modelOne && model !== modelThree);
+  const optionsModelTwo = useMemo(
+    () =>
+      Object.keys(modelsMap[baseModel as keyof typeof modelsMap])
+        .filter((model) => model !== modelOne && model !== modelThree)
+        .map((model) => ({ label: model, value: model })),
+    [modelsMap, baseModel, modelOne, modelThree]
+  );
 
-  const modelThreeList = Object.keys(
-    modelsMap[baseModel as keyof typeof modelsMap]
-  ).filter((model) => model !== modelOne && model !== modelTwo);
+  const optionsModelThree = useMemo(
+    () =>
+      Object.keys(modelsMap[baseModel as keyof typeof modelsMap])
+        .filter((model) => model !== modelOne && model !== modelTwo)
+        .map((model) => ({ label: model, value: model })),
+    [modelsMap, baseModel, modelOne, modelTwo]
+  );
 
   const onChangeBaseModel = useCallback<InvSelectOnChange>((v) => {
     if (!v) {
@@ -114,21 +124,41 @@ export default function MergeModelsPanel() {
     setModelTwo(null);
   }, []);
 
-  const handleChangeModelOne = useCallback((v: string) => {
-    setModelOne(v);
+  const onChangeModelOne = useCallback<InvSelectOnChange>((v) => {
+    if (!v) {
+      return;
+    }
+    setModelOne(v.value);
   }, []);
-  const handleChangeModelTwo = useCallback((v: string) => {
-    setModelTwo(v);
+  const onChangeModelTwo = useCallback<InvSelectOnChange>((v) => {
+    if (!v) {
+      return;
+    }
+    setModelTwo(v.value);
   }, []);
-  const handleChangeModelThree = useCallback((v: string) => {
+  const onChangeModelThree = useCallback<InvSelectOnChange>((v) => {
     if (!v) {
       setModelThree(null);
       setModelMergeInterp('add_difference');
     } else {
-      setModelThree(v);
+      setModelThree(v.value);
       setModelMergeInterp('weighted_sum');
     }
   }, []);
+
+  const valueModelOne = useMemo(
+    () => optionsModelOne.find((o) => o.value === modelOne),
+    [modelOne, optionsModelOne]
+  );
+  const valueModelTwo = useMemo(
+    () => optionsModelTwo.find((o) => o.value === modelTwo),
+    [modelTwo, optionsModelTwo]
+  );
+  const valueModelThree = useMemo(
+    () => optionsModelThree.find((o) => o.value === modelThree),
+    [modelThree, optionsModelThree]
+  );
+
   const handleChangeMergedModelName = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => setMergedModelName(e.target.value),
     []
@@ -247,30 +277,28 @@ export default function MergeModelsPanel() {
             onChange={onChangeBaseModel}
           />
         </InvControl>
-        <IAIMantineSearchableSelect
-          label={t('modelManager.modelOne')}
-          w="100%"
-          value={modelOne}
-          placeholder={t('modelManager.selectModel')}
-          data={modelOneList}
-          onChange={handleChangeModelOne}
-        />
-        <IAIMantineSearchableSelect
-          label={t('modelManager.modelTwo')}
-          w="100%"
-          placeholder={t('modelManager.selectModel')}
-          value={modelTwo}
-          data={modelTwoList}
-          onChange={handleChangeModelTwo}
-        />
-        <IAIMantineSearchableSelect
-          label={t('modelManager.modelThree')}
-          data={modelThreeList}
-          w="100%"
-          placeholder={t('modelManager.selectModel')}
-          clearable
-          onChange={handleChangeModelThree}
-        />
+        <InvControl label={t('modelManager.modelOne')} sx={{ w: 'full' }}>
+          <InvSelect
+            options={optionsModelOne}
+            value={valueModelOne}
+            onChange={onChangeModelOne}
+          />
+        </InvControl>
+        <InvControl label={t('modelManager.modelTwo')} sx={{ w: 'full' }}>
+          <InvSelect
+            options={optionsModelTwo}
+            value={valueModelTwo}
+            onChange={onChangeModelTwo}
+          />
+        </InvControl>
+        <InvControl label={t('modelManager.modelThree')} sx={{ w: 'full' }}>
+          <InvSelect
+            options={optionsModelThree}
+            value={valueModelThree}
+            onChange={onChangeModelThree}
+            isClearable
+          />
+        </InvControl>
       </Flex>
 
       <IAIInput

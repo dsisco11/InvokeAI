@@ -54,7 +54,7 @@ export default function ParamControlAdapterControlMode({ id }: Props) {
 
   return (
     <IAIInformationalPopover feature="controlNetControlMode">
-      <InvControl iDisabled={!isEnabled} label={t('controlnet.controlMode')}>
+      <InvControl isDisabled={!isEnabled} label={t('controlnet.controlMode')}>
         <InvSelect
           value={value}
           options={CONTROL_MODE_DATA}

@@ -1,52 +1,41 @@
-import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
-import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import { InvControl, InvSelect, InvSelectOnChange } from 'common/components';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
-import IAIMantineSearchableSelect from 'common/components/IAIMantineSearchableSelect';
 import { setScheduler } from 'features/parameters/store/generationSlice';
-import { SCHEDULER_LABEL_MAP } from 'features/parameters/types/constants';
-import { ParameterScheduler } from 'features/parameters/types/parameterSchemas';
-import { map } from 'lodash-es';
-import { memo, useCallback } from 'react';
+import { SCHEDULER_OPTIONS } from 'features/parameters/types/constants';
+import { isParameterScheduler } from 'features/parameters/types/parameterSchemas';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-
-const selector = createMemoizedSelector([stateSelector], ({ generation }) => {
-  const { scheduler } = generation;
-
-  const data = map(SCHEDULER_LABEL_MAP, (label, name) => ({
-    value: name,
-    label: label,
-  })).sort((a, b) => a.label.localeCompare(b.label));
-
-  return {
-    scheduler,
-    data,
-  };
-});
 
 const ParamScheduler = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  const { scheduler, data } = useAppSelector(selector);
+  const scheduler = useAppSelector((state) => state.generation.scheduler);
 
-  const handleChange = useCallback(
-    (v: string | null) => {
-      if (!v) {
+  const onChange = useCallback<InvSelectOnChange>(
+    (v) => {
+      if (!isParameterScheduler(v?.value)) {
         return;
       }
-      dispatch(setScheduler(v as ParameterScheduler));
+      dispatch(setScheduler(v.value));
     },
     [dispatch]
   );
 
+  const value = useMemo(
+    () => SCHEDULER_OPTIONS.find((o) => o.value === scheduler),
+    [scheduler]
+  );
+
   return (
     <IAIInformationalPopover feature="paramScheduler">
-      <IAIMantineSearchableSelect
-        label={t('parameters.scheduler')}
-        value={scheduler}
-        data={data}
-        onChange={handleChange}
-      />
+      <InvControl label={t('parameters.scheduler')}>
+        <InvSelect
+          value={value}
+          options={SCHEDULER_OPTIONS}
+          onChange={onChange}
+        />
+      </InvControl>
     </IAIInformationalPopover>
   );
 };

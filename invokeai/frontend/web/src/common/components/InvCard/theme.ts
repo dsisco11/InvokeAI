@@ -1,6 +1,6 @@
 import { cardAnatomy } from '@chakra-ui/anatomy';
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react';
-import { cardVariantLora } from 'features/lora/components/LoRACollapse/styles';
+import { cardVariantLora } from 'features/lora/components/styles';
 
 const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(
   cardAnatomy.keys

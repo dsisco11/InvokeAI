@@ -1,10 +1,22 @@
-import { Select as ChakraReactSelect } from 'chakra-react-select';
+import {
+  Select as ChakraReactSelect,
+  GroupBase,
+  StylesConfig,
+} from 'chakra-react-select';
 import { CustomComponents } from './CustomComponents';
-import { CustomChakraStylesConfig, InvSelectProps } from './types';
-import { useMemo } from 'react';
+import {
+  CustomChakraStylesConfig,
+  InvSelectOption,
+  InvSelectProps,
+} from './types';
+import { memo, useMemo } from 'react';
 
-export const InvSelect = (props: InvSelectProps) => {
-  const { sx, ...rest } = props;
+const styles: StylesConfig<InvSelectOption> = {
+  menuPortal: (provided) => ({ ...provided, zIndex: 999 }),
+};
+
+export const InvSelect = memo((props: InvSelectProps) => {
+  const { sx, selectRef, ...rest } = props;
   const chakraStyles = useMemo<CustomChakraStylesConfig>(
     () => ({
       container: (provided, _state) => ({ ...provided, ...sx }),
@@ -21,14 +33,18 @@ export const InvSelect = (props: InvSelectProps) => {
   );
 
   return (
-    <ChakraReactSelect
+    <ChakraReactSelect<InvSelectOption, false, GroupBase<InvSelectOption>>
+      ref={selectRef}
       menuPortalTarget={document.body}
       colorScheme="base"
       selectedOptionColorScheme="base"
       components={CustomComponents}
       chakraStyles={chakraStyles}
+      styles={styles}
       variant="filled"
       {...rest}
     />
   );
-};
+});
+
+InvSelect.displayName = 'InvSelect';

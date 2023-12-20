@@ -51,7 +51,7 @@ export type TextualInversionModelConfigEntity = TextualInversionModelConfig & {
 
 export type VaeModelConfigEntity = VaeModelConfig & { id: string };
 
-type AnyModelConfigEntity =
+export type AnyModelConfigEntity =
   | MainModelConfigEntity
   | OnnxModelConfigEntity
   | LoRAModelConfigEntity
@@ -135,7 +135,6 @@ type SearchFolderArg = operations['search_for_models']['parameters']['query'];
 export const mainModelsAdapter = createEntityAdapter<MainModelConfigEntity>({
   sortComparer: (a, b) => a.model_name.localeCompare(b.model_name),
 });
-
 const onnxModelsAdapter = createEntityAdapter<OnnxModelConfigEntity>({
   sortComparer: (a, b) => a.model_name.localeCompare(b.model_name),
 });
@@ -166,7 +165,8 @@ export const getModelId = ({
   base_model,
   model_type,
   model_name,
-}: AnyModelConfig) => `${base_model}/${model_type}/${model_name}`;
+}: Pick<AnyModelConfig, 'base_model' | 'model_name' | 'model_type'>) =>
+  `${base_model}/${model_type}/${model_name}`;
 
 const createModelEntities = <T extends AnyModelConfigEntity>(
   models: AnyModelConfig[]

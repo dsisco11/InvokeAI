@@ -1,10 +1,10 @@
-import { Box, Flex, Tooltip } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { isString } from 'lodash-es';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import { memo, useCallback, useMemo } from 'react';
 import { FaCopy, FaDownload } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-import { InvIconButton } from 'common/components';
+import { InvIconButton, InvTooltip } from 'common/components';
 
 type Props = {
   label: string;
@@ -77,7 +77,7 @@ const DataViewer = (props: Props) => {
       </Box>
       <Flex sx={{ position: 'absolute', top: 0, insetInlineEnd: 0, p: 2 }}>
         {withDownload && (
-          <Tooltip label={`${t('gallery.download')} ${label} JSON`}>
+          <InvTooltip label={`${t('gallery.download')} ${label} JSON`}>
             <InvIconButton
               aria-label={`${t('gallery.download')} ${label} JSON`}
               icon={<FaDownload />}
@@ -85,10 +85,10 @@ const DataViewer = (props: Props) => {
               opacity={0.7}
               onClick={handleDownload}
             />
-          </Tooltip>
+          </InvTooltip>
         )}
         {withCopy && (
-          <Tooltip label={`${t('gallery.copy')} ${label} JSON`}>
+          <InvTooltip label={`${t('gallery.copy')} ${label} JSON`}>
             <InvIconButton
               aria-label={`${t('gallery.copy')} ${label} JSON`}
               icon={<FaCopy />}
@@ -96,7 +96,7 @@ const DataViewer = (props: Props) => {
               opacity={0.7}
               onClick={handleCopy}
             />
-          </Tooltip>
+          </InvTooltip>
         )}
       </Flex>
     </Flex>

@@ -2,6 +2,7 @@ import { Flex, Icon } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
+import { InvText } from 'common/components';
 import { STATUS_TRANSLATION_KEYS } from 'features/system/store/types';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ResourceKey } from 'i18next';

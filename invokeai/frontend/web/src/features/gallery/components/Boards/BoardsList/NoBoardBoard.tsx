@@ -1,9 +1,9 @@
-import { Box, Flex, Image, Tooltip } from '@chakra-ui/react';
+import { Box, Flex, Image } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import InvokeAILogoImage from 'assets/images/logo.png';
-import { InvText } from 'common/components';
+import { InvText, InvTooltip } from 'common/components';
 import IAIDroppable from 'common/components/IAIDroppable';
 import SelectionOverlay from 'common/components/SelectionOverlay';
 import { RemoveFromBoardDropData } from 'features/dnd/types';
@@ -86,7 +86,7 @@ const NoBoardBoard = memo(({ isSelected }: Props) => {
       >
         <BoardContextMenu board_id="none">
           {(ref) => (
-            <Tooltip label={tooltip} openDelay={1000} hasArrow>
+            <InvTooltip label={tooltip} openDelay={1000}>
               <Flex
                 ref={ref}
                 onClick={handleSelectBoard}
@@ -156,7 +156,7 @@ const NoBoardBoard = memo(({ isSelected }: Props) => {
                   }
                 />
               </Flex>
-            </Tooltip>
+            </InvTooltip>
           )}
         </BoardContextMenu>
       </Flex>

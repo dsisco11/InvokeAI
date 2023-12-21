@@ -1,4 +1,4 @@
-import { Flex, FormControl, FormLabel, Tooltip } from '@chakra-ui/react';
+import { Flex, FormControl, FormLabel } from '@chakra-ui/react';
 import { useConnectionState } from 'features/nodes/hooks/useConnectionState';
 import { useFieldOutputInstance } from 'features/nodes/hooks/useFieldOutputInstance';
 import { useFieldOutputTemplate } from 'features/nodes/hooks/useFieldOutputTemplate';
@@ -7,6 +7,7 @@ import { PropsWithChildren, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import FieldHandle from './FieldHandle';
 import FieldTooltipContent from './FieldTooltipContent';
+import { InvTooltip } from 'common/components';
 
 interface Props {
   nodeId: string;
@@ -61,7 +62,7 @@ const OutputField = ({ nodeId, fieldName }: Props) => {
 
   return (
     <OutputFieldWrapper shouldDim={shouldDim}>
-      <Tooltip
+      <InvTooltip
         label={
           <FieldTooltipContent
             nodeId={nodeId}
@@ -72,14 +73,13 @@ const OutputField = ({ nodeId, fieldName }: Props) => {
         openDelay={HANDLE_TOOLTIP_OPEN_DELAY}
         placement="top"
         shouldWrapChildren
-        hasArrow
       >
         <FormControl isDisabled={isConnected} pe={2}>
           <FormLabel sx={{ mb: 0, fontWeight: 500 }}>
             {fieldTemplate?.title}
           </FormLabel>
         </FormControl>
-      </Tooltip>
+      </InvTooltip>
       <FieldHandle
         fieldTemplate={fieldTemplate}
         handleType="source"

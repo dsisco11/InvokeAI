@@ -1,4 +1,3 @@
-import { Tooltip } from '@chakra-ui/react';
 import { colorTokenToCssVar } from 'common/util/colorTokenToCssVar';
 import { useFieldTypeName } from 'features/nodes/hooks/usePrettyFieldType';
 import {
@@ -12,6 +11,7 @@ import {
 import { CSSProperties, memo, useMemo } from 'react';
 import { Handle, HandleType, Position } from 'reactflow';
 import { getFieldColor } from 'features/nodes/components/flow/edges/util/getEdgeColor';
+import { InvTooltip } from 'common/components';
 
 export const handleBaseStyles: CSSProperties = {
   position: 'absolute',
@@ -104,10 +104,9 @@ const FieldHandle = (props: FieldHandleProps) => {
   }, [connectionError, fieldTypeName, isConnectionInProgress]);
 
   return (
-    <Tooltip
+    <InvTooltip
       label={tooltip}
       placement={handleType === 'target' ? 'start' : 'end'}
-      hasArrow
       openDelay={HANDLE_TOOLTIP_OPEN_DELAY}
     >
       <Handle
@@ -116,7 +115,7 @@ const FieldHandle = (props: FieldHandleProps) => {
         position={handleType === 'target' ? Position.Left : Position.Right}
         style={styles}
       />
-    </Tooltip>
+    </InvTooltip>
   );
 };
 

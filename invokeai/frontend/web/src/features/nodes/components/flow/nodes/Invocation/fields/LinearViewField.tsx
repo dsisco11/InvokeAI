@@ -1,13 +1,6 @@
-import {
-  Flex,
-  FormControl,
-  FormLabel,
-  Icon,
-  Spacer,
-  Tooltip,
-} from '@chakra-ui/react';
+import { Flex, FormControl, FormLabel, Icon, Spacer } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvIconButton } from 'common/components';
+import { InvIconButton, InvTooltip } from 'common/components';
 import NodeSelectionOverlay from 'common/components/NodeSelectionOverlay';
 import { useMouseOverNode } from 'features/nodes/hooks/useMouseOverNode';
 import { workflowExposedFieldRemoved } from 'features/nodes/store/workflowSlice';
@@ -59,7 +52,7 @@ const LinearViewField = ({ nodeId, fieldName }: Props) => {
             kind="input"
           />
           <Spacer />
-          <Tooltip
+          <InvTooltip
             label={
               <FieldTooltipContent
                 nodeId={nodeId}
@@ -69,12 +62,11 @@ const LinearViewField = ({ nodeId, fieldName }: Props) => {
             }
             openDelay={HANDLE_TOOLTIP_OPEN_DELAY}
             placement="top"
-            hasArrow
           >
             <Flex h="full" alignItems="center">
               <Icon as={FaInfoCircle} />
             </Flex>
-          </Tooltip>
+          </InvTooltip>
           <InvIconButton
             aria-label={t('nodes.removeLinearView')}
             tooltip={t('nodes.removeLinearView')}

@@ -65,7 +65,7 @@ const ViewportControls = () => {
         onClick={handleClickedFitView}
         icon={<FaExpand />}
       />
-      {/* <Tooltip
+      {/* <InvTooltip
         label={
           shouldShowFieldTypeLegend
             ? t('nodes.hideLegendNodes')
@@ -78,7 +78,7 @@ const ViewportControls = () => {
           onClick={handleClickedToggleFieldTypeLegend}
           icon={<FaInfo />}
         />
-      </Tooltip> */}
+      </InvTooltip> */}
       <InvIconButton
         tooltip={
           shouldShowMinimapPanel

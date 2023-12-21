@@ -7,9 +7,9 @@ import {
   RangeSliderMark,
   RangeSliderThumb,
   RangeSliderTrack,
-  Tooltip,
 } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
+import { InvTooltip } from 'common/components';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { useControlAdapterBeginEndStepPct } from 'features/controlAdapters/hooks/useControlAdapterBeginEndStepPct';
 import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
@@ -72,20 +72,12 @@ const ParamControlAdapterBeginEnd = ({ id }: Props) => {
             <RangeSliderTrack>
               <RangeSliderFilledTrack />
             </RangeSliderTrack>
-            <Tooltip
-              label={formatPct(stepPcts.beginStepPct)}
-              placement="top"
-              hasArrow
-            >
+            <InvTooltip label={formatPct(stepPcts.beginStepPct)}>
               <RangeSliderThumb index={0} />
-            </Tooltip>
-            <Tooltip
-              label={formatPct(stepPcts.endStepPct)}
-              placement="top"
-              hasArrow
-            >
+            </InvTooltip>
+            <InvTooltip label={formatPct(stepPcts.endStepPct)}>
               <RangeSliderThumb index={1} />
-            </Tooltip>
+            </InvTooltip>
             <RangeSliderMark
               value={0}
               sx={{

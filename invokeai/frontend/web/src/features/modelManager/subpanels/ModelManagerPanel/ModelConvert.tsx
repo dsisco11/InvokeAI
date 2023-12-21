@@ -3,14 +3,13 @@ import {
   ListItem,
   Radio,
   RadioGroup,
-  Tooltip,
   UnorderedList,
 } from '@chakra-ui/react';
 import { makeToast } from 'features/system/util/makeToast';
 // import { convertToDiffusers } from 'app/socketio/actions';
 import { useAppDispatch } from 'app/store/storeHooks';
 import IAIAlertDialog from 'common/components/IAIAlertDialog';
-import { InvControl, InvInput } from 'common/components';
+import { InvControl, InvInput, InvTooltip } from 'common/components';
 import { addToast } from 'features/system/store/systemSlice';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -156,14 +155,14 @@ export default function ModelConvert(props: ModelConvertProps) {
           <RadioGroup value={saveLocation} onChange={handleChangeSaveLocation}>
             <Flex gap={4}>
               <Radio value="InvokeAIRoot">
-                <Tooltip label="Save converted model in the InvokeAI root folder">
+                <InvTooltip label="Save converted model in the InvokeAI root folder">
                   {t('modelManager.invokeRoot')}
-                </Tooltip>
+                </InvTooltip>
               </Radio>
               <Radio value="Custom">
-                <Tooltip label="Save converted model in a custom folder">
+                <InvTooltip label="Save converted model in a custom folder">
                   {t('modelManager.custom')}
-                </Tooltip>
+                </InvTooltip>
               </Radio>
             </Flex>
           </RadioGroup>

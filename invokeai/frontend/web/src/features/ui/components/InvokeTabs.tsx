@@ -6,7 +6,6 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
-  Tooltip,
   VisuallyHidden,
 } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
@@ -40,6 +39,7 @@ import QueueTab from './tabs/Queue/QueueTab';
 import ResizeHandle from './tabs/ResizeHandle';
 import TextToImageTab from './tabs/TextToImage/TextToImageTab';
 import UnifiedCanvasTab from './tabs/UnifiedCanvas/UnifiedCanvasTab';
+import { InvTooltip } from 'common/components';
 
 export interface InvokeTabInfo {
   id: InvokeTabName;
@@ -121,9 +121,8 @@ const InvokeTabs = () => {
   const tabs = useMemo(
     () =>
       enabledTabs.map((tab) => (
-        <Tooltip
+        <InvTooltip
           key={tab.id}
-          hasArrow
           label={String(t(tab.translationKey as ResourceKey))}
           placement="end"
         >
@@ -133,7 +132,7 @@ const InvokeTabs = () => {
             </VisuallyHidden>
             {tab.icon}
           </Tab>
-        </Tooltip>
+        </InvTooltip>
       )),
     [enabledTabs, t, handleClickTab]
   );

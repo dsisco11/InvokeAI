@@ -1,4 +1,3 @@
-import { Tooltip } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
@@ -45,23 +44,21 @@ const ParamHrfStrength = () => {
   );
 
   return (
-    <Tooltip label={t('hrf.strengthTooltip')} placement="right" hasArrow>
-      <InvControl
-        label={t('parameters.denoisingStrength')}
-        isDisabled={!hrfEnabled}
-      >
-        <InvSlider
-          min={min}
-          max={sliderMax}
-          step={step}
-          value={hrfStrength}
-          onChange={handleHrfStrengthChange}
-          marks
-          withNumberInput
-          onReset={handleHrfStrengthReset}
-        />
-      </InvControl>
-    </Tooltip>
+    <InvControl
+      label={t('parameters.denoisingStrength')}
+      isDisabled={!hrfEnabled}
+    >
+      <InvSlider
+        min={min}
+        max={sliderMax}
+        step={step}
+        value={hrfStrength}
+        onChange={handleHrfStrengthChange}
+        marks
+        withNumberInput
+        onReset={handleHrfStrengthReset}
+      />
+    </InvControl>
   );
 };
 

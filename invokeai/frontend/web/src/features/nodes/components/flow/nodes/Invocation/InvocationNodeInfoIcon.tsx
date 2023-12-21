@@ -1,4 +1,4 @@
-import { Flex, Icon, Tooltip } from '@chakra-ui/react';
+import { Flex, Icon } from '@chakra-ui/react';
 import { compare } from 'compare-versions';
 import { useNodeData } from 'features/nodes/hooks/useNodeData';
 import { useNodeTemplate } from 'features/nodes/hooks/useNodeTemplate';
@@ -7,7 +7,7 @@ import { isInvocationNodeData } from 'features/nodes/types/invocation';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaInfoCircle } from 'react-icons/fa';
-import { InvText } from 'common/components';
+import { InvText, InvTooltip } from 'common/components';
 
 interface Props {
   nodeId: string;
@@ -17,7 +17,7 @@ const InvocationNodeInfoIcon = ({ nodeId }: Props) => {
   const needsUpdate = useNodeNeedsUpdate(nodeId);
 
   return (
-    <Tooltip
+    <InvTooltip
       label={<TooltipContent nodeId={nodeId} />}
       placement="top"
       shouldWrapChildren
@@ -31,7 +31,7 @@ const InvocationNodeInfoIcon = ({ nodeId }: Props) => {
           color: needsUpdate ? 'error.400' : 'base.400',
         }}
       />
-    </Tooltip>
+    </InvTooltip>
   );
 };
 

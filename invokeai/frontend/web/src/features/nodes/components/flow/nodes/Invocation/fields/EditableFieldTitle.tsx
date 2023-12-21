@@ -3,7 +3,6 @@ import {
   EditableInput,
   EditablePreview,
   Flex,
-  Tooltip,
   forwardRef,
   useEditableControls,
 } from '@chakra-ui/react';
@@ -15,6 +14,7 @@ import { MouseEvent, memo, useCallback, useEffect, useState } from 'react';
 import FieldTooltipContent from './FieldTooltipContent';
 import { HANDLE_TOOLTIP_OPEN_DELAY } from 'features/nodes/types/constants';
 import { useTranslation } from 'react-i18next';
+import { InvTooltip } from 'common/components';
 
 interface Props {
   nodeId: string;
@@ -62,7 +62,7 @@ const EditableFieldTitle = forwardRef((props: Props, ref) => {
   }, [label, fieldTemplateTitle, t]);
 
   return (
-    <Tooltip
+    <InvTooltip
       label={
         withTooltip ? (
           <FieldTooltipContent
@@ -73,8 +73,6 @@ const EditableFieldTitle = forwardRef((props: Props, ref) => {
         ) : undefined
       }
       openDelay={HANDLE_TOOLTIP_OPEN_DELAY}
-      placement="top"
-      hasArrow
     >
       <Flex
         ref={ref}
@@ -126,7 +124,7 @@ const EditableFieldTitle = forwardRef((props: Props, ref) => {
           <EditableControls />
         </Editable>
       </Flex>
-    </Tooltip>
+    </InvTooltip>
   );
 });
 

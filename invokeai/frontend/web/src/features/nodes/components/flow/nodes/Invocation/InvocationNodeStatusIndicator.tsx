@@ -1,15 +1,8 @@
-import {
-  Badge,
-  CircularProgress,
-  Flex,
-  Icon,
-  Image,
-  Tooltip,
-} from '@chakra-ui/react';
+import { Badge, CircularProgress, Flex, Icon, Image } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvText } from 'common/components';
+import { InvText, InvTooltip } from 'common/components';
 import { DRAG_HANDLE_CLASSNAME } from 'features/nodes/types/constants';
 import {
   NodeExecutionState,
@@ -49,7 +42,7 @@ const InvocationNodeStatusIndicator = ({ nodeId }: Props) => {
   }
 
   return (
-    <Tooltip
+    <InvTooltip
       label={<TooltipLabel nodeExecutionState={nodeExecutionState} />}
       placement="top"
     >
@@ -64,7 +57,7 @@ const InvocationNodeStatusIndicator = ({ nodeId }: Props) => {
       >
         <StatusIcon nodeExecutionState={nodeExecutionState} />
       </Flex>
-    </Tooltip>
+    </InvTooltip>
   );
 };
 

@@ -1,6 +1,6 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { Flex, Link, Tooltip } from '@chakra-ui/react';
-import { InvIconButton, InvText } from 'common/components';
+import { Flex, Link } from '@chakra-ui/react';
+import { InvIconButton, InvText, InvTooltip } from 'common/components';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaCopy } from 'react-icons/fa';
@@ -40,7 +40,7 @@ const ImageMetadataItem = ({
   return (
     <Flex gap={2}>
       {onClick && (
-        <Tooltip label={`Recall ${label}`}>
+        <InvTooltip label={`Recall ${label}`}>
           <InvIconButton
             aria-label={t('accessibility.useThisParameter')}
             icon={<IoArrowUndoCircleOutline />}
@@ -49,10 +49,10 @@ const ImageMetadataItem = ({
             fontSize={20}
             onClick={onClick}
           />
-        </Tooltip>
+        </InvTooltip>
       )}
       {withCopy && (
-        <Tooltip label={`Copy ${label}`}>
+        <InvTooltip label={`Copy ${label}`}>
           <InvIconButton
             aria-label={`Copy ${label}`}
             icon={<FaCopy />}
@@ -61,7 +61,7 @@ const ImageMetadataItem = ({
             fontSize={14}
             onClick={handleCopy}
           />
-        </Tooltip>
+        </InvTooltip>
       )}
       <Flex direction={labelPosition ? 'column' : 'row'}>
         <InvText fontWeight="semibold" whiteSpace="pre-wrap" pr={2}>

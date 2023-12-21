@@ -1,6 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
 import { Flex, Image } from '@chakra-ui/react';
 import InvokeAILogoImage from 'assets/images/logo.png';
+import { InvText } from 'common/components';
 import { AnimatePresence, motion } from 'framer-motion';
 import { memo, useRef } from 'react';
 import { useHoverDirty } from 'react-use';

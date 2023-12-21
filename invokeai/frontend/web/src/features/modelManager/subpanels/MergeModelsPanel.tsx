@@ -1,4 +1,4 @@
-import { Flex, Radio, RadioGroup, Tooltip } from '@chakra-ui/react';
+import { Flex, Radio, RadioGroup } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import {
   InvButton,
@@ -10,6 +10,7 @@ import {
   InvSelectOption,
   InvSlider,
   InvText,
+  InvTooltip,
 } from 'common/components';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
@@ -366,13 +367,13 @@ export default function MergeModelsPanel() {
               </>
             ) : (
               <Radio value="add_difference">
-                <Tooltip
+                <InvTooltip
                   label={t('modelManager.modelMergeInterpAddDifferenceHelp')}
                 >
                   <InvText fontSize="sm">
                     {t('modelManager.addDifference')}
                   </InvText>
-                </Tooltip>
+                </InvTooltip>
               </Radio>
             )}
           </Flex>

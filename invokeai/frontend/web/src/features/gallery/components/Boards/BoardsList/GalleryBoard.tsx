@@ -6,13 +6,12 @@ import {
   Flex,
   Icon,
   Image,
-  Tooltip,
 } from '@chakra-ui/react';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvText } from 'common/components';
+import { InvText, InvTooltip } from 'common/components';
 import IAIDroppable from 'common/components/IAIDroppable';
 import SelectionOverlay from 'common/components/SelectionOverlay';
 import { AddToBoardDropData } from 'features/dnd/types';
@@ -159,7 +158,7 @@ const GalleryBoard = ({
           setBoardToDelete={setBoardToDelete}
         >
           {(ref) => (
-            <Tooltip label={tooltip} openDelay={1000} hasArrow>
+            <InvTooltip label={tooltip} openDelay={1000}>
               <Flex
                 ref={ref}
                 onClick={handleSelectBoard}
@@ -270,7 +269,7 @@ const GalleryBoard = ({
                   }
                 />
               </Flex>
-            </Tooltip>
+            </InvTooltip>
           )}
         </BoardContextMenu>
       </Flex>

@@ -11,7 +11,7 @@ import {
 import { resetCanvas } from 'features/canvas/store/canvasSlice';
 import { addToast } from 'features/system/store/systemSlice';
 import StyledFlex from './StyledFlex';
-import { InvButton } from 'common/components';
+import { InvButton, InvText } from 'common/components';
 
 export default function SettingsClearIntermediates() {
   const { t } = useTranslation();

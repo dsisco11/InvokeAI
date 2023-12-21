@@ -34,15 +34,10 @@ export const AspectRatioPreview = (props: AspectRatioPreviewProps) => {
       ref={containerRef}
     >
       <Flex
-        as={motion.div}
         layerStyle="first"
         borderRadius="base"
-        initial={false}
-        animate={{
-          width: `${width}px`,
-          height: `${height}px`,
-          transition: { duration: 0.1, ease: 'easeOut' },
-        }}
+        width={`${width}px`}
+        height={`${height}px`}
         alignItems="center"
         justifyContent="center"
       >

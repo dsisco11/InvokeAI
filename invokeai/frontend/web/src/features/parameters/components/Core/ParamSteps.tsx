@@ -12,12 +12,10 @@ import { useTranslation } from 'react-i18next';
 
 const selector = createMemoizedSelector(
   [stateSelector],
-  ({ generation, config, hotkeys }) => {
+  ({ generation, config }) => {
     const { initial, min, sliderMax, inputMax, fineStep, coarseStep } =
       config.sd.steps;
     const { steps } = generation;
-
-    const step = hotkeys.shift ? fineStep : coarseStep;
 
     return {
       steps,
@@ -25,13 +23,14 @@ const selector = createMemoizedSelector(
       min,
       sliderMax,
       inputMax,
-      step,
+      step: coarseStep,
+      fineStep,
     };
   }
 );
 
 const ParamSteps = () => {
-  const { steps, initial, min, sliderMax, inputMax, step } =
+  const { steps, initial, min, sliderMax, inputMax, step, fineStep } =
     useAppSelector(selector);
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
@@ -54,6 +53,7 @@ const ParamSteps = () => {
           min={min}
           max={inputMax}
           step={step}
+          fineStep={fineStep}
           onChange={handleChange}
           value={steps}
           onBlur={handleBlur}

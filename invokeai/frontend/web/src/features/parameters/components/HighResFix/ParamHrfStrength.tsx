@@ -8,11 +8,10 @@ import { useTranslation } from 'react-i18next';
 
 const selector = createMemoizedSelector(
   [stateSelector],
-  ({ generation, hotkeys, config }) => {
+  ({ generation, config }) => {
     const { initial, min, sliderMax, inputMax, fineStep, coarseStep } =
       config.sd.hrfStrength;
     const { hrfStrength, hrfEnabled } = generation;
-    const step = hotkeys.shift ? fineStep : coarseStep;
 
     return {
       hrfStrength,
@@ -20,14 +19,15 @@ const selector = createMemoizedSelector(
       min,
       sliderMax,
       inputMax,
-      step,
+      step: coarseStep,
+      fineStep,
       hrfEnabled,
     };
   }
 );
 
 const ParamHrfStrength = () => {
-  const { hrfStrength, initial, min, sliderMax, step, hrfEnabled } =
+  const { hrfStrength, initial, min, sliderMax, step, fineStep, hrfEnabled } =
     useAppSelector(selector);
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
@@ -52,6 +52,7 @@ const ParamHrfStrength = () => {
         min={min}
         max={sliderMax}
         step={step}
+        fineStep={fineStep}
         value={hrfStrength}
         onChange={handleHrfStrengthChange}
         marks

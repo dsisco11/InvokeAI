@@ -20,7 +20,6 @@ import queueReducer from 'features/queue/store/queueSlice';
 import sdxlReducer from 'features/sdxl/store/sdxlSlice';
 import configReducer from 'features/system/store/configSlice';
 import systemReducer from 'features/system/store/systemSlice';
-import hotkeysReducer from 'features/ui/store/hotkeysSlice';
 import uiReducer from 'features/ui/store/uiSlice';
 import { createStore as createIDBKeyValStore, get, set } from 'idb-keyval';
 import dynamicMiddlewares from 'redux-dynamic-middlewares';
@@ -46,7 +45,6 @@ const allReducers = {
   system: systemReducer,
   config: configReducer,
   ui: uiReducer,
-  hotkeys: hotkeysReducer,
   controlAdapters: controlAdaptersReducer,
   dynamicPrompts: dynamicPromptsReducer,
   deleteImageModal: deleteImageModalReducer,

@@ -12,15 +12,14 @@ const selector = createMemoizedSelector([stateSelector], (state) => {
     state.config.sd.iterations;
   const { iterations } = state.generation;
 
-  const step = state.hotkeys.shift ? fineStep : coarseStep;
-
   return {
     iterations,
     initial,
     min,
     sliderMax,
     inputMax,
-    step,
+    step: coarseStep,
+    fineStep,
   };
 });
 
@@ -29,7 +28,7 @@ type Props = {
 };
 
 const ParamIterations = ({ asSlider }: Props) => {
-  const { iterations, initial, min, sliderMax, inputMax, step } =
+  const { iterations, initial, min, sliderMax, inputMax, step, fineStep } =
     useAppSelector(selector);
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
@@ -50,6 +49,7 @@ const ParamIterations = ({ asSlider }: Props) => {
       <InvControl label={t('parameters.iterations')}>
         <InvNumberInput
           step={step}
+          fineStep={fineStep}
           min={min}
           max={inputMax}
           onChange={handleChange}

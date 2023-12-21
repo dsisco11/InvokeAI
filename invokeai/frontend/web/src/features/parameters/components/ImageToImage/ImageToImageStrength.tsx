@@ -9,12 +9,10 @@ import { useTranslation } from 'react-i18next';
 
 const selector = createMemoizedSelector(
   [stateSelector],
-  ({ generation, hotkeys, config }) => {
+  ({ generation, config }) => {
     const { initial, min, sliderMax, inputMax, fineStep, coarseStep } =
       config.sd.img2imgStrength;
     const { img2imgStrength } = generation;
-
-    const step = hotkeys.shift ? fineStep : coarseStep;
 
     return {
       img2imgStrength,
@@ -22,13 +20,14 @@ const selector = createMemoizedSelector(
       min,
       sliderMax,
       inputMax,
-      step,
+      step: coarseStep,
+      fineStep,
     };
   }
 );
 
 const ImageToImageStrength = () => {
-  const { img2imgStrength, initial, min, sliderMax, inputMax, step } =
+  const { img2imgStrength, initial, min, sliderMax, inputMax, step, fineStep } =
     useAppSelector(selector);
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
@@ -47,6 +46,7 @@ const ImageToImageStrength = () => {
       <InvControl label={`${t('parameters.denoisingStrength')}`}>
         <InvSlider
           step={step}
+          fineStep={fineStep}
           min={min}
           max={sliderMax}
           onChange={handleChange}

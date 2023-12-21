@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import type { PartialAppConfig } from 'app/types/invokeai';
 import ImageUploader from 'common/components/ImageUploader';
 import { useClearStorage } from 'common/hooks/useClearStorage';
+import { useGlobalModifiersInit } from 'common/hooks/useGlobalModifiers';
 import ChangeBoardModal from 'features/changeBoardModal/components/ChangeBoardModal';
 import DeleteImageModal from 'features/deleteImageModal/components/DeleteImageModal';
 import SiteHeader from 'features/system/components/SiteHeader';
@@ -20,7 +21,6 @@ import { memo, useCallback, useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import AppErrorBoundaryFallback from './AppErrorBoundaryFallback';
-import GlobalHotkeys from './GlobalHotkeys';
 import PreselectedImage from './PreselectedImage';
 import Toaster from './Toaster';
 
@@ -42,6 +42,7 @@ const App = ({ config = DEFAULT_CONFIG, selectedImage }: Props) => {
 
   // singleton!
   useSocketIO();
+  useGlobalModifiersInit();
 
   const handleReset = useCallback(() => {
     clearStorage();
@@ -98,7 +99,6 @@ const App = ({ config = DEFAULT_CONFIG, selectedImage }: Props) => {
       <DeleteImageModal />
       <ChangeBoardModal />
       <Toaster />
-      <GlobalHotkeys />
       <PreselectedImage selectedImage={selectedImage} />
     </ErrorBoundary>
   );

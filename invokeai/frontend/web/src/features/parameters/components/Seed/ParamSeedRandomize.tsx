@@ -21,7 +21,7 @@ export const ParamSeedRandomize = () => {
   );
 
   return (
-    <InvControl label={t('common.random')}>
+    <InvControl label={t('common.random')} w="min-content">
       <InvSwitch
         isChecked={shouldRandomizeSeed}
         onChange={handleChangeShouldRandomizeSeed}

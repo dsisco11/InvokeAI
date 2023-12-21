@@ -8,6 +8,7 @@ import ParamBoundingBoxHeight from 'features/parameters/components/Canvas/Boundi
 import ParamBoundingBoxWidth from 'features/parameters/components/Canvas/BoundingBox/ParamBoundingBoxWidth';
 import { ParamHeight } from 'features/parameters/components/Core/ParamHeight';
 import { ParamWidth } from 'features/parameters/components/Core/ParamWidth';
+import { ParamCpuNoiseToggle } from 'features/parameters/components/Noise/ParamCpuNoise';
 import { ParamSeed } from 'features/parameters/components/Seed/';
 import type { InvokeTabName } from 'features/ui/store/tabMap';
 import { activeTabNameSelector } from 'features/ui/store/uiSelectors';
@@ -19,8 +20,20 @@ import { AspectRatioSelect } from './components/AspectRatioSelect';
 const selector = createMemoizedSelector(
   [stateSelector, activeTabNameSelector],
   ({ generation }, activeTabName) => {
-    const { aspectRatio, width, height } = generation;
+    const {
+      aspectRatio,
+      width,
+      height,
+      shouldRandomizeSeed,
+      shouldUseCpuNoise,
+    } = generation;
     const badges = [`${width}×${height}`, aspectRatio.id];
+    if (!shouldRandomizeSeed) {
+      badges.push('Manual Seed');
+    }
+    if (!shouldUseCpuNoise) {
+      badges.push('GPU Noise');
+    }
     return { badges, activeTabName };
   }
 );
@@ -31,7 +44,7 @@ export const ImageSettings = () => {
 
   return (
     <InvSingleAccordion
-      label={t('parameters.imageSize')}
+      label={t('common.imageSettings')}
       defaultIsOpen={true}
       badges={badges}
     >
@@ -46,8 +59,9 @@ export const ImageSettings = () => {
           </Flex>
         </Flex>
         <InvExpander>
-          <Flex>
+          <Flex gap={4} pt={4}>
             <ParamSeed />
+            <ParamCpuNoiseToggle />
           </Flex>
         </InvExpander>
       </Flex>

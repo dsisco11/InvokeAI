@@ -2,7 +2,6 @@ import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl, InvNumberInput } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setCfgScale } from 'features/parameters/store/generationSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -32,18 +31,16 @@ const ParamCFGScale = () => {
   );
 
   return (
-    <IAIInformationalPopover feature="paramCFGScale">
-      <InvControl label={t('parameters.cfgScale')}>
-        <InvNumberInput
-          value={cfgScale}
-          step={0.5}
-          fineStep={0.1}
-          min={min}
-          max={inputMax}
-          onChange={handleChange}
-        />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl label={t('parameters.cfgScale')} feature="paramCFGScale">
+      <InvNumberInput
+        value={cfgScale}
+        step={0.5}
+        fineStep={0.1}
+        min={min}
+        max={inputMax}
+        onChange={handleChange}
+      />
+    </InvControl>
   );
 };
 

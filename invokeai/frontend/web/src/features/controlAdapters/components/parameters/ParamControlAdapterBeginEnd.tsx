@@ -1,6 +1,4 @@
 import {
-  FormControl,
-  FormLabel,
   HStack,
   RangeSlider,
   RangeSliderFilledTrack,
@@ -9,8 +7,7 @@ import {
   RangeSliderTrack,
 } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvTooltip } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
+import { InvControl, InvTooltip } from 'common/components';
 import { useControlAdapterBeginEndStepPct } from 'features/controlAdapters/hooks/useControlAdapterBeginEndStepPct';
 import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
 import {
@@ -55,60 +52,61 @@ const ParamControlAdapterBeginEnd = ({ id }: Props) => {
   }
 
   return (
-    <IAIInformationalPopover feature="controlNetBeginEnd">
-      <FormControl isDisabled={!isEnabled}>
-        <FormLabel>{t('controlnet.beginEndStepPercent')}</FormLabel>
-        <HStack w="100%" gap={2} alignItems="center">
-          <RangeSlider
-            aria-label={['Begin Step %', 'End Step %!']}
-            value={[stepPcts.beginStepPct, stepPcts.endStepPct]}
-            onChange={handleStepPctChanged}
-            min={0}
-            max={1}
-            step={0.01}
-            minStepsBetweenThumbs={5}
-            isDisabled={!isEnabled}
+    <InvControl
+      isDisabled={!isEnabled}
+      label={t('controlnet.beginEndStepPercent')}
+      feature="controlNetBeginEnd"
+    >
+      <HStack w="100%" gap={2} alignItems="center">
+        <RangeSlider
+          aria-label={['Begin Step %', 'End Step %!']}
+          value={[stepPcts.beginStepPct, stepPcts.endStepPct]}
+          onChange={handleStepPctChanged}
+          min={0}
+          max={1}
+          step={0.01}
+          minStepsBetweenThumbs={5}
+          isDisabled={!isEnabled}
+        >
+          <RangeSliderTrack>
+            <RangeSliderFilledTrack />
+          </RangeSliderTrack>
+          <InvTooltip label={formatPct(stepPcts.beginStepPct)}>
+            <RangeSliderThumb index={0} />
+          </InvTooltip>
+          <InvTooltip label={formatPct(stepPcts.endStepPct)}>
+            <RangeSliderThumb index={1} />
+          </InvTooltip>
+          <RangeSliderMark
+            value={0}
+            sx={{
+              insetInlineStart: '0 !important',
+              insetInlineEnd: 'unset !important',
+            }}
           >
-            <RangeSliderTrack>
-              <RangeSliderFilledTrack />
-            </RangeSliderTrack>
-            <InvTooltip label={formatPct(stepPcts.beginStepPct)}>
-              <RangeSliderThumb index={0} />
-            </InvTooltip>
-            <InvTooltip label={formatPct(stepPcts.endStepPct)}>
-              <RangeSliderThumb index={1} />
-            </InvTooltip>
-            <RangeSliderMark
-              value={0}
-              sx={{
-                insetInlineStart: '0 !important',
-                insetInlineEnd: 'unset !important',
-              }}
-            >
-              0%
-            </RangeSliderMark>
-            <RangeSliderMark
-              value={0.5}
-              sx={{
-                insetInlineStart: '50% !important',
-                transform: 'translateX(-50%)',
-              }}
-            >
-              50%
-            </RangeSliderMark>
-            <RangeSliderMark
-              value={1}
-              sx={{
-                insetInlineStart: 'unset !important',
-                insetInlineEnd: '0 !important',
-              }}
-            >
-              100%
-            </RangeSliderMark>
-          </RangeSlider>
-        </HStack>
-      </FormControl>
-    </IAIInformationalPopover>
+            0%
+          </RangeSliderMark>
+          <RangeSliderMark
+            value={0.5}
+            sx={{
+              insetInlineStart: '50% !important',
+              transform: 'translateX(-50%)',
+            }}
+          >
+            50%
+          </RangeSliderMark>
+          <RangeSliderMark
+            value={1}
+            sx={{
+              insetInlineStart: 'unset !important',
+              insetInlineEnd: '0 !important',
+            }}
+          >
+            100%
+          </RangeSliderMark>
+        </RangeSlider>
+      </HStack>
+    </InvControl>
   );
 };
 

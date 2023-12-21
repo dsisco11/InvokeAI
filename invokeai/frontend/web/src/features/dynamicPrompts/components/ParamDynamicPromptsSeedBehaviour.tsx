@@ -1,7 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import type { InvSelectOnChange, InvSelectOption } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import {
   isSeedBehaviour,
   seedBehaviourChanged,
@@ -47,11 +46,12 @@ const ParamDynamicPromptsSeedBehaviour = () => {
   );
 
   return (
-    <IAIInformationalPopover feature="dynamicPromptsSeedBehaviour">
-      <InvControl label={t('dynamicPrompts.seedBehaviour.label')}>
-        <InvSelect value={value} options={options} onChange={handleChange} />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={t('dynamicPrompts.seedBehaviour.label')}
+      feature="dynamicPromptsSeedBehaviour"
+    >
+      <InvSelect value={value} options={options} onChange={handleChange} />
+    </InvControl>
   );
 };
 

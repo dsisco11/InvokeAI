@@ -1,7 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import type { InvSelectOnChange, InvSelectOption } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setBoundingBoxScaleMethod } from 'features/canvas/store/canvasSlice';
 import { isBoundingBoxScaleMethod } from 'features/canvas/store/canvasTypes';
 import { memo, useCallback, useMemo } from 'react';
@@ -37,11 +36,12 @@ const ParamScaleBeforeProcessing = () => {
   );
 
   return (
-    <IAIInformationalPopover feature="scaleBeforeProcessing">
-      <InvControl label={t('parameters.scaleBeforeProcessing')}>
-        <InvSelect value={value} options={OPTIONS} onChange={onChange} />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={t('parameters.scaleBeforeProcessing')}
+      feature="scaleBeforeProcessing"
+    >
+      <InvSelect value={value} options={OPTIONS} onChange={onChange} />
+    </InvControl>
   );
 };
 

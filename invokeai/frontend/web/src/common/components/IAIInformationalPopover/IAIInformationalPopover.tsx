@@ -1,21 +1,23 @@
 import type { BoxProps, PopoverProps } from '@chakra-ui/react';
 import {
   Box,
-  Button,
   Divider,
   Flex,
   forwardRef,
-  Heading,
   Image,
-  Popover,
-  PopoverBody,
-  PopoverCloseButton,
-  PopoverContent,
-  PopoverTrigger,
   Portal,
 } from '@chakra-ui/react';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvText } from 'common/components/InvText';
+import {
+  InvButton,
+  InvHeading,
+  InvPopover,
+  InvPopoverBody,
+  InvPopoverCloseButton,
+  InvPopoverContent,
+  InvPopoverTrigger,
+  InvText,
+} from 'common/components';
 import { merge, omit } from 'lodash-es';
 import type { PropsWithChildren } from 'react';
 import { memo, useCallback, useMemo } from 'react';
@@ -74,7 +76,7 @@ const IAIInformationalPopover = forwardRef(
     }
 
     return (
-      <Popover
+      <InvPopover
         isLazy
         closeOnBlur={false}
         trigger="hover"
@@ -84,15 +86,11 @@ const IAIInformationalPopover = forwardRef(
         placement="top"
         {...popoverProps}
       >
-        <PopoverTrigger>
-          <Box ref={ref} w="full" {...wrapperProps}>
-            {children}
-          </Box>
-        </PopoverTrigger>
+        <InvPopoverTrigger>{children}</InvPopoverTrigger>
         <Portal>
-          <PopoverContent w={96}>
-            <PopoverCloseButton />
-            <PopoverBody>
+          <InvPopoverContent w={96}>
+            <InvPopoverCloseButton />
+            <InvPopoverBody>
               <Flex
                 sx={{
                   gap: 2,
@@ -102,7 +100,7 @@ const IAIInformationalPopover = forwardRef(
               >
                 {heading && (
                   <>
-                    <Heading size="sm">{heading}</Heading>
+                    <InvHeading size="sm">{heading}</InvHeading>
                     <Divider />
                   </>
                 )}
@@ -127,7 +125,7 @@ const IAIInformationalPopover = forwardRef(
                 {data?.href && (
                   <>
                     <Divider />
-                    <Button
+                    <InvButton
                       pt={1}
                       onClick={handleClick}
                       leftIcon={<FaExternalLinkAlt />}
@@ -135,14 +133,14 @@ const IAIInformationalPopover = forwardRef(
                       variant="link"
                     >
                       {t('common.learnMore') ?? heading}
-                    </Button>
+                    </InvButton>
                   </>
                 )}
               </Flex>
-            </PopoverBody>
-          </PopoverContent>
+            </InvPopoverBody>
+          </InvPopoverContent>
         </Portal>
-      </Popover>
+      </InvPopover>
     );
   }
 );

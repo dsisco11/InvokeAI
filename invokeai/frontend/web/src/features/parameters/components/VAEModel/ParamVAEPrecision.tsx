@@ -1,7 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import type { InvSelectOnChange } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { vaePrecisionChanged } from 'features/parameters/store/generationSlice';
 import { isParameterPrecision } from 'features/parameters/types/parameterSchemas';
 import { memo, useCallback, useMemo } from 'react';
@@ -34,11 +33,12 @@ const ParamVAEModelSelect = () => {
   );
 
   return (
-    <IAIInformationalPopover feature="paramVAEPrecision">
-      <InvControl label={t('modelManager.vaePrecision')}>
-        <InvSelect value={value} options={options} onChange={onChange} />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={t('modelManager.vaePrecision')}
+      feature="paramVAEPrecision"
+    >
+      <InvSelect value={value} options={options} onChange={onChange} />
+    </InvControl>
   );
 };
 

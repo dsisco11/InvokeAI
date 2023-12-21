@@ -2,10 +2,10 @@ import {
   Flex,
   FormControl as ChakraFormControl,
   FormHelperText as ChakraFormHelperText,
-  FormLabel as ChakraFormLabel,
   forwardRef,
 } from '@chakra-ui/react';
 
+import { InvLabel } from './InvLabel';
 import type { InvControlProps } from './types';
 
 export const InvControl = forwardRef((props: InvControlProps, ref) => {
@@ -13,7 +13,7 @@ export const InvControl = forwardRef((props: InvControlProps, ref) => {
     children,
     helperText,
     labelW = 'min-content',
-    labelProps,
+    feature,
     ...formControlProps
   } = props;
 
@@ -26,9 +26,9 @@ export const InvControl = forwardRef((props: InvControlProps, ref) => {
       >
         <Flex>
           {props.label && (
-            <ChakraFormLabel w={labelW} {...labelProps}>
+            <InvLabel feature={feature} labelW={labelW}>
               {props.label}
-            </ChakraFormLabel>
+            </InvLabel>
           )}
           {children}
         </Flex>
@@ -40,9 +40,9 @@ export const InvControl = forwardRef((props: InvControlProps, ref) => {
   return (
     <ChakraFormControl ref={ref} {...formControlProps}>
       {props.label && (
-        <ChakraFormLabel w={labelW} {...labelProps}>
+        <InvLabel feature={feature} labelW={labelW}>
           {props.label}
-        </ChakraFormLabel>
+        </InvLabel>
       )}
       {children}
     </ChakraFormControl>

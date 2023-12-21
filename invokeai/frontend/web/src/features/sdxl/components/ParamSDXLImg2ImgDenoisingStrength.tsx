@@ -2,7 +2,6 @@ import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl, InvSlider } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setSDXLImg2ImgDenoisingStrength } from 'features/sdxl/store/sdxlSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -30,20 +29,21 @@ const ParamSDXLImg2ImgDenoisingStrength = () => {
   }, [dispatch]);
 
   return (
-    <IAIInformationalPopover feature="paramDenoisingStrength">
-      <InvControl label={t('sdxl.denoisingStrength')}>
-        <InvSlider
-          step={0.01}
-          min={0}
-          max={1}
-          onChange={handleChange}
-          onReset={handleReset}
-          value={sdxlImg2ImgDenoisingStrength}
-          withNumberInput
-          marks
-        />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={t('sdxl.denoisingStrength')}
+      feature="paramDenoisingStrength"
+    >
+      <InvSlider
+        step={0.01}
+        min={0}
+        max={1}
+        onChange={handleChange}
+        onReset={handleReset}
+        value={sdxlImg2ImgDenoisingStrength}
+        withNumberInput
+        marks
+      />
+    </InvControl>
   );
 };
 

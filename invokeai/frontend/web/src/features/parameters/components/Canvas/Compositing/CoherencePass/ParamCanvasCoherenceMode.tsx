@@ -2,7 +2,6 @@ import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import type { InvSelectOnChange, InvSelectOption } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setCanvasCoherenceMode } from 'features/parameters/store/generationSlice';
 import { isParameterCanvasCoherenceMode } from 'features/parameters/types/parameterSchemas';
 import { memo, useCallback, useMemo } from 'react';
@@ -41,11 +40,12 @@ const ParamCanvasCoherenceMode = () => {
   );
 
   return (
-    <IAIInformationalPopover feature="compositingCoherenceMode">
-      <InvControl label={t('parameters.coherenceMode')}>
-        <InvSelect options={options} value={value} onChange={onChange} />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={t('parameters.coherenceMode')}
+      feature="compositingCoherenceMode"
+    >
+      <InvSelect options={options} value={value} onChange={onChange} />
+    </InvControl>
   );
 };
 

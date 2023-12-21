@@ -6,7 +6,6 @@ import {
   InvSelect,
   useGroupedModelInvSelect,
 } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { vaeSelected } from 'features/parameters/store/generationSlice';
 import { pick } from 'lodash-es';
 import { useCallback } from 'react';
@@ -45,22 +44,21 @@ const ParamVAEModelSelect = () => {
     });
 
   return (
-    <IAIInformationalPopover feature="paramVAE">
-      <InvControl
-        label={t('modelManager.vae')}
-        isDisabled={!options.length}
-        isInvalid={!options.length}
-      >
-        <InvSelect
-          isClearable
-          value={value}
-          placeholder={value ? placeholder : t('models.defaultVAE')}
-          options={options}
-          onChange={onChange}
-          noOptionsMessage={noOptionsMessage}
-        />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={t('modelManager.vae')}
+      isDisabled={!options.length}
+      isInvalid={!options.length}
+      feature="paramVAE"
+    >
+      <InvSelect
+        isClearable
+        value={value}
+        placeholder={value ? placeholder : t('models.defaultVAE')}
+        options={options}
+        onChange={onChange}
+        noOptionsMessage={noOptionsMessage}
+      />
+    </InvControl>
   );
 };
 

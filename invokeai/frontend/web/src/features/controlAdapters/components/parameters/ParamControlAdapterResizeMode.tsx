@@ -1,7 +1,6 @@
 import { useAppDispatch } from 'app/store/storeHooks';
 import type { InvSelectOnChange } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
 import { useControlAdapterResizeMode } from 'features/controlAdapters/hooks/useControlAdapterResizeMode';
 import { controlAdapterResizeModeChanged } from 'features/controlAdapters/store/controlAdaptersSlice';
@@ -55,15 +54,16 @@ export default function ParamControlAdapterResizeMode({ id }: Props) {
   }
 
   return (
-    <IAIInformationalPopover feature="controlNetResizeMode">
-      <InvControl label={t('controlnet.resizeMode')}>
-        <InvSelect
-          value={value}
-          options={options}
-          isDisabled={!isEnabled}
-          onChange={handleResizeModeChange}
-        />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={t('controlnet.resizeMode')}
+      feature="controlNetResizeMode"
+    >
+      <InvSelect
+        value={value}
+        options={options}
+        isDisabled={!isEnabled}
+        onChange={handleResizeModeChange}
+      />
+    </InvControl>
   );
 }

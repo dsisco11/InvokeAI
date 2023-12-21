@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl, InvSlider } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setCfgRescaleMultiplier } from 'features/parameters/store/generationSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -23,21 +22,22 @@ const ParamCFGRescaleMultiplier = () => {
   );
 
   return (
-    <IAIInformationalPopover feature="paramCFGRescaleMultiplier">
-      <InvControl label={t('parameters.cfgRescaleMultiplier')}>
-        <InvSlider
-          value={cfgRescaleMultiplier}
-          min={0}
-          max={0.99}
-          step={0.05}
-          fineStep={0.1}
-          onChange={handleChange}
-          onReset={handleReset}
-          withNumberInput
-          marks
-        />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={t('parameters.cfgRescaleMultiplier')}
+      feature="paramCFGRescaleMultiplier"
+    >
+      <InvSlider
+        value={cfgRescaleMultiplier}
+        min={0}
+        max={0.99}
+        step={0.05}
+        fineStep={0.1}
+        onChange={handleChange}
+        onReset={handleReset}
+        withNumberInput
+        marks
+      />
+    </InvControl>
   );
 };
 

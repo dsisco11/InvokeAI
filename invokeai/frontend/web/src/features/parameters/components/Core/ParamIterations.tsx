@@ -2,7 +2,6 @@ import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl, InvNumberInput } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setIterations } from 'features/parameters/store/generationSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -45,18 +44,16 @@ const ParamIterations = ({ asSlider }: Props) => {
   }, [dispatch, initial]);
 
   return (
-    <IAIInformationalPopover feature="paramIterations">
-      <InvControl label={t('parameters.iterations')}>
-        <InvNumberInput
-          step={step}
-          fineStep={fineStep}
-          min={min}
-          max={inputMax}
-          onChange={handleChange}
-          value={iterations}
-        />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl label={t('parameters.iterations')} feature="paramIterations">
+      <InvNumberInput
+        step={step}
+        fineStep={fineStep}
+        min={min}
+        max={inputMax}
+        onChange={handleChange}
+        value={iterations}
+      />
+    </InvControl>
   );
 };
 

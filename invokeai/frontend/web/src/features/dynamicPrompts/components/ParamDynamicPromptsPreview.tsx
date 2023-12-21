@@ -1,16 +1,9 @@
 import type { ChakraProps } from '@chakra-ui/react';
-import {
-  Flex,
-  FormControl,
-  FormLabel,
-  ListItem,
-  OrderedList,
-  Spinner,
-} from '@chakra-ui/react';
+import { Flex, ListItem, OrderedList, Spinner } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvText } from 'common/components';
+import { InvControl, InvText } from 'common/components';
 import { IAINoContentFallback } from 'common/components/IAIImageFallback';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
@@ -59,54 +52,44 @@ const ParamDynamicPromptsPreview = () => {
   }
 
   return (
-    <IAIInformationalPopover feature="dynamicPrompts">
-      <FormControl isInvalid={Boolean(parsingError)}>
-        <FormLabel
-          whiteSpace="nowrap"
-          overflow="hidden"
-          textOverflow="ellipsis"
-        >
-          {t('dynamicPrompts.promptsPreview')} ({prompts.length})
-          {parsingError && ` - ${parsingError}`}
-        </FormLabel>
-        <Flex
-          h={64}
-          pos="relative"
-          layerStyle="third"
-          borderRadius="base"
-          p={2}
-        >
-          <ScrollableContent>
-            <OrderedList stylePosition="inside" ms={0}>
-              {prompts.map((prompt, i) => (
-                <ListItem
-                  fontSize="sm"
-                  key={`${prompt}.${i}`}
-                  sx={listItemStyles}
-                >
-                  <InvText as="span">{prompt}</InvText>
-                </ListItem>
-              ))}
-            </OrderedList>
-          </ScrollableContent>
-          {isLoading && (
-            <Flex
-              pos="absolute"
-              w="full"
-              h="full"
-              top={0}
-              insetInlineStart={0}
-              layerStyle="second"
-              opacity={0.7}
-              alignItems="center"
-              justifyContent="center"
-            >
-              <Spinner />
-            </Flex>
-          )}
-        </Flex>
-      </FormControl>
-    </IAIInformationalPopover>
+    <InvControl
+      isInvalid={Boolean(parsingError)}
+      label={`${t('dynamicPrompts.promptsPreview')} (${prompts.length})${
+        parsingError && ` - ${parsingError}`
+      }`}
+      feature="dynamicPrompts"
+    >
+      <Flex h={64} pos="relative" layerStyle="third" borderRadius="base" p={2}>
+        <ScrollableContent>
+          <OrderedList stylePosition="inside" ms={0}>
+            {prompts.map((prompt, i) => (
+              <ListItem
+                fontSize="sm"
+                key={`${prompt}.${i}`}
+                sx={listItemStyles}
+              >
+                <InvText as="span">{prompt}</InvText>
+              </ListItem>
+            ))}
+          </OrderedList>
+        </ScrollableContent>
+        {isLoading && (
+          <Flex
+            pos="absolute"
+            w="full"
+            h="full"
+            top={0}
+            insetInlineStart={0}
+            layerStyle="second"
+            opacity={0.7}
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Spinner />
+          </Flex>
+        )}
+      </Flex>
+    </InvControl>
   );
 };
 

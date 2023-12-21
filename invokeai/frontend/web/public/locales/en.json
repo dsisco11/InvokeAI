@@ -85,6 +85,7 @@
         "githubLabel": "Github",
         "hotkeysLabel": "Hotkeys",
         "imagePrompt": "Image Prompt",
+        "imageSettings": "Image Settings",
         "imageFailedToLoad": "Unable to Load Image",
         "img2img": "Image To Image",
         "inpaint": "inpaint",

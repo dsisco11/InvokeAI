@@ -22,15 +22,15 @@ export const ParamSeedNumberInput = () => {
   );
 
   return (
-    <InvControl label={t('parameters.seed')}>
+    <InvControl label={t('parameters.seed')} flexGrow={1} feature="paramSeed">
       <InvNumberInput
         step={1}
-        flexGrow={1}
         min={NUMPY_RAND_MIN}
         max={NUMPY_RAND_MAX}
         isDisabled={shouldRandomizeSeed}
         onChange={handleChangeSeed}
         value={seed}
+        flexGrow={1}
       />
     </InvControl>
   );

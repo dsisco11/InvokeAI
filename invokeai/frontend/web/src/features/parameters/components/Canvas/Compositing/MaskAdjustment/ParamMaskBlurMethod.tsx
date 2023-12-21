@@ -2,7 +2,6 @@ import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import type { InvSelectOnChange, InvSelectOption } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setMaskBlurMethod } from 'features/parameters/store/generationSlice';
 import { isParameterMaskBlurMethod } from 'features/parameters/types/parameterSchemas';
 import { useCallback, useMemo } from 'react';
@@ -36,10 +35,11 @@ export default function ParamMaskBlurMethod() {
   );
 
   return (
-    <IAIInformationalPopover feature="compositingBlurMethod">
-      <InvControl label={t('parameters.maskBlurMethod')}>
-        <InvSelect value={value} onChange={onChange} options={options} />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={t('parameters.maskBlurMethod')}
+      feature="compositingBlurMethod"
+    >
+      <InvSelect value={value} onChange={onChange} options={options} />
+    </InvControl>
   );
 }

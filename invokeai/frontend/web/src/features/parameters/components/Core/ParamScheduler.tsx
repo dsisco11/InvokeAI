@@ -1,7 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import type { InvSelectOnChange } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setScheduler } from 'features/parameters/store/generationSlice';
 import { SCHEDULER_OPTIONS } from 'features/parameters/types/constants';
 import { isParameterScheduler } from 'features/parameters/types/parameterSchemas';
@@ -29,15 +28,13 @@ const ParamScheduler = () => {
   );
 
   return (
-    <IAIInformationalPopover feature="paramScheduler">
-      <InvControl label={t('parameters.scheduler')}>
-        <InvSelect
-          value={value}
-          options={SCHEDULER_OPTIONS}
-          onChange={onChange}
-        />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl label={t('parameters.scheduler')} feature="paramScheduler">
+      <InvSelect
+        value={value}
+        options={SCHEDULER_OPTIONS}
+        onChange={onChange}
+      />
+    </InvControl>
   );
 };
 

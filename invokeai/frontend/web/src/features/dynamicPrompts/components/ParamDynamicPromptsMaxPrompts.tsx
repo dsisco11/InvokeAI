@@ -2,7 +2,6 @@ import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl, InvSlider } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import {
   maxPromptsChanged,
   maxPromptsReset,
@@ -42,23 +41,22 @@ const ParamDynamicPromptsMaxPrompts = () => {
   }, [dispatch]);
 
   return (
-    <IAIInformationalPopover feature="dynamicPromptsMaxPrompts">
-      <InvControl
-        label={t('dynamicPrompts.maxPrompts')}
-        isDisabled={isDisabled}
-      >
-        <InvSlider
-          min={min}
-          max={sliderMax}
-          value={maxPrompts}
-          onChange={handleChange}
-          onReset={handleReset}
-          marks
-          withNumberInput
-          numberInputMax={inputMax}
-        />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={t('dynamicPrompts.maxPrompts')}
+      isDisabled={isDisabled}
+      feature="dynamicPromptsMaxPrompts"
+    >
+      <InvSlider
+        min={min}
+        max={sliderMax}
+        value={maxPrompts}
+        onChange={handleChange}
+        onReset={handleReset}
+        marks
+        withNumberInput
+        numberInputMax={inputMax}
+      />
+    </InvControl>
   );
 };
 

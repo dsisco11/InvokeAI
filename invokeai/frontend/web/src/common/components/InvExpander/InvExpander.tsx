@@ -32,7 +32,7 @@ export const InvExpander = ({
         </Flex>
       </Flex>
       <Collapse in={isOpen} animateOpacity>
-        <Flex pt={4}>{children}</Flex>
+        {children}
       </Collapse>
     </Flex>
   );

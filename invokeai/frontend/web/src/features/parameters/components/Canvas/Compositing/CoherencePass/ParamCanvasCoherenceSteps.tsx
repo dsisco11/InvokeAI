@@ -1,7 +1,6 @@
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl, InvSlider } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setCanvasCoherenceSteps } from 'features/parameters/store/generationSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -25,21 +24,22 @@ const ParamCanvasCoherenceSteps = () => {
   }, [dispatch]);
 
   return (
-    <IAIInformationalPopover feature="compositingCoherenceSteps">
-      <InvControl label={t('parameters.coherenceSteps')}>
-        <InvSlider
-          min={1}
-          max={100}
-          step={1}
-          value={canvasCoherenceSteps}
-          onChange={handleChange}
-          onReset={handleReset}
-          withNumberInput
-          numberInputMax={999}
-          marks
-        />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={t('parameters.coherenceSteps')}
+      feature="compositingCoherenceSteps"
+    >
+      <InvSlider
+        min={1}
+        max={100}
+        step={1}
+        value={canvasCoherenceSteps}
+        onChange={handleChange}
+        onReset={handleReset}
+        withNumberInput
+        numberInputMax={999}
+        marks
+      />
+    </InvControl>
   );
 };
 

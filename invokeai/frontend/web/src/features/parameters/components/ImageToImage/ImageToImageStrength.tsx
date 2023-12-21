@@ -2,7 +2,6 @@ import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl, InvSlider } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setImg2imgStrength } from 'features/parameters/store/generationSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -42,21 +41,22 @@ const ImageToImageStrength = () => {
   }, [dispatch, initial]);
 
   return (
-    <IAIInformationalPopover feature="paramDenoisingStrength">
-      <InvControl label={`${t('parameters.denoisingStrength')}`}>
-        <InvSlider
-          step={step}
-          fineStep={fineStep}
-          min={min}
-          max={sliderMax}
-          onChange={handleChange}
-          onReset={handleReset}
-          value={img2imgStrength}
-          marks
-          numberInputMax={inputMax}
-        />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={`${t('parameters.denoisingStrength')}`}
+      feature="paramDenoisingStrength"
+    >
+      <InvSlider
+        step={step}
+        fineStep={fineStep}
+        min={min}
+        max={sliderMax}
+        onChange={handleChange}
+        onReset={handleReset}
+        value={img2imgStrength}
+        marks
+        numberInputMax={inputMax}
+      />
+    </InvControl>
   );
 };
 

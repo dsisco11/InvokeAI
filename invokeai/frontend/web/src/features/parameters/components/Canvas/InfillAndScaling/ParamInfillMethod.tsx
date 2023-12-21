@@ -1,7 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import type { InvSelectOnChange, InvSelectOption } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setInfillMethod } from 'features/parameters/store/generationSlice';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -39,14 +38,13 @@ const ParamInfillMethod = () => {
   );
 
   return (
-    <IAIInformationalPopover feature="infillMethod">
-      <InvControl
-        label={t('parameters.infillMethod')}
-        isDisabled={options.length === 0}
-      >
-        <InvSelect value={value} options={options} onChange={onChange} />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={t('parameters.infillMethod')}
+      isDisabled={options.length === 0}
+      feature="infillMethod"
+    >
+      <InvSelect value={value} options={options} onChange={onChange} />
+    </InvControl>
   );
 };
 

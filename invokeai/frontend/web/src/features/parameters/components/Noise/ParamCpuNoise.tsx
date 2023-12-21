@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl, InvSwitch } from 'common/components';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { shouldUseCpuNoiseChanged } from 'features/parameters/store/generationSlice';
 import type { ChangeEvent } from 'react';
 import { useCallback } from 'react';
@@ -21,10 +20,12 @@ export const ParamCpuNoiseToggle = () => {
   );
 
   return (
-    <IAIInformationalPopover feature="noiseUseCPU">
-      <InvControl label={t('parameters.useCpuNoise')}>
-        <InvSwitch isChecked={shouldUseCpuNoise} onChange={handleChange} />
-      </InvControl>
-    </IAIInformationalPopover>
+    <InvControl
+      label={t('parameters.useCpuNoise')}
+      w="min-content"
+      feature="noiseUseCPU"
+    >
+      <InvSwitch isChecked={shouldUseCpuNoise} onChange={handleChange} />
+    </InvControl>
   );
 };

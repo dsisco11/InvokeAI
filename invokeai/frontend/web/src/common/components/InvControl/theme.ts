@@ -58,6 +58,7 @@ const formLabelBaseStyle = defineStyle(() => {
     transitionProperty: 'common',
     transitionDuration: 'normal',
     whiteSpace: 'nowrap',
+    userSelect: 'none',
     _disabled: {
       opacity: 0.4,
     },

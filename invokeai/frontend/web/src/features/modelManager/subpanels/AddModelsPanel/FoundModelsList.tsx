@@ -3,8 +3,8 @@ import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl, InvInput } from 'common/components';
 import { InvButton, InvText } from 'common/components';
-import IAIScrollArea from 'common/components/IAIScrollArea';
 import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
+import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { difference, forEach, intersection, map, values } from 'lodash-es';
@@ -213,12 +213,12 @@ export default function FoundModelsList() {
           </InvText>
         </Flex>
 
-        <IAIScrollArea offsetScrollbars>
+        <ScrollableContent>
           <Flex gap={2} flexDirection="column">
             {renderModels({ models: filteredModels })}
             {renderModels({ models: alreadyInstalled, showActions: false })}
           </Flex>
-        </IAIScrollArea>
+        </ScrollableContent>
       </Flex>
     );
   };

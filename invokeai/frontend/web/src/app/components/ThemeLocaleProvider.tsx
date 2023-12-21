@@ -3,8 +3,6 @@ import 'overlayscrollbars/overlayscrollbars.css';
 import 'theme/css/overlayscrollbars.css';
 
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import { MantineProvider } from '@mantine/core';
-import { useMantineTheme } from 'mantine-theme/theme';
 import type { ReactNode } from 'react';
 import { memo, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -30,14 +28,10 @@ function ThemeLocaleProvider({ children }: ThemeLocaleProviderProps) {
     document.body.dir = direction;
   }, [direction]);
 
-  const mantineTheme = useMantineTheme();
-
   return (
-    <MantineProvider theme={mantineTheme}>
-      <ChakraProvider theme={theme} toastOptions={TOAST_OPTIONS}>
-        {children}
-      </ChakraProvider>
-    </MantineProvider>
+    <ChakraProvider theme={theme} toastOptions={TOAST_OPTIONS}>
+      {children}
+    </ChakraProvider>
   );
 }
 

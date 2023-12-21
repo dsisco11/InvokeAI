@@ -3,7 +3,7 @@ import { themes } from '@storybook/theming';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { Provider } from 'react-redux';
-import ThemeLocaleProvider from '../src/app/components/ThemeLocaleProvider2';
+import ThemeLocaleProvider from '../src/app/components/ThemeLocaleProvider';
 import { $baseUrl } from '../src/app/store/nanostores/baseUrl';
 import { createStore } from '../src/app/store/store';
 import { Container } from '@chakra-ui/react';

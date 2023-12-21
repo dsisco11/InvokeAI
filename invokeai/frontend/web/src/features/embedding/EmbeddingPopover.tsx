@@ -5,9 +5,9 @@ import {
   InvPopoverContent,
   InvPopoverTrigger,
 } from 'common/components/InvPopover/wrapper';
-import AddEmbeddingButton from 'features/embedding/components/PromptWithEmbedding/AddEmbeddingButton';
-import { EmbeddingSelect } from 'features/embedding/components/PromptWithEmbedding/EmbeddingSelect';
-import type { EmbeddingPopoverProps } from 'features/embedding/components/PromptWithEmbedding/types';
+import AddEmbeddingButton from 'features/embedding/AddEmbeddingButton';
+import { EmbeddingSelect } from 'features/embedding/EmbeddingSelect';
+import type { EmbeddingPopoverProps } from 'features/embedding/types';
 import { PARAMETERS_PANEL_WIDTH } from 'theme/util/constants';
 
 export const EmbeddingPopover = (props: EmbeddingPopoverProps) => {

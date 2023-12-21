@@ -1,8 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 import { InvText } from 'common/components/InvText/wrapper';
+import { SyncModelsButton } from 'features/modelManager/components/SyncModels/SyncModelsButton';
 import { useTranslation } from 'react-i18next';
-
-import SyncModelsButton from './SyncModelsButton';
 
 export default function SyncModels() {
   const { t } = useTranslation();

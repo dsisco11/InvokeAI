@@ -1,5 +1,5 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
-import { buttonVariantPromptOverlay } from 'features/embedding/components/PromptWithEmbedding/styles';
+import { buttonVariantPromptOverlay } from 'features/embedding/styles';
 
 const baseStyle = defineStyle((props) => {
   const { colorScheme: c } = props;

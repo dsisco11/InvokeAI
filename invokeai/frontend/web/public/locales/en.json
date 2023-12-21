@@ -50,6 +50,19 @@
         "uncategorized": "Uncategorized",
         "downloadBoard": "Download Board"
     },
+    "accordions": {
+        "generation": {
+            "title": "Generation Settings",
+            "modelTab": "Model",
+            "conceptsTab": "Concepts"
+        },
+        "image": {
+            "title": "Image Settings"
+        },
+        "advanced": {
+            "title": "Advanced Settings"
+        }
+    },
     "common": {
         "accept": "Accept",
         "advanced": "Advanced",
@@ -85,7 +98,6 @@
         "githubLabel": "Github",
         "hotkeysLabel": "Hotkeys",
         "imagePrompt": "Image Prompt",
-        "imageSettings": "Image Settings",
         "imageFailedToLoad": "Unable to Load Image",
         "img2img": "Image To Image",
         "inpaint": "inpaint",
@@ -1138,8 +1150,8 @@
         "seamCorrectionHeader": "Seam Correction",
         "seamHighThreshold": "High",
         "seamlessTiling": "Seamless Tiling",
-        "seamlessXAxis": "X Axis",
-        "seamlessYAxis": "Y Axis",
+        "seamlessXAxis": "Seamless Tiling X Axis",
+        "seamlessYAxis": "Seamless Tiling Y Axis",
         "seamlessX": "Seamless X",
         "seamlessY": "Seamless Y",
         "seamlessX&Y": "Seamless X & Y",

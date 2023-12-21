@@ -37,6 +37,8 @@ const ParamVAEModelSelect = () => {
     <InvControl
       label={t('modelManager.vaePrecision')}
       feature="paramVAEPrecision"
+      w="14rem"
+      flexShrink={0}
     >
       <InvSelect value={value} options={options} onChange={onChange} />
     </InvControl>

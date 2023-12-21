@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvTextarea } from 'common/components/InvTextarea/InvTextarea';
-import { EmbeddingPopover } from 'features/embedding/components/PromptWithEmbedding/EmbeddingPopover';
-import { usePrompt } from 'features/embedding/components/PromptWithEmbedding/usePrompt';
+import { InvAutosizeTextarea } from 'common/components/InvAutosizeTextarea/InvAutosizeTextarea';
+import { EmbeddingPopover } from 'features/embedding/EmbeddingPopover';
+import { usePrompt } from 'features/embedding/usePrompt';
 import { setNegativePrompt } from 'features/parameters/store/generationSlice';
 import { useCallback, useRef } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
@@ -10,9 +10,9 @@ import { useTranslation } from 'react-i18next';
 export const ParamNegativePrompt = () => {
   const dispatch = useAppDispatch();
   const prompt = useAppSelector((state) => state.generation.negativePrompt);
-  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const { t } = useTranslation();
-  const handleChange = useCallback(
+  const _onChange = useCallback(
     (v: string) => {
       dispatch(setNegativePrompt(v));
     },
@@ -28,8 +28,8 @@ export const ParamNegativePrompt = () => {
     onFocus,
   } = usePrompt({
     prompt,
-    textareaRef: inputRef,
-    onChange: handleChange,
+    textareaRef,
+    onChange: _onChange,
   });
 
   useHotkeys('alt+a', onFocus, []);
@@ -40,19 +40,20 @@ export const ParamNegativePrompt = () => {
       onClose={onClose}
       onOpen={onOpen}
       onSelect={onSelectEmbedding}
-      width={inputRef.current?.clientWidth}
+      width={textareaRef.current?.clientWidth}
     >
-      <InvTextarea
+      <InvAutosizeTextarea
         id="negativePrompt"
         name="negativePrompt"
-        ref={inputRef}
+        minH="unset"
+        ref={textareaRef}
         value={prompt}
         placeholder={t('parameters.negativePromptPlaceholder')}
         onChange={onChange}
         onKeyDown={onKeyDown}
-        resize="vertical"
         fontSize="sm"
-        minH={16}
+        minRows={2}
+        maxRows={5}
       />
     </EmbeddingPopover>
   );

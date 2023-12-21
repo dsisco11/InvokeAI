@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvTextarea } from 'common/components/InvTextarea/InvTextarea';
-import { EmbeddingPopover } from 'features/embedding/components/PromptWithEmbedding/EmbeddingPopover';
-import { usePrompt } from 'features/embedding/components/PromptWithEmbedding/usePrompt';
+import { InvAutosizeTextarea } from 'common/components/InvAutosizeTextarea/InvAutosizeTextarea';
+import { EmbeddingPopover } from 'features/embedding/EmbeddingPopover';
+import { usePrompt } from 'features/embedding/usePrompt';
 import { setPositivePrompt } from 'features/parameters/store/generationSlice';
 import { useCallback, useRef } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
@@ -42,7 +42,7 @@ export const ParamPositivePrompt = () => {
       onSelect={onSelectEmbedding}
       width={inputRef.current?.clientWidth}
     >
-      <InvTextarea
+      <InvAutosizeTextarea
         id="prompt"
         name="prompt"
         ref={inputRef}
@@ -50,8 +50,8 @@ export const ParamPositivePrompt = () => {
         placeholder={t('parameters.positivePromptPlaceholder')}
         onChange={onChange}
         onKeyDown={onKeyDown}
-        resize="vertical"
-        minH={32}
+        minRows={4}
+        maxRows={7}
       />
     </EmbeddingPopover>
   );

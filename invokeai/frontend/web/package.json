@@ -96,6 +96,7 @@
     "react-redux": "^9.0.2",
     "react-resizable-panels": "^0.0.55",
     "react-select": "5.7.7",
+    "react-textarea-autosize": "^8.5.3",
     "react-use": "^17.4.2",
     "react-virtuoso": "^4.6.2",
     "reactflow": "^11.10.1",

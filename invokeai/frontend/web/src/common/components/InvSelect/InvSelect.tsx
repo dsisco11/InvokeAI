@@ -1,8 +1,13 @@
-import type { GroupBase, StylesConfig } from 'chakra-react-select';
+import type {
+  GroupBase,
+  SelectComponentsConfig,
+  StylesConfig,
+} from 'chakra-react-select';
 import { Select as ChakraReactSelect } from 'chakra-react-select';
 import { memo, useMemo } from 'react';
 
-import { CustomComponents } from './CustomComponents';
+import { CustomMenuList } from './CustomMenuList';
+import { CustomOption } from './CustomOption';
 import type {
   CustomChakraStylesConfig,
   InvSelectOption,
@@ -13,11 +18,20 @@ const styles: StylesConfig<InvSelectOption> = {
   menuPortal: (provided) => ({ ...provided, zIndex: 999 }),
 };
 
+const components: SelectComponentsConfig<
+  InvSelectOption,
+  false,
+  GroupBase<InvSelectOption>
+> = {
+  Option: CustomOption,
+  MenuList: CustomMenuList,
+};
+
 export const InvSelect = memo((props: InvSelectProps) => {
   const { sx, selectRef, ...rest } = props;
   const chakraStyles = useMemo<CustomChakraStylesConfig>(
     () => ({
-      container: (provided, _state) => ({ ...provided, ...sx }),
+      container: (provided, _state) => ({ ...provided, w: 'full', ...sx }),
       option: (provided, _state) => ({ ...provided, p: 0 }),
       indicatorsContainer: (provided, _state) => ({
         ...provided,
@@ -25,6 +39,16 @@ export const InvSelect = memo((props: InvSelectProps) => {
         alignItems: 'center',
         justifyContent: 'center',
         '> div': { p: 0, w: 'full', h: 'full', bg: 'unset' },
+      }),
+      dropdownIndicator: (provided, _state) => ({
+        ...provided,
+        display:
+          _state.hasValue && _state.selectProps.isClearable ? 'none' : 'flex',
+      }),
+      crossIcon: (provided, _state) => ({ ...provided, boxSize: 2 }),
+      inputContainer: (provided, _state) => ({
+        ...provided,
+        cursor: 'pointer',
       }),
     }),
     [sx]
@@ -36,7 +60,7 @@ export const InvSelect = memo((props: InvSelectProps) => {
       menuPortalTarget={document.body}
       colorScheme="base"
       selectedOptionColorScheme="base"
-      components={CustomComponents}
+      components={components}
       chakraStyles={chakraStyles}
       styles={styles}
       variant="filled"

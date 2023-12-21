@@ -3,13 +3,12 @@ import { useAppDispatch } from 'app/store/storeHooks';
 import { InvControl } from 'common/components/InvControl/InvControl';
 import { InvSelect } from 'common/components/InvSelect/InvSelect';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
-import SyncModelsButton from 'features/modelManager/subpanels/ModelManagerSettingsPanel/SyncModelsButton';
+import { SyncModelsIconButton } from 'features/modelManager/components/SyncModels/SyncModelsIconButton';
 import { fieldMainModelValueChanged } from 'features/nodes/store/nodesSlice';
 import type {
   MainModelFieldInputInstance,
   MainModelFieldInputTemplate,
 } from 'features/nodes/types/field';
-import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { memo, useCallback } from 'react';
 import { NON_SDXL_MAIN_MODELS } from 'services/api/constants';
 import type { MainModelConfigEntity } from 'services/api/endpoints/models';
@@ -25,7 +24,6 @@ type Props = FieldComponentProps<
 const MainModelFieldInputComponent = (props: Props) => {
   const { nodeId, field } = props;
   const dispatch = useAppDispatch();
-  const isSyncModelEnabled = useFeatureStatus('syncModels').isFeatureEnabled;
   const { data, isLoading } = useGetMainModelsQuery(NON_SDXL_MAIN_MODELS);
   const _onChange = useCallback(
     (value: MainModelConfigEntity | null) => {
@@ -64,7 +62,7 @@ const MainModelFieldInputComponent = (props: Props) => {
           noOptionsMessage={noOptionsMessage}
         />
       </InvControl>
-      {isSyncModelEnabled && <SyncModelsButton className="nodrag" iconMode />}
+      <SyncModelsIconButton className="nodrag" />
     </Flex>
   );
 };

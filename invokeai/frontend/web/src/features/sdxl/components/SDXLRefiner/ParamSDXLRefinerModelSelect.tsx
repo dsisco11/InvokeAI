@@ -5,9 +5,8 @@ import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl } from 'common/components/InvControl/InvControl';
 import { InvSelect } from 'common/components/InvSelect/InvSelect';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
-import SyncModelsButton from 'features/modelManager/subpanels/ModelManagerSettingsPanel/SyncModelsButton';
+import { SyncModelsIconButton } from 'features/modelManager/components/SyncModels/SyncModelsIconButton';
 import { refinerModelChanged } from 'features/sdxl/store/sdxlSlice';
-import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { REFINER_BASE_MODELS } from 'services/api/constants';
@@ -20,7 +19,6 @@ const selector = createMemoizedSelector(stateSelector, (state) => ({
 
 const ParamSDXLRefinerModelSelect = () => {
   const dispatch = useAppDispatch();
-  const isSyncModelEnabled = useFeatureStatus('syncModels').isFeatureEnabled;
   const { model } = useAppSelector(selector);
   const { t } = useTranslation();
   const { data, isLoading } = useGetMainModelsQuery(REFINER_BASE_MODELS);
@@ -61,7 +59,7 @@ const ParamSDXLRefinerModelSelect = () => {
           noOptionsMessage={noOptionsMessage}
         />
       </InvControl>
-      {isSyncModelEnabled && <SyncModelsButton iconMode />}
+      <SyncModelsIconButton />
     </Flex>
   );
 };

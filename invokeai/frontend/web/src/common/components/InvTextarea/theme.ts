@@ -5,6 +5,7 @@ const inputFilledStyles = getInputFilledStyles();
 
 const invokeAI = defineStyle(() => ({
   ...inputFilledStyles,
+  borderRadius: 'base',
   '::-webkit-scrollbar': {
     display: 'initial',
   },

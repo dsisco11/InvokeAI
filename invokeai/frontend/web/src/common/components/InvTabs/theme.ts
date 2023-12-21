@@ -109,9 +109,11 @@ const collapse = definePartsStyle(() => ({
   tablist: {
     bg: TAB_ACTIVE,
     borderRadius: 'base',
+    display: 'grid',
+    gridAutoFlow: 'column',
+    gridAutoColumns: '1fr',
   },
   tab: {
-    flexGrow: 1,
     gap: 4,
     bg: TAB_INACTIVE,
     fontSize: 'xs',
@@ -123,9 +125,9 @@ const collapse = definePartsStyle(() => ({
       borderTopStartRadius: 'base',
     },
     // select the tab next to the selected tab
-    '&[aria-selected="true"] + button': { borderBottomStartRadius: 'base' },
+    '&[aria-selected="true"] + button': { borderBottomStartRadius: 'lg' },
     // select the tab prev to the selected tab
-    ':has(+ [aria-selected="true"])': { borderBottomEndRadius: 'base' },
+    ':has(+ [aria-selected="true"])': { borderBottomEndRadius: 'lg' },
     _selected: {
       bg: TAB_ACTIVE,
     },
@@ -136,7 +138,9 @@ const collapse = definePartsStyle(() => ({
     transitionProperty: 'all',
   },
   tabpanels: { bg: TAB_ACTIVE, borderBottomRadius: 'base' },
-  tabpanel: {},
+  tabpanel: {
+    p: 0,
+  },
 }));
 
 export const tabsTheme = defineMultiStyleConfig({

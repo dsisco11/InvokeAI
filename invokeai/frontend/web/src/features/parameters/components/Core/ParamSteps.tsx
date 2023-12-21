@@ -2,7 +2,7 @@ import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl } from 'common/components/InvControl/InvControl';
-import { InvNumberInput } from 'common/components/InvNumberInput/InvNumberInput';
+import { InvSlider } from 'common/components/InvSlider/InvSlider';
 import {
   clampSymmetrySteps,
   setSteps,
@@ -18,6 +18,7 @@ const selector = createMemoizedSelector(
     const { steps } = generation;
 
     return {
+      marks: [min, Math.floor(sliderMax / 2), sliderMax],
       steps,
       initial,
       min,
@@ -30,32 +31,40 @@ const selector = createMemoizedSelector(
 );
 
 const ParamSteps = () => {
-  const { steps, initial, min, sliderMax, inputMax, step, fineStep } =
+  const { steps, initial, min, sliderMax, inputMax, step, fineStep, marks } =
     useAppSelector(selector);
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
-  const handleChange = useCallback(
+  const onChange = useCallback(
     (v: number) => {
       dispatch(setSteps(v));
     },
     [dispatch]
   );
 
-  const handleBlur = useCallback(() => {
+  const onReset = useCallback(() => {
+    dispatch(setSteps(initial));
+  }, [dispatch, initial]);
+
+  const onBlur = useCallback(() => {
     dispatch(clampSymmetrySteps());
   }, [dispatch]);
 
   return (
     <InvControl label={t('parameters.steps')} feature="paramSteps">
-      <InvNumberInput
+      <InvSlider
+        value={steps}
         min={min}
-        max={inputMax}
+        max={sliderMax}
         step={step}
         fineStep={fineStep}
-        onChange={handleChange}
-        value={steps}
-        onBlur={handleBlur}
+        onChange={onChange}
+        onReset={onReset}
+        onBlur={onBlur}
+        withNumberInput
+        marks={marks}
+        numberInputMax={inputMax}
       />
     </InvControl>
   );

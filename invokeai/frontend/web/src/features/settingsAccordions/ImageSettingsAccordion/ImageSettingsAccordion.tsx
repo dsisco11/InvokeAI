@@ -8,14 +8,15 @@ import ParamBoundingBoxHeight from 'features/parameters/components/Canvas/Boundi
 import ParamBoundingBoxWidth from 'features/parameters/components/Canvas/BoundingBox/ParamBoundingBoxWidth';
 import { ParamHeight } from 'features/parameters/components/Core/ParamHeight';
 import { ParamWidth } from 'features/parameters/components/Core/ParamWidth';
+import { AspectRatioPreviewWrapper } from 'features/parameters/components/ImageSize/AspectRatioPreviewWrapper';
+import { AspectRatioSelect } from 'features/parameters/components/ImageSize/AspectRatioSelect';
 import { ParamCpuNoiseToggle } from 'features/parameters/components/Noise/ParamCpuNoise';
-import { ParamSeed } from 'features/parameters/components/Seed/ParamSeed';
+import { ParamSeedNumberInput } from 'features/parameters/components/Seed/ParamSeedNumberInput';
+import { ParamSeedRandomize } from 'features/parameters/components/Seed/ParamSeedRandomize';
+import { ParamSeedShuffle } from 'features/parameters/components/Seed/ParamSeedShuffle';
 import type { InvokeTabName } from 'features/ui/store/tabMap';
 import { activeTabNameSelector } from 'features/ui/store/uiSelectors';
 import { useTranslation } from 'react-i18next';
-
-import { AspectRatioPreviewWrapper } from './components/AspectRatioPreviewWrapper';
-import { AspectRatioSelect } from './components/AspectRatioSelect';
 
 const selector = createMemoizedSelector(
   [stateSelector, activeTabNameSelector],
@@ -38,33 +39,33 @@ const selector = createMemoizedSelector(
   }
 );
 
-export const ImageSettings = () => {
+export const ImageSettingsAccordion = () => {
   const { t } = useTranslation();
   const { badges, activeTabName } = useAppSelector(selector);
 
   return (
     <InvSingleAccordion
-      label={t('common.imageSettings')}
+      label={t('accordions.image.title')}
       defaultIsOpen={true}
       badges={badges}
     >
-      <Flex p={4} flexDir="column" gap={4}>
-        <Flex gap={2} alignItems="center">
-          <Flex gap={2} flexDirection="column" width="full">
-            <AspectRatioSelect />
-            <WidthHeight activeTabName={activeTabName} />
-          </Flex>
-          <Flex w={32} h={32} flexShrink={0} flexGrow={0}>
-            <AspectRatioPreviewWrapper />
-          </Flex>
+      <Flex gap={2} alignItems="center" p={4} pb={0}>
+        <Flex gap={2} flexDirection="column" width="full">
+          <AspectRatioSelect />
+          <WidthHeight activeTabName={activeTabName} />
         </Flex>
-        <InvExpander>
-          <Flex gap={4} pt={4}>
-            <ParamSeed />
-            <ParamCpuNoiseToggle />
-          </Flex>
-        </InvExpander>
+        <Flex w={32} h={32} flexShrink={0} flexGrow={0}>
+          <AspectRatioPreviewWrapper />
+        </Flex>
       </Flex>
+      <InvExpander>
+        <Flex gap={4} p={4} pt={0}>
+          <ParamSeedNumberInput />
+          <ParamSeedShuffle />
+          <ParamSeedRandomize />
+          <ParamCpuNoiseToggle />
+        </Flex>
+      </InvExpander>
     </InvSingleAccordion>
   );
 };

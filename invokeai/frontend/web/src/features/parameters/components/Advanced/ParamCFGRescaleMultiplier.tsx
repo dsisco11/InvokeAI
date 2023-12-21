@@ -26,13 +26,14 @@ const ParamCFGRescaleMultiplier = () => {
     <InvControl
       label={t('parameters.cfgRescaleMultiplier')}
       feature="paramCFGRescaleMultiplier"
+      labelW="10rem"
     >
       <InvSlider
         value={cfgRescaleMultiplier}
         min={0}
         max={0.99}
-        step={0.05}
-        fineStep={0.1}
+        step={0.1}
+        fineStep={0.01}
         onChange={handleChange}
         onReset={handleReset}
         withNumberInput

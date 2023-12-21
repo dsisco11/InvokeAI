@@ -54,7 +54,7 @@ export const getInputFilledStyles = (): SystemStyleObject => {
       ...baseColors,
       transitionProperty: 'common',
       transitionDuration: 'normal',
-      borderBottomEndRadius: 'md',
+      borderBottomEndRadius: 'base',
       position: 'absolute',
       insetInlineEnd: 0,
       insetBlockEnd: 0,

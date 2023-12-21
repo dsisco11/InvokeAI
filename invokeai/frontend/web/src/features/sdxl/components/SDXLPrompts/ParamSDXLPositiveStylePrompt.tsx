@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvTextarea } from 'common/components/InvTextarea/InvTextarea';
-import { EmbeddingPopover } from 'features/embedding/components/PromptWithEmbedding/EmbeddingPopover';
-import { usePrompt } from 'features/embedding/components/PromptWithEmbedding/usePrompt';
+import { EmbeddingPopover } from 'features/embedding/EmbeddingPopover';
+import { usePrompt } from 'features/embedding/usePrompt';
 import { setPositiveStylePromptSDXL } from 'features/sdxl/store/sdxlSlice';
 import { useCallback, useRef } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';

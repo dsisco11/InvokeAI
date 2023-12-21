@@ -7,7 +7,7 @@ import randomInt from 'common/util/randomInt';
 import { setSeed } from 'features/parameters/store/generationSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaRandom } from 'react-icons/fa';
+import { FaShuffle } from 'react-icons/fa6';
 
 export const ParamSeedShuffle = () => {
   const dispatch = useAppDispatch();
@@ -25,10 +25,11 @@ export const ParamSeedShuffle = () => {
     <InvTooltip label={t('parameters.shuffle')}>
       <InvIconButton
         size="sm"
+        variant="ghost"
         isDisabled={shouldRandomizeSeed}
         aria-label={t('parameters.shuffle')}
         onClick={handleClickRandomizeSeed}
-        icon={<FaRandom />}
+        icon={<FaShuffle />}
       />
     </InvTooltip>
   );

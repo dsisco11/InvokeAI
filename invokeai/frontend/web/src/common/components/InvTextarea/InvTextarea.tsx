@@ -12,30 +12,32 @@ import { IoResizeSharp } from 'react-icons/io5';
 
 import type { InvTextareaProps } from './types';
 
-export const InvTextarea = forwardRef((props: InvTextareaProps, ref) => {
-  const { resize = 'none', ...rest } = props;
-  const { setShift } = useGlobalModifiersSetters();
-  const onKeyUpDown = useCallback(
-    (e: KeyboardEvent<HTMLTextAreaElement>) => {
-      setShift(e.shiftKey);
-    },
-    [setShift]
-  );
-  return (
-    <Box pos="relative">
-      <ChakraTextarea
-        ref={ref}
-        onPaste={stopPastePropagation}
-        onKeyUp={onKeyUpDown}
-        onKeyDown={onKeyUpDown}
-        resize={resize}
-        {...rest}
-      />
-      {resize !== 'none' && (
-        <Box className="textarea-resize-handle" pos="absolute" lineHeight={0}>
-          <Icon as={IoResizeSharp} />
-        </Box>
-      )}
-    </Box>
-  );
-});
+export const InvTextarea = forwardRef<InvTextareaProps, typeof ChakraTextarea>(
+  (props: InvTextareaProps, ref) => {
+    const { resize = 'none', ...rest } = props;
+    const { setShift } = useGlobalModifiersSetters();
+    const onKeyUpDown = useCallback(
+      (e: KeyboardEvent<HTMLTextAreaElement>) => {
+        setShift(e.shiftKey);
+      },
+      [setShift]
+    );
+    return (
+      <Box pos="relative">
+        <ChakraTextarea
+          ref={ref}
+          onPaste={stopPastePropagation}
+          onKeyUp={onKeyUpDown}
+          onKeyDown={onKeyUpDown}
+          resize={resize}
+          {...rest}
+        />
+        {resize !== 'none' && (
+          <Box className="textarea-resize-handle" pos="absolute" lineHeight={0}>
+            <Icon as={IoResizeSharp} />
+          </Box>
+        )}
+      </Box>
+    );
+  }
+);

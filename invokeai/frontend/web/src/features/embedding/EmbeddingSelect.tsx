@@ -3,7 +3,7 @@ import { InvControl } from 'common/components/InvControl/InvControl';
 import { InvSelect } from 'common/components/InvSelect/InvSelect';
 import { InvSelectFallback } from 'common/components/InvSelect/InvSelectFallback';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
-import type { EmbeddingSelectProps } from 'features/embedding/components/PromptWithEmbedding/types';
+import type { EmbeddingSelectProps } from 'features/embedding/types';
 import { t } from 'i18next';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

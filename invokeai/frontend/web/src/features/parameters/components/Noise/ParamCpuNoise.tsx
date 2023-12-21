@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { InvControl, InvSwitch } from 'common/components';
+import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { shouldUseCpuNoiseChanged } from 'features/parameters/store/generationSlice';
 import type { ChangeEvent } from 'react';
 import { useCallback } from 'react';

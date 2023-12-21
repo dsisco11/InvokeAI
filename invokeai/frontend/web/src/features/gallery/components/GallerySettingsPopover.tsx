@@ -3,15 +3,15 @@ import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import {
-  InvControl,
-  InvSwitch,
-  InvSlider,
   InvCheckbox,
+  InvControl,
   InvIconButton,
   InvPopover,
-  InvPopoverTrigger,
-  InvPopoverContent,
   InvPopoverBody,
+  InvPopoverContent,
+  InvPopoverTrigger,
+  InvSlider,
+  InvSwitch,
 } from 'common/components';
 import {
   autoAssignBoardOnClickChanged,
@@ -22,6 +22,7 @@ import type { ChangeEvent } from 'react';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaWrench } from 'react-icons/fa';
+
 import BoardAutoAddSelect from './Boards/BoardAutoAddSelect';
 
 const selector = createMemoizedSelector([stateSelector], (state) => {

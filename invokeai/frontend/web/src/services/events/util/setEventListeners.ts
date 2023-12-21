@@ -2,7 +2,6 @@ import { $queueId } from 'app/store/nanostores/queueId';
 import type { AppDispatch } from 'app/store/store';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
-import type { Socket } from 'socket.io-client';
 import {
   socketConnected,
   socketDisconnected,
@@ -21,6 +20,7 @@ import type {
   ClientToServerEvents,
   ServerToClientEvents,
 } from 'services/events/types';
+import type { Socket } from 'socket.io-client';
 
 type SetEventListenersArg = {
   socket: Socket<ServerToClientEvents, ClientToServerEvents>;

@@ -1,8 +1,8 @@
 import { InvIconButton } from 'common/components';
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaPlus } from 'react-icons/fa';
 import { useCreateBoardMutation } from 'services/api/endpoints/boards';
-import { useTranslation } from 'react-i18next';
 
 const AddBoardButton = () => {
   const { t } = useTranslation();

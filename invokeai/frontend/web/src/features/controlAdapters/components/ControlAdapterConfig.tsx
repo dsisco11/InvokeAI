@@ -1,30 +1,31 @@
+import { ChevronUpIcon } from '@chakra-ui/icons';
 import { Box, Flex } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import type { ChangeEvent } from 'react';
-import { memo, useCallback } from 'react';
-import { FaCopy, FaTrash } from 'react-icons/fa';
+import { InvControl, InvIconButton, InvSwitch } from 'common/components';
+import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
+import { useControlAdapterType } from 'features/controlAdapters/hooks/useControlAdapterType';
 import {
   controlAdapterDuplicated,
   controlAdapterIsEnabledChanged,
   controlAdapterRemoved,
 } from 'features/controlAdapters/store/controlAdaptersSlice';
-import ParamControlAdapterModel from './parameters/ParamControlAdapterModel';
-import ParamControlAdapterWeight from './parameters/ParamControlAdapterWeight';
-import { ChevronUpIcon } from '@chakra-ui/icons';
-import { InvControl, InvIconButton, InvSwitch } from 'common/components';
 import { activeTabNameSelector } from 'features/ui/store/uiSelectors';
+import type { ChangeEvent } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { FaCopy, FaTrash } from 'react-icons/fa';
 import { useToggle } from 'react-use';
-import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
-import { useControlAdapterType } from 'features/controlAdapters/hooks/useControlAdapterType';
+
 import ControlAdapterImagePreview from './ControlAdapterImagePreview';
 import ControlAdapterProcessorComponent from './ControlAdapterProcessorComponent';
 import ControlAdapterShouldAutoConfig from './ControlAdapterShouldAutoConfig';
 import ControlNetCanvasImageImports from './imports/ControlNetCanvasImageImports';
 import ParamControlAdapterBeginEnd from './parameters/ParamControlAdapterBeginEnd';
 import ParamControlAdapterControlMode from './parameters/ParamControlAdapterControlMode';
+import ParamControlAdapterModel from './parameters/ParamControlAdapterModel';
 import ParamControlAdapterProcessorSelect from './parameters/ParamControlAdapterProcessorSelect';
 import ParamControlAdapterResizeMode from './parameters/ParamControlAdapterResizeMode';
+import ParamControlAdapterWeight from './parameters/ParamControlAdapterWeight';
 
 const ControlAdapterConfig = (props: { id: string; number: number }) => {
   const { id, number } = props;

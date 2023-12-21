@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvButtonGroup } from './InvButtonGroup';
-import type { InvButtonGroupProps } from './types';
-import { FaImage } from 'react-icons/fa';
 import { InvButton } from 'common/components/InvButton/InvButton';
 import { InvIconButton } from 'common/components/InvIconButton';
+import { FaImage } from 'react-icons/fa';
+
+import { InvButtonGroup } from './InvButtonGroup';
+import type { InvButtonGroupProps } from './types';
 
 const meta: Meta<typeof InvButtonGroup> = {
   title: 'Primitives/InvButtonGroup',

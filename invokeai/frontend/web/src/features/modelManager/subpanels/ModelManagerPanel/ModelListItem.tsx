@@ -1,26 +1,26 @@
 import { DeleteIcon } from '@chakra-ui/icons';
 import { Badge, Flex } from '@chakra-ui/react';
-import { makeToast } from 'features/system/util/makeToast';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIAlertDialog from 'common/components/IAIAlertDialog';
 import {
-  InvIconButton,
   InvButton,
+  InvIconButton,
   InvText,
   InvTooltip,
 } from 'common/components';
+import IAIAlertDialog from 'common/components/IAIAlertDialog';
+import { MODEL_TYPE_SHORT_MAP } from 'features/parameters/types/constants';
 import { addToast } from 'features/system/store/systemSlice';
+import { makeToast } from 'features/system/util/makeToast';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { MODEL_TYPE_SHORT_MAP } from 'features/parameters/types/constants';
 import type {
-  MainModelConfigEntity,
   LoRAModelConfigEntity,
+  MainModelConfigEntity,
   OnnxModelConfigEntity,
 } from 'services/api/endpoints/models';
 import {
-  useDeleteMainModelsMutation,
   useDeleteLoRAModelsMutation,
+  useDeleteMainModelsMutation,
 } from 'services/api/endpoints/models';
 
 type ModelListItemProps = {

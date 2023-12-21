@@ -1,9 +1,9 @@
 import type {
-  NumberInputProps as ChakraNumberInputProps,
-  NumberInputFieldProps as ChakraNumberInputFieldProps,
-  NumberInputStepperProps as ChakraNumberInputStepperProps,
-  NumberIncrementStepperProps as ChakraNumberIncrementStepperProps,
   NumberDecrementStepperProps as ChakraNumberDecrementStepperProps,
+  NumberIncrementStepperProps as ChakraNumberIncrementStepperProps,
+  NumberInputFieldProps as ChakraNumberInputFieldProps,
+  NumberInputProps as ChakraNumberInputProps,
+  NumberInputStepperProps as ChakraNumberInputStepperProps,
 } from '@chakra-ui/react';
 
 export type InvNumberInputProps = Omit<ChakraNumberInputProps, 'onChange'> & {

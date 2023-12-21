@@ -1,17 +1,18 @@
 import { Heading } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
+import { InvButton, InvText } from 'common/components';
+import { resetCanvas } from 'features/canvas/store/canvasSlice';
 import { controlAdaptersReset } from 'features/controlAdapters/store/controlAdaptersSlice';
+import { addToast } from 'features/system/store/systemSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useGetQueueStatusQuery } from 'services/api/endpoints/queue';
 import {
   useClearIntermediatesMutation,
   useGetIntermediatesCountQuery,
 } from 'services/api/endpoints/images';
-import { resetCanvas } from 'features/canvas/store/canvasSlice';
-import { addToast } from 'features/system/store/systemSlice';
+import { useGetQueueStatusQuery } from 'services/api/endpoints/queue';
+
 import StyledFlex from './StyledFlex';
-import { InvButton, InvText } from 'common/components';
 
 export default function SettingsClearIntermediates() {
   const { t } = useTranslation();

@@ -5,7 +5,8 @@ import type {
   InvocationTemplate,
 } from 'features/nodes/types/invocation';
 import { zParsedSemver } from 'features/nodes/types/semver';
-import { cloneDeep, keys, defaultsDeep, pick } from 'lodash-es';
+import { cloneDeep, defaultsDeep, keys, pick } from 'lodash-es';
+
 import { buildInvocationNode } from './buildInvocationNode';
 
 export const getNeedsUpdate = (

@@ -18,6 +18,7 @@ import {
 import type { ReactElement } from 'react';
 import { cloneElement } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import HotkeysModalItem from './HotkeysModalItem';
 
 type HotkeysModalProps = {

@@ -1,6 +1,6 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { InvControl, InvSlider } from 'common/components';
+import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
 import { useControlAdapterWeight } from 'features/controlAdapters/hooks/useControlAdapterWeight';
 import { controlAdapterWeightChanged } from 'features/controlAdapters/store/controlAdaptersSlice';

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import type { ResetIconButtonProps } from './types';
+
 import { ResetIconButton } from './ResetIconButton';
+import type { ResetIconButtonProps } from './types';
 
 const meta: Meta<typeof ResetIconButton> = {
   title: 'Components/ResetIconButton',

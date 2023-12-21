@@ -1,11 +1,11 @@
 import { Flex } from '@chakra-ui/react';
+import { InvText } from 'common/components';
+import NodeCollapseButton from 'features/nodes/components/flow/nodes/common/NodeCollapseButton';
+import NodeWrapper from 'features/nodes/components/flow/nodes/common/NodeWrapper';
 import { useNodePack } from 'features/nodes/hooks/useNodePack';
 import { DRAG_HANDLE_CLASSNAME } from 'features/nodes/types/constants';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import NodeCollapseButton from 'features/nodes/components/flow/nodes/common/NodeCollapseButton';
-import NodeWrapper from 'features/nodes/components/flow/nodes/common/NodeWrapper';
-import { InvText } from 'common/components';
 
 type Props = {
   nodeId: string;

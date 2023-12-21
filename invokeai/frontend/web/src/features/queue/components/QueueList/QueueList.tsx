@@ -18,6 +18,7 @@ import {
   useListQueueItemsQuery,
 } from 'services/api/endpoints/queue';
 import type { SessionQueueItemDTO } from 'services/api/types';
+
 import QueueItemComponent from './QueueItemComponent';
 import QueueListComponent from './QueueListComponent';
 import QueueListHeader from './QueueListHeader';

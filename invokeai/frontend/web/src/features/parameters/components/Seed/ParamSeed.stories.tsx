@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { ParamSeed } from './ParamSeed';
 
 const meta: Meta<typeof ParamSeed> = {

@@ -4,22 +4,23 @@ import {
   Tab,
   TabList,
   Tabs,
-  VStack,
   useDisclosure,
+  VStack,
 } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvButton } from 'common/components';
+import { InvButtonGroup } from 'common/components';
 import { galleryViewChanged } from 'features/gallery/store/gallerySlice';
 import { memo, useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaImages, FaServer } from 'react-icons/fa';
+
 import BoardsList from './Boards/BoardsList/BoardsList';
 import GalleryBoardName from './GalleryBoardName';
 import GallerySettingsPopover from './GallerySettingsPopover';
 import GalleryImageGrid from './ImageGrid/GalleryImageGrid';
-import { InvButtonGroup } from 'common/components';
 
 const selector = createMemoizedSelector([stateSelector], (state) => {
   const { galleryView } = state.gallery;

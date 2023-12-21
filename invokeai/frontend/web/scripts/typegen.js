@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+
 import openapiTS from 'openapi-typescript';
 
 const OPENAPI_URL = 'http://127.0.0.1:9090/openapi.json';

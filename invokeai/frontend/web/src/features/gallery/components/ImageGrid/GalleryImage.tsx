@@ -7,8 +7,8 @@ import IAIDndImageIcon from 'common/components/IAIDndImageIcon';
 import IAIFillSkeleton from 'common/components/IAIFillSkeleton';
 import { imagesToDeleteSelected } from 'features/deleteImageModal/store/slice';
 import type {
-  ImageDTOsDraggableData,
   ImageDraggableData,
+  ImageDTOsDraggableData,
   TypesafeDraggableData,
 } from 'features/dnd/types';
 import type { VirtuosoGalleryContext } from 'features/gallery/components/ImageGrid/types';

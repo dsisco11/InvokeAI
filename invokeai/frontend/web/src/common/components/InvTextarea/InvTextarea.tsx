@@ -1,14 +1,15 @@
 import {
   Box,
-  Textarea as ChakraTextarea,
-  Icon,
   forwardRef,
+  Icon,
+  Textarea as ChakraTextarea,
 } from '@chakra-ui/react';
 import { useGlobalModifiersSetters } from 'common/hooks/useGlobalModifiers';
 import { stopPastePropagation } from 'common/util/stopPastePropagation';
 import type { KeyboardEvent } from 'react';
 import { useCallback } from 'react';
 import { IoResizeSharp } from 'react-icons/io5';
+
 import type { InvTextareaProps } from './types';
 
 export const InvTextarea = forwardRef((props: InvTextareaProps, ref) => {

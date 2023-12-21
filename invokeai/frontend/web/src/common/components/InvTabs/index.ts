@@ -1,10 +1,10 @@
-export type {
-  InvTabsProps,
-  InvTabListProps,
-  InvTabPanelsProps,
-  InvTabProps,
-  InvTabPanelProps,
-} from './types';
-export { InvTabs, InvTabList, InvTabPanels, InvTabPanel } from './wrapper';
 export { InvTab } from './InvTab';
 export { tabsTheme } from './theme';
+export type {
+  InvTabListProps,
+  InvTabPanelProps,
+  InvTabPanelsProps,
+  InvTabProps,
+  InvTabsProps,
+} from './types';
+export { InvTabList, InvTabPanel, InvTabPanels, InvTabs } from './wrapper';

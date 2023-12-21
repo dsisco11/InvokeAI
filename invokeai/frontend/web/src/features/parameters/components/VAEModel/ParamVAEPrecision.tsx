@@ -1,11 +1,11 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
-import { vaePrecisionChanged } from 'features/parameters/store/generationSlice';
-import { memo, useCallback, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import type { InvSelectOnChange } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
+import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
+import { vaePrecisionChanged } from 'features/parameters/store/generationSlice';
 import { isParameterPrecision } from 'features/parameters/types/parameterSchemas';
+import { memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const options = [
   { label: 'FP16', value: 'fp16' },

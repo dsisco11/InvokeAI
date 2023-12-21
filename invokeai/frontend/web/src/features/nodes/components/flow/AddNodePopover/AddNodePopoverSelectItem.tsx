@@ -1,6 +1,7 @@
+import 'reactflow/dist/style.css';
+
 import { InvText } from 'common/components';
 import { forwardRef } from 'react';
-import 'reactflow/dist/style.css';
 
 interface ItemProps extends React.ComponentPropsWithoutRef<'div'> {
   value: string;

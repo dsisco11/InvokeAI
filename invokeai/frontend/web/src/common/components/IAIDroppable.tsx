@@ -6,6 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { memo, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+
 import IAIDropOverlay from './IAIDropOverlay';
 
 type IAIDroppableProps = {

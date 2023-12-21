@@ -1,14 +1,14 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import { InvTextarea } from 'common/components';
+import NodeCollapseButton from 'features/nodes/components/flow/nodes/common/NodeCollapseButton';
+import NodeTitle from 'features/nodes/components/flow/nodes/common/NodeTitle';
+import NodeWrapper from 'features/nodes/components/flow/nodes/common/NodeWrapper';
 import { notesNodeValueChanged } from 'features/nodes/store/nodesSlice';
 import type { NotesNodeData } from 'features/nodes/types/invocation';
 import type { ChangeEvent } from 'react';
 import { memo, useCallback } from 'react';
 import type { NodeProps } from 'reactflow';
-import NodeWrapper from 'features/nodes/components/flow/nodes/common/NodeWrapper';
-import NodeCollapseButton from 'features/nodes/components/flow/nodes/common/NodeCollapseButton';
-import NodeTitle from 'features/nodes/components/flow/nodes/common/NodeTitle';
 
 const NotesNode = (props: NodeProps<NotesNodeData>) => {
   const { id: nodeId, data, selected } = props;

@@ -1,11 +1,11 @@
 import {
+  forwardRef,
   Icon as ChakraIcon,
   NumberDecrementStepper as ChakraNumberDecrementStepper,
   NumberIncrementStepper as ChakraNumberIncrementStepper,
   NumberInput as ChakraNumberInput,
   NumberInputField as ChakraNumberInputField,
   NumberInputStepper as ChakraNumberInputStepper,
-  forwardRef,
 } from '@chakra-ui/react';
 import { useStore } from '@nanostores/react';
 import {
@@ -16,6 +16,7 @@ import { stopPastePropagation } from 'common/util/stopPastePropagation';
 import type { FocusEventHandler, KeyboardEvent } from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
+
 import type { InvNumberInputProps } from './types';
 
 const isValidCharacter = (char: string) => /^[0-9\-.]$/i.test(char);

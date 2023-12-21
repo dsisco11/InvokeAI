@@ -11,6 +11,7 @@ import {
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import { InvTooltip } from 'common/components';
 import ImageGalleryContent from 'features/gallery/components/ImageGalleryContent';
 import NodeEditorPanelGroup from 'features/nodes/components/sidePanel/NodeEditorPanelGroup';
 import { usePanel } from 'features/ui/hooks/usePanel';
@@ -30,6 +31,7 @@ import { FaCube, FaFont, FaImage, FaStream } from 'react-icons/fa';
 import { FaCircleNodes } from 'react-icons/fa6';
 import { MdGridOn } from 'react-icons/md';
 import { Panel, PanelGroup } from 'react-resizable-panels';
+
 import FloatingGalleryButton from './FloatingGalleryButton';
 import FloatingSidePanelButtons from './FloatingParametersPanelButtons';
 import ParametersPanel from './ParametersPanel';
@@ -40,7 +42,6 @@ import QueueTab from './tabs/Queue/QueueTab';
 import ResizeHandle from './tabs/ResizeHandle';
 import TextToImageTab from './tabs/TextToImage/TextToImageTab';
 import UnifiedCanvasTab from './tabs/UnifiedCanvas/UnifiedCanvasTab';
-import { InvTooltip } from 'common/components';
 
 export interface InvokeTabInfo {
   id: InvokeTabName;

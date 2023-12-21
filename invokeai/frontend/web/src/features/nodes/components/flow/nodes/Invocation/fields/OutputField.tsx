@@ -1,4 +1,5 @@
 import { Flex, FormControl, FormLabel } from '@chakra-ui/react';
+import { InvTooltip } from 'common/components';
 import { useConnectionState } from 'features/nodes/hooks/useConnectionState';
 import { useFieldOutputInstance } from 'features/nodes/hooks/useFieldOutputInstance';
 import { useFieldOutputTemplate } from 'features/nodes/hooks/useFieldOutputTemplate';
@@ -6,9 +7,9 @@ import { HANDLE_TOOLTIP_OPEN_DELAY } from 'features/nodes/types/constants';
 import type { PropsWithChildren } from 'react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import FieldHandle from './FieldHandle';
 import FieldTooltipContent from './FieldTooltipContent';
-import { InvTooltip } from 'common/components';
 
 interface Props {
   nodeId: string;

@@ -1,4 +1,10 @@
 import { Flex } from '@chakra-ui/react';
+import { skipToken } from '@reduxjs/toolkit/query';
+import { useAppToaster } from 'app/components/Toaster';
+import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
+import { upscaleRequested } from 'app/store/middleware/listenerMiddleware/listeners/upscaleRequested';
+import { stateSelector } from 'app/store/store';
+import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import {
   InvButtonGroup,
   InvIconButton,
@@ -6,12 +12,6 @@ import {
   InvMenuButton,
   InvMenuList,
 } from 'common/components/';
-import { skipToken } from '@reduxjs/toolkit/query';
-import { useAppToaster } from 'app/components/Toaster';
-import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
-import { upscaleRequested } from 'app/store/middleware/listenerMiddleware/listeners/upscaleRequested';
-import { stateSelector } from 'app/store/store';
-import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { DeleteImageButton } from 'features/deleteImageModal/components/DeleteImageButton';
 import { imagesToDeleteSelected } from 'features/deleteImageModal/store/slice';
 import SingleSelectionMenuItems from 'features/gallery/components/ImageContextMenu/SingleSelectionMenuItems';

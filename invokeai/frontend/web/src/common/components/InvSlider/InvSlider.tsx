@@ -6,13 +6,14 @@ import {
   useFormControl,
 } from '@chakra-ui/react';
 import { useStore } from '@nanostores/react';
+import { InvNumberInput } from 'common/components/InvNumberInput';
 import { InvTooltip } from 'common/components/InvTooltip';
 import { $modifiers } from 'common/hooks/useGlobalModifiers';
 import { AnimatePresence } from 'framer-motion';
 import { useCallback, useMemo, useState } from 'react';
+
 import { InvSliderMark } from './InvSliderMark';
 import type { InvFormattedMark, InvSliderProps } from './types';
-import { InvNumberInput } from 'common/components/InvNumberInput';
 
 export const InvSlider = (props: InvSliderProps) => {
   const {

@@ -43,6 +43,7 @@ import {
   FaTrash,
   FaUpload,
 } from 'react-icons/fa';
+
 import IAICanvasMaskOptions from './IAICanvasMaskOptions';
 import IAICanvasRedoButton from './IAICanvasRedoButton';
 import IAICanvasSettingsButtonPopover from './IAICanvasSettingsButtonPopover';

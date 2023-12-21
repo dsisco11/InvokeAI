@@ -4,6 +4,7 @@ import { useChakraThemeTokens } from 'common/hooks/useChakraThemeTokens';
 import { memo, useMemo } from 'react';
 import type { EdgeProps } from 'reactflow';
 import { BaseEdge, EdgeLabelRenderer, getBezierPath } from 'reactflow';
+
 import { makeEdgeSelector } from './util/makeEdgeSelector';
 
 const InvocationCollapsedEdge = ({

@@ -1,9 +1,9 @@
 import { ListItem, UnorderedList } from '@chakra-ui/react';
+import { InvText } from 'common/components';
+import type { ImageUsage } from 'features/deleteImageModal/store/types';
 import { some } from 'lodash-es';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { ImageUsage } from 'features/deleteImageModal/store/types';
-import { InvText } from 'common/components';
 
 type Props = {
   imageUsage?: ImageUsage;

@@ -5,6 +5,7 @@ import type {
   LoraLoaderInvocation,
   NonNullableGraph,
 } from 'services/api/types';
+
 import {
   CANVAS_COHERENCE_DENOISE_LATENTS,
   CANVAS_INPAINT_GRAPH,

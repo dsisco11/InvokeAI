@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { InvExpander } from './InvExpander';
 import type { InvExpanderProps } from './types';
 

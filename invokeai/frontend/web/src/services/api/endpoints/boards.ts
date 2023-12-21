@@ -9,9 +9,10 @@ import type {
   OffsetPaginatedResults_ImageDTO_,
   UpdateBoardArg,
 } from 'services/api/types';
-import type { ApiTagDescription } from '..';
-import { LIST_TAG, api } from '..';
 import { getListImagesUrl } from 'services/api/util';
+
+import type { ApiTagDescription } from '..';
+import { api, LIST_TAG } from '..';
 
 export const boardsApi = api.injectEndpoints({
   endpoints: (build) => ({

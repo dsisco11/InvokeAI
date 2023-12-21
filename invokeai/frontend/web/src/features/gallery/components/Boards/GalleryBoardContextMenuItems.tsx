@@ -1,8 +1,8 @@
 import { MenuItem } from '@chakra-ui/react';
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaTrash } from 'react-icons/fa';
 import type { BoardDTO } from 'services/api/types';
-import { useTranslation } from 'react-i18next';
 type Props = {
   board: BoardDTO;
   setBoardToDelete?: (board?: BoardDTO) => void;

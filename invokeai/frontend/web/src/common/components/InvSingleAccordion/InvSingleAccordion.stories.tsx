@@ -1,14 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvSingleAccordion } from './InvSingleAccordion';
-import { InvText } from 'common/components/InvText';
-import type { InvSingleAccordionProps } from './types';
 import {
-  InvTabs,
-  InvTabList,
   InvTab,
-  InvTabPanels,
+  InvTabList,
   InvTabPanel,
+  InvTabPanels,
+  InvTabs,
 } from 'common/components/InvTabs';
+import { InvText } from 'common/components/InvText';
+
+import { InvSingleAccordion } from './InvSingleAccordion';
+import type { InvSingleAccordionProps } from './types';
 
 const meta: Meta<typeof InvSingleAccordion> = {
   title: 'Primitives/InvSingleAccordion',

@@ -3,12 +3,13 @@ import type { RootState } from 'app/store/store';
 import { roundToMultiple } from 'common/util/roundDownToMultiple';
 import type {
   DenoiseLatentsInvocation,
-  ESRGANInvocation,
   Edge,
+  ESRGANInvocation,
   LatentsToImageInvocation,
   NoiseInvocation,
   NonNullableGraph,
 } from 'services/api/types';
+
 import {
   DENOISE_LATENTS,
   DENOISE_LATENTS_HRF,

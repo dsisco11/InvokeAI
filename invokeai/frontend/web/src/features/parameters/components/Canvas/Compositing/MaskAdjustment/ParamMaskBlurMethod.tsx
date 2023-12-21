@@ -1,12 +1,12 @@
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import type { InvSelectOnChange, InvSelectOption } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
+import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setMaskBlurMethod } from 'features/parameters/store/generationSlice';
+import { isParameterMaskBlurMethod } from 'features/parameters/types/parameterSchemas';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { isParameterMaskBlurMethod } from 'features/parameters/types/parameterSchemas';
 
 const options: InvSelectOption[] = [
   { label: 'Box Blur', value: 'box' },

@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import type { EntityId } from '@reduxjs/toolkit';
 import { useAppSelector } from 'app/store/storeHooks';
+import { InvButton } from 'common/components';
 import { IAINoContentFallback } from 'common/components/IAIImageFallback';
 import type { VirtuosoGalleryContext } from 'features/gallery/components/ImageGrid/types';
 import { $useNextPrevImageState } from 'features/gallery/hooks/useNextPrevImage';
@@ -22,10 +23,10 @@ import {
   useListImagesQuery,
 } from 'services/api/endpoints/images';
 import { useBoardTotal } from 'services/api/hooks/useBoardTotal';
+
 import GalleryImage from './GalleryImage';
 import ImageGridItemContainer from './ImageGridItemContainer';
 import ImageGridListContainer from './ImageGridListContainer';
-import { InvButton } from 'common/components';
 
 const overlayScrollbarsConfig: UseOverlayScrollbarsParams = {
   defer: true,

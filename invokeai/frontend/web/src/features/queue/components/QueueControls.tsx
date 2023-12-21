@@ -1,5 +1,6 @@
 import { Flex, Spacer } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
+import { InvButton, InvButtonGroup } from 'common/components';
 import CancelCurrentQueueItemButton from 'features/queue/components/CancelCurrentQueueItemButton';
 import ClearQueueButton from 'features/queue/components/ClearQueueButton';
 import PauseProcessorButton from 'features/queue/components/PauseProcessorButton';
@@ -7,12 +8,11 @@ import QueueBackButton from 'features/queue/components/QueueBackButton';
 import QueueFrontButton from 'features/queue/components/QueueFrontButton';
 import ResumeProcessorButton from 'features/queue/components/ResumeProcessorButton';
 import ProgressBar from 'features/system/components/ProgressBar';
+import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { setActiveTab } from 'features/ui/store/uiSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetQueueStatusQuery } from 'services/api/endpoints/queue';
-import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
-import { InvButton, InvButtonGroup } from 'common/components';
 
 const QueueControls = () => {
   const isPauseEnabled = useFeatureStatus('pauseQueue').isFeatureEnabled;

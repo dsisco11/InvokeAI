@@ -1,6 +1,6 @@
 export {
   Card as InvCard,
-  CardHeader as InvCardHeader,
   CardBody as InvCardBody,
   CardFooter as InvCardFooter,
+  CardHeader as InvCardHeader,
 } from '@chakra-ui/react';

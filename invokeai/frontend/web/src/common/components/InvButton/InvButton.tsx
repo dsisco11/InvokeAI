@@ -1,6 +1,7 @@
 import { Button, forwardRef } from '@chakra-ui/react';
-import type { InvButtonProps } from './types';
 import { InvTooltip } from 'common/components/InvTooltip';
+
+import type { InvButtonProps } from './types';
 
 export const InvButton = forwardRef(
   ({ isChecked, tooltip, ...rest }: InvButtonProps, ref) => {

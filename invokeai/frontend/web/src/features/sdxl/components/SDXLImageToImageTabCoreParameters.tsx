@@ -11,6 +11,7 @@ import ImageToImageFit from 'features/parameters/components/ImageToImage/ImageTo
 import { ParamSeed } from 'features/parameters/components/Seed/';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import ParamSDXLImg2ImgDenoisingStrength from './ParamSDXLImg2ImgDenoisingStrength';
 
 const selector = createMemoizedSelector([stateSelector], ({ generation }) => {

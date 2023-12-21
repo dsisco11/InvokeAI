@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
-import { InvSlider } from 'common/components';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import { InvSlider } from 'common/components';
 import { nodeOpacityChanged } from 'features/nodes/store/nodesSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

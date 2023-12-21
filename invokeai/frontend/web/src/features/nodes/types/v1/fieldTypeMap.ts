@@ -1,4 +1,5 @@
 import type { FieldType, StatefulFieldType } from 'features/nodes/types/field';
+
 import type { FieldTypeV1 } from './workflowV1';
 
 /**

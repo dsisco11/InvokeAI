@@ -2,6 +2,8 @@ import { Divider, Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
 import { InvButton, InvControl, InvInput, InvText } from 'common/components';
+import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
+import ModelVariantSelect from 'features/modelManager/subpanels/shared/ModelVariantSelect';
 import { MODEL_TYPE_MAP } from 'features/parameters/types/constants';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
@@ -10,8 +12,6 @@ import { useTranslation } from 'react-i18next';
 import type { DiffusersModelConfigEntity } from 'services/api/endpoints/models';
 import { useUpdateMainModelsMutation } from 'services/api/endpoints/models';
 import type { DiffusersModelConfig } from 'services/api/types';
-import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
-import ModelVariantSelect from 'features/modelManager/subpanels/shared/ModelVariantSelect';
 
 type DiffusersModelEditProps = {
   model: DiffusersModelConfigEntity;

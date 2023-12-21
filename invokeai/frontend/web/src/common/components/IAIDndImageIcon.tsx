@@ -1,7 +1,7 @@
 import type { SystemStyleObject } from '@chakra-ui/react';
+import { InvIconButton } from 'common/components';
 import type { MouseEvent, ReactElement } from 'react';
 import { memo } from 'react';
-import { InvIconButton } from 'common/components';
 
 type Props = {
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;

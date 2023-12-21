@@ -10,8 +10,9 @@ import {
   controlAdapterProcessortTypeChanged,
   selectControlAdapterById,
 } from 'features/controlAdapters/store/controlAdaptersSlice';
-import { startAppListening } from '..';
 import { isControlNetOrT2IAdapter } from 'features/controlAdapters/store/types';
+
+import { startAppListening } from '..';
 
 type AnyControlAdapterParamChangeAction =
   | ReturnType<typeof controlAdapterProcessorParamsChanged>

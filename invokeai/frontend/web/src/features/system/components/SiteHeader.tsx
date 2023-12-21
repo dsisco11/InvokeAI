@@ -7,6 +7,8 @@ import {
   InvMenuList,
 } from 'common/components';
 import { InvIconButton } from 'common/components';
+import { useGlobalMenuCloseTrigger } from 'common/hooks/useGlobalMenuCloseTrigger';
+import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -17,12 +19,11 @@ import {
   FaGithub,
   FaKeyboard,
 } from 'react-icons/fa';
-import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
+
 import HotkeysModal from './HotkeysModal/HotkeysModal';
 import InvokeAILogoComponent from './InvokeAILogoComponent';
 import SettingsModal from './SettingsModal/SettingsModal';
 import StatusIndicator from './StatusIndicator';
-import { useGlobalMenuCloseTrigger } from 'common/hooks/useGlobalMenuCloseTrigger';
 
 const SiteHeader = () => {
   const { t } = useTranslation();

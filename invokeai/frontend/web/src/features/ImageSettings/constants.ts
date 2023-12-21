@@ -1,4 +1,5 @@
 import type { InvSelectOption } from 'common/components/InvSelect';
+
 import type { AspectRatioID } from './types';
 
 export const ASPECT_RATIO_OPTIONS: InvSelectOption[] = [

@@ -30,9 +30,9 @@ import type {
   OnConnect,
   OnConnectEnd,
   OnConnectStart,
-  OnEdgeUpdateFunc,
   OnEdgesChange,
   OnEdgesDelete,
+  OnEdgeUpdateFunc,
   OnInit,
   OnMoveEnd,
   OnNodesChange,
@@ -43,6 +43,7 @@ import type {
   XYPosition,
 } from 'reactflow';
 import { Background, ReactFlow } from 'reactflow';
+
 import CustomConnectionLine from './connectionLines/CustomConnectionLine';
 import InvocationCollapsedEdge from './edges/InvocationCollapsedEdge';
 import InvocationDefaultEdge from './edges/InvocationDefaultEdge';

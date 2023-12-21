@@ -2,9 +2,10 @@ import {
   AccordionButton as ChakraAccordionButton,
   Spacer,
 } from '@chakra-ui/react';
+import { InvBadge } from 'common/components/InvBadge';
+
 import type { InvAccordionButtonProps } from './types';
 import { InvAccordionIcon } from './wrapper';
-import { InvBadge } from 'common/components/InvBadge';
 
 export const InvAccordionButton = (props: InvAccordionButtonProps) => {
   const { children, badges, ...rest } = props;

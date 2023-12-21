@@ -3,6 +3,7 @@ import { stateSelector } from 'app/store/store';
 import type { FieldType } from 'features/nodes/types/field';
 import i18n from 'i18next';
 import type { HandleType } from 'reactflow';
+
 import { getIsGraphAcyclic } from './getIsGraphAcyclic';
 import { validateSourceAndTargetTypes } from './validateSourceAndTargetTypes';
 

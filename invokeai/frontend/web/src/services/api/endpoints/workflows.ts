@@ -1,5 +1,6 @@
 import type { paths } from 'services/api/schema';
-import { LIST_TAG, api } from '..';
+
+import { api, LIST_TAG } from '..';
 
 export const workflowsApi = api.injectEndpoints({
   endpoints: (build) => ({

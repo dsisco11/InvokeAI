@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvAccordion, InvAccordionItem, InvAccordionPanel } from './wrapper';
-import type { InvAccordionProps } from './types';
 import { InvText } from 'common/components/InvText';
+
 import { InvAccordionButton } from './InvAccordionButton';
+import type { InvAccordionProps } from './types';
+import { InvAccordion, InvAccordionItem, InvAccordionPanel } from './wrapper';
 
 const meta: Meta<typeof InvAccordion> = {
   title: 'Primitives/InvAccordion',

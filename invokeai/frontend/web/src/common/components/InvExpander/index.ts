@@ -1,2 +1,2 @@
-export type { InvExpanderProps } from './types';
 export { InvExpander } from './InvExpander';
+export type { InvExpanderProps } from './types';

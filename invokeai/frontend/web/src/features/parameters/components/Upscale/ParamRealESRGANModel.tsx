@@ -1,14 +1,14 @@
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import type { GroupBase } from 'chakra-react-select';
+import type { InvSelectOnChange, InvSelectOption } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 import {
   esrganModelNameChanged,
   isParamESRGANModelName,
 } from 'features/parameters/store/postprocessingSlice';
-import { useTranslation } from 'react-i18next';
 import { useCallback, useMemo } from 'react';
-import type { GroupBase } from 'chakra-react-select';
-import type { InvSelectOnChange, InvSelectOption } from 'common/components';
-import { InvControl, InvSelect } from 'common/components';
+import { useTranslation } from 'react-i18next';
 
 const options: GroupBase<InvSelectOption>[] = [
   {

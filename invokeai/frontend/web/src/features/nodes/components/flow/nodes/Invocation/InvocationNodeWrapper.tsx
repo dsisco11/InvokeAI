@@ -5,6 +5,7 @@ import InvocationNode from 'features/nodes/components/flow/nodes/Invocation/Invo
 import type { InvocationNodeData } from 'features/nodes/types/invocation';
 import { memo, useMemo } from 'react';
 import type { NodeProps } from 'reactflow';
+
 import InvocationNodeUnknownFallback from './InvocationNodeUnknownFallback';
 
 const InvocationNodeWrapper = (props: NodeProps<InvocationNodeData>) => {

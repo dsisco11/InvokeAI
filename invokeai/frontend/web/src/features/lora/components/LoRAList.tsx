@@ -1,10 +1,10 @@
+import { Flex } from '@chakra-ui/layout';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import { memo } from 'react';
 import { LoRACard } from 'features/lora/components/LoRACard';
-import { Flex } from '@chakra-ui/layout';
 import { map } from 'lodash-es';
+import { memo } from 'react';
 
 const selector = createMemoizedSelector(stateSelector, ({ lora }) => {
   return { lorasArray: map(lora.loras) };

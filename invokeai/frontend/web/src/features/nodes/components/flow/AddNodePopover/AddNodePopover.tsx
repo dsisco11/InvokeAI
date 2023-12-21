@@ -1,8 +1,19 @@
+import 'reactflow/dist/style.css';
+
 import { Flex } from '@chakra-ui/react';
 import { useAppToaster } from 'app/components/Toaster';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import type { SelectInstance } from 'chakra-react-select';
+import type { InvSelectOnChange, InvSelectOption } from 'common/components';
+import {
+  InvPopover,
+  InvPopoverAnchor,
+  InvPopoverBody,
+  InvPopoverContent,
+  InvSelect,
+} from 'common/components';
 import { useBuildNode } from 'features/nodes/hooks/useBuildNode';
 import {
   addNodePopoverClosed,
@@ -13,21 +24,11 @@ import { validateSourceAndTargetTypes } from 'features/nodes/store/util/validate
 import { filter, map, memoize, some } from 'lodash-es';
 import type { KeyboardEventHandler } from 'react';
 import { memo, useCallback, useRef } from 'react';
+import { flushSync } from 'react-dom';
 import { useHotkeys } from 'react-hotkeys-hook';
 import type { HotkeyCallback } from 'react-hotkeys-hook/dist/types';
 import { useTranslation } from 'react-i18next';
-import 'reactflow/dist/style.css';
-import type { InvSelectOption, InvSelectOnChange } from 'common/components';
-import {
-  InvPopover,
-  InvPopoverAnchor,
-  InvPopoverBody,
-  InvPopoverContent,
-  InvSelect,
-} from 'common/components';
 import type { FilterOptionOption } from 'react-select/dist/declarations/src/filters';
-import type { SelectInstance } from 'chakra-react-select';
-import { flushSync } from 'react-dom';
 
 const createRegex = memoize(
   (inputValue: string) =>

@@ -1,13 +1,13 @@
+export { editableTheme } from './theme';
+export type {
+  InvEditableInputProps,
+  InvEditablePreviewProps,
+  InvEditableProps,
+  InvEditableTextareaProps,
+} from './types';
 export {
   InvEditable,
   InvEditableInput,
-  InvEditableTextarea,
   InvEditablePreview,
+  InvEditableTextarea,
 } from './wrapper';
-export { editableTheme } from './theme';
-export type {
-  InvEditableProps,
-  InvEditableInputProps,
-  InvEditableTextareaProps,
-  InvEditablePreviewProps,
-} from './types';

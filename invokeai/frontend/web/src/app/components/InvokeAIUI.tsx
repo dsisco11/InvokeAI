@@ -1,3 +1,5 @@
+import 'i18n';
+
 import type { Middleware } from '@reduxjs/toolkit';
 import { $socketOptions } from 'app/hooks/useSocketIO';
 import { $authToken } from 'app/store/nanostores/authToken';
@@ -13,7 +15,6 @@ import { createStore } from 'app/store/store';
 import type { PartialAppConfig } from 'app/types/invokeai';
 import Loading from 'common/components/Loading/Loading';
 import AppDndContext from 'features/dnd/components/AppDndContext';
-import 'i18n';
 import type { PropsWithChildren, ReactNode } from 'react';
 import React, { lazy, memo, useEffect, useMemo } from 'react';
 import { Provider } from 'react-redux';

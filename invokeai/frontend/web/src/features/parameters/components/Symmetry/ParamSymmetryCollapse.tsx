@@ -6,6 +6,7 @@ import IAICollapse from 'common/components/IAICollapse';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import ParamSymmetryHorizontal from './ParamSymmetryHorizontal';
 import ParamSymmetryToggle from './ParamSymmetryToggle';
 import ParamSymmetryVertical from './ParamSymmetryVertical';

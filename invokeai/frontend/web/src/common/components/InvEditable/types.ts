@@ -1,6 +1,6 @@
 export type {
-  EditableProps as InvEditableProps,
   EditableInputProps as InvEditableInputProps,
-  EditableTextareaProps as InvEditableTextareaProps,
   EditablePreviewProps as InvEditablePreviewProps,
+  EditableProps as InvEditableProps,
+  EditableTextareaProps as InvEditableTextareaProps,
 } from '@chakra-ui/react';

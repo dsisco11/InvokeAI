@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvCheckbox } from './wrapper';
+
 import type { InvCheckboxProps } from './types';
+import { InvCheckbox } from './wrapper';
 
 const meta: Meta<typeof InvCheckbox> = {
   title: 'Primitives/InvCheckbox',

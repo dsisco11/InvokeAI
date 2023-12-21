@@ -1,21 +1,21 @@
 export { popoverTheme } from './theme';
+export type {
+  InvPopoverArrowProps,
+  InvPopoverBodyProps,
+  InvPopoverCloseButtonProps,
+  InvPopoverContentProps,
+  InvPopoverFooterProps,
+  InvPopoverHeaderProps,
+  InvPopoverProps,
+} from './types';
 export {
   InvPopover,
-  InvPopoverTrigger,
-  InvPopoverContent,
-  InvPopoverHeader,
-  InvPopoverBody,
-  InvPopoverFooter,
-  InvPopoverArrow,
-  InvPopoverCloseButton,
   InvPopoverAnchor,
+  InvPopoverArrow,
+  InvPopoverBody,
+  InvPopoverCloseButton,
+  InvPopoverContent,
+  InvPopoverFooter,
+  InvPopoverHeader,
+  InvPopoverTrigger,
 } from './wrapper';
-export type {
-  InvPopoverProps,
-  InvPopoverContentProps,
-  InvPopoverHeaderProps,
-  InvPopoverBodyProps,
-  InvPopoverFooterProps,
-  InvPopoverArrowProps,
-  InvPopoverCloseButtonProps,
-} from './types';

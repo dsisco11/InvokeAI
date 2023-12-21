@@ -1,9 +1,11 @@
+export { InvAccordionButton } from './InvAccordionButton';
+export { accordionTheme } from './theme';
 export type {
-  InvAccordionProps,
-  InvAccordionItemProps,
   InvAccordionButtonProps,
-  InvAccordionPanelProps,
   InvAccordionIconProps,
+  InvAccordionItemProps,
+  InvAccordionPanelProps,
+  InvAccordionProps,
 } from './types';
 export {
   InvAccordion,
@@ -11,5 +13,3 @@ export {
   InvAccordionItem,
   InvAccordionPanel,
 } from './wrapper';
-export { accordionTheme } from './theme';
-export { InvAccordionButton } from './InvAccordionButton';

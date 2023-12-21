@@ -8,6 +8,7 @@ import type {
   IPAdapterMetadataField,
   NonNullableGraph,
 } from 'services/api/types';
+
 import {
   CANVAS_COHERENCE_DENOISE_LATENTS,
   IP_ADAPTER_COLLECT,

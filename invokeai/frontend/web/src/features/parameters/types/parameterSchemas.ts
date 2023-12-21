@@ -4,8 +4,8 @@ import {
   zIPAdapterModelField,
   zLoRAModelField,
   zMainModelField,
-  zSDXLRefinerModelField,
   zSchedulerField,
+  zSDXLRefinerModelField,
   zT2IAdapterModelField,
   zVAEModelField,
 } from 'features/nodes/types/common';

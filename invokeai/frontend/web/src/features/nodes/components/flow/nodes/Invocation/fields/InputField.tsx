@@ -6,6 +6,7 @@ import { useFieldInputTemplate } from 'features/nodes/hooks/useFieldInputTemplat
 import type { PropsWithChildren } from 'react';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import EditableFieldTitle from './EditableFieldTitle';
 import FieldContextMenu from './FieldContextMenu';
 import FieldHandle from './FieldHandle';

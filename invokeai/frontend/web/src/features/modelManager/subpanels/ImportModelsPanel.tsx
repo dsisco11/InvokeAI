@@ -1,9 +1,10 @@
 import { Flex } from '@chakra-ui/react';
+import { InvButton, InvButtonGroup } from 'common/components';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import AddModels from './AddModelsPanel/AddModels';
 import ScanModels from './AddModelsPanel/ScanModels';
-import { InvButton, InvButtonGroup } from 'common/components';
 
 type AddModelTabs = 'add' | 'scan';
 

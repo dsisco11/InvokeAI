@@ -1,11 +1,12 @@
 import { Flex } from '@chakra-ui/react';
+import { InvButtonGroup } from 'common/components';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { memo } from 'react';
+
 import ClearQueueButton from './ClearQueueButton';
 import PauseProcessorButton from './PauseProcessorButton';
 import PruneQueueButton from './PruneQueueButton';
 import ResumeProcessorButton from './ResumeProcessorButton';
-import { InvButtonGroup } from 'common/components';
 
 const QueueTabQueueControls = () => {
   const isPauseEnabled = useFeatureStatus('pauseQueue').isFeatureEnabled;

@@ -6,6 +6,7 @@ import type {
 } from 'chakra-react-select';
 import { chakraComponents } from 'chakra-react-select';
 import { InvText, InvTooltip } from 'common/components';
+
 import type { InvSelectOption } from './types';
 
 type CustomSelectComponentConfig = SelectComponentsConfig<

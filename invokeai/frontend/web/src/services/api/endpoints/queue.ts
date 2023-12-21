@@ -1,15 +1,16 @@
 import type {
-  UnknownAction,
   EntityState,
   ThunkDispatch,
+  UnknownAction,
 } from '@reduxjs/toolkit';
 import { createEntityAdapter } from '@reduxjs/toolkit';
 import { $queueId } from 'app/store/nanostores/queueId';
 import { listParamsReset } from 'features/queue/store/queueSlice';
 import queryString from 'query-string';
+import type { components, paths } from 'services/api/schema';
+
 import type { ApiTagDescription } from '..';
 import { api } from '..';
-import type { components, paths } from 'services/api/schema';
 
 const getListQueueItemsUrl = (
   queryArgs?: paths['/api/v1/queue/{queue_id}/list']['get']['parameters']['query']

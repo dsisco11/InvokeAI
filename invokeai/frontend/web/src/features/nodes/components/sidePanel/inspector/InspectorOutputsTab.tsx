@@ -10,6 +10,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { ImageOutput } from 'services/api/types';
 import type { AnyResult } from 'services/events/types';
+
 import ImageOutputPreview from './outputs/ImageOutputPreview';
 
 const selector = createMemoizedSelector(stateSelector, ({ nodes }) => {

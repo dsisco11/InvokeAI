@@ -2,10 +2,12 @@ import { Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
+import { InvText } from 'common/components';
 import IAICollapse from 'common/components/IAICollapse';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useIsRefinerAvailable } from 'services/api/hooks/useIsRefinerAvailable';
+
 import ParamSDXLRefinerCFGScale from './SDXLRefiner/ParamSDXLRefinerCFGScale';
 import ParamSDXLRefinerModelSelect from './SDXLRefiner/ParamSDXLRefinerModelSelect';
 import ParamSDXLRefinerNegativeAestheticScore from './SDXLRefiner/ParamSDXLRefinerNegativeAestheticScore';
@@ -14,7 +16,6 @@ import ParamSDXLRefinerScheduler from './SDXLRefiner/ParamSDXLRefinerScheduler';
 import ParamSDXLRefinerStart from './SDXLRefiner/ParamSDXLRefinerStart';
 import ParamSDXLRefinerSteps from './SDXLRefiner/ParamSDXLRefinerSteps';
 import ParamUseSDXLRefiner from './SDXLRefiner/ParamUseSDXLRefiner';
-import { InvText } from 'common/components';
 
 const selector = createMemoizedSelector(stateSelector, (state) => {
   const { shouldUseSDXLRefiner } = state.sdxl;

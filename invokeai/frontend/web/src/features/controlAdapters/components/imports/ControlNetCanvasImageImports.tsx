@@ -6,8 +6,8 @@ import {
   canvasMaskToControlAdapter,
 } from 'features/canvas/store/actions';
 import { memo, useCallback } from 'react';
-import { FaImage, FaMask } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import { FaImage, FaMask } from 'react-icons/fa';
 
 type ControlNetCanvasImageImportsProps = {
   id: string;

@@ -6,6 +6,7 @@ import type {
   LatentsToImageInvocation,
   NonNullableGraph,
 } from 'services/api/types';
+
 import { LATENTS_TO_IMAGE, NSFW_CHECKER, WATERMARKER } from './constants';
 
 export const addWatermarkerToGraph = (

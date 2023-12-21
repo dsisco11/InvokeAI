@@ -1,19 +1,20 @@
 import { Flex } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
+import { InvControl, InvSelect } from 'common/components';
+import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
+import SyncModelsButton from 'features/modelManager/subpanels/ModelManagerSettingsPanel/SyncModelsButton';
 import { fieldRefinerModelValueChanged } from 'features/nodes/store/nodesSlice';
 import type {
-  SDXLRefinerModelFieldInputTemplate,
   SDXLRefinerModelFieldInputInstance,
+  SDXLRefinerModelFieldInputTemplate,
 } from 'features/nodes/types/field';
-import type { FieldComponentProps } from './types';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
-import SyncModelsButton from 'features/modelManager/subpanels/ModelManagerSettingsPanel/SyncModelsButton';
 import { memo, useCallback } from 'react';
 import { REFINER_BASE_MODELS } from 'services/api/constants';
 import type { MainModelConfigEntity } from 'services/api/endpoints/models';
 import { useGetMainModelsQuery } from 'services/api/endpoints/models';
-import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
-import { InvControl, InvSelect } from 'common/components';
+
+import type { FieldComponentProps } from './types';
 
 type Props = FieldComponentProps<
   SDXLRefinerModelFieldInputInstance,

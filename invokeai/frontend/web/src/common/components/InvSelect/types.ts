@@ -1,9 +1,9 @@
 import type { ChakraProps } from '@chakra-ui/react';
 import type {
-  Props as ChakraReactSelectProps,
   ChakraStylesConfig,
   GroupBase,
   OptionBase,
+  Props as ChakraReactSelectProps,
   SelectInstance,
   SingleValue,
 } from 'chakra-react-select';

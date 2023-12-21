@@ -1,9 +1,9 @@
 import type { ChakraProps } from '@chakra-ui/react';
 import { Box, Flex, Heading, Image } from '@chakra-ui/react';
-import { memo } from 'react';
-import type { TypesafeDraggableData } from 'features/dnd/types';
-import { useTranslation } from 'react-i18next';
 import { InvText } from 'common/components';
+import type { TypesafeDraggableData } from 'features/dnd/types';
+import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type OverlayDragImageProps = {
   dragData: TypesafeDraggableData | null;

@@ -4,13 +4,13 @@ import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import {
   InvControl,
-  InvSwitch,
   InvModal,
   InvModalBody,
   InvModalCloseButton,
   InvModalContent,
   InvModalHeader,
   InvModalOverlay,
+  InvSwitch,
 } from 'common/components';
 import ReloadNodeTemplatesButton from 'features/nodes/components/flow/panels/TopCenterPanel/ReloadSchemaButton';
 import {

@@ -1,7 +1,8 @@
 import path from 'path';
 import type { UserConfig } from 'vite';
-import dts from 'vite-plugin-dts';
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
+import dts from 'vite-plugin-dts';
+
 import { commonPlugins } from './common';
 
 export const packageConfig: UserConfig = {

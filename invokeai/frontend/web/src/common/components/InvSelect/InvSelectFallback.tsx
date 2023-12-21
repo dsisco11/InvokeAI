@@ -1,6 +1,7 @@
 import { Flex } from '@chakra-ui/react';
-import type { InvSelectFallbackProps } from './types';
 import { InvText } from 'common/components';
+
+import type { InvSelectFallbackProps } from './types';
 
 export const InvSelectFallback = (props: InvSelectFallbackProps) => (
   <Flex h={8} alignItems="center" justifyContent="center">

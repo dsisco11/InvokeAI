@@ -1,10 +1,10 @@
 import { Box, Flex } from '@chakra-ui/react';
+import { InvIconButton, InvTooltip } from 'common/components';
 import { isString } from 'lodash-es';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import { memo, useCallback, useMemo } from 'react';
-import { FaCopy, FaDownload } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-import { InvIconButton, InvTooltip } from 'common/components';
+import { FaCopy, FaDownload } from 'react-icons/fa';
 
 type Props = {
   label: string;

@@ -1,7 +1,7 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvSelect, InvControl, InvTooltip } from 'common/components';
+import { InvControl, InvSelect, InvTooltip } from 'common/components';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
 import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
 import { useControlAdapterModel } from 'features/controlAdapters/hooks/useControlAdapterModel';
@@ -13,8 +13,8 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import type {
   ControlNetModelConfigEntity,
-  T2IAdapterModelConfigEntity,
   IPAdapterModelConfigEntity,
+  T2IAdapterModelConfigEntity,
 } from 'services/api/endpoints/models';
 
 type ParamControlAdapterModelProps = {

@@ -1,5 +1,5 @@
 import type { FlexProps } from '@chakra-ui/react';
-import { Grid, forwardRef } from '@chakra-ui/react';
+import { forwardRef, Grid } from '@chakra-ui/react';
 import type { RootState } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
 import type { PropsWithChildren } from 'react';

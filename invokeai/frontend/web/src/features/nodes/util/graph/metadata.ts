@@ -3,6 +3,7 @@ import type {
   NonNullableGraph,
 } from 'services/api/types';
 import type { JsonObject } from 'type-fest';
+
 import { METADATA } from './constants';
 
 export const addCoreMetadataNode = (

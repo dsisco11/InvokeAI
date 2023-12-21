@@ -3,14 +3,15 @@ import type { SingleValue } from 'chakra-react-select';
 import { InvControl } from 'common/components/InvControl';
 import type { InvSelectOption } from 'common/components/InvSelect';
 import { InvSelect } from 'common/components/InvSelect';
+import { ASPECT_RATIO_OPTIONS } from 'features/ImageSettings/constants';
+import { isAspectRatioID } from 'features/ImageSettings/types';
 import { aspectRatioSelected } from 'features/parameters/store/generationSlice';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { LockAspectRatioButton } from './LockAspectRatioButton';
 import { SetOptimalSizeButton } from './SetOptimalSizeButton';
 import { SwapDimensionsButton } from './SwapDimensionsButton';
-import { ASPECT_RATIO_OPTIONS } from 'features/ImageSettings/constants';
-import { isAspectRatioID } from 'features/ImageSettings/types';
 
 export const AspectRatioSelect = () => {
   const { t } = useTranslation();

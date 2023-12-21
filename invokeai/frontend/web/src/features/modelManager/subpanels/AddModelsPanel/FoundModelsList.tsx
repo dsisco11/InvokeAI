@@ -1,23 +1,23 @@
 import { Flex } from '@chakra-ui/react';
-import { makeToast } from 'features/system/util/makeToast';
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvInput, InvControl } from 'common/components';
+import { InvControl, InvInput } from 'common/components';
+import { InvButton, InvText } from 'common/components';
 import IAIScrollArea from 'common/components/IAIScrollArea';
+import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
 import { addToast } from 'features/system/store/systemSlice';
+import { makeToast } from 'features/system/util/makeToast';
 import { difference, forEach, intersection, map, values } from 'lodash-es';
 import type { ChangeEvent, MouseEvent } from 'react';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ALL_BASE_MODELS } from 'services/api/constants';
 import type { SearchFolderResponse } from 'services/api/endpoints/models';
 import {
   useGetMainModelsQuery,
   useGetModelsInFolderQuery,
   useImportMainModelsMutation,
 } from 'services/api/endpoints/models';
-import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
-import { ALL_BASE_MODELS } from 'services/api/constants';
-import { InvButton, InvText } from 'common/components';
 
 export default function FoundModelsList() {
   const searchFolder = useAppSelector(

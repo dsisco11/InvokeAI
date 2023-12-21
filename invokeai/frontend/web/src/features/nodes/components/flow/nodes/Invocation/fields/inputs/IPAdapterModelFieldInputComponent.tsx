@@ -9,6 +9,7 @@ import type {
 import { memo, useCallback } from 'react';
 import type { IPAdapterModelConfigEntity } from 'services/api/endpoints/models';
 import { useGetIPAdapterModelsQuery } from 'services/api/endpoints/models';
+
 import type { FieldComponentProps } from './types';
 
 const IPAdapterModelFieldInputComponent = (

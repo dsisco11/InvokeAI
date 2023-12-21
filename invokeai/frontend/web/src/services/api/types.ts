@@ -1,7 +1,8 @@
 import type { UseToastOptions } from '@chakra-ui/react';
 import type { EntityState } from '@reduxjs/toolkit';
-import type { components, paths } from './schema';
 import type { O } from 'ts-toolbelt';
+
+import type { components, paths } from './schema';
 
 type s = components['schemas'];
 

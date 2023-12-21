@@ -27,6 +27,7 @@ import dynamicMiddlewares from 'redux-dynamic-middlewares';
 import type { Driver } from 'redux-remember';
 import { rememberEnhancer, rememberReducer } from 'redux-remember';
 import { api } from 'services/api';
+
 import { STORAGE_PREFIX } from './constants';
 import { serialize } from './enhancers/reduxRemember/serialize';
 import { unserialize } from './enhancers/reduxRemember/unserialize';

@@ -1,11 +1,12 @@
+import { InvButtonGroup } from 'common/components';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetInvocationCacheStatusQuery } from 'services/api/endpoints/appInfo';
+
 import ClearInvocationCacheButton from './ClearInvocationCacheButton';
-import ToggleInvocationCacheButton from './ToggleInvocationCacheButton';
 import StatusStatGroup from './common/StatusStatGroup';
 import StatusStatItem from './common/StatusStatItem';
-import { InvButtonGroup } from 'common/components';
+import ToggleInvocationCacheButton from './ToggleInvocationCacheButton';
 
 const InvocationCacheStatus = () => {
   const { t } = useTranslation();

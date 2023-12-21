@@ -1,12 +1,13 @@
 import type { GroupBase, StylesConfig } from 'chakra-react-select';
 import { Select as ChakraReactSelect } from 'chakra-react-select';
+import { memo, useMemo } from 'react';
+
 import { CustomComponents } from './CustomComponents';
 import type {
   CustomChakraStylesConfig,
   InvSelectOption,
   InvSelectProps,
 } from './types';
-import { memo, useMemo } from 'react';
 
 const styles: StylesConfig<InvSelectOption> = {
   menuPortal: (provided) => ({ ...provided, zIndex: 999 }),

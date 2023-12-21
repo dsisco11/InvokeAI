@@ -13,6 +13,7 @@ import type Konva from 'konva';
 import type { KonvaEventObject } from 'konva/lib/Node';
 import type { MutableRefObject } from 'react';
 import { useCallback } from 'react';
+
 import useColorPicker from './useColorUnderCursor';
 
 const selector = createMemoizedSelector(

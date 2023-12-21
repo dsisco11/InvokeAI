@@ -7,7 +7,10 @@ import {
   isModalOpenChanged,
 } from 'features/changeBoardModal/store/slice';
 import { imagesToDeleteSelected } from 'features/deleteImageModal/store/slice';
+import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
+import { addToast } from 'features/system/store/systemSlice';
 import { memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaDownload, FaFolder, FaTrash } from 'react-icons/fa';
 import { MdStar, MdStarBorder } from 'react-icons/md';
 import {
@@ -15,9 +18,6 @@ import {
   useStarImagesMutation,
   useUnstarImagesMutation,
 } from 'services/api/endpoints/images';
-import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
-import { addToast } from 'features/system/store/systemSlice';
-import { useTranslation } from 'react-i18next';
 
 const MultipleSelectionMenuItems = () => {
   const { t } = useTranslation();

@@ -9,6 +9,7 @@ import type {
 import { memo, useCallback } from 'react';
 import type { ControlNetModelConfigEntity } from 'services/api/endpoints/models';
 import { useGetControlNetModelsQuery } from 'services/api/endpoints/models';
+
 import type { FieldComponentProps } from './types';
 
 type Props = FieldComponentProps<

@@ -1,21 +1,22 @@
 import { Flex } from '@chakra-ui/react';
+import { InvText } from 'common/components';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { ALL_BASE_MODELS } from 'services/api/constants';
 import type {
-  MainModelConfigEntity,
   DiffusersModelConfigEntity,
   LoRAModelConfigEntity,
+  MainModelConfigEntity,
 } from 'services/api/endpoints/models';
 import {
-  useGetMainModelsQuery,
   useGetLoRAModelsQuery,
+  useGetMainModelsQuery,
 } from 'services/api/endpoints/models';
+
 import CheckpointModelEdit from './ModelManagerPanel/CheckpointModelEdit';
 import DiffusersModelEdit from './ModelManagerPanel/DiffusersModelEdit';
 import LoRAModelEdit from './ModelManagerPanel/LoRAModelEdit';
 import ModelList from './ModelManagerPanel/ModelList';
-import { ALL_BASE_MODELS } from 'services/api/constants';
-import { useTranslation } from 'react-i18next';
-import { InvText } from 'common/components';
 
 export default function ModelManagerPanel() {
   const [selectedModelId, setSelectedModelId] = useState<string>();

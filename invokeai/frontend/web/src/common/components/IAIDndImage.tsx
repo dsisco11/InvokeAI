@@ -6,6 +6,10 @@ import {
 } from 'common/components/IAIImageFallback';
 import ImageMetadataOverlay from 'common/components/ImageMetadataOverlay';
 import { useImageUploadButton } from 'common/hooks/useImageUploadButton';
+import type {
+  TypesafeDraggableData,
+  TypesafeDroppableData,
+} from 'features/dnd/types';
 import ImageContextMenu from 'features/gallery/components/ImageContextMenu/ImageContextMenu';
 import type {
   MouseEvent,
@@ -16,13 +20,10 @@ import type {
 import { memo, useCallback, useState } from 'react';
 import { FaImage, FaUpload } from 'react-icons/fa';
 import type { ImageDTO, PostUploadAction } from 'services/api/types';
+
 import IAIDraggable from './IAIDraggable';
 import IAIDroppable from './IAIDroppable';
 import SelectionOverlay from './SelectionOverlay';
-import type {
-  TypesafeDraggableData,
-  TypesafeDroppableData,
-} from 'features/dnd/types';
 
 const defaultUploadElement = (
   <Icon

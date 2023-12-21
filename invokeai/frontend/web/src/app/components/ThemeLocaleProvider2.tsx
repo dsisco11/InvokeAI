@@ -1,13 +1,14 @@
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import '@fontsource-variable/inter';
+import 'overlayscrollbars/overlayscrollbars.css';
+import 'theme/css/overlayscrollbars.css';
+
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { MantineProvider } from '@mantine/core';
 import { useMantineTheme } from 'mantine-theme/theme';
-import 'overlayscrollbars/overlayscrollbars.css';
 import type { ReactNode } from 'react';
 import { memo, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import 'theme/css/overlayscrollbars.css';
-import { TOAST_OPTIONS, theme as invokeAITheme } from 'theme/theme';
+import { theme as invokeAITheme, TOAST_OPTIONS } from 'theme/theme';
 
 type ThemeLocaleProviderProps = {
   children: ReactNode;

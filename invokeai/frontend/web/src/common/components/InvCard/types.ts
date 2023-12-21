@@ -1,6 +1,6 @@
 export type {
-  CardProps as InvCardProps,
-  CardHeaderProps as InvCardHeaderProps,
   CardBodyProps as InvCardBodyProps,
   CardFooterProps as InvCardFooterProps,
+  CardHeaderProps as InvCardHeaderProps,
+  CardProps as InvCardProps,
 } from '@chakra-ui/react';

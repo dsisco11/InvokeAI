@@ -3,14 +3,14 @@ import { useForm } from '@mantine/form';
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvIconButton, InvInput, InvText } from 'common/components';
-import { memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { FaSearch, FaSync, FaTrash } from 'react-icons/fa';
-import { useGetModelsInFolderQuery } from 'services/api/endpoints/models';
 import {
   setAdvancedAddScanModel,
   setSearchFolder,
 } from 'features/modelManager/store/modelManagerSlice';
+import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { FaSearch, FaSync, FaTrash } from 'react-icons/fa';
+import { useGetModelsInFolderQuery } from 'services/api/endpoints/models';
 
 type SearchFolderForm = {
   folder: string;

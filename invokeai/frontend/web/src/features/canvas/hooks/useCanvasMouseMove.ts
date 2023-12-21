@@ -12,6 +12,7 @@ import type Konva from 'konva';
 import type { Vector2d } from 'konva/lib/types';
 import type { MutableRefObject } from 'react';
 import { useCallback } from 'react';
+
 import useColorPicker from './useColorUnderCursor';
 
 const selector = createMemoizedSelector(

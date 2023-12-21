@@ -1,13 +1,14 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvTextarea, InvInput } from 'common/components';
+import { InvInput, InvTextarea } from 'common/components';
 import { fieldStringValueChanged } from 'features/nodes/store/nodesSlice';
 import type {
   StringFieldInputInstance,
   StringFieldInputTemplate,
 } from 'features/nodes/types/field';
-import type { FieldComponentProps } from './types';
 import type { ChangeEvent } from 'react';
 import { memo, useCallback } from 'react';
+
+import type { FieldComponentProps } from './types';
 
 const StringFieldInputComponent = (
   props: FieldComponentProps<StringFieldInputInstance, StringFieldInputTemplate>

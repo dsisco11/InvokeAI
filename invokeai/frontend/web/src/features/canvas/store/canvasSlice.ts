@@ -4,17 +4,21 @@ import {
   roundDownToMultiple,
   roundToMultiple,
 } from 'common/util/roundDownToMultiple';
-import { aspectRatioSelected } from 'features/parameters/store/generationSlice';
-import type { IRect, Vector2d } from 'konva/lib/types';
-import { clamp, cloneDeep } from 'lodash-es';
-import type { RgbaColor } from 'react-colorful';
-import type { ImageDTO } from 'services/api/types';
 import calculateCoordinates from 'features/canvas/util/calculateCoordinates';
 import calculateScale from 'features/canvas/util/calculateScale';
 import { STAGE_PADDING_PERCENTAGE } from 'features/canvas/util/constants';
 import floorCoordinates from 'features/canvas/util/floorCoordinates';
 import getScaledBoundingBoxDimensions from 'features/canvas/util/getScaledBoundingBoxDimensions';
 import roundDimensionsTo64 from 'features/canvas/util/roundDimensionsTo64';
+import { ASPECT_RATIO_MAP } from 'features/ImageSettings';
+import { aspectRatioSelected } from 'features/parameters/store/generationSlice';
+import type { IRect, Vector2d } from 'konva/lib/types';
+import { clamp, cloneDeep } from 'lodash-es';
+import type { RgbaColor } from 'react-colorful';
+import { queueApi } from 'services/api/endpoints/queue';
+import type { ImageDTO } from 'services/api/types';
+import { appSocketQueueItemStatusChanged } from 'services/events/actions';
+
 import type {
   BoundingBoxScaleMethod,
   CanvasBaseLine,
@@ -31,9 +35,6 @@ import {
   isCanvasBaseImage,
   isCanvasMaskLine,
 } from './canvasTypes';
-import { appSocketQueueItemStatusChanged } from 'services/events/actions';
-import { queueApi } from 'services/api/endpoints/queue';
-import { ASPECT_RATIO_MAP } from 'features/ImageSettings';
 
 export const initialLayerState: CanvasLayerState = {
   objects: [],

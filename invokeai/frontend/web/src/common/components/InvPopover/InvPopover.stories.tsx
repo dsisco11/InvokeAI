@@ -1,14 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { InvButton } from 'common/components';
+
 import {
   InvPopover,
-  InvPopoverTrigger,
+  InvPopoverArrow,
+  InvPopoverBody,
+  InvPopoverCloseButton,
   InvPopoverContent,
   InvPopoverHeader,
-  InvPopoverBody,
-  InvPopoverArrow,
-  InvPopoverCloseButton,
+  InvPopoverTrigger,
 } from './wrapper';
-import { InvButton } from 'common/components';
 
 const meta: Meta<typeof InvPopover> = {
   title: 'Primitives/InvPopover',

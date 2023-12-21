@@ -6,6 +6,7 @@ import { setNegativeStylePromptSDXL } from 'features/sdxl/store/sdxlSlice';
 import { useCallback, useRef } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';
+
 import { SDXLConcatLink } from './SDXLConcatLink';
 
 export const ParamSDXLNegativeStylePrompt = () => {

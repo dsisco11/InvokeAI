@@ -6,6 +6,7 @@ import type {
   NonNullableGraph,
   SDXLLoraLoaderInvocation,
 } from 'services/api/types';
+
 import {
   CANVAS_COHERENCE_DENOISE_LATENTS,
   LORA_LOADER,

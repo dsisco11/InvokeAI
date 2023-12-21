@@ -2,6 +2,7 @@ import { Box, Flex, FormControl, FormLabel, HStack } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
+import { InvText } from 'common/components';
 import { IAINoContentFallback } from 'common/components/IAIImageFallback';
 import NotesTextarea from 'features/nodes/components/flow/nodes/Invocation/NotesTextarea';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
@@ -13,8 +14,8 @@ import { isInvocationNode } from 'features/nodes/types/invocation';
 import { getNeedsUpdate } from 'features/nodes/util/node/nodeUpdate';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import EditableNodeTitle from './details/EditableNodeTitle';
-import { InvText } from 'common/components';
 
 const selector = createMemoizedSelector(stateSelector, ({ nodes }) => {
   const lastSelectedNodeId =

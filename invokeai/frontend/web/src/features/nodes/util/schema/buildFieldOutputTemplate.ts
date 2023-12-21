@@ -1,9 +1,9 @@
-import { startCase } from 'lodash-es';
 import type {
   FieldOutputTemplate,
   FieldType,
 } from 'features/nodes/types/field';
 import type { InvocationFieldSchema } from 'features/nodes/types/openapi';
+import { startCase } from 'lodash-es';
 
 export const buildFieldOutputTemplate = (
   fieldSchema: InvocationFieldSchema,

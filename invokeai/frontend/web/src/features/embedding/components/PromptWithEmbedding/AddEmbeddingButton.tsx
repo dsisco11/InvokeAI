@@ -1,7 +1,7 @@
 import { InvIconButton, InvTooltip } from 'common/components';
 import { memo } from 'react';
-import { FaCode } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import { FaCode } from 'react-icons/fa';
 
 type Props = {
   isOpen: boolean;

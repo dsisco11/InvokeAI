@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import LoRACollapse from './LoRACollapse';
+
 import { LoRACard } from './LoRACard';
+import LoRACollapse from './LoRACollapse';
 
 const meta: Meta<typeof LoRACollapse> = {
   title: 'Feature/LoRAs',

@@ -2,6 +2,7 @@ import { Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
+
 import ParamInfillPatchmatchDownscaleSize from './ParamInfillPatchmatchDownscaleSize';
 import ParamInfillTilesize from './ParamInfillTilesize';
 

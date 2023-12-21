@@ -15,6 +15,7 @@ import {
 import { t } from 'i18next';
 import { reduce } from 'lodash-es';
 import type { OpenAPIV3_1 } from 'openapi-types';
+
 import { buildFieldInputTemplate } from './buildFieldInputTemplate';
 import { buildFieldOutputTemplate } from './buildFieldOutputTemplate';
 import { parseFieldType } from './parseFieldType';

@@ -1,5 +1,6 @@
 import type Konva from 'konva';
 import type { IRect } from 'konva/lib/types';
+
 import { canvasToBlob } from './canvasToBlob';
 
 /**

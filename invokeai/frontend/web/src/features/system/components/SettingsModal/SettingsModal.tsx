@@ -5,8 +5,6 @@ import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import {
   InvButton,
   InvControl,
-  InvSwitch,
-  InvText,
   InvHeading,
   InvModal,
   InvModalBody,
@@ -15,6 +13,8 @@ import {
   InvModalFooter,
   InvModalHeader,
   InvModalOverlay,
+  InvSwitch,
+  InvText,
 } from 'common/components';
 import { useClearStorage } from 'common/hooks/useClearStorage';
 import {
@@ -34,10 +34,11 @@ import type { ChangeEvent, ReactElement } from 'react';
 import { cloneElement, memo, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetAppConfigQuery } from 'services/api/endpoints/appInfo';
+
 import SettingsClearIntermediates from './SettingsClearIntermediates';
-import StyledFlex from './StyledFlex';
 import { SettingsLanguageSelect } from './SettingsLanguageSelect';
 import { SettingsLogLevelSelect } from './SettingsLogLevelSelect';
+import StyledFlex from './StyledFlex';
 
 const selector = createMemoizedSelector([stateSelector], ({ system, ui }) => {
   const {

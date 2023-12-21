@@ -1,9 +1,3 @@
-import type {
-  OnConnectStartParams,
-  SelectionMode,
-  Viewport,
-  XYPosition,
-} from 'reactflow';
 import type { FieldIdentifier, FieldType } from 'features/nodes/types/field';
 import type {
   AnyNode,
@@ -12,6 +6,12 @@ import type {
   NodeExecutionState,
 } from 'features/nodes/types/invocation';
 import type { WorkflowV2 } from 'features/nodes/types/workflow';
+import type {
+  OnConnectStartParams,
+  SelectionMode,
+  Viewport,
+  XYPosition,
+} from 'reactflow';
 
 export type NodesState = {
   nodes: AnyNode[];

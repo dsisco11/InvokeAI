@@ -4,6 +4,7 @@ import {
   InvAccordionItem,
   InvAccordionPanel,
 } from 'common/components/InvAccordion';
+
 import type { InvSingleAccordionProps } from './types';
 
 export const InvSingleAccordion = (props: InvSingleAccordionProps) => {

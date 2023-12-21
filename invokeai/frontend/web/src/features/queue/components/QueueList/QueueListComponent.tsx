@@ -2,6 +2,7 @@ import { Flex, forwardRef } from '@chakra-ui/react';
 import { memo } from 'react';
 import type { Components } from 'react-virtuoso';
 import type { SessionQueueItemDTO } from 'services/api/types';
+
 import type { ListContext } from './types';
 
 const QueueListComponent: Components<SessionQueueItemDTO, ListContext>['List'] =

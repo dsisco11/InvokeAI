@@ -7,6 +7,7 @@ import IAICollapse from 'common/components/IAICollapse';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import ParamHrfMethod from './ParamHrfMethod';
 import ParamHrfStrength from './ParamHrfStrength';
 import ParamHrfToggle from './ParamHrfToggle';

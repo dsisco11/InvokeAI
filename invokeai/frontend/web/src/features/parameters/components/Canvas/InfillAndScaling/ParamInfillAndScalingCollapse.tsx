@@ -1,7 +1,8 @@
 import { Divider, Flex } from '@chakra-ui/react';
+import IAICollapse from 'common/components/IAICollapse';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import IAICollapse from 'common/components/IAICollapse';
+
 import ParamInfillMethod from './ParamInfillMethod';
 import ParamInfillOptions from './ParamInfillOptions';
 import ParamScaleBeforeProcessing from './ParamScaleBeforeProcessing';

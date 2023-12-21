@@ -1,10 +1,11 @@
 import { z } from 'zod';
+
 import {
   zBoardField,
   zColorField,
   zControlNetModelField,
-  zIPAdapterModelField,
   zImageField,
+  zIPAdapterModelField,
   zLoRAModelField,
   zMainOrONNXModelField,
   zSchedulerField,

@@ -5,9 +5,10 @@ import type {
   BooleanFieldInputInstance,
   BooleanFieldInputTemplate,
 } from 'features/nodes/types/field';
-import type { FieldComponentProps } from './types';
 import type { ChangeEvent } from 'react';
 import { memo, useCallback } from 'react';
+
+import type { FieldComponentProps } from './types';
 
 const BooleanFieldInputComponent = (
   props: FieldComponentProps<

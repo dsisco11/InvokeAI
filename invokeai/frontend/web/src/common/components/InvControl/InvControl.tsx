@@ -1,10 +1,11 @@
 import {
-  FormControl as ChakraFormControl,
-  FormLabel as ChakraFormLabel,
-  FormHelperText as ChakraFormHelperText,
   Flex,
+  FormControl as ChakraFormControl,
+  FormHelperText as ChakraFormHelperText,
+  FormLabel as ChakraFormLabel,
   forwardRef,
 } from '@chakra-ui/react';
+
 import type { InvControlProps } from './types';
 
 export const InvControl = forwardRef((props: InvControlProps, ref) => {

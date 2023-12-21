@@ -1,4 +1,4 @@
-import { IconButton, forwardRef } from '@chakra-ui/react';
+import { forwardRef, IconButton } from '@chakra-ui/react';
 import type { InvIconButtonProps } from 'common/components/InvIconButton/types';
 import { InvTooltip } from 'common/components/InvTooltip';
 

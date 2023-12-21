@@ -1,9 +1,10 @@
 import { Flex } from '@chakra-ui/react';
+import { InvButton, InvButtonGroup } from 'common/components';
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import AdvancedAddModels from './AdvancedAddModels';
 import SimpleAddModels from './SimpleAddModels';
-import { useTranslation } from 'react-i18next';
-import { InvButton, InvButtonGroup } from 'common/components';
 
 export default function AddModels() {
   const { t } = useTranslation();

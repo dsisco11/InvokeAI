@@ -11,6 +11,7 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';
 import { FaRulerVertical, FaUndo, FaUpload } from 'react-icons/fa';
 import type { PostUploadAction } from 'services/api/types';
+
 import InitialImage from './InitialImage';
 
 const selector = createMemoizedSelector([stateSelector], (state) => {

@@ -7,15 +7,16 @@ import {
   useEditableControls,
 } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
+import { InvTooltip } from 'common/components';
 import { useFieldLabel } from 'features/nodes/hooks/useFieldLabel';
 import { useFieldTemplateTitle } from 'features/nodes/hooks/useFieldTemplateTitle';
 import { fieldLabelChanged } from 'features/nodes/store/nodesSlice';
+import { HANDLE_TOOLTIP_OPEN_DELAY } from 'features/nodes/types/constants';
 import type { MouseEvent } from 'react';
 import { memo, useCallback, useEffect, useState } from 'react';
-import FieldTooltipContent from './FieldTooltipContent';
-import { HANDLE_TOOLTIP_OPEN_DELAY } from 'features/nodes/types/constants';
 import { useTranslation } from 'react-i18next';
-import { InvTooltip } from 'common/components';
+
+import FieldTooltipContent from './FieldTooltipContent';
 
 interface Props {
   nodeId: string;

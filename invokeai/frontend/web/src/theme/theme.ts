@@ -19,13 +19,14 @@ import {
   sliderTheme,
   switchTheme,
   tabsTheme,
-  textTheme,
   textareaTheme,
+  textTheme,
   tooltipTheme,
 } from 'common/components';
+
 import { InvokeAIColors } from './colors/colors';
-import { no_scrollbar } from './custom/scrollbar';
 import { reactflowStyles } from './custom/reactflow';
+import { no_scrollbar } from './custom/scrollbar';
 
 export const theme: ThemeOverride = {
   config: {

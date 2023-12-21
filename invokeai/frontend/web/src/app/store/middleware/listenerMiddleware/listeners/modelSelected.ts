@@ -7,17 +7,18 @@ import {
 import { loraRemoved } from 'features/lora/store/loraSlice';
 import { modelSelected } from 'features/parameters/store/actions';
 import {
-  modelChanged,
   heightChanged,
-  widthChanged,
+  modelChanged,
   vaeSelected,
+  widthChanged,
 } from 'features/parameters/store/generationSlice';
+import { zParameterModel } from 'features/parameters/types/parameterSchemas';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { t } from 'i18next';
 import { forEach } from 'lodash-es';
+
 import { startAppListening } from '..';
-import { zParameterModel } from 'features/parameters/types/parameterSchemas';
 
 export const addModelSelectedListener = () => {
   startAppListening({

@@ -5,9 +5,9 @@ import {
   InvButton,
   InvIconButton,
   InvPopover,
-  InvPopoverTrigger,
-  InvPopoverContent,
   InvPopoverBody,
+  InvPopoverContent,
+  InvPopoverTrigger,
 } from 'common/components';
 import { useIsAllowedToUpscale } from 'features/parameters/hooks/useIsAllowedToUpscale';
 import { useIsQueueMutationInProgress } from 'features/queue/hooks/useIsQueueMutationInProgress';
@@ -15,6 +15,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaExpand } from 'react-icons/fa';
 import type { ImageDTO } from 'services/api/types';
+
 import ParamESRGANModel from './ParamRealESRGANModel';
 
 type Props = { imageDTO?: ImageDTO };

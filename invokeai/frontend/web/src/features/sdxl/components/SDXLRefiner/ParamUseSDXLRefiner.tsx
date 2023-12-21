@@ -4,8 +4,8 @@ import { InvControl, InvSwitch } from 'common/components';
 import { setShouldUseSDXLRefiner } from 'features/sdxl/store/sdxlSlice';
 import type { ChangeEvent } from 'react';
 import { useCallback } from 'react';
-import { useIsRefinerAvailable } from 'services/api/hooks/useIsRefinerAvailable';
 import { useTranslation } from 'react-i18next';
+import { useIsRefinerAvailable } from 'services/api/hooks/useIsRefinerAvailable';
 
 export default function ParamUseSDXLRefiner() {
   const shouldUseSDXLRefiner = useAppSelector(

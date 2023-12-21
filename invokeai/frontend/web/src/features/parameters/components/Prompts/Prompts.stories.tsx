@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Prompts } from './Prompts';
 
 const meta: Meta<typeof Prompts> = {

@@ -4,7 +4,7 @@ import { InvControl, InvSelect } from 'common/components';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { languageChanged } from 'features/system/store/systemSlice';
 import { isLanguage } from 'features/system/store/types';
-import { useMemo, useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const SettingsLanguageSelect = () => {

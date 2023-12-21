@@ -5,6 +5,7 @@ import type {
   NonNullableGraph,
   SeamlessModeInvocation,
 } from 'services/api/types';
+
 import {
   CANVAS_OUTPUT,
   INPAINT_IMAGE_RESIZE_UP,

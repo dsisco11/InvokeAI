@@ -16,6 +16,7 @@ import { memo, useCallback } from 'react';
 import { SDXL_MAIN_MODELS } from 'services/api/constants';
 import type { MainModelConfigEntity } from 'services/api/endpoints/models';
 import { useGetMainModelsQuery } from 'services/api/endpoints/models';
+
 import type { FieldComponentProps } from './types';
 
 type Props = FieldComponentProps<

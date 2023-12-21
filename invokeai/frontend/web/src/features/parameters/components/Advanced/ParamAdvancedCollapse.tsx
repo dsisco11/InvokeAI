@@ -8,6 +8,7 @@ import { ParamCpuNoiseToggle } from 'features/parameters/components/Noise/ParamC
 import ParamSeamless from 'features/parameters/components/Seamless/ParamSeamless';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import ParamCFGRescaleMultiplier from './ParamCFGRescaleMultiplier';
 import ParamClipSkip from './ParamClipSkip';
 

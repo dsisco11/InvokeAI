@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvTabs, InvTabList, InvTabPanels, InvTabPanel } from './wrapper';
-import type { InvTabsProps } from './types';
+
 import { InvTab } from './InvTab';
+import type { InvTabsProps } from './types';
+import { InvTabList, InvTabPanel, InvTabPanels, InvTabs } from './wrapper';
 
 const meta: Meta<typeof InvTabs> = {
   title: 'Primitives/InvTabs',

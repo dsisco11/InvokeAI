@@ -1,3 +1,6 @@
+export { InvMenuItem } from './InvMenuItem';
+export { InvMenuList } from './InvMenuList';
+export { menuTheme } from './theme';
 export type {
   InvMenuButtonProps,
   InvMenuDividerProps,
@@ -16,6 +19,3 @@ export {
   InvMenuItemOption,
   InvMenuOptionGroup,
 } from './wrapper';
-export { InvMenuItem } from './InvMenuItem';
-export { InvMenuList } from './InvMenuList';
-export { menuTheme } from './theme';

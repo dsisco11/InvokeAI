@@ -1,8 +1,8 @@
-import type { AppFeature, SDFeature } from 'app/types/invokeai';
 import type { RootState } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import { useMemo } from 'react';
+import type { AppFeature, SDFeature } from 'app/types/invokeai';
 import type { InvokeTabName } from 'features/ui/store/tabMap';
+import { useMemo } from 'react';
 
 export const useFeatureStatus = (
   feature: AppFeature | SDFeature | InvokeTabName

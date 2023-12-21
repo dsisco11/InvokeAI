@@ -1,6 +1,6 @@
 export {
-  Tabs as InvTabs,
   TabList as InvTabList,
-  TabPanels as InvTabPanels,
   TabPanel as InvTabPanel,
+  TabPanels as InvTabPanels,
+  Tabs as InvTabs,
 } from '@chakra-ui/react';

@@ -1,6 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { initialImageChanged } from 'features/parameters/store/generationSlice';
+
 import type { InvokeTabName } from './tabMap';
 import type { UIState } from './uiTypes';
 

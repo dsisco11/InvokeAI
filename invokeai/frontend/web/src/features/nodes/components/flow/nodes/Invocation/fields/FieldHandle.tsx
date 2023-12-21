@@ -1,4 +1,6 @@
+import { InvTooltip } from 'common/components';
 import { colorTokenToCssVar } from 'common/util/colorTokenToCssVar';
+import { getFieldColor } from 'features/nodes/components/flow/edges/util/getEdgeColor';
 import { useFieldTypeName } from 'features/nodes/hooks/usePrettyFieldType';
 import {
   HANDLE_TOOLTIP_OPEN_DELAY,
@@ -12,8 +14,6 @@ import type { CSSProperties } from 'react';
 import { memo, useMemo } from 'react';
 import type { HandleType } from 'reactflow';
 import { Handle, Position } from 'reactflow';
-import { getFieldColor } from 'features/nodes/components/flow/edges/util/getEdgeColor';
-import { InvTooltip } from 'common/components';
 
 export const handleBaseStyles: CSSProperties = {
   position: 'absolute',

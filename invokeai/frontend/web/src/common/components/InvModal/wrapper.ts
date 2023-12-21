@@ -1,9 +1,9 @@
 export {
   Modal as InvModal,
-  ModalOverlay as InvModalOverlay,
-  ModalContent as InvModalContent,
-  ModalHeader as InvModalHeader,
-  ModalFooter as InvModalFooter,
   ModalBody as InvModalBody,
   ModalCloseButton as InvModalCloseButton,
+  ModalContent as InvModalContent,
+  ModalFooter as InvModalFooter,
+  ModalHeader as InvModalHeader,
+  ModalOverlay as InvModalOverlay,
 } from '@chakra-ui/react';

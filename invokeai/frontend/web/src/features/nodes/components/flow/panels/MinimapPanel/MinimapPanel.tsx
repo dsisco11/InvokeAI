@@ -1,4 +1,4 @@
-import { Flex, chakra } from '@chakra-ui/react';
+import { chakra, Flex } from '@chakra-ui/react';
 import type { RootState } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
 import { memo } from 'react';

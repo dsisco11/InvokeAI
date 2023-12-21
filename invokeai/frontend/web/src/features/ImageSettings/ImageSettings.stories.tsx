@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { ImageSettings } from './ImageSettings';
 
 const meta: Meta<typeof ImageSettings> = {

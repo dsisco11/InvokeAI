@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import type { InvSelectOnChange } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
 import { consoleLogLevelChanged } from 'features/system/store/systemSlice';
-import { useMemo, useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const SettingsLogLevelSelect = () => {

@@ -1,9 +1,9 @@
 import { Flex, Icon } from '@chakra-ui/react';
-import type { AspectRatioPreviewProps } from './types';
+import { useSize } from '@chakra-ui/react-use-size';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRef } from 'react';
 import { FaImage } from 'react-icons/fa';
-import { useSize } from '@chakra-ui/react-use-size';
+
 import {
   BOX_SIZE_CSS_CALC,
   ICON_CONTAINER_STYLES,
@@ -12,6 +12,7 @@ import {
   MOTION_ICON_INITIAL,
 } from './constants';
 import { useAspectRatioPreviewState } from './hooks';
+import type { AspectRatioPreviewProps } from './types';
 
 export const AspectRatioPreview = (props: AspectRatioPreviewProps) => {
   const { width: _width, height: _height, icon = FaImage } = props;

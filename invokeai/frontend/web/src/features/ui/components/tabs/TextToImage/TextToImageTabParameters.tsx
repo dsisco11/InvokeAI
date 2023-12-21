@@ -6,6 +6,7 @@ import ParamHrfCollapse from 'features/parameters/components/HighResFix/ParamHrf
 import { Prompts } from 'features/parameters/components/Prompts';
 import ParamSymmetryCollapse from 'features/parameters/components/Symmetry/ParamSymmetryCollapse';
 import { memo } from 'react';
+
 import TextToImageTabCoreParameters from './TextToImageTabCoreParameters';
 
 const TextToImageTabParameters = () => {

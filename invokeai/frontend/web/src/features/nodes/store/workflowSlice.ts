@@ -2,9 +2,9 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { workflowLoaded } from 'features/nodes/store/actions';
 import {
+  isAnyNodeOrEdgeMutation,
   nodeEditorReset,
   nodesDeleted,
-  isAnyNodeOrEdgeMutation,
 } from 'features/nodes/store/nodesSlice';
 import type { WorkflowsState as WorkflowState } from 'features/nodes/store/types';
 import type { FieldIdentifier } from 'features/nodes/types/field';

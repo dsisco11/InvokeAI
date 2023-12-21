@@ -1,6 +1,6 @@
 import type { ButtonProps } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvIconButton, InvButton } from 'common/components';
+import { InvButton, InvIconButton } from 'common/components';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { useCallback } from 'react';

@@ -1,4 +1,5 @@
 import { useAppDispatch } from 'app/store/storeHooks';
+import { InvNumberInput } from 'common/components';
 import { fieldNumberValueChanged } from 'features/nodes/store/nodesSlice';
 import type {
   FloatFieldInputInstance,
@@ -6,10 +7,10 @@ import type {
   IntegerFieldInputInstance,
   IntegerFieldInputTemplate,
 } from 'features/nodes/types/field';
-import type { FieldComponentProps } from './types';
-import { memo, useCallback, useMemo } from 'react';
-import { InvNumberInput } from 'common/components';
 import { isNil } from 'lodash-es';
+import { memo, useCallback, useMemo } from 'react';
+
+import type { FieldComponentProps } from './types';
 
 const NumberFieldInputComponent = (
   props: FieldComponentProps<

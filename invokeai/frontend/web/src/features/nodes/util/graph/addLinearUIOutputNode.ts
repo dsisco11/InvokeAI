@@ -4,6 +4,7 @@ import type {
   LinearUIOutputInvocation,
   NonNullableGraph,
 } from 'services/api/types';
+
 import {
   CANVAS_OUTPUT,
   LATENTS_TO_IMAGE,

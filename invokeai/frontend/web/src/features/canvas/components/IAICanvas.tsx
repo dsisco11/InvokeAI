@@ -20,6 +20,7 @@ import type { KonvaEventObject } from 'konva/lib/Node';
 import type { Vector2d } from 'konva/lib/types';
 import { memo, useCallback, useEffect, useRef } from 'react';
 import { Layer, Stage } from 'react-konva';
+
 import IAICanvasBoundingBoxOverlay from './IAICanvasBoundingBoxOverlay';
 import IAICanvasGrid from './IAICanvasGrid';
 import IAICanvasIntermediateImage from './IAICanvasIntermediateImage';

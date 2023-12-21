@@ -9,6 +9,7 @@ import type {
 import { memo, useCallback } from 'react';
 import type { T2IAdapterModelConfigEntity } from 'services/api/endpoints/models';
 import { useGetT2IAdapterModelsQuery } from 'services/api/endpoints/models';
+
 import type { FieldComponentProps } from './types';
 
 const T2IAdapterModelFieldInputComponent = (

@@ -1,4 +1,5 @@
-import { MenuList as ChakraMenuList, forwardRef } from '@chakra-ui/react';
+import { forwardRef, MenuList as ChakraMenuList } from '@chakra-ui/react';
+
 import { menuListMotionProps } from './constants';
 import type { InvMenuListProps } from './types';
 

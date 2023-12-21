@@ -6,6 +6,7 @@ import IAICollapse from 'common/components/IAICollapse';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import ParamDynamicPromptsMaxPrompts from './ParamDynamicPromptsMaxPrompts';
 import ParamDynamicPromptsPreview from './ParamDynamicPromptsPreview';
 import ParamDynamicPromptsSeedBehaviour from './ParamDynamicPromptsSeedBehaviour';

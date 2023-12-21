@@ -1,7 +1,7 @@
+import { InvButton } from 'common/components';
+import { useClearInvocationCache } from 'features/queue/hooks/useClearInvocationCache';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useClearInvocationCache } from 'features/queue/hooks/useClearInvocationCache';
-import { InvButton } from 'common/components';
 
 const ClearInvocationCacheButton = () => {
   const { t } = useTranslation();

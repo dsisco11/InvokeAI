@@ -1,10 +1,11 @@
 import type { ChakraProps } from '@chakra-ui/react';
+import GreyscaleInvokeAIIcon from 'common/components/GreyscaleInvokeAIIcon';
+import { useQueueBack } from 'features/queue/hooks/useQueueBack';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useQueueBack } from 'features/queue/hooks/useQueueBack';
-import EnqueueButtonTooltip from './QueueButtonTooltip';
+
 import QueueButton from './common/QueueButton';
-import GreyscaleInvokeAIIcon from 'common/components/GreyscaleInvokeAIIcon';
+import EnqueueButtonTooltip from './QueueButtonTooltip';
 
 type Props = {
   asIconButton?: boolean;

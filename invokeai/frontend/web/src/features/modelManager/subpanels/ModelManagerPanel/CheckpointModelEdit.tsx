@@ -8,6 +8,9 @@ import {
   InvInput,
   InvText,
 } from 'common/components';
+import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
+import CheckpointConfigsSelect from 'features/modelManager/subpanels/shared/CheckpointConfigsSelect';
+import ModelVariantSelect from 'features/modelManager/subpanels/shared/ModelVariantSelect';
 import { MODEL_TYPE_MAP } from 'features/parameters/types/constants';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
@@ -19,9 +22,7 @@ import {
   useUpdateMainModelsMutation,
 } from 'services/api/endpoints/models';
 import type { CheckpointModelConfig } from 'services/api/types';
-import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
-import CheckpointConfigsSelect from 'features/modelManager/subpanels/shared/CheckpointConfigsSelect';
-import ModelVariantSelect from 'features/modelManager/subpanels/shared/ModelVariantSelect';
+
 import ModelConvert from './ModelConvert';
 
 type CheckpointModelEditProps = {

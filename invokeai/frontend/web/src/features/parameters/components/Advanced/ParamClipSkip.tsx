@@ -1,7 +1,7 @@
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { InvControl, InvSlider } from 'common/components';
+import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setClipSkip } from 'features/parameters/store/generationSlice';
 import { CLIP_SKIP_MAP } from 'features/parameters/types/constants';
 import { useCallback, useMemo } from 'react';

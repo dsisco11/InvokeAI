@@ -2,10 +2,11 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvButton } from 'common/components/InvButton';
 import { FaCopy, FaDownload, FaTrash } from 'react-icons/fa6';
-import { InvMenu, InvMenuButton } from './wrapper';
-import { InvMenuList } from './InvMenuList';
+
 import { InvMenuItem } from './InvMenuItem';
+import { InvMenuList } from './InvMenuList';
 import type { InvMenuProps } from './types';
+import { InvMenu, InvMenuButton } from './wrapper';
 
 const meta: Meta<typeof InvMenu> = {
   title: 'Primitives/InvMenu',

@@ -1,13 +1,13 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import type { InvSelectOnChange, InvSelectOption } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
-import { memo, useCallback, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
+import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import {
   isSeedBehaviour,
   seedBehaviourChanged,
 } from 'features/dynamicPrompts/store/dynamicPromptsSlice';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
+import { memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const ParamDynamicPromptsSeedBehaviour = () => {
   const dispatch = useAppDispatch();

@@ -11,8 +11,9 @@ import { addToast } from 'features/system/store/systemSlice';
 import { t } from 'i18next';
 import { omit } from 'lodash-es';
 import { boardsApi } from 'services/api/endpoints/boards';
-import { startAppListening } from '..';
 import { imagesApi } from 'services/api/endpoints/images';
+
+import { startAppListening } from '..';
 
 export const addImageUploadedFulfilledListener = () => {
   startAppListening({

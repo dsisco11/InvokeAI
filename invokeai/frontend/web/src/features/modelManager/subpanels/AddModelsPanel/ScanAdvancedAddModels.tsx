@@ -8,15 +8,16 @@ import {
   InvSelect,
   InvText,
 } from 'common/components';
-import { motion } from 'framer-motion';
-import { useCallback, useEffect, useState, useMemo } from 'react';
-import { FaTimes } from 'react-icons/fa';
 import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
+import { motion } from 'framer-motion';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { FaTimes } from 'react-icons/fa';
+
 import AdvancedAddCheckpoint from './AdvancedAddCheckpoint';
 import AdvancedAddDiffusers from './AdvancedAddDiffusers';
 import type { ManualAddMode } from './AdvancedAddModels';
 import { isManualAddMode } from './AdvancedAddModels';
-import { useTranslation } from 'react-i18next';
 
 export default function ScanAdvancedAddModels() {
   const advancedAddScanModel = useAppSelector(

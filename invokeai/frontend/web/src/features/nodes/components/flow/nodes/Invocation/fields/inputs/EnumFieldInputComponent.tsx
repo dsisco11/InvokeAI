@@ -5,9 +5,10 @@ import type {
   EnumFieldInputInstance,
   EnumFieldInputTemplate,
 } from 'features/nodes/types/field';
-import type { FieldComponentProps } from './types';
 import type { ChangeEvent } from 'react';
 import { memo, useCallback } from 'react';
+
+import type { FieldComponentProps } from './types';
 
 const EnumFieldInputComponent = (
   props: FieldComponentProps<EnumFieldInputInstance, EnumFieldInputTemplate>

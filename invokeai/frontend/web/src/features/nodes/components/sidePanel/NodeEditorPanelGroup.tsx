@@ -1,3 +1,5 @@
+import 'reactflow/dist/style.css';
+
 import { Flex } from '@chakra-ui/react';
 import ParamIterations from 'features/parameters/components/Core/ParamIterations';
 import QueueControls from 'features/queue/components/QueueControls';
@@ -6,7 +8,7 @@ import { usePanelStorage } from 'features/ui/hooks/usePanelStorage';
 import { memo, useCallback, useRef, useState } from 'react';
 import type { ImperativePanelGroupHandle } from 'react-resizable-panels';
 import { Panel, PanelGroup } from 'react-resizable-panels';
-import 'reactflow/dist/style.css';
+
 import InspectorPanel from './inspector/InspectorPanel';
 import WorkflowPanel from './workflow/WorkflowPanel';
 

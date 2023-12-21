@@ -4,16 +4,17 @@ import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
 import { InvExpander } from 'common/components';
 import { InvSingleAccordion } from 'common/components/InvSingleAccordion';
-import { AspectRatioPreviewWrapper } from './components/AspectRatioPreviewWrapper';
-import { AspectRatioSelect } from './components/AspectRatioSelect';
+import ParamBoundingBoxHeight from 'features/parameters/components/Canvas/BoundingBox/ParamBoundingBoxHeight';
+import ParamBoundingBoxWidth from 'features/parameters/components/Canvas/BoundingBox/ParamBoundingBoxWidth';
 import { ParamHeight } from 'features/parameters/components/Core/ParamHeight';
 import { ParamWidth } from 'features/parameters/components/Core/ParamWidth';
 import { ParamSeed } from 'features/parameters/components/Seed/';
-import { useTranslation } from 'react-i18next';
-import { activeTabNameSelector } from 'features/ui/store/uiSelectors';
 import type { InvokeTabName } from 'features/ui/store/tabMap';
-import ParamBoundingBoxWidth from 'features/parameters/components/Canvas/BoundingBox/ParamBoundingBoxWidth';
-import ParamBoundingBoxHeight from 'features/parameters/components/Canvas/BoundingBox/ParamBoundingBoxHeight';
+import { activeTabNameSelector } from 'features/ui/store/uiSelectors';
+import { useTranslation } from 'react-i18next';
+
+import { AspectRatioPreviewWrapper } from './components/AspectRatioPreviewWrapper';
+import { AspectRatioSelect } from './components/AspectRatioSelect';
 
 const selector = createMemoizedSelector(
   [stateSelector, activeTabNameSelector],

@@ -1,11 +1,11 @@
 import { Box } from '@chakra-ui/react';
 import InitialImageDisplay from 'features/parameters/components/ImageToImage/InitialImageDisplay';
+import ResizeHandle from 'features/ui/components/tabs/ResizeHandle';
+import TextToImageTabMain from 'features/ui/components/tabs/TextToImage/TextToImageTabMain';
 import { usePanelStorage } from 'features/ui/hooks/usePanelStorage';
 import { memo, useCallback, useRef } from 'react';
 import type { ImperativePanelGroupHandle } from 'react-resizable-panels';
 import { Panel, PanelGroup } from 'react-resizable-panels';
-import ResizeHandle from 'features/ui/components/tabs/ResizeHandle';
-import TextToImageTabMain from 'features/ui/components/tabs/TextToImage/TextToImageTabMain';
 
 const ImageToImageTab = () => {
   const panelGroupRef = useRef<ImperativePanelGroupHandle>(null);

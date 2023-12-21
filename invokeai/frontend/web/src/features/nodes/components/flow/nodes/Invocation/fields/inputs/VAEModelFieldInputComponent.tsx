@@ -15,6 +15,7 @@ import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { memo, useCallback } from 'react';
 import type { VaeModelConfigEntity } from 'services/api/endpoints/models';
 import { useGetVaeModelsQuery } from 'services/api/endpoints/models';
+
 import type { FieldComponentProps } from './types';
 
 type Props = FieldComponentProps<

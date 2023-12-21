@@ -3,6 +3,7 @@ import { Box, Collapse, Flex, Spacer, useDisclosure } from '@chakra-ui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { PropsWithChildren } from 'react';
 import { memo } from 'react';
+
 import { InvText } from './InvText';
 
 export type IAIToggleCollapseProps = PropsWithChildren & {

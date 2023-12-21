@@ -7,6 +7,10 @@ import {
   InvControl,
   InvInput,
 } from 'common/components';
+import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
+import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
+import CheckpointConfigsSelect from 'features/modelManager/subpanels/shared/CheckpointConfigsSelect';
+import ModelVariantSelect from 'features/modelManager/subpanels/shared/ModelVariantSelect';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import type { FocusEventHandler } from 'react';
@@ -14,10 +18,7 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAddMainModelsMutation } from 'services/api/endpoints/models';
 import type { CheckpointModelConfig } from 'services/api/types';
-import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
-import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
-import CheckpointConfigsSelect from 'features/modelManager/subpanels/shared/CheckpointConfigsSelect';
-import ModelVariantSelect from 'features/modelManager/subpanels/shared/ModelVariantSelect';
+
 import { getModelName } from './util';
 
 type AdvancedAddCheckpointProps = {

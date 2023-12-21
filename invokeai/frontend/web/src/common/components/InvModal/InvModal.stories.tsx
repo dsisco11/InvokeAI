@@ -1,15 +1,16 @@
+import { useDisclosure } from '@chakra-ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
+import { InvButton } from 'common/components';
+
 import {
   InvModal,
-  InvModalOverlay,
-  InvModalContent,
-  InvModalHeader,
-  InvModalFooter,
   InvModalBody,
   InvModalCloseButton,
+  InvModalContent,
+  InvModalFooter,
+  InvModalHeader,
+  InvModalOverlay,
 } from './wrapper';
-import { InvButton } from 'common/components';
-import { useDisclosure } from '@chakra-ui/react';
 
 const meta: Meta<typeof InvModal> = {
   title: 'Primitives/InvModal',

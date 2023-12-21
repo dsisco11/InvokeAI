@@ -1,10 +1,11 @@
+import type { ChakraProps } from '@chakra-ui/react';
+import { useQueueFront } from 'features/queue/hooks/useQueueFront';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaBoltLightning } from 'react-icons/fa6';
-import { useQueueFront } from 'features/queue/hooks/useQueueFront';
-import EnqueueButtonTooltip from './QueueButtonTooltip';
+
 import QueueButton from './common/QueueButton';
-import type { ChakraProps } from '@chakra-ui/react';
+import EnqueueButtonTooltip from './QueueButtonTooltip';
 
 type Props = {
   asIconButton?: boolean;

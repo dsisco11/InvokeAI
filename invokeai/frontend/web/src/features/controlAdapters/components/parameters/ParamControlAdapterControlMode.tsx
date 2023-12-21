@@ -1,13 +1,13 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import type { InvSelectOnChange } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
+import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { useControlAdapterControlMode } from 'features/controlAdapters/hooks/useControlAdapterControlMode';
 import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
 import { controlAdapterControlModeChanged } from 'features/controlAdapters/store/controlAdaptersSlice';
+import type { ControlMode } from 'features/controlAdapters/store/types';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { ControlMode } from 'features/controlAdapters/store/types';
 
 type Props = {
   id: string;

@@ -1,4 +1,5 @@
-import { MenuItem as ChakraMenuItem, forwardRef } from '@chakra-ui/react';
+import { forwardRef, MenuItem as ChakraMenuItem } from '@chakra-ui/react';
+
 import type { InvMenuItemProps } from './types';
 
 export const InvMenuItem = forwardRef((props: InvMenuItemProps, ref) => {

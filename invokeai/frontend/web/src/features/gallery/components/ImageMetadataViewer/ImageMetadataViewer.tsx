@@ -8,16 +8,17 @@ import {
   TabPanels,
   Tabs,
 } from '@chakra-ui/react';
+import { InvText } from 'common/components';
 import { IAINoContentFallback } from 'common/components/IAIImageFallback';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDebouncedMetadata } from 'services/api/hooks/useDebouncedMetadata';
 import type { ImageDTO } from 'services/api/types';
+
 import DataViewer from './DataViewer';
 import ImageMetadataActions from './ImageMetadataActions';
 import ImageMetadataWorkflowTabContent from './ImageMetadataWorkflowTabContent';
-import { InvText } from 'common/components';
 
 type ImageMetadataViewerProps = {
   image: ImageDTO;

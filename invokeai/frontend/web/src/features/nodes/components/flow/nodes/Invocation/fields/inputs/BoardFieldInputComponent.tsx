@@ -7,9 +7,10 @@ import type {
   BoardFieldInputTemplate,
 } from 'features/nodes/types/field';
 import { memo, useCallback, useMemo } from 'react';
-import { useListAllBoardsQuery } from 'services/api/endpoints/boards';
-import type { FieldComponentProps } from './types';
 import { useTranslation } from 'react-i18next';
+import { useListAllBoardsQuery } from 'services/api/endpoints/boards';
+
+import type { FieldComponentProps } from './types';
 
 const BoardFieldInputComponent = (
   props: FieldComponentProps<BoardFieldInputInstance, BoardFieldInputTemplate>

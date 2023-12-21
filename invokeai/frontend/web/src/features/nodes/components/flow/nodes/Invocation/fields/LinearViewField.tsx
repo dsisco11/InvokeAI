@@ -6,11 +6,12 @@ import { useMouseOverNode } from 'features/nodes/hooks/useMouseOverNode';
 import { workflowExposedFieldRemoved } from 'features/nodes/store/workflowSlice';
 import { HANDLE_TOOLTIP_OPEN_DELAY } from 'features/nodes/types/constants';
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaInfoCircle, FaTrash } from 'react-icons/fa';
+
 import EditableFieldTitle from './EditableFieldTitle';
 import FieldTooltipContent from './FieldTooltipContent';
 import InputFieldRenderer from './InputFieldRenderer';
-import { useTranslation } from 'react-i18next';
 
 type Props = {
   nodeId: string;

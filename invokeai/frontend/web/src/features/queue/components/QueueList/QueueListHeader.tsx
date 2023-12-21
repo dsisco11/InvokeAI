@@ -1,8 +1,9 @@
 import { Flex } from '@chakra-ui/react';
-import { memo } from 'react';
-import { COLUMN_WIDTHS } from './constants';
-import { useTranslation } from 'react-i18next';
 import { InvText } from 'common/components';
+import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { COLUMN_WIDTHS } from './constants';
 const QueueListHeader = () => {
   const { t } = useTranslation();
   return (

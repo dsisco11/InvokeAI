@@ -1,6 +1,7 @@
 import { Flex, Spinner } from '@chakra-ui/react';
 import type { EntityState } from '@reduxjs/toolkit';
 import { InvControl, InvInput } from 'common/components';
+import { InvButton, InvButtonGroup, InvText } from 'common/components';
 import { forEach } from 'lodash-es';
 import type { ChangeEvent, PropsWithChildren } from 'react';
 import { memo } from 'react';
@@ -17,8 +18,8 @@ import {
   useGetMainModelsQuery,
   useGetOnnxModelsQuery,
 } from 'services/api/endpoints/models';
+
 import ModelListItem from './ModelListItem';
-import { InvButton, InvButtonGroup, InvText } from 'common/components';
 
 type ModelListProps = {
   selectedModelId: string | undefined;

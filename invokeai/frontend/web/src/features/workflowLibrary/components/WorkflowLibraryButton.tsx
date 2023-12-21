@@ -1,10 +1,11 @@
 import { useDisclosure } from '@chakra-ui/react';
+import { InvButton } from 'common/components';
 import { WorkflowLibraryModalContext } from 'features/workflowLibrary/context/WorkflowLibraryModalContext';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaFolderOpen } from 'react-icons/fa';
+
 import WorkflowLibraryModal from './WorkflowLibraryModal';
-import { InvButton } from 'common/components';
 
 const WorkflowLibraryButton = () => {
   const { t } = useTranslation();

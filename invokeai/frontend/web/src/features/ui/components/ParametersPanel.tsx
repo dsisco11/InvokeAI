@@ -5,10 +5,11 @@ import QueueControls from 'features/queue/components/QueueControls';
 import SDXLImageToImageTabParameters from 'features/sdxl/components/SDXLImageToImageTabParameters';
 import SDXLTextToImageTabParameters from 'features/sdxl/components/SDXLTextToImageTabParameters';
 import SDXLUnifiedCanvasTabParameters from 'features/sdxl/components/SDXLUnifiedCanvasTabParameters';
+import { activeTabNameSelector } from 'features/ui/store/uiSelectors';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import type { PropsWithChildren } from 'react';
 import { memo } from 'react';
-import { activeTabNameSelector } from 'features/ui/store/uiSelectors';
+
 import ImageToImageTabParameters from './tabs/ImageToImage/ImageToImageTabParameters';
 import TextToImageTabParameters from './tabs/TextToImage/TextToImageTabParameters';
 import UnifiedCanvasParameters from './tabs/UnifiedCanvas/UnifiedCanvasParameters';

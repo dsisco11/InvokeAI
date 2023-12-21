@@ -2,10 +2,11 @@ import type { EntityState } from '@reduxjs/toolkit';
 import type { GroupBase } from 'chakra-react-select';
 import { groupBy, map, reduce } from 'lodash-es';
 import { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { AnyModelConfigEntity } from 'services/api/endpoints/models';
 import { getModelId } from 'services/api/endpoints/models';
+
 import type { InvSelectOnChange, InvSelectOption } from './types';
-import { useTranslation } from 'react-i18next';
 
 type UseGroupedModelInvSelectArg<T extends AnyModelConfigEntity> = {
   modelEntities: EntityState<T, string> | undefined;

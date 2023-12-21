@@ -4,6 +4,7 @@ import {
   Button,
   Divider,
   Flex,
+  forwardRef,
   Heading,
   Image,
   Popover,
@@ -12,17 +13,17 @@ import {
   PopoverContent,
   PopoverTrigger,
   Portal,
-  forwardRef,
 } from '@chakra-ui/react';
+import { useAppSelector } from 'app/store/storeHooks';
+import { InvText } from 'common/components/InvText';
 import { merge, omit } from 'lodash-es';
 import type { PropsWithChildren } from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaExternalLinkAlt } from 'react-icons/fa';
-import { useAppSelector } from 'app/store/storeHooks';
+
 import type { Feature } from './constants';
 import { OPEN_DELAY, POPOVER_DATA, POPPER_MODIFIERS } from './constants';
-import { InvText } from 'common/components/InvText';
 
 type Props = PropsWithChildren & {
   feature: Feature;

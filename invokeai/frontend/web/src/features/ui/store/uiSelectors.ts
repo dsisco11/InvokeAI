@@ -1,6 +1,7 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import type { RootState } from 'app/store/store';
 import { isString } from 'lodash-es';
+
 import { tabMap } from './tabMap';
 
 export const activeTabNameSelector = createMemoizedSelector(

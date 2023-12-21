@@ -5,18 +5,18 @@ import {
   RadioGroup,
   UnorderedList,
 } from '@chakra-ui/react';
-import { makeToast } from 'features/system/util/makeToast';
 // import { convertToDiffusers } from 'app/socketio/actions';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIAlertDialog from 'common/components/IAIAlertDialog';
 import { InvControl, InvInput, InvTooltip } from 'common/components';
+import { InvButton, InvText } from 'common/components';
+import IAIAlertDialog from 'common/components/IAIAlertDialog';
 import { addToast } from 'features/system/store/systemSlice';
+import { makeToast } from 'features/system/util/makeToast';
 import type { ChangeEvent } from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useConvertMainModelsMutation } from 'services/api/endpoints/models';
 import type { CheckpointModelConfig } from 'services/api/types';
-import { InvButton, InvText } from 'common/components';
 
 interface ModelConvertProps {
   model: CheckpointModelConfig;

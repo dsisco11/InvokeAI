@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { InvButton } from './InvButton';
 import type { InvButtonProps } from './types';
 

@@ -8,6 +8,7 @@ import type {
   T2IAdapterField,
   T2IAdapterInvocation,
 } from 'services/api/types';
+
 import {
   CANVAS_COHERENCE_DENOISE_LATENTS,
   T2I_ADAPTER_COLLECT,

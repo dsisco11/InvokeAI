@@ -1,12 +1,12 @@
 import type {
-  MenuProps as ChakraMenuProps,
   MenuButtonProps as ChakraMenuButtonProps,
-  MenuListProps as ChakraMenuListProps,
-  MenuItemProps as ChakraMenuItemProps,
-  MenuItemOptionProps as ChakraMenuItemOptionProps,
-  MenuGroupProps as ChakraMenuGroupProps,
-  MenuOptionGroupProps as ChakraMenuOptionGroupProps,
   MenuDividerProps as ChakraMenuDividerProps,
+  MenuGroupProps as ChakraMenuGroupProps,
+  MenuItemOptionProps as ChakraMenuItemOptionProps,
+  MenuItemProps as ChakraMenuItemProps,
+  MenuListProps as ChakraMenuListProps,
+  MenuOptionGroupProps as ChakraMenuOptionGroupProps,
+  MenuProps as ChakraMenuProps,
 } from '@chakra-ui/react';
 
 export type InvMenuProps = ChakraMenuProps;

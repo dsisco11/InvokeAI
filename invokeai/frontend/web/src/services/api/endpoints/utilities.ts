@@ -1,5 +1,6 @@
-import { api } from '..';
 import type { components } from 'services/api/schema';
+
+import { api } from '..';
 
 export const utilitiesApi = api.injectEndpoints({
   endpoints: (build) => ({

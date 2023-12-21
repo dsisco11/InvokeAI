@@ -1,10 +1,10 @@
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvIconButton, InvTooltip } from 'common/components';
-import { FaLink, FaUnlink } from 'react-icons/fa';
 import { setShouldConcatSDXLStylePrompt } from 'features/sdxl/store/sdxlSlice';
-import { useTranslation } from 'react-i18next';
 import { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { FaLink, FaUnlink } from 'react-icons/fa';
 
 export const SDXLConcatButton = () => {
   const shouldConcatSDXLStylePrompt = useAppSelector(

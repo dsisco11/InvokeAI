@@ -2,6 +2,7 @@ import { Divider, Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
 import { InvButton, InvControl, InvInput, InvText } from 'common/components';
+import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
 import {
   LORA_MODEL_FORMAT_MAP,
   MODEL_TYPE_MAP,
@@ -13,7 +14,6 @@ import { useTranslation } from 'react-i18next';
 import type { LoRAModelConfigEntity } from 'services/api/endpoints/models';
 import { useUpdateLoRAModelsMutation } from 'services/api/endpoints/models';
 import type { LoRAModelConfig } from 'services/api/types';
-import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
 
 type LoRAModelEditProps = {
   model: LoRAModelConfigEntity;

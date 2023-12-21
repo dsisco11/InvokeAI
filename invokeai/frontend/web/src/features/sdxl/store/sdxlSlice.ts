@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import type {
   ParameterNegativeStylePromptSDXL,
   ParameterPositiveStylePromptSDXL,
-  ParameterSDXLRefinerModel,
   ParameterScheduler,
+  ParameterSDXLRefinerModel,
 } from 'features/parameters/types/parameterSchemas';
 
 type SDXLState = {

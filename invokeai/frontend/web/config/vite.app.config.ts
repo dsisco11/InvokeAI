@@ -1,4 +1,5 @@
 import type { UserConfig } from 'vite';
+
 import { commonPlugins } from './common';
 
 export const appConfig: UserConfig = {

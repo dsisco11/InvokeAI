@@ -1,10 +1,10 @@
 import type { ChakraProps } from '@chakra-ui/react';
 import { Box, Flex, Spinner } from '@chakra-ui/react';
+import { InvIconButton } from 'common/components';
+import { useNextPrevImage } from 'features/gallery/hooks/useNextPrevImage';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaAngleDoubleRight, FaAngleLeft, FaAngleRight } from 'react-icons/fa';
-import { useNextPrevImage } from 'features/gallery/hooks/useNextPrevImage';
-import { InvIconButton } from 'common/components';
 
 const nextPrevButtonStyles: ChakraProps['sx'] = {
   color: 'base.100',

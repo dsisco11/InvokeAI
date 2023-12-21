@@ -1,11 +1,12 @@
+import type { ChakraProps } from '@chakra-ui/react';
+import { InvText } from 'common/components';
+import IAIAlertDialog from 'common/components/IAIAlertDialog';
+import { useClearQueue } from 'features/queue/hooks/useClearQueue';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaTrash } from 'react-icons/fa';
-import { useClearQueue } from 'features/queue/hooks/useClearQueue';
+
 import QueueButton from './common/QueueButton';
-import type { ChakraProps } from '@chakra-ui/react';
-import IAIAlertDialog from 'common/components/IAIAlertDialog';
-import { InvText } from 'common/components';
 
 type Props = {
   asIconButton?: boolean;

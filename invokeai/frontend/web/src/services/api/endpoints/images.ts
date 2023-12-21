@@ -28,8 +28,9 @@ import {
   imagesAdapter,
   imagesSelectors,
 } from 'services/api/util';
+
 import type { ApiTagDescription } from '..';
-import { LIST_TAG, api } from '..';
+import { api, LIST_TAG } from '..';
 import { boardsApi } from './boards';
 
 export const imagesApi = api.injectEndpoints({

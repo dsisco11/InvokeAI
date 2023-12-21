@@ -1,8 +1,8 @@
 import { useToken } from '@chakra-ui/react';
+import type { CanvasImage } from 'features/canvas/store/canvasTypes';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Group, Rect, Text } from 'react-konva';
-import type { CanvasImage } from 'features/canvas/store/canvasTypes';
 
 type IAICanvasImageErrorFallbackProps = {
   canvasImage: CanvasImage;

@@ -1,11 +1,12 @@
 import { Flex } from '@chakra-ui/react';
-import { useCallback, useMemo, useState } from 'react';
-import AdvancedAddCheckpoint from './AdvancedAddCheckpoint';
-import AdvancedAddDiffusers from './AdvancedAddDiffusers';
-import { useTranslation } from 'react-i18next';
-import { z } from 'zod';
 import type { InvSelectOnChange, InvSelectOption } from 'common/components';
 import { InvControl, InvSelect } from 'common/components';
+import { useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
+
+import AdvancedAddCheckpoint from './AdvancedAddCheckpoint';
+import AdvancedAddDiffusers from './AdvancedAddDiffusers';
 
 export const zManualAddMode = z.enum(['diffusers', 'checkpoint']);
 export type ManualAddMode = z.infer<typeof zManualAddMode>;

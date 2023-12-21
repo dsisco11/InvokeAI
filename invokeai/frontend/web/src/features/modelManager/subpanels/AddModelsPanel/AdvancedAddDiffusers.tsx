@@ -2,17 +2,18 @@ import { Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
 import { InvButton, InvControl, InvInput } from 'common/components';
-import { addToast } from 'features/system/store/systemSlice';
-import { makeToast } from 'features/system/util/makeToast';
-import { useTranslation } from 'react-i18next';
-import { useAddMainModelsMutation } from 'services/api/endpoints/models';
-import type { DiffusersModelConfig } from 'services/api/types';
 import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
 import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
 import ModelVariantSelect from 'features/modelManager/subpanels/shared/ModelVariantSelect';
-import { getModelName } from './util';
+import { addToast } from 'features/system/store/systemSlice';
+import { makeToast } from 'features/system/util/makeToast';
 import type { FocusEventHandler } from 'react';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useAddMainModelsMutation } from 'services/api/endpoints/models';
+import type { DiffusersModelConfig } from 'services/api/types';
+
+import { getModelName } from './util';
 
 type AdvancedAddDiffusersProps = {
   model_path?: string;

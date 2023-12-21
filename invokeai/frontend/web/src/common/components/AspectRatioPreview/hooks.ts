@@ -1,5 +1,6 @@
-import { ICON_HIGH_CUTOFF, ICON_LOW_CUTOFF } from './constants';
 import { useMemo } from 'react';
+
+import { ICON_HIGH_CUTOFF, ICON_LOW_CUTOFF } from './constants';
 
 type Dimensions = {
   width: number;

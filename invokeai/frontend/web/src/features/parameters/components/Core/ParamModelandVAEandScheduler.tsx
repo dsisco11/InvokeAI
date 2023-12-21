@@ -1,10 +1,11 @@
 import { Box, Flex } from '@chakra-ui/react';
-import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
-import { memo } from 'react';
 import ParamMainModelSelect from 'features/parameters/components/MainModel/ParamMainModelSelect';
 import ParamVAEModelSelect from 'features/parameters/components/VAEModel/ParamVAEModelSelect';
-import ParamScheduler from './ParamScheduler';
 import ParamVAEPrecision from 'features/parameters/components/VAEModel/ParamVAEPrecision';
+import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
+import { memo } from 'react';
+
+import ParamScheduler from './ParamScheduler';
 
 const ParamModelandVAEandScheduler = () => {
   const isVaeEnabled = useFeatureStatus('vae').isFeatureEnabled;

@@ -1,4 +1,4 @@
-import { MenuItem } from '@chakra-ui/react';
+import { InvMenuItem } from 'common/components';
 import { useDownloadWorkflow } from 'features/nodes/hooks/useDownloadWorkflow';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -9,9 +9,9 @@ const DownloadWorkflowMenuItem = () => {
   const downloadWorkflow = useDownloadWorkflow();
 
   return (
-    <MenuItem as="button" icon={<FaDownload />} onClick={downloadWorkflow}>
+    <InvMenuItem as="button" icon={<FaDownload />} onClick={downloadWorkflow}>
       {t('workflows.downloadWorkflow')}
-    </MenuItem>
+    </InvMenuItem>
   );
 };
 

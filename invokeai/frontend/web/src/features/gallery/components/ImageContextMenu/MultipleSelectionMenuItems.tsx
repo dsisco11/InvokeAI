@@ -1,7 +1,7 @@
-import { MenuItem } from '@chakra-ui/react';
 import { useStore } from '@nanostores/react';
 import { $customStarUI } from 'app/store/nanostores/customStarUI';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import { InvMenuItem } from 'common/components';
 import {
   imagesToChangeSelected,
   isModalOpenChanged,
@@ -89,36 +89,36 @@ const MultipleSelectionMenuItems = () => {
   return (
     <>
       {areAllStarred && (
-        <MenuItem
+        <InvMenuItem
           icon={customStarUi ? customStarUi.on.icon : <MdStarBorder />}
           onClickCapture={handleUnstarSelection}
         >
           {customStarUi ? customStarUi.off.text : `Unstar All`}
-        </MenuItem>
+        </InvMenuItem>
       )}
       {(areAllUnstarred || (!areAllStarred && !areAllUnstarred)) && (
-        <MenuItem
+        <InvMenuItem
           icon={customStarUi ? customStarUi.on.icon : <MdStar />}
           onClickCapture={handleStarSelection}
         >
           {customStarUi ? customStarUi.on.text : `Star All`}
-        </MenuItem>
+        </InvMenuItem>
       )}
       {isBulkDownloadEnabled && (
-        <MenuItem icon={<FaDownload />} onClickCapture={handleBulkDownload}>
+        <InvMenuItem icon={<FaDownload />} onClickCapture={handleBulkDownload}>
           {t('gallery.downloadSelection')}
-        </MenuItem>
+        </InvMenuItem>
       )}
-      <MenuItem icon={<FaFolder />} onClickCapture={handleChangeBoard}>
+      <InvMenuItem icon={<FaFolder />} onClickCapture={handleChangeBoard}>
         {t('boards.changeBoard')}
-      </MenuItem>
-      <MenuItem
+      </InvMenuItem>
+      <InvMenuItem
         sx={{ color: 'error.300' }}
         icon={<FaTrash />}
         onClickCapture={handleDeleteSelection}
       >
         {t('gallery.deleteSelection')}
-      </MenuItem>
+      </InvMenuItem>
     </>
   );
 };

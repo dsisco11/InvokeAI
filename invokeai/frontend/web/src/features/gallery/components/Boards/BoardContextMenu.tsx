@@ -17,7 +17,6 @@ import { useBoardName } from 'services/api/hooks/useBoardName';
 import type { BoardDTO } from 'services/api/types';
 
 import GalleryBoardContextMenuItems from './GalleryBoardContextMenuItems';
-import NoBoardContextMenuItems from './NoBoardContextMenuItems';
 
 type Props = {
   board?: BoardDTO;
@@ -112,7 +111,6 @@ const BoardContextMenu = ({
               {t('boards.downloadBoard')}
             </InvMenuItem>
           )}
-          {!board && <NoBoardContextMenuItems />}
           {board && (
             <GalleryBoardContextMenuItems
               board={board}

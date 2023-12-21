@@ -1,17 +1,13 @@
-import {
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogContent,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogOverlay,
-  Divider,
-  Flex,
-} from '@chakra-ui/react';
+import { Divider, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvButton, InvControl, InvSwitch, InvText } from 'common/components';
+import {
+  InvConfirmationAlertDialog,
+  InvControl,
+  InvSwitch,
+  InvText,
+} from 'common/components';
 import { imageDeletionConfirmed } from 'features/deleteImageModal/store/actions';
 import {
   getImageUsage,
@@ -25,7 +21,7 @@ import type { ImageUsage } from 'features/deleteImageModal/store/types';
 import { setShouldConfirmOnDelete } from 'features/system/store/systemSlice';
 import { some } from 'lodash-es';
 import type { ChangeEvent } from 'react';
-import { memo, useCallback, useRef } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import ImageUsageMessage from './ImageUsageMessage';
@@ -94,50 +90,32 @@ const DeleteImageModal = () => {
     );
   }, [dispatch, imagesToDelete, imagesUsage]);
 
-  const cancelRef = useRef<HTMLButtonElement>(null);
-
   return (
-    <AlertDialog
+    <InvConfirmationAlertDialog
+      title={t('gallery.deleteImage')}
       isOpen={isModalOpen}
       onClose={handleClose}
-      leastDestructiveRef={cancelRef}
-      isCentered
+      cancelButtonText={t('boards.cancel')}
+      acceptButtonText={t('controlnet.delete')}
+      acceptCallback={handleDelete}
     >
-      <AlertDialogOverlay>
-        <AlertDialogContent>
-          <AlertDialogHeader fontSize="lg" fontWeight="bold">
-            {t('gallery.deleteImage')}
-          </AlertDialogHeader>
-
-          <AlertDialogBody>
-            <Flex direction="column" gap={3}>
-              <ImageUsageMessage imageUsage={imageUsageSummary} />
-              <Divider />
-              <InvText>
-                {canRestoreDeletedImagesFromBin
-                  ? t('gallery.deleteImageBin')
-                  : t('gallery.deleteImagePermanent')}
-              </InvText>
-              <InvText>{t('common.areYouSure')}</InvText>
-              <InvControl label={t('common.dontAskMeAgain')}>
-                <InvSwitch
-                  isChecked={!shouldConfirmOnDelete}
-                  onChange={handleChangeShouldConfirmOnDelete}
-                />
-              </InvControl>
-            </Flex>
-          </AlertDialogBody>
-          <AlertDialogFooter>
-            <InvButton ref={cancelRef} onClick={handleClose}>
-              {t('boards.cancel')}
-            </InvButton>
-            <InvButton colorScheme="error" onClick={handleDelete} ml={3}>
-              {t('controlnet.delete')}
-            </InvButton>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialogOverlay>
-    </AlertDialog>
+      <Flex direction="column" gap={3}>
+        <ImageUsageMessage imageUsage={imageUsageSummary} />
+        <Divider />
+        <InvText>
+          {canRestoreDeletedImagesFromBin
+            ? t('gallery.deleteImageBin')
+            : t('gallery.deleteImagePermanent')}
+        </InvText>
+        <InvText>{t('common.areYouSure')}</InvText>
+        <InvControl label={t('common.dontAskMeAgain')}>
+          <InvSwitch
+            isChecked={!shouldConfirmOnDelete}
+            onChange={handleChangeShouldConfirmOnDelete}
+          />
+        </InvControl>
+      </Flex>
+    </InvConfirmationAlertDialog>
   );
 };
 

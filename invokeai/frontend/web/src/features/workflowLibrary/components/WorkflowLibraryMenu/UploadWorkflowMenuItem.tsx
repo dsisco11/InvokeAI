@@ -1,5 +1,5 @@
-import { MenuItem } from '@chakra-ui/react';
 import { FileButton } from '@mantine/core';
+import { InvMenuItem } from 'common/components';
 import { useLoadWorkflowFromFile } from 'features/workflowLibrary/hooks/useLoadWorkflowFromFile';
 import { memo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -16,9 +16,9 @@ const UploadWorkflowMenuItem = () => {
       onChange={loadWorkflowFromFile}
     >
       {(props) => (
-        <MenuItem as="button" icon={<FaUpload />} {...props}>
+        <InvMenuItem as="button" icon={<FaUpload />} {...props}>
           {t('workflows.uploadWorkflow')}
-        </MenuItem>
+        </InvMenuItem>
       )}
     </FileButton>
   );

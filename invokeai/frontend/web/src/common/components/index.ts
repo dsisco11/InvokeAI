@@ -1,4 +1,5 @@
 export * from './InvAccordion';
+export * from './InvAlertDialog';
 export * from './InvBadge';
 export * from './InvButton';
 export * from './InvButtonGroup';

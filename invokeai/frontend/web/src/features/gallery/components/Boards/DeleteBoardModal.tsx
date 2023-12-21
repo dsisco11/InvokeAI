@@ -1,18 +1,18 @@
-import {
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogContent,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogOverlay,
-  Flex,
-  Skeleton,
-} from '@chakra-ui/react';
+import { Flex, Skeleton } from '@chakra-ui/react';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvButton, InvText } from 'common/components';
+import {
+  InvAlertDialog,
+  InvAlertDialogBody,
+  InvAlertDialogContent,
+  InvAlertDialogFooter,
+  InvAlertDialogHeader,
+  InvAlertDialogOverlay,
+  InvButton,
+  InvText,
+} from 'common/components';
 import ImageUsageMessage from 'features/deleteImageModal/components/ImageUsageMessage';
 import { getImageUsage } from 'features/deleteImageModal/store/selectors';
 import type { ImageUsage } from 'features/deleteImageModal/store/types';
@@ -105,28 +105,23 @@ const DeleteBoardModal = (props: Props) => {
   }
 
   return (
-    <AlertDialog
+    <InvAlertDialog
       isOpen={Boolean(boardToDelete)}
       onClose={handleClose}
       leastDestructiveRef={cancelRef}
       isCentered
     >
-      <AlertDialogOverlay>
-        <AlertDialogContent>
-          <AlertDialogHeader fontSize="lg" fontWeight="bold">
+      <InvAlertDialogOverlay>
+        <InvAlertDialogContent>
+          <InvAlertDialogHeader fontSize="lg" fontWeight="bold">
             {t('controlnet.delete')} {boardToDelete.board_name}
-          </AlertDialogHeader>
+          </InvAlertDialogHeader>
 
-          <AlertDialogBody>
+          <InvAlertDialogBody>
             <Flex direction="column" gap={3}>
               {isFetchingBoardNames ? (
                 <Skeleton>
-                  <Flex
-                    sx={{
-                      w: 'full',
-                      h: 32,
-                    }}
-                  />
+                  <Flex w="full" h={32} />
                 </Skeleton>
               ) : (
                 <ImageUsageMessage
@@ -142,8 +137,8 @@ const DeleteBoardModal = (props: Props) => {
                   : t('gallery.deleteImagePermanent')}
               </InvText>
             </Flex>
-          </AlertDialogBody>
-          <AlertDialogFooter>
+          </InvAlertDialogBody>
+          <InvAlertDialogFooter>
             <Flex
               sx={{ justifyContent: 'space-between', width: 'full', gap: 2 }}
             >
@@ -165,10 +160,10 @@ const DeleteBoardModal = (props: Props) => {
                 {t('boards.deleteBoardAndImages')}
               </InvButton>
             </Flex>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialogOverlay>
-    </AlertDialog>
+          </InvAlertDialogFooter>
+        </InvAlertDialogContent>
+      </InvAlertDialogOverlay>
+    </InvAlertDialog>
   );
 };
 

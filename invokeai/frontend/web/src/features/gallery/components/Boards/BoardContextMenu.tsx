@@ -2,20 +2,19 @@ import { InvMenuGroup, InvMenuItem, InvMenuList } from 'common/components/';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import {
-  IAIContextMenu,
-  IAIContextMenuProps,
-} from 'common/components/IAIContextMenu';
+import type { IAIContextMenuProps } from 'common/components/IAIContextMenu';
+import { IAIContextMenu } from 'common/components/IAIContextMenu';
 import { autoAddBoardIdChanged } from 'features/gallery/store/gallerySlice';
-import { BoardId } from 'features/gallery/store/types';
+import type { BoardId } from 'features/gallery/store/types';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { addToast } from 'features/system/store/systemSlice';
-import { MouseEvent, memo, useCallback, useMemo } from 'react';
+import type { MouseEvent } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaDownload, FaPlus } from 'react-icons/fa';
 import { useBulkDownloadImagesMutation } from 'services/api/endpoints/images';
 import { useBoardName } from 'services/api/hooks/useBoardName';
-import { BoardDTO } from 'services/api/types';
+import type { BoardDTO } from 'services/api/types';
 import GalleryBoardContextMenuItems from './GalleryBoardContextMenuItems';
 import NoBoardContextMenuItems from './NoBoardContextMenuItems';
 

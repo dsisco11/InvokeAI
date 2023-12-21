@@ -1,6 +1,7 @@
 import { Divider, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
-import { RootState, stateSelector } from 'app/store/store';
+import type { RootState } from 'app/store/store';
+import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
 import IAICollapse from 'common/components/IAICollapse';
 import { ParamCpuNoiseToggle } from 'features/parameters/components/Noise/ParamCpuNoise';

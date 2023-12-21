@@ -1,4 +1,5 @@
-import { ChakraProps, Flex, FlexProps, Icon, Image } from '@chakra-ui/react';
+import type { ChakraProps, FlexProps } from '@chakra-ui/react';
+import { Flex, Icon, Image } from '@chakra-ui/react';
 import {
   IAILoadingImageFallback,
   IAINoContentFallback,
@@ -6,21 +7,19 @@ import {
 import ImageMetadataOverlay from 'common/components/ImageMetadataOverlay';
 import { useImageUploadButton } from 'common/hooks/useImageUploadButton';
 import ImageContextMenu from 'features/gallery/components/ImageContextMenu/ImageContextMenu';
-import {
+import type {
   MouseEvent,
   ReactElement,
   ReactNode,
   SyntheticEvent,
-  memo,
-  useCallback,
-  useState,
 } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { FaImage, FaUpload } from 'react-icons/fa';
-import { ImageDTO, PostUploadAction } from 'services/api/types';
+import type { ImageDTO, PostUploadAction } from 'services/api/types';
 import IAIDraggable from './IAIDraggable';
 import IAIDroppable from './IAIDroppable';
 import SelectionOverlay from './SelectionOverlay';
-import {
+import type {
   TypesafeDraggableData,
   TypesafeDroppableData,
 } from 'features/dnd/types';

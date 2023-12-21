@@ -1,4 +1,5 @@
-import { InvSelect, InvSelectOption, InvSelectProps } from 'common/components';
+import type { InvSelectOption, InvSelectProps } from 'common/components';
+import { InvSelect } from 'common/components';
 
 const options: InvSelectOption[] = [
   { value: 'normal', label: 'Normal' },

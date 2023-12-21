@@ -1,12 +1,8 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import {
-  InvControl,
-  InvSelect,
-  InvSelectOnChange,
-  InvSelectOption,
-} from 'common/components';
+import type { InvSelectOnChange, InvSelectOption } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 import { setHrfMethod } from 'features/parameters/store/generationSlice';
 import { isParameterHRFMethod } from 'features/parameters/types/parameterSchemas';
 import { memo, useCallback, useMemo } from 'react';

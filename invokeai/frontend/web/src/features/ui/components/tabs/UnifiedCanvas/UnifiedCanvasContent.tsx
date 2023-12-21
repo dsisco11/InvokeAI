@@ -3,7 +3,7 @@ import IAIDropOverlay from 'common/components/IAIDropOverlay';
 import IAICanvas from 'features/canvas/components/IAICanvas';
 import IAICanvasToolbar from 'features/canvas/components/IAICanvasToolbar/IAICanvasToolbar';
 import { useDroppableTypesafe } from 'features/dnd/hooks/typesafeHooks';
-import { CanvasInitialImageDropData } from 'features/dnd/types';
+import type { CanvasInitialImageDropData } from 'features/dnd/types';
 import { isValidDrop } from 'features/dnd/util/isValidDrop';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';

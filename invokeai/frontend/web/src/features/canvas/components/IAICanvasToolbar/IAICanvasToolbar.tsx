@@ -2,12 +2,12 @@ import { Box, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import type { InvSelectOnChange } from 'common/components';
 import {
   InvButtonGroup,
   InvControl,
   InvIconButton,
   InvSelect,
-  InvSelectOnChange,
   InvTooltip,
 } from 'common/components';
 import { useCopyImageToClipboard } from 'common/hooks/useCopyImageToClipboard';
@@ -27,10 +27,8 @@ import {
   setLayer,
   setTool,
 } from 'features/canvas/store/canvasSlice';
-import {
-  CanvasLayer,
-  LAYER_NAMES_DICT,
-} from 'features/canvas/store/canvasTypes';
+import type { CanvasLayer } from 'features/canvas/store/canvasTypes';
+import { LAYER_NAMES_DICT } from 'features/canvas/store/canvasTypes';
 import { getCanvasBaseLayer } from 'features/canvas/util/konvaInstanceProvider';
 import { memo, useCallback, useMemo } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';

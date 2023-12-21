@@ -1,5 +1,5 @@
 import { NUMPY_RAND_MAX, NUMPY_RAND_MIN } from 'app/constants';
-import { RootState } from 'app/store/store';
+import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvIconButton, InvTooltip } from 'common/components/';
 import randomInt from 'common/util/randomInt';

@@ -1,13 +1,12 @@
 import { Flex, Radio, RadioGroup } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
+import type { InvSelectOnChange, InvSelectOption } from 'common/components';
 import {
   InvButton,
   InvCheckbox,
   InvControl,
   InvInput,
   InvSelect,
-  InvSelectOnChange,
-  InvSelectOption,
   InvSlider,
   InvText,
   InvTooltip,
@@ -15,14 +14,15 @@ import {
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { pickBy } from 'lodash-es';
-import { ChangeEvent, useCallback, useMemo, useState } from 'react';
+import type { ChangeEvent } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ALL_BASE_MODELS } from 'services/api/constants';
 import {
   useGetMainModelsQuery,
   useMergeMainModelsMutation,
 } from 'services/api/endpoints/models';
-import { BaseModelType, MergeModelConfig } from 'services/api/types';
+import type { BaseModelType, MergeModelConfig } from 'services/api/types';
 
 const baseModelTypeSelectOptions: InvSelectOption[] = [
   { label: 'Stable Diffusion 1', value: 'sd-1' },

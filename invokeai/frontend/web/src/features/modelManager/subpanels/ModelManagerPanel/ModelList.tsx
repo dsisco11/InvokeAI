@@ -1,15 +1,18 @@
 import { Flex, Spinner } from '@chakra-ui/react';
-import { EntityState } from '@reduxjs/toolkit';
+import type { EntityState } from '@reduxjs/toolkit';
 import { InvControl, InvInput } from 'common/components';
 import { forEach } from 'lodash-es';
-import { ChangeEvent, PropsWithChildren, memo } from 'react';
+import type { ChangeEvent, PropsWithChildren } from 'react';
+import { memo } from 'react';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ALL_BASE_MODELS } from 'services/api/constants';
-import {
+import type {
   LoRAModelConfigEntity,
   MainModelConfigEntity,
   OnnxModelConfigEntity,
+} from 'services/api/endpoints/models';
+import {
   useGetLoRAModelsQuery,
   useGetMainModelsQuery,
   useGetOnnxModelsQuery,

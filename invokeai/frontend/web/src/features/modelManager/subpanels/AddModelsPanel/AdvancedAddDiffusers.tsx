@@ -6,12 +6,13 @@ import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { useTranslation } from 'react-i18next';
 import { useAddMainModelsMutation } from 'services/api/endpoints/models';
-import { DiffusersModelConfig } from 'services/api/types';
+import type { DiffusersModelConfig } from 'services/api/types';
 import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
 import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
 import ModelVariantSelect from 'features/modelManager/subpanels/shared/ModelVariantSelect';
 import { getModelName } from './util';
-import { FocusEventHandler, useCallback } from 'react';
+import type { FocusEventHandler } from 'react';
+import { useCallback } from 'react';
 
 type AdvancedAddDiffusersProps = {
   model_path?: string;

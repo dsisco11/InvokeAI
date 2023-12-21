@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvExpander } from './InvExpander';
-import { InvExpanderProps } from './types';
+import type { InvExpanderProps } from './types';
 
 const meta: Meta<typeof InvExpander> = {
   title: 'Primitives/InvExpander',

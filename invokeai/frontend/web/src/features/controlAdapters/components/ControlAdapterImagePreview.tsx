@@ -10,7 +10,7 @@ import { useControlAdapterControlImage } from 'features/controlAdapters/hooks/us
 import { useControlAdapterProcessedControlImage } from 'features/controlAdapters/hooks/useControlAdapterProcessedControlImage';
 import { useControlAdapterProcessorType } from 'features/controlAdapters/hooks/useControlAdapterProcessorType';
 import { controlAdapterImageChanged } from 'features/controlAdapters/store/controlAdaptersSlice';
-import {
+import type {
   TypesafeDraggableData,
   TypesafeDroppableData,
 } from 'features/dnd/types';
@@ -28,7 +28,7 @@ import {
   useGetImageDTOQuery,
   useRemoveImageFromBoardMutation,
 } from 'services/api/endpoints/images';
-import { PostUploadAction } from 'services/api/types';
+import type { PostUploadAction } from 'services/api/types';
 
 type Props = {
   id: string;

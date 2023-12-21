@@ -1,5 +1,5 @@
 import { isNumber, startCase } from 'lodash-es';
-import {
+import type {
   BoardFieldInputTemplate,
   BooleanFieldInputTemplate,
   ColorFieldInputTemplate,
@@ -21,12 +21,10 @@ import {
   StringFieldInputTemplate,
   T2IAdapterModelFieldInputTemplate,
   VAEModelFieldInputTemplate,
-  isStatefulFieldType,
 } from 'features/nodes/types/field';
-import {
-  InvocationFieldSchema,
-  isSchemaObject,
-} from 'features/nodes/types/openapi';
+import { isStatefulFieldType } from 'features/nodes/types/field';
+import type { InvocationFieldSchema } from 'features/nodes/types/openapi';
+import { isSchemaObject } from 'features/nodes/types/openapi';
 import { t } from 'i18next';
 import { FieldParseError } from 'features/nodes/types/error';
 

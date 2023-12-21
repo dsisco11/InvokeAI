@@ -1,8 +1,8 @@
 import { $queueId } from 'app/store/nanostores/queueId';
-import { AppDispatch } from 'app/store/store';
+import type { AppDispatch } from 'app/store/store';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
-import { Socket } from 'socket.io-client';
+import type { Socket } from 'socket.io-client';
 import {
   socketConnected,
   socketDisconnected,
@@ -17,7 +17,7 @@ import {
   socketQueueItemStatusChanged,
   socketSessionRetrievalError,
 } from 'services/events/actions';
-import {
+import type {
   ClientToServerEvents,
   ServerToClientEvents,
 } from 'services/events/types';

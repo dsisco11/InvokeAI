@@ -1,6 +1,5 @@
+import type { ThunkDispatch, UnknownAction } from '@reduxjs/toolkit';
 import {
-  ThunkDispatch,
-  UnknownAction,
   autoBatchEnhancer,
   combineReducers,
   configureStore,
@@ -25,7 +24,8 @@ import hotkeysReducer from 'features/ui/store/hotkeysSlice';
 import uiReducer from 'features/ui/store/uiSlice';
 import { createStore as createIDBKeyValStore, get, set } from 'idb-keyval';
 import dynamicMiddlewares from 'redux-dynamic-middlewares';
-import { Driver, rememberEnhancer, rememberReducer } from 'redux-remember';
+import type { Driver } from 'redux-remember';
+import { rememberEnhancer, rememberReducer } from 'redux-remember';
 import { api } from 'services/api';
 import { STORAGE_PREFIX } from './constants';
 import { serialize } from './enhancers/reduxRemember/serialize';

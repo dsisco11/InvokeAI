@@ -5,7 +5,7 @@ import { useLogger } from 'app/logging/useLogger';
 import { appStarted } from 'app/store/middleware/listenerMiddleware/listeners/appStarted';
 import { $headerComponent } from 'app/store/nanostores/headerComponent';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { PartialAppConfig } from 'app/types/invokeai';
+import type { PartialAppConfig } from 'app/types/invokeai';
 import ImageUploader from 'common/components/ImageUploader';
 import { useClearStorage } from 'common/hooks/useClearStorage';
 import ChangeBoardModal from 'features/changeBoardModal/components/ChangeBoardModal';

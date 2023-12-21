@@ -8,8 +8,8 @@ import {
   InvSlider,
   InvText,
 } from 'common/components';
+import type { LoRA } from 'features/lora/store/loraSlice';
 import {
-  LoRA,
   loraRemoved,
   loraWeightChanged,
   loraWeightReset,

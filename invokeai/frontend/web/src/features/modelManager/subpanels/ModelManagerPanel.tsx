@@ -1,9 +1,11 @@
 import { Flex } from '@chakra-ui/react';
 import { useState } from 'react';
-import {
+import type {
   MainModelConfigEntity,
   DiffusersModelConfigEntity,
   LoRAModelConfigEntity,
+} from 'services/api/endpoints/models';
+import {
   useGetMainModelsQuery,
   useGetLoRAModelsQuery,
 } from 'services/api/endpoints/models';

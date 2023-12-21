@@ -5,7 +5,7 @@ import { useGetAndLoadLibraryWorkflow } from 'features/workflowLibrary/hooks/use
 import { useWorkflowLibraryModalContext } from 'features/workflowLibrary/context/useWorkflowLibraryModalContext';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { WorkflowRecordListItemDTO } from 'services/api/types';
+import type { WorkflowRecordListItemDTO } from 'services/api/types';
 import { useAppSelector } from 'app/store/storeHooks';
 import { InvButton, InvText } from 'common/components';
 

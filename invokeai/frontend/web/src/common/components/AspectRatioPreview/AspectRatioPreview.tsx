@@ -1,5 +1,5 @@
 import { Flex, Icon } from '@chakra-ui/react';
-import { AspectRatioPreviewProps } from './types';
+import type { AspectRatioPreviewProps } from './types';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRef } from 'react';
 import { FaImage } from 'react-icons/fa';

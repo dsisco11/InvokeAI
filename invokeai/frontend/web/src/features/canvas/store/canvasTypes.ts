@@ -1,5 +1,5 @@
-import { IRect, Vector2d } from 'konva/lib/types';
-import { RgbaColor } from 'react-colorful';
+import type { IRect, Vector2d } from 'konva/lib/types';
+import type { RgbaColor } from 'react-colorful';
 import { z } from 'zod';
 
 export type CanvasLayer = 'base' | 'mask';

@@ -2,16 +2,14 @@ import { useAppDispatch } from 'app/store/storeHooks';
 import { InvControl, InvSelect, InvTooltip } from 'common/components';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
 import { fieldIPAdapterModelValueChanged } from 'features/nodes/store/nodesSlice';
-import {
+import type {
   IPAdapterModelFieldInputInstance,
   IPAdapterModelFieldInputTemplate,
 } from 'features/nodes/types/field';
 import { memo, useCallback } from 'react';
-import {
-  IPAdapterModelConfigEntity,
-  useGetIPAdapterModelsQuery,
-} from 'services/api/endpoints/models';
-import { FieldComponentProps } from './types';
+import type { IPAdapterModelConfigEntity } from 'services/api/endpoints/models';
+import { useGetIPAdapterModelsQuery } from 'services/api/endpoints/models';
+import type { FieldComponentProps } from './types';
 
 const IPAdapterModelFieldInputComponent = (
   props: FieldComponentProps<

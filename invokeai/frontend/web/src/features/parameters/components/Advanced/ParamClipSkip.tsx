@@ -1,4 +1,4 @@
-import { RootState } from 'app/store/store';
+import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { InvControl, InvSlider } from 'common/components';

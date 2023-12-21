@@ -11,10 +11,11 @@ import { useAppDispatch } from 'app/store/storeHooks';
 import IAIAlertDialog from 'common/components/IAIAlertDialog';
 import { InvControl, InvInput, InvTooltip } from 'common/components';
 import { addToast } from 'features/system/store/systemSlice';
-import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import type { ChangeEvent } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useConvertMainModelsMutation } from 'services/api/endpoints/models';
-import { CheckpointModelConfig } from 'services/api/types';
+import type { CheckpointModelConfig } from 'services/api/types';
 import { InvButton, InvText } from 'common/components';
 
 interface ModelConvertProps {

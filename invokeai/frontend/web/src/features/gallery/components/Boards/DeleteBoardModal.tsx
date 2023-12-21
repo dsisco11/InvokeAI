@@ -15,7 +15,7 @@ import { useAppSelector } from 'app/store/storeHooks';
 import { InvButton, InvText } from 'common/components';
 import ImageUsageMessage from 'features/deleteImageModal/components/ImageUsageMessage';
 import { getImageUsage } from 'features/deleteImageModal/store/selectors';
-import { ImageUsage } from 'features/deleteImageModal/store/types';
+import type { ImageUsage } from 'features/deleteImageModal/store/types';
 import { some } from 'lodash-es';
 import { memo, useCallback, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -24,7 +24,7 @@ import {
   useDeleteBoardAndImagesMutation,
   useDeleteBoardMutation,
 } from 'services/api/endpoints/images';
-import { BoardDTO } from 'services/api/types';
+import type { BoardDTO } from 'services/api/types';
 
 type Props = {
   boardToDelete?: BoardDTO;

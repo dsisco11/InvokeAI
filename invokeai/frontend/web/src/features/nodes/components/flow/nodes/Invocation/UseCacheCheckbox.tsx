@@ -2,7 +2,8 @@ import { Checkbox, Flex, FormControl, FormLabel } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import { useUseCache } from 'features/nodes/hooks/useUseCache';
 import { nodeUseCacheChanged } from 'features/nodes/store/nodesSlice';
-import { ChangeEvent, memo, useCallback } from 'react';
+import type { ChangeEvent } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const UseCacheCheckbox = ({ nodeId }: { nodeId: string }) => {

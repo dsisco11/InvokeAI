@@ -1,5 +1,5 @@
 import { isNil } from 'lodash-es';
-import {
+import type {
   FieldInputTemplate,
   FieldOutputTemplate,
 } from 'features/nodes/types/field';

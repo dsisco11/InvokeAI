@@ -1,5 +1,5 @@
-import { InvSelectOption } from 'common/components';
-import { LoRAModelFormat } from 'services/api/types';
+import type { InvSelectOption } from 'common/components';
+import type { LoRAModelFormat } from 'services/api/types';
 
 /**
  * Mapping of model type to human readable name

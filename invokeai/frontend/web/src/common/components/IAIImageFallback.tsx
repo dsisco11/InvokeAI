@@ -1,14 +1,7 @@
-import {
-  As,
-  Flex,
-  FlexProps,
-  Icon,
-  Skeleton,
-  Spinner,
-  StyleProps,
-} from '@chakra-ui/react';
+import type { As, FlexProps, StyleProps } from '@chakra-ui/react';
+import { Flex, Icon, Skeleton, Spinner } from '@chakra-ui/react';
 import { FaImage } from 'react-icons/fa';
-import { ImageDTO } from 'services/api/types';
+import type { ImageDTO } from 'services/api/types';
 import { InvText } from './InvText';
 
 type Props = { image: ImageDTO | undefined };

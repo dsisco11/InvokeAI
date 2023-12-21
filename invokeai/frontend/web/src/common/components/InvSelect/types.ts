@@ -1,5 +1,5 @@
-import { ChakraProps } from '@chakra-ui/react';
-import {
+import type { ChakraProps } from '@chakra-ui/react';
+import type {
   Props as ChakraReactSelectProps,
   ChakraStylesConfig,
   GroupBase,
@@ -7,7 +7,7 @@ import {
   SelectInstance,
   SingleValue,
 } from 'chakra-react-select';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 export type {} from 'react-select/base';
 
 export interface InvSelectOption extends OptionBase {

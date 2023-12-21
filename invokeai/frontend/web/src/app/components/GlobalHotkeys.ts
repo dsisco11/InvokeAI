@@ -9,7 +9,8 @@ import {
   shiftKeyPressed,
 } from 'features/ui/store/hotkeysSlice';
 import { setActiveTab } from 'features/ui/store/uiSlice';
-import React, { memo } from 'react';
+import type React from 'react';
+import { memo } from 'react';
 import { isHotkeyPressed, useHotkeys } from 'react-hotkeys-hook';
 
 const globalHotkeysSelector = createMemoizedSelector(

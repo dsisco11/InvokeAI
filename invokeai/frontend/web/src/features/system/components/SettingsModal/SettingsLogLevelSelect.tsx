@@ -1,6 +1,7 @@
 import { isLogLevel, zLogLevel } from 'app/logging/logger';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvControl, InvSelect, InvSelectOnChange } from 'common/components';
+import type { InvSelectOnChange } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 import { consoleLogLevelChanged } from 'features/system/store/systemSlice';
 import { useMemo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

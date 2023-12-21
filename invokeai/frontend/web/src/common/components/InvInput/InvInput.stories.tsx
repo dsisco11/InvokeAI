@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvInput } from './InvInput';
-import { InvInputProps } from './types';
+import type { InvInputProps } from './types';
 
 const meta: Meta<typeof InvInput> = {
   title: 'Primitives/InvInput',

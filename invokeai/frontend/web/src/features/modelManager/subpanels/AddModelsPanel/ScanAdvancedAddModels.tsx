@@ -1,12 +1,11 @@
 import { Box, Flex } from '@chakra-ui/react';
-import { RootState } from 'app/store/store';
+import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import type { InvSelectOnChange, InvSelectOption } from 'common/components';
 import {
   InvControl,
   InvIconButton,
   InvSelect,
-  InvSelectOnChange,
-  InvSelectOption,
   InvText,
 } from 'common/components';
 import { motion } from 'framer-motion';
@@ -15,7 +14,8 @@ import { FaTimes } from 'react-icons/fa';
 import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
 import AdvancedAddCheckpoint from './AdvancedAddCheckpoint';
 import AdvancedAddDiffusers from './AdvancedAddDiffusers';
-import { ManualAddMode, isManualAddMode } from './AdvancedAddModels';
+import type { ManualAddMode } from './AdvancedAddModels';
+import { isManualAddMode } from './AdvancedAddModels';
 import { useTranslation } from 'react-i18next';
 
 export default function ScanAdvancedAddModels() {

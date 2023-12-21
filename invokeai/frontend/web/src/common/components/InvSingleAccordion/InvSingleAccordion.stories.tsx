@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvSingleAccordion } from './InvSingleAccordion';
 import { InvText } from 'common/components/InvText';
-import { InvSingleAccordionProps } from './types';
+import type { InvSingleAccordionProps } from './types';
 import {
   InvTabs,
   InvTabList,

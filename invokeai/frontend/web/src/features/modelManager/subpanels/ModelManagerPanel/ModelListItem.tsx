@@ -13,12 +13,14 @@ import { addToast } from 'features/system/store/systemSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MODEL_TYPE_SHORT_MAP } from 'features/parameters/types/constants';
-import {
+import type {
   MainModelConfigEntity,
   LoRAModelConfigEntity,
+  OnnxModelConfigEntity,
+} from 'services/api/endpoints/models';
+import {
   useDeleteMainModelsMutation,
   useDeleteLoRAModelsMutation,
-  OnnxModelConfigEntity,
 } from 'services/api/endpoints/models';
 
 type ModelListItemProps = {

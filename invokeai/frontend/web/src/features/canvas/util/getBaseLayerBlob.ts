@@ -1,4 +1,4 @@
-import { RootState } from 'app/store/store';
+import type { RootState } from 'app/store/store';
 import { getCanvasBaseLayer } from './konvaInstanceProvider';
 import { konvaNodeToBlob } from './konvaNodeToBlob';
 

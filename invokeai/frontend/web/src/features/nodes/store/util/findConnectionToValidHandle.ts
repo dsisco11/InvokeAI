@@ -1,5 +1,5 @@
-import { Connection, Edge, HandleType, Node } from 'reactflow';
-import {
+import type { Connection, Edge, HandleType, Node } from 'reactflow';
+import type {
   FieldInputInstance,
   FieldOutputInstance,
   FieldType,

@@ -1,6 +1,6 @@
 import { satisfies } from 'compare-versions';
 import { NodeUpdateError } from 'features/nodes/types/error';
-import {
+import type {
   InvocationNode,
   InvocationTemplate,
 } from 'features/nodes/types/invocation';

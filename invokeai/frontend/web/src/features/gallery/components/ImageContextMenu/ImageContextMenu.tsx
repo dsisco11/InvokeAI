@@ -2,12 +2,11 @@ import { InvMenuList } from 'common/components';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import {
-  IAIContextMenu,
-  IAIContextMenuProps,
-} from 'common/components/IAIContextMenu';
-import { MouseEvent, memo, useCallback } from 'react';
-import { ImageDTO } from 'services/api/types';
+import type { IAIContextMenuProps } from 'common/components/IAIContextMenu';
+import { IAIContextMenu } from 'common/components/IAIContextMenu';
+import type { MouseEvent } from 'react';
+import { memo, useCallback } from 'react';
+import type { ImageDTO } from 'services/api/types';
 import MultipleSelectionMenuItems from './MultipleSelectionMenuItems';
 import SingleSelectionMenuItems from './SingleSelectionMenuItems';
 

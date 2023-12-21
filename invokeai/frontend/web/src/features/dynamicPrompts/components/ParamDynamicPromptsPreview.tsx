@@ -1,5 +1,5 @@
+import type { ChakraProps } from '@chakra-ui/react';
 import {
-  ChakraProps,
   Flex,
   FormControl,
   FormLabel,

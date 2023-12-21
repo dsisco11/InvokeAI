@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvSlider } from './InvSlider';
 import { useCallback, useState } from 'react';
-import { InvSliderProps } from 'common/components/InvSlider/types';
+import type { InvSliderProps } from 'common/components/InvSlider/types';
 import { InvControl } from 'common/components/InvControl';
 
 const meta: Meta<typeof InvSlider> = {

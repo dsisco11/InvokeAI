@@ -1,16 +1,12 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import {
-  InvControl,
-  InvSelect,
-  InvSelectOnChange,
-  InvSelectOption,
-} from 'common/components';
+import type { InvSelectOnChange, InvSelectOption } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
 import { useControlAdapterProcessorNode } from 'features/controlAdapters/hooks/useControlAdapterProcessorNode';
 import { CONTROLNET_PROCESSORS } from 'features/controlAdapters/store/constants';
 import { controlAdapterProcessortTypeChanged } from 'features/controlAdapters/store/controlAdaptersSlice';
-import { ControlAdapterProcessorType } from 'features/controlAdapters/store/types';
+import type { ControlAdapterProcessorType } from 'features/controlAdapters/store/types';
 import { configSelector } from 'features/system/store/configSelectors';
 import { map } from 'lodash-es';
 import { memo, useCallback, useMemo } from 'react';

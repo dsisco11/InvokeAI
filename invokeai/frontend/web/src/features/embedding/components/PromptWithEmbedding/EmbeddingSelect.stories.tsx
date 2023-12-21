@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { EmbeddingSelect } from './EmbeddingSelect';
-import { EmbeddingSelectProps } from './types';
+import type { EmbeddingSelectProps } from './types';
 
 const meta: Meta<typeof EmbeddingSelect> = {
   title: 'Feature/Prompt/EmbeddingSelect',

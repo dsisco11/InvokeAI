@@ -1,10 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import {
-  InvControl,
-  InvSelect,
-  InvSelectOnChange,
-  InvSelectOption,
-} from 'common/components';
+import type { InvSelectOnChange, InvSelectOption } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {

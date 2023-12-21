@@ -6,7 +6,7 @@ import { addToast } from 'features/system/store/systemSlice';
 import { t } from 'i18next';
 import { queueApi } from 'services/api/endpoints/queue';
 import { startAppListening } from '..';
-import { BatchConfig, ImageDTO } from 'services/api/types';
+import type { BatchConfig, ImageDTO } from 'services/api/types';
 import { createIsAllowedToUpscaleSelector } from 'features/parameters/hooks/useIsAllowedToUpscale';
 
 export const upscaleRequested = createAction<{ imageDTO: ImageDTO }>(

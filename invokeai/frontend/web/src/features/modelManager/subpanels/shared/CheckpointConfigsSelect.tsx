@@ -1,9 +1,5 @@
-import {
-  InvSelect,
-  InvControl,
-  InvSelectOption,
-  InvSelectProps,
-} from 'common/components';
+import type { InvSelectOption, InvSelectProps } from 'common/components';
+import { InvSelect, InvControl } from 'common/components';
 import { useMemo } from 'react';
 import { useGetCheckpointConfigsQuery } from 'services/api/endpoints/models';
 

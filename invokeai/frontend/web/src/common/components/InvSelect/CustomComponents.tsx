@@ -1,12 +1,12 @@
 import { Flex } from '@chakra-ui/layout';
-import {
+import type {
   GroupBase,
   OptionProps,
   SelectComponentsConfig,
-  chakraComponents,
 } from 'chakra-react-select';
+import { chakraComponents } from 'chakra-react-select';
 import { InvText, InvTooltip } from 'common/components';
-import { InvSelectOption } from './types';
+import type { InvSelectOption } from './types';
 
 type CustomSelectComponentConfig = SelectComponentsConfig<
   InvSelectOption,

@@ -1,8 +1,9 @@
-import { RootState } from 'app/store/store';
+import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl, InvSwitch } from 'common/components';
 import { setShouldUseSDXLRefiner } from 'features/sdxl/store/sdxlSlice';
-import { ChangeEvent, useCallback } from 'react';
+import type { ChangeEvent } from 'react';
+import { useCallback } from 'react';
 import { useIsRefinerAvailable } from 'services/api/hooks/useIsRefinerAvailable';
 import { useTranslation } from 'react-i18next';
 

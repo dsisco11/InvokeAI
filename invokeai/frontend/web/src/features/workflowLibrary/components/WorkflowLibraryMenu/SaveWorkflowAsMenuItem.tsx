@@ -15,7 +15,8 @@ import { useAppSelector } from 'app/store/storeHooks';
 import { InvButton } from 'common/components';
 import { useSaveWorkflowAs } from 'features/workflowLibrary/hooks/useSaveWorkflowAs';
 import { getWorkflowCopyName } from 'features/workflowLibrary/util/getWorkflowCopyName';
-import { ChangeEvent, memo, useCallback, useRef, useState } from 'react';
+import type { ChangeEvent } from 'react';
+import { memo, useCallback, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaClone } from 'react-icons/fa';
 

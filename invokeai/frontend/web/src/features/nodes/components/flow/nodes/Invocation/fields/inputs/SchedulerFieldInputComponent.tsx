@@ -1,14 +1,15 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvControl, InvSelect, InvSelectOnChange } from 'common/components';
+import type { InvSelectOnChange } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 import { fieldSchedulerValueChanged } from 'features/nodes/store/nodesSlice';
-import {
+import type {
   SchedulerFieldInputInstance,
   SchedulerFieldInputTemplate,
 } from 'features/nodes/types/field';
 import { SCHEDULER_OPTIONS } from 'features/parameters/types/constants';
 import { isParameterScheduler } from 'features/parameters/types/parameterSchemas';
 import { memo, useCallback, useMemo } from 'react';
-import { FieldComponentProps } from './types';
+import type { FieldComponentProps } from './types';
 
 type Props = FieldComponentProps<
   SchedulerFieldInputInstance,

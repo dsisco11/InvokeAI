@@ -3,7 +3,8 @@ import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl, InvSwitch } from 'common/components';
 import { setSeamlessXAxis } from 'features/parameters/store/generationSlice';
-import { ChangeEvent, memo, useCallback } from 'react';
+import type { ChangeEvent } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const selector = createMemoizedSelector(stateSelector, ({ generation }) => {

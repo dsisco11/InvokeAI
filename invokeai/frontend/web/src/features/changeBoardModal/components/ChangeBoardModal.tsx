@@ -10,14 +10,8 @@ import {
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import {
-  InvButton,
-  InvControl,
-  InvSelect,
-  InvSelectOnChange,
-  InvSelectOption,
-  InvText,
-} from 'common/components';
+import type { InvSelectOnChange, InvSelectOption } from 'common/components';
+import { InvButton, InvControl, InvSelect, InvText } from 'common/components';
 import {
   changeBoardReset,
   isModalOpenChanged,

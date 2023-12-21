@@ -11,7 +11,7 @@ import { controlAdapterModelChanged } from 'features/controlAdapters/store/contr
 import { pick } from 'lodash-es';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
+import type {
   ControlNetModelConfigEntity,
   T2IAdapterModelConfigEntity,
   IPAdapterModelConfigEntity,

@@ -1,5 +1,5 @@
 import { Tooltip as ChakraTooltip, forwardRef } from '@chakra-ui/react';
-import { InvTooltipProps } from './types';
+import type { InvTooltipProps } from './types';
 
 export const InvTooltip = forwardRef((props: InvTooltipProps, ref) => {
   const { children, hasArrow = true, placement = 'top', ...rest } = props;

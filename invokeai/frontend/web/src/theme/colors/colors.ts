@@ -1,4 +1,4 @@
-import { InvokeAIThemeColors } from 'theme/themeTypes';
+import type { InvokeAIThemeColors } from 'theme/themeTypes';
 import { generateColorPalette } from 'theme/util/generateColorPalette';
 
 const BASE = { H: 220, S: 16 };

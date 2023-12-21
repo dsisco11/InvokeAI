@@ -1,6 +1,7 @@
-import { EntityState, createEntityAdapter } from '@reduxjs/toolkit';
+import type { EntityState } from '@reduxjs/toolkit';
+import { createEntityAdapter } from '@reduxjs/toolkit';
 import { cloneDeep } from 'lodash-es';
-import {
+import type {
   AnyModelConfig,
   BaseModelType,
   CheckpointModelConfig,
@@ -18,8 +19,9 @@ import {
   ModelType,
 } from 'services/api/types';
 import queryString from 'query-string';
-import { ApiTagDescription, LIST_TAG, api } from '..';
-import { operations, paths } from 'services/api/schema';
+import type { ApiTagDescription } from '..';
+import { LIST_TAG, api } from '..';
+import type { operations, paths } from 'services/api/schema';
 
 export type DiffusersModelConfigEntity = DiffusersModelConfig & { id: string };
 export type CheckpointModelConfigEntity = CheckpointModelConfig & {

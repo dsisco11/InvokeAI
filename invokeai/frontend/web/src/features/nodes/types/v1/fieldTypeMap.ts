@@ -1,5 +1,5 @@
-import { FieldType, StatefulFieldType } from 'features/nodes/types/field';
-import { FieldTypeV1 } from './workflowV1';
+import type { FieldType, StatefulFieldType } from 'features/nodes/types/field';
+import type { FieldTypeV1 } from './workflowV1';
 
 /**
  * Mapping of V1 field type strings to their *stateful* V2 field type counterparts.

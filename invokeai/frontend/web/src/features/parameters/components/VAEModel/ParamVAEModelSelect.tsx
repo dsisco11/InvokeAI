@@ -11,10 +11,8 @@ import { vaeSelected } from 'features/parameters/store/generationSlice';
 import { pick } from 'lodash-es';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  VaeModelConfigEntity,
-  useGetVaeModelsQuery,
-} from 'services/api/endpoints/models';
+import type { VaeModelConfigEntity } from 'services/api/endpoints/models';
+import { useGetVaeModelsQuery } from 'services/api/endpoints/models';
 
 const selector = createMemoizedSelector(stateSelector, ({ generation }) => {
   const { model, vae } = generation;

@@ -1,5 +1,5 @@
 import { get } from 'lodash-es';
-import {
+import type {
   FieldInputInstance,
   FieldInputTemplate,
   FieldValue,

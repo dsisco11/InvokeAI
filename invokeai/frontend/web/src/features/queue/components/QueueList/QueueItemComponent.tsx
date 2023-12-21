@@ -1,15 +1,17 @@
-import { ChakraProps, Collapse, Flex } from '@chakra-ui/react';
+import type { ChakraProps } from '@chakra-ui/react';
+import { Collapse, Flex } from '@chakra-ui/react';
 import { InvButtonGroup, InvIconButton, InvText } from 'common/components';
 import { useCancelQueueItem } from 'features/queue/hooks/useCancelQueueItem';
 import { getSecondsFromTimestamps } from 'features/queue/util/getSecondsFromTimestamps';
-import { MouseEvent, memo, useCallback, useMemo } from 'react';
+import type { MouseEvent } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaTimes } from 'react-icons/fa';
-import { SessionQueueItemDTO } from 'services/api/types';
+import type { SessionQueueItemDTO } from 'services/api/types';
 import QueueStatusBadge from 'features/queue/components/common/QueueStatusBadge';
 import QueueItemDetail from './QueueItemDetail';
 import { COLUMN_WIDTHS } from './constants';
-import { ListContext } from './types';
+import type { ListContext } from './types';
 
 const selectedStyles = { bg: 'base.750' };
 

@@ -1,4 +1,4 @@
-import { BoardId } from 'features/gallery/store/types';
+import type { BoardId } from 'features/gallery/store/types';
 import { useListAllBoardsQuery } from 'services/api/endpoints/boards';
 import { t } from 'i18next';
 

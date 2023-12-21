@@ -1,10 +1,12 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvControl, InvSelect, InvSelectOnChange } from 'common/components';
+import type { InvSelectOnChange } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
 import { useControlAdapterResizeMode } from 'features/controlAdapters/hooks/useControlAdapterResizeMode';
 import { controlAdapterResizeModeChanged } from 'features/controlAdapters/store/controlAdaptersSlice';
-import { ResizeMode, isResizeMode } from 'features/controlAdapters/store/types';
+import type { ResizeMode } from 'features/controlAdapters/store/types';
+import { isResizeMode } from 'features/controlAdapters/store/types';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 

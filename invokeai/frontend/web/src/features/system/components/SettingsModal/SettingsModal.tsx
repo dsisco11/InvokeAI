@@ -30,15 +30,8 @@ import {
   setShouldAutoChangeDimensions,
   setShouldShowProgressInViewer,
 } from 'features/ui/store/uiSlice';
-import {
-  ChangeEvent,
-  ReactElement,
-  cloneElement,
-  memo,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import type { ChangeEvent, ReactElement } from 'react';
+import { cloneElement, memo, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetAppConfigQuery } from 'services/api/endpoints/appInfo';
 import SettingsClearIntermediates from './SettingsClearIntermediates';

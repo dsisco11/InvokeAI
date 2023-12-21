@@ -1,4 +1,4 @@
-import { SystemStyleObject } from '@chakra-ui/styled-system';
+import type { SystemStyleObject } from '@chakra-ui/styled-system';
 
 const selectionStyles: SystemStyleObject = {
   backgroundColor: 'accentAlpha.150 !important',

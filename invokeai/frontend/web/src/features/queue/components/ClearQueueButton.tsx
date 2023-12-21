@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { FaTrash } from 'react-icons/fa';
 import { useClearQueue } from 'features/queue/hooks/useClearQueue';
 import QueueButton from './common/QueueButton';
-import { ChakraProps } from '@chakra-ui/react';
+import type { ChakraProps } from '@chakra-ui/react';
 import IAIAlertDialog from 'common/components/IAIAlertDialog';
 import { InvText } from 'common/components';
 

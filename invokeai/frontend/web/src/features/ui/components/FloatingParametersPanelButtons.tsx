@@ -1,12 +1,14 @@
-import { ChakraProps, Flex, Portal } from '@chakra-ui/react';
+import type { ChakraProps } from '@chakra-ui/react';
+import { Flex, Portal } from '@chakra-ui/react';
 import { InvButtonGroup, InvIconButton } from 'common/components';
 import CancelCurrentQueueItemButton from 'features/queue/components/CancelCurrentQueueItemButton';
 import ClearQueueButton from 'features/queue/components/ClearQueueButton';
 import QueueBackButton from 'features/queue/components/QueueBackButton';
-import { RefObject, memo, useCallback } from 'react';
+import type { RefObject } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaSlidersH } from 'react-icons/fa';
-import { ImperativePanelHandle } from 'react-resizable-panels';
+import type { ImperativePanelHandle } from 'react-resizable-panels';
 
 const floatingButtonStyles: ChakraProps['sx'] = {
   borderStartRadius: 0,

@@ -7,11 +7,9 @@ import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  DiffusersModelConfigEntity,
-  useUpdateMainModelsMutation,
-} from 'services/api/endpoints/models';
-import { DiffusersModelConfig } from 'services/api/types';
+import type { DiffusersModelConfigEntity } from 'services/api/endpoints/models';
+import { useUpdateMainModelsMutation } from 'services/api/endpoints/models';
+import type { DiffusersModelConfig } from 'services/api/types';
 import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
 import ModelVariantSelect from 'features/modelManager/subpanels/shared/ModelVariantSelect';
 

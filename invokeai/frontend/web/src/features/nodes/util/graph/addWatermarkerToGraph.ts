@@ -1,6 +1,6 @@
-import { RootState } from 'app/store/store';
+import type { RootState } from 'app/store/store';
 import { activeTabNameSelector } from 'features/ui/store/uiSelectors';
-import {
+import type {
   ImageNSFWBlurInvocation,
   ImageWatermarkInvocation,
   LatentsToImageInvocation,

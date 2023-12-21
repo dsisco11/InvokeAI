@@ -13,12 +13,12 @@ import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import type { CheckpointModelConfigEntity } from 'services/api/endpoints/models';
 import {
-  CheckpointModelConfigEntity,
   useGetCheckpointConfigsQuery,
   useUpdateMainModelsMutation,
 } from 'services/api/endpoints/models';
-import { CheckpointModelConfig } from 'services/api/types';
+import type { CheckpointModelConfig } from 'services/api/types';
 import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
 import CheckpointConfigsSelect from 'features/modelManager/subpanels/shared/CheckpointConfigsSelect';
 import ModelVariantSelect from 'features/modelManager/subpanels/shared/ModelVariantSelect';

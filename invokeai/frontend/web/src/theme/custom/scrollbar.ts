@@ -1,4 +1,4 @@
-import { ChakraProps } from '@chakra-ui/react';
+import type { ChakraProps } from '@chakra-ui/react';
 
 export const no_scrollbar: ChakraProps['sx'] = {
   '::-webkit-scrollbar': {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvTextarea } from './InvTextarea';
-import { InvTextareaProps } from './types';
+import type { InvTextareaProps } from './types';
 
 const meta: Meta<typeof InvTextarea> = {
   title: 'Primitives/InvTextarea',

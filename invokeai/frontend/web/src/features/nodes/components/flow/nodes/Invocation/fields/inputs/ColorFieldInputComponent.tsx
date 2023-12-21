@@ -1,12 +1,13 @@
 import { useAppDispatch } from 'app/store/storeHooks';
 import { fieldColorValueChanged } from 'features/nodes/store/nodesSlice';
-import {
+import type {
   ColorFieldInputTemplate,
   ColorFieldInputInstance,
 } from 'features/nodes/types/field';
-import { FieldComponentProps } from './types';
+import type { FieldComponentProps } from './types';
 import { memo, useCallback } from 'react';
-import { RgbaColor, RgbaColorPicker } from 'react-colorful';
+import type { RgbaColor } from 'react-colorful';
+import { RgbaColorPicker } from 'react-colorful';
 
 const ColorFieldInputComponent = (
   props: FieldComponentProps<ColorFieldInputInstance, ColorFieldInputTemplate>

@@ -8,8 +8,8 @@ import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableCon
 import { isInvocationNode } from 'features/nodes/types/invocation';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ImageOutput } from 'services/api/types';
-import { AnyResult } from 'services/events/types';
+import type { ImageOutput } from 'services/api/types';
+import type { AnyResult } from 'services/events/types';
 import ImageOutputPreview from './outputs/ImageOutputPreview';
 
 const selector = createMemoizedSelector(stateSelector, ({ nodes }) => {

@@ -6,13 +6,9 @@ import {
 } from 'features/parameters/store/postprocessingSlice';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useMemo } from 'react';
-import { GroupBase } from 'chakra-react-select';
-import {
-  InvControl,
-  InvSelect,
-  InvSelectOnChange,
-  InvSelectOption,
-} from 'common/components';
+import type { GroupBase } from 'chakra-react-select';
+import type { InvSelectOnChange, InvSelectOption } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 
 const options: GroupBase<InvSelectOption>[] = [
   {

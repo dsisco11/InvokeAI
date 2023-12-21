@@ -1,10 +1,10 @@
-import type { TypedAddListener, TypedStartListening } from '@reduxjs/toolkit';
-import {
+import type {
+  TypedAddListener,
+  TypedStartListening,
   UnknownAction,
   ListenerEffect,
-  addListener,
-  createListenerMiddleware,
 } from '@reduxjs/toolkit';
+import { addListener, createListenerMiddleware } from '@reduxjs/toolkit';
 import type { AppDispatch, RootState } from 'app/store/store';
 import { addCommitStagingAreaImageListener } from './listeners/addCommitStagingAreaImageListener';
 import { addFirstListImagesListener } from './listeners/addFirstListImagesListener.ts';

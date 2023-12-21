@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvCard } from './wrapper';
-import { InvCardProps } from './types';
+import type { InvCardProps } from './types';
 
 const meta: Meta<typeof InvCard> = {
   title: 'Primitives/InvCard',

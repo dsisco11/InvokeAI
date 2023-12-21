@@ -14,7 +14,7 @@ import { useIsQueueMutationInProgress } from 'features/queue/hooks/useIsQueueMut
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaExpand } from 'react-icons/fa';
-import { ImageDTO } from 'services/api/types';
+import type { ImageDTO } from 'services/api/types';
 import ParamESRGANModel from './ParamRealESRGANModel';
 
 type Props = { imageDTO?: ImageDTO };

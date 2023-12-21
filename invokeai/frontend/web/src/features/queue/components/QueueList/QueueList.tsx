@@ -7,22 +7,21 @@ import {
   listCursorChanged,
   listPriorityChanged,
 } from 'features/queue/store/queueSlice';
-import {
-  UseOverlayScrollbarsParams,
-  useOverlayScrollbars,
-} from 'overlayscrollbars-react';
+import type { UseOverlayScrollbarsParams } from 'overlayscrollbars-react';
+import { useOverlayScrollbars } from 'overlayscrollbars-react';
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Components, ItemContent, Virtuoso } from 'react-virtuoso';
+import type { Components, ItemContent } from 'react-virtuoso';
+import { Virtuoso } from 'react-virtuoso';
 import {
   queueItemsAdapter,
   useListQueueItemsQuery,
 } from 'services/api/endpoints/queue';
-import { SessionQueueItemDTO } from 'services/api/types';
+import type { SessionQueueItemDTO } from 'services/api/types';
 import QueueItemComponent from './QueueItemComponent';
 import QueueListComponent from './QueueListComponent';
 import QueueListHeader from './QueueListHeader';
-import { ListContext } from './types';
+import type { ListContext } from './types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TableVirtuosoScrollerRef = (ref: HTMLElement | Window | null) => any;

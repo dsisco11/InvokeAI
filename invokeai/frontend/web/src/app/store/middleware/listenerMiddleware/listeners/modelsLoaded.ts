@@ -25,7 +25,7 @@ import {
   modelsApi,
   vaeModelsAdapter,
 } from 'services/api/endpoints/models';
-import { TypeGuardFor } from 'services/api/types';
+import type { TypeGuardFor } from 'services/api/types';
 import { startAppListening } from '..';
 
 export const addModelsLoadedListener = () => {

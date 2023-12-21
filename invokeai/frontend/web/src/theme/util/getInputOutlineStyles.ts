@@ -1,4 +1,4 @@
-import { SystemStyleObject } from '@chakra-ui/styled-system';
+import type { SystemStyleObject } from '@chakra-ui/styled-system';
 
 export const getInputOutlineStyles = (): SystemStyleObject => ({
   outline: 'none',

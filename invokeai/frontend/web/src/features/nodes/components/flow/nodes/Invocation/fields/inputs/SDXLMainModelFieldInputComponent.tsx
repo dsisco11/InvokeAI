@@ -7,18 +7,16 @@ import {
 } from 'common/components';
 import SyncModelsButton from 'features/modelManager/subpanels/ModelManagerSettingsPanel/SyncModelsButton';
 import { fieldMainModelValueChanged } from 'features/nodes/store/nodesSlice';
-import {
+import type {
   SDXLMainModelFieldInputInstance,
   SDXLMainModelFieldInputTemplate,
 } from 'features/nodes/types/field';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { memo, useCallback } from 'react';
 import { SDXL_MAIN_MODELS } from 'services/api/constants';
-import {
-  MainModelConfigEntity,
-  useGetMainModelsQuery,
-} from 'services/api/endpoints/models';
-import { FieldComponentProps } from './types';
+import type { MainModelConfigEntity } from 'services/api/endpoints/models';
+import { useGetMainModelsQuery } from 'services/api/endpoints/models';
+import type { FieldComponentProps } from './types';
 
 type Props = FieldComponentProps<
   SDXLMainModelFieldInputInstance,

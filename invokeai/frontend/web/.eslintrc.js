@@ -65,6 +65,15 @@ module.exports = {
         allowSingleExtends: true,
       },
     ],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        prefer: 'type-imports',
+        fixStyle: 'separate-type-imports',
+        disallowTypeAnnotations: true,
+      },
+    ],
+    '@typescript-eslint/no-import-type-side-effects': 'error',
   },
   overrides: [
     {

@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
-import { RootState } from 'app/store/store';
+import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvIconButton, InvInput, InvText } from 'common/components';
 import { memo, useCallback } from 'react';

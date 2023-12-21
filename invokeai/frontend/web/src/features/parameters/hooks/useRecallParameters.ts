@@ -7,7 +7,7 @@ import {
   controlAdapterRecalled,
   controlAdaptersReset,
 } from 'features/controlAdapters/store/controlAdaptersSlice';
-import {
+import type {
   ControlNetConfig,
   IPAdapterConfig,
   T2IAdapterConfig,
@@ -18,7 +18,7 @@ import {
   initialT2IAdapter,
 } from 'features/controlAdapters/util/buildControlAdapter';
 import { loraRecalled, lorasCleared } from 'features/lora/store/loraSlice';
-import {
+import type {
   ControlNetMetadataItem,
   CoreMetadata,
   IPAdapterMetadataItem,
@@ -94,7 +94,7 @@ import {
   useGetLoRAModelsQuery,
   useGetT2IAdapterModelsQuery,
 } from 'services/api/endpoints/models';
-import { ImageDTO } from 'services/api/types';
+import type { ImageDTO } from 'services/api/types';
 import { v4 as uuidv4 } from 'uuid';
 
 const selector = createMemoizedSelector(

@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvControl, InvSelect, InvSelectOnChange } from 'common/components';
+import type { InvSelectOnChange } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { languageChanged } from 'features/system/store/systemSlice';
 import { isLanguage } from 'features/system/store/types';

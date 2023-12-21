@@ -1,6 +1,7 @@
 import { SliderMark as ChakraSliderMark } from '@chakra-ui/react';
-import { SystemStyleObject } from '@chakra-ui/styled-system';
-import { MotionProps, motion } from 'framer-motion';
+import type { SystemStyleObject } from '@chakra-ui/styled-system';
+import type { MotionProps } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export type InvSliderMarkProps = {
   value: number;

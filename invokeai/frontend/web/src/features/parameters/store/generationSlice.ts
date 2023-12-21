@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { roundToMultiple } from 'common/util/roundDownToMultiple';
 import { configChanged } from 'features/system/store/configSlice';
 import { clamp, cloneDeep } from 'lodash-es';
-import { ImageDTO } from 'services/api/types';
+import type { ImageDTO } from 'services/api/types';
 import { isAnyControlAdapterAdded } from 'features/controlAdapters/store/controlAdaptersSlice';
 import { CLIP_SKIP_MAP } from 'features/parameters/types/constants';
-import {
+import type {
   ParameterCanvasCoherenceMode,
   ParameterCFGScale,
   ParameterHeight,
@@ -22,14 +22,11 @@ import {
   ParameterStrength,
   ParameterVAEModel,
   ParameterWidth,
-  zParameterModel,
   ParameterCFGRescaleMultiplier,
 } from 'features/parameters/types/parameterSchemas';
-import {
-  AspectRatioID,
-  calculateNewSize,
-  ASPECT_RATIO_MAP,
-} from 'features/ImageSettings';
+import { zParameterModel } from 'features/parameters/types/parameterSchemas';
+import type { AspectRatioID } from 'features/ImageSettings';
+import { calculateNewSize, ASPECT_RATIO_MAP } from 'features/ImageSettings';
 
 export interface GenerationState {
   hrfEnabled: boolean;

@@ -1,5 +1,6 @@
-import { ChangeEvent, useCallback } from 'react';
-import { RootState } from 'app/store/store';
+import type { ChangeEvent } from 'react';
+import { useCallback } from 'react';
+import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { setShouldRandomizeSeed } from 'features/parameters/store/generationSlice';
 import { useTranslation } from 'react-i18next';

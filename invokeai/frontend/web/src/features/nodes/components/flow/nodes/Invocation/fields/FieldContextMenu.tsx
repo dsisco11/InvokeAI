@@ -2,10 +2,8 @@ import { InvMenuGroup, InvMenuItem, InvMenuList } from 'common/components';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import {
-  IAIContextMenu,
-  IAIContextMenuProps,
-} from 'common/components/IAIContextMenu';
+import type { IAIContextMenuProps } from 'common/components/IAIContextMenu';
+import { IAIContextMenu } from 'common/components/IAIContextMenu';
 import { useFieldInputKind } from 'features/nodes/hooks/useFieldInputKind';
 import { useFieldLabel } from 'features/nodes/hooks/useFieldLabel';
 import { useFieldTemplateTitle } from 'features/nodes/hooks/useFieldTemplateTitle';
@@ -13,7 +11,8 @@ import {
   workflowExposedFieldAdded,
   workflowExposedFieldRemoved,
 } from 'features/nodes/store/workflowSlice';
-import { MouseEvent, ReactNode, memo, useCallback, useMemo } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 

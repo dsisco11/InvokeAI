@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvSkeleton } from './wrapper';
-import { InvSkeletonProps } from './types';
+import type { InvSkeletonProps } from './types';
 
 const meta: Meta<typeof InvSkeleton> = {
   title: 'Primitives/InvSkeleton',

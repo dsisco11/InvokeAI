@@ -1,5 +1,5 @@
 import { Flex, chakra } from '@chakra-ui/react';
-import { RootState } from 'app/store/store';
+import type { RootState } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
 import { memo } from 'react';
 import { MiniMap } from 'reactflow';

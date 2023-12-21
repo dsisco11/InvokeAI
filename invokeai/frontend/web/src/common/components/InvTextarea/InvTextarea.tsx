@@ -6,7 +6,8 @@ import {
 } from '@chakra-ui/react';
 import { useGlobalModifiersSetters } from 'common/hooks/useGlobalModifiers';
 import { stopPastePropagation } from 'common/util/stopPastePropagation';
-import { KeyboardEvent, useCallback } from 'react';
+import type { KeyboardEvent } from 'react';
+import { useCallback } from 'react';
 import { IoResizeSharp } from 'react-icons/io5';
 import type { InvTextareaProps } from './types';
 

@@ -21,10 +21,11 @@ import {
   imageDeletionCanceled,
   isModalOpenChanged,
 } from 'features/deleteImageModal/store/slice';
-import { ImageUsage } from 'features/deleteImageModal/store/types';
+import type { ImageUsage } from 'features/deleteImageModal/store/types';
 import { setShouldConfirmOnDelete } from 'features/system/store/systemSlice';
 import { some } from 'lodash-es';
-import { ChangeEvent, memo, useCallback, useRef } from 'react';
+import type { ChangeEvent } from 'react';
+import { memo, useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import ImageUsageMessage from './ImageUsageMessage';
 

@@ -1,11 +1,6 @@
-import {
-  PayloadAction,
-  Update,
-  createEntityAdapter,
-  createSlice,
-  isAnyOf,
-} from '@reduxjs/toolkit';
-import {
+import type { PayloadAction, Update } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice, isAnyOf } from '@reduxjs/toolkit';
+import type {
   ParameterControlNetModel,
   ParameterIPAdapterModel,
   ParameterT2IAdapterModel,
@@ -19,7 +14,7 @@ import {
   CONTROLNET_MODEL_DEFAULT_PROCESSORS as CONTROLADAPTER_MODEL_DEFAULT_PROCESSORS,
   CONTROLNET_PROCESSORS,
 } from './constants';
-import {
+import type {
   ControlAdapterConfig,
   ControlAdapterProcessorType,
   ControlAdapterType,
@@ -29,6 +24,8 @@ import {
   RequiredControlAdapterProcessorNode,
   ResizeMode,
   T2IAdapterConfig,
+} from './types';
+import {
   isControlNet,
   isControlNetOrT2IAdapter,
   isIPAdapter,

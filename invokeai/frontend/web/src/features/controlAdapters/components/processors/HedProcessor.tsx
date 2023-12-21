@@ -1,7 +1,8 @@
 import { InvControl, InvSlider, InvSwitch } from 'common/components';
 import { CONTROLNET_PROCESSORS } from 'features/controlAdapters/store/constants';
-import { RequiredHedImageProcessorInvocation } from 'features/controlAdapters/store/types';
-import { ChangeEvent, memo, useCallback } from 'react';
+import type { RequiredHedImageProcessorInvocation } from 'features/controlAdapters/store/types';
+import type { ChangeEvent } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useProcessorNodeChanged } from 'features/controlAdapters/components/hooks/useProcessorNodeChanged';
 import ProcessorWrapper from './common/ProcessorWrapper';

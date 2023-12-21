@@ -13,7 +13,7 @@ import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableCon
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDebouncedMetadata } from 'services/api/hooks/useDebouncedMetadata';
-import { ImageDTO } from 'services/api/types';
+import type { ImageDTO } from 'services/api/types';
 import DataViewer from './DataViewer';
 import ImageMetadataActions from './ImageMetadataActions';
 import ImageMetadataWorkflowTabContent from './ImageMetadataWorkflowTabContent';

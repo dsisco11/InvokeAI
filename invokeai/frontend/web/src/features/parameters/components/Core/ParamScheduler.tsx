@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvControl, InvSelect, InvSelectOnChange } from 'common/components';
+import type { InvSelectOnChange } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setScheduler } from 'features/parameters/store/generationSlice';
 import { SCHEDULER_OPTIONS } from 'features/parameters/types/constants';

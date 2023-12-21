@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvNumberInput } from 'common/components/InvNumberInput';
-import { InvSelect, InvSelectOption } from 'common/components/InvSelect';
+import type { InvSelectOption } from 'common/components/InvSelect';
+import { InvSelect } from 'common/components/InvSelect';
 import { InvSlider } from 'common/components/InvSlider';
 import { useState } from 'react';
 import { InvControl } from './InvControl';
-import { InvControlProps } from './types';
+import type { InvControlProps } from './types';
 
 const meta: Meta<typeof InvControl> = {
   title: 'Primitives/InvControl',

@@ -8,10 +8,11 @@ import NextPrevImageButtons from 'features/gallery/components/NextPrevImageButto
 import NodeWrapper from 'features/nodes/components/flow/nodes/common/NodeWrapper';
 import { DRAG_HANDLE_CLASSNAME } from 'features/nodes/types/constants';
 import { motion } from 'framer-motion';
-import { PropsWithChildren, memo, useCallback, useState } from 'react';
+import type { PropsWithChildren } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { NodeProps } from 'reactflow';
+import type { NodeProps } from 'reactflow';
 
 const selector = createMemoizedSelector(
   stateSelector,

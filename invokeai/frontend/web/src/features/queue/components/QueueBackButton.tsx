@@ -1,4 +1,4 @@
-import { ChakraProps } from '@chakra-ui/react';
+import type { ChakraProps } from '@chakra-ui/react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQueueBack } from 'features/queue/hooks/useQueueBack';

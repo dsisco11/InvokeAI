@@ -10,11 +10,9 @@ import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  LoRAModelConfigEntity,
-  useUpdateLoRAModelsMutation,
-} from 'services/api/endpoints/models';
-import { LoRAModelConfig } from 'services/api/types';
+import type { LoRAModelConfigEntity } from 'services/api/endpoints/models';
+import { useUpdateLoRAModelsMutation } from 'services/api/endpoints/models';
+import type { LoRAModelConfig } from 'services/api/types';
 import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
 
 type LoRAModelEditProps = {

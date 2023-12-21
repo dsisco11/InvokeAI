@@ -7,17 +7,15 @@ import {
 } from 'common/components';
 import SyncModelsButton from 'features/modelManager/subpanels/ModelManagerSettingsPanel/SyncModelsButton';
 import { fieldVaeModelValueChanged } from 'features/nodes/store/nodesSlice';
-import {
+import type {
   VAEModelFieldInputInstance,
   VAEModelFieldInputTemplate,
 } from 'features/nodes/types/field';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { memo, useCallback } from 'react';
-import {
-  VaeModelConfigEntity,
-  useGetVaeModelsQuery,
-} from 'services/api/endpoints/models';
-import { FieldComponentProps } from './types';
+import type { VaeModelConfigEntity } from 'services/api/endpoints/models';
+import { useGetVaeModelsQuery } from 'services/api/endpoints/models';
+import type { FieldComponentProps } from './types';
 
 type Props = FieldComponentProps<
   VAEModelFieldInputInstance,

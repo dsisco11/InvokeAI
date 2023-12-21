@@ -40,7 +40,7 @@ import {
   useUnstarImagesMutation,
 } from 'services/api/endpoints/images';
 import { useDebouncedMetadata } from 'services/api/hooks/useDebouncedMetadata';
-import { ImageDTO } from 'services/api/types';
+import type { ImageDTO } from 'services/api/types';
 
 type SingleSelectionMenuItemsProps = {
   imageDTO: ImageDTO;

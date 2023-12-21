@@ -3,7 +3,7 @@ import {
   useGetIPAdapterModelsQuery,
   useGetT2IAdapterModelsQuery,
 } from 'services/api/endpoints/models';
-import { ControlAdapterType } from 'features/controlAdapters/store/types';
+import type { ControlAdapterType } from 'features/controlAdapters/store/types';
 
 export const useControlAdapterModelEntities = (type?: ControlAdapterType) => {
   const { data: controlNetModelsData } = useGetControlNetModelsQuery();

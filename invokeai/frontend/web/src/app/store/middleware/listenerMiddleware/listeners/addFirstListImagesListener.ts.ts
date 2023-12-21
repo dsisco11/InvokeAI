@@ -4,7 +4,7 @@ import { IMAGE_CATEGORIES } from 'features/gallery/store/types';
 import { imagesApi } from 'services/api/endpoints/images';
 import { startAppListening } from '..';
 import { getListImagesUrl, imagesAdapter } from 'services/api/util';
-import { ImageCache } from 'services/api/types';
+import type { ImageCache } from 'services/api/types';
 
 export const appStarted = createAction('app/appStarted');
 

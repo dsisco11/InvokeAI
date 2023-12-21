@@ -2,14 +2,15 @@ import {
   ASSETS_CATEGORIES,
   IMAGE_CATEGORIES,
 } from 'features/gallery/store/types';
-import {
+import type {
   BoardDTO,
   ListBoardsArg,
   OffsetPaginatedResults_BoardDTO_,
   OffsetPaginatedResults_ImageDTO_,
   UpdateBoardArg,
 } from 'services/api/types';
-import { ApiTagDescription, LIST_TAG, api } from '..';
+import type { ApiTagDescription } from '..';
+import { LIST_TAG, api } from '..';
 import { getListImagesUrl } from 'services/api/util';
 
 export const boardsApi = api.injectEndpoints({

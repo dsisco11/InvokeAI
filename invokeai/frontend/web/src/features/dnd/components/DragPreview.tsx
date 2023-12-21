@@ -1,6 +1,7 @@
-import { Box, ChakraProps, Flex, Heading, Image } from '@chakra-ui/react';
+import type { ChakraProps } from '@chakra-ui/react';
+import { Box, Flex, Heading, Image } from '@chakra-ui/react';
 import { memo } from 'react';
-import { TypesafeDraggableData } from 'features/dnd/types';
+import type { TypesafeDraggableData } from 'features/dnd/types';
 import { useTranslation } from 'react-i18next';
 import { InvText } from 'common/components';
 

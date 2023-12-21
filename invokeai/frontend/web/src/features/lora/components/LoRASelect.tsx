@@ -6,10 +6,8 @@ import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGrouped
 import { loraAdded } from 'features/lora/store/loraSlice';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  LoRAModelConfigEntity,
-  useGetLoRAModelsQuery,
-} from 'services/api/endpoints/models';
+import type { LoRAModelConfigEntity } from 'services/api/endpoints/models';
+import { useGetLoRAModelsQuery } from 'services/api/endpoints/models';
 
 const selector = createMemoizedSelector(stateSelector, ({ lora }) => ({
   addedLoRAs: lora.loras,

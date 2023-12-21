@@ -1,15 +1,16 @@
 import { Flex } from '@chakra-ui/react';
 import { makeToast } from 'features/system/util/makeToast';
-import { RootState } from 'app/store/store';
+import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvInput, InvControl } from 'common/components';
 import IAIScrollArea from 'common/components/IAIScrollArea';
 import { addToast } from 'features/system/store/systemSlice';
 import { difference, forEach, intersection, map, values } from 'lodash-es';
-import { ChangeEvent, MouseEvent, useCallback, useState } from 'react';
+import type { ChangeEvent, MouseEvent } from 'react';
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import type { SearchFolderResponse } from 'services/api/endpoints/models';
 import {
-  SearchFolderResponse,
   useGetMainModelsQuery,
   useGetModelsInFolderQuery,
   useImportMainModelsMutation,

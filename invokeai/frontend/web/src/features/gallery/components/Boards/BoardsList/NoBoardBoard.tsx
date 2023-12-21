@@ -6,7 +6,7 @@ import InvokeAILogoImage from 'assets/images/logo.png';
 import { InvText, InvTooltip } from 'common/components';
 import IAIDroppable from 'common/components/IAIDroppable';
 import SelectionOverlay from 'common/components/SelectionOverlay';
-import { RemoveFromBoardDropData } from 'features/dnd/types';
+import type { RemoveFromBoardDropData } from 'features/dnd/types';
 import AutoAddIcon from 'features/gallery/components/Boards/AutoAddIcon';
 import BoardContextMenu from 'features/gallery/components/Boards/BoardContextMenu';
 import {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvSelect } from './InvSelect';
-import { InvSelectOption, InvSelectProps } from './types';
+import type { InvSelectOption, InvSelectProps } from './types';
 import { omit } from 'lodash-es';
 
 const SELECT_STORY_OPTIONS: InvSelectOption[] = [

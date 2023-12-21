@@ -5,11 +5,12 @@ import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableCon
 import { useCancelBatch } from 'features/queue/hooks/useCancelBatch';
 import { useCancelQueueItem } from 'features/queue/hooks/useCancelQueueItem';
 import { getSecondsFromTimestamps } from 'features/queue/util/getSecondsFromTimestamps';
-import { ReactNode, memo, useMemo } from 'react';
+import type { ReactNode } from 'react';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaTimes } from 'react-icons/fa';
 import { useGetQueueItemQuery } from 'services/api/endpoints/queue';
-import { SessionQueueItemDTO } from 'services/api/types';
+import type { SessionQueueItemDTO } from 'services/api/types';
 
 type Props = {
   queueItemDTO: SessionQueueItemDTO;

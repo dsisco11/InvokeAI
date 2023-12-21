@@ -1,11 +1,11 @@
 import { useDisclosure } from '@chakra-ui/react';
 import { isNil } from 'lodash-es';
-import {
+import type {
   ChangeEventHandler,
   KeyboardEventHandler,
   RefObject,
-  useCallback,
 } from 'react';
+import { useCallback } from 'react';
 import { flushSync } from 'react-dom';
 
 export type UseInsertEmbeddingArg = {

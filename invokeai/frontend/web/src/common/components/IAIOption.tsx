@@ -1,5 +1,5 @@
 import { useToken } from '@chakra-ui/react';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 type IAIOptionProps = {
   children: ReactNode | string | number;

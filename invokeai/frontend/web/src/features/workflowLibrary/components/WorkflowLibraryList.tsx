@@ -7,34 +7,30 @@ import {
   InputRightElement,
   Spacer,
 } from '@chakra-ui/react';
+import type { InvSelectOnChange, InvSelectOption } from 'common/components';
 import {
   InvButton,
   InvButtonGroup,
   InvControl,
   InvIconButton,
   InvSelect,
-  InvSelectOnChange,
-  InvSelectOption,
 } from 'common/components';
 import {
   IAINoContentFallback,
   IAINoContentFallbackWithSpinner,
 } from 'common/components/IAIImageFallback';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
-import { WorkflowCategory } from 'features/nodes/types/workflow';
+import type { WorkflowCategory } from 'features/nodes/types/workflow';
 import WorkflowLibraryListItem from 'features/workflowLibrary/components/WorkflowLibraryListItem';
 import WorkflowLibraryPagination from 'features/workflowLibrary/components/WorkflowLibraryPagination';
-import {
-  ChangeEvent,
-  KeyboardEvent,
-  memo,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react';
+import type { ChangeEvent, KeyboardEvent } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useListWorkflowsQuery } from 'services/api/endpoints/workflows';
-import { SQLiteDirection, WorkflowRecordOrderBy } from 'services/api/types';
+import type {
+  SQLiteDirection,
+  WorkflowRecordOrderBy,
+} from 'services/api/types';
 import { useDebounce } from 'use-debounce';
 import { z } from 'zod';
 

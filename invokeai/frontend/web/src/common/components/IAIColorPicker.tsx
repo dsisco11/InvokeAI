@@ -1,7 +1,11 @@
-import { ChakraProps, Flex } from '@chakra-ui/react';
+import type { ChakraProps } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { memo, useCallback } from 'react';
 import { RgbaColorPicker } from 'react-colorful';
-import { ColorPickerBaseProps, RgbaColor } from 'react-colorful/dist/types';
+import type {
+  ColorPickerBaseProps,
+  RgbaColor,
+} from 'react-colorful/dist/types';
 import { InvControl, InvNumberInput } from 'common/components';
 
 type IAIColorPickerProps = ColorPickerBaseProps<RgbaColor> & {

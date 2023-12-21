@@ -1,24 +1,22 @@
 import { Box, Flex } from '@chakra-ui/react';
-import { EntityId } from '@reduxjs/toolkit';
+import type { EntityId } from '@reduxjs/toolkit';
 import { useAppSelector } from 'app/store/storeHooks';
 import { IAINoContentFallback } from 'common/components/IAIImageFallback';
-import { VirtuosoGalleryContext } from 'features/gallery/components/ImageGrid/types';
+import type { VirtuosoGalleryContext } from 'features/gallery/components/ImageGrid/types';
 import { $useNextPrevImageState } from 'features/gallery/hooks/useNextPrevImage';
 import { selectListImagesBaseQueryArgs } from 'features/gallery/store/gallerySelectors';
 import { IMAGE_LIMIT } from 'features/gallery/store/types';
-import {
-  UseOverlayScrollbarsParams,
-  useOverlayScrollbars,
-} from 'overlayscrollbars-react';
+import type { UseOverlayScrollbarsParams } from 'overlayscrollbars-react';
+import { useOverlayScrollbars } from 'overlayscrollbars-react';
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaExclamationCircle, FaImage } from 'react-icons/fa';
-import {
+import type {
   ItemContent,
   ListRange,
-  VirtuosoGrid,
   VirtuosoGridHandle,
 } from 'react-virtuoso';
+import { VirtuosoGrid } from 'react-virtuoso';
 import {
   useLazyListImagesQuery,
   useListImagesQuery,

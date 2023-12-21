@@ -1,4 +1,5 @@
-import { Box, Flex, FlexProps } from '@chakra-ui/react';
+import type { FlexProps } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { memo } from 'react';
 import { PanelResizeHandle } from 'react-resizable-panels';
 

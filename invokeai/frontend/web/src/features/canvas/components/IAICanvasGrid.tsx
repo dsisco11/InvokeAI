@@ -4,7 +4,8 @@ import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
 import { range } from 'lodash-es';
-import { ReactNode, memo, useCallback, useLayoutEffect, useState } from 'react';
+import type { ReactNode } from 'react';
+import { memo, useCallback, useLayoutEffect, useState } from 'react';
 import { Group, Line as KonvaLine } from 'react-konva';
 
 const selector = createMemoizedSelector([stateSelector], ({ canvas }) => {

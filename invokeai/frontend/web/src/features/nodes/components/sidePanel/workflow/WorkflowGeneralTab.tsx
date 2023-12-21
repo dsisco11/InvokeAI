@@ -13,7 +13,8 @@ import {
   workflowTagsChanged,
   workflowVersionChanged,
 } from 'features/nodes/store/workflowSlice';
-import { ChangeEvent, memo, useCallback } from 'react';
+import type { ChangeEvent } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const selector = createMemoizedSelector(stateSelector, ({ workflow }) => {

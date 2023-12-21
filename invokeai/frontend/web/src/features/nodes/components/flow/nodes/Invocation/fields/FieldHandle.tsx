@@ -4,12 +4,14 @@ import {
   HANDLE_TOOLTIP_OPEN_DELAY,
   MODEL_TYPES,
 } from 'features/nodes/types/constants';
-import {
+import type {
   FieldInputTemplate,
   FieldOutputTemplate,
 } from 'features/nodes/types/field';
-import { CSSProperties, memo, useMemo } from 'react';
-import { Handle, HandleType, Position } from 'reactflow';
+import type { CSSProperties } from 'react';
+import { memo, useMemo } from 'react';
+import type { HandleType } from 'reactflow';
+import { Handle, Position } from 'reactflow';
 import { getFieldColor } from 'features/nodes/components/flow/edges/util/getEdgeColor';
 import { InvTooltip } from 'common/components';
 

@@ -20,7 +20,8 @@ import {
   shouldSnapToGridChanged,
   shouldValidateGraphChanged,
 } from 'features/nodes/store/nodesSlice';
-import { ChangeEvent, ReactNode, memo, useCallback } from 'react';
+import type { ChangeEvent, ReactNode } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SelectionMode } from 'reactflow';
 

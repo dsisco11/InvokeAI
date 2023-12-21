@@ -1,5 +1,5 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
-import { RootState } from 'app/store/store';
+import type { RootState } from 'app/store/store';
 import { isString } from 'lodash-es';
 import { tabMap } from './tabMap';
 

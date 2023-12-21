@@ -12,24 +12,12 @@
  * - increment it in `onPaneClick`
  * - `useEffect()` to close the menu when `globalContextMenuCloseTrigger` changes
  */
-import {
-  Menu,
-  MenuButton,
-  MenuButtonProps,
-  MenuProps,
-  Portal,
-  PortalProps,
-  useEventListener,
-} from '@chakra-ui/react';
+import type { MenuButtonProps, MenuProps, PortalProps } from '@chakra-ui/react';
+import { Menu, MenuButton, Portal, useEventListener } from '@chakra-ui/react';
 import { useGlobalMenuCloseTrigger } from 'common/hooks/useGlobalMenuCloseTrigger';
-import * as React from 'react';
-import {
-  MutableRefObject,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import type * as React from 'react';
+import type { MutableRefObject } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 export interface IAIContextMenuProps<T extends HTMLElement> {
   renderMenu: () => JSX.Element | null;

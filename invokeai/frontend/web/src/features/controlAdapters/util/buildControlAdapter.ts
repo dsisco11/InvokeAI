@@ -1,5 +1,5 @@
 import { cloneDeep, merge } from 'lodash-es';
-import {
+import type {
   ControlAdapterConfig,
   ControlAdapterType,
   ControlNetConfig,

@@ -10,9 +10,10 @@ import { dndDropped } from 'app/store/middleware/listenerMiddleware/listeners/im
 import { useAppDispatch } from 'app/store/storeHooks';
 import { parseify } from 'common/util/serialize';
 import { AnimatePresence, motion } from 'framer-motion';
-import { PropsWithChildren, memo, useCallback, useState } from 'react';
+import type { PropsWithChildren } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useScaledModifer } from 'features/dnd/hooks/useScaledCenteredModifer';
-import {
+import type {
   DragEndEvent,
   DragStartEvent,
   TypesafeDraggableData,

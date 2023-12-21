@@ -5,7 +5,7 @@ import { useAppSelector } from 'app/store/storeHooks';
 import { InvText } from 'common/components';
 import { STATUS_TRANSLATION_KEYS } from 'features/system/store/types';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ResourceKey } from 'i18next';
+import type { ResourceKey } from 'i18next';
 import { memo, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaCircle } from 'react-icons/fa';

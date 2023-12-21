@@ -6,15 +6,16 @@ import IAIDndImage from 'common/components/IAIDndImage';
 import IAIDndImageIcon from 'common/components/IAIDndImageIcon';
 import IAIFillSkeleton from 'common/components/IAIFillSkeleton';
 import { imagesToDeleteSelected } from 'features/deleteImageModal/store/slice';
-import {
+import type {
   ImageDTOsDraggableData,
   ImageDraggableData,
   TypesafeDraggableData,
 } from 'features/dnd/types';
-import { VirtuosoGalleryContext } from 'features/gallery/components/ImageGrid/types';
+import type { VirtuosoGalleryContext } from 'features/gallery/components/ImageGrid/types';
 import { useMultiselect } from 'features/gallery/hooks/useMultiselect';
 import { useScrollToVisible } from 'features/gallery/hooks/useScrollToVisible';
-import { MouseEvent, memo, useCallback, useMemo, useState } from 'react';
+import type { MouseEvent } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaTrash } from 'react-icons/fa';
 import { MdStar, MdStarBorder } from 'react-icons/md';

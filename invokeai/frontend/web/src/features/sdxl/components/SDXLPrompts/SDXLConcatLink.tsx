@@ -1,5 +1,5 @@
 import { Box, Flex } from '@chakra-ui/react';
-import { CSSObject } from '@emotion/react';
+import type { CSSObject } from '@emotion/react';
 import { useAppSelector } from 'app/store/storeHooks';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaLink } from 'react-icons/fa';

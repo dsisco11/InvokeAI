@@ -1,14 +1,12 @@
 import { useAppSelector } from 'app/store/storeHooks';
 import { InvControl, InvSelect, InvSelectFallback } from 'common/components/';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
-import { EmbeddingSelectProps } from 'features/embedding/components/PromptWithEmbedding/types';
+import type { EmbeddingSelectProps } from 'features/embedding/components/PromptWithEmbedding/types';
 import { t } from 'i18next';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  TextualInversionModelConfigEntity,
-  useGetTextualInversionModelsQuery,
-} from 'services/api/endpoints/models';
+import type { TextualInversionModelConfigEntity } from 'services/api/endpoints/models';
+import { useGetTextualInversionModelsQuery } from 'services/api/endpoints/models';
 
 const noOptionsMessage = () => t('embedding.noMatchingEmbedding');
 

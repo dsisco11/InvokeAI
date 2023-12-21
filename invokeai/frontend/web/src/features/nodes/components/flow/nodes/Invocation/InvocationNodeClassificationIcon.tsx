@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaFlask } from 'react-icons/fa';
 import { useNodeClassification } from 'features/nodes/hooks/useNodeClassification';
-import { Classification } from 'features/nodes/types/common';
+import type { Classification } from 'features/nodes/types/common';
 import { FaHammer } from 'react-icons/fa6';
 import { InvTooltip } from 'common/components';
 

@@ -1,10 +1,11 @@
 import { Flex } from '@chakra-ui/layout';
 import { Portal } from '@chakra-ui/portal';
 import { InvIconButton } from 'common/components';
-import { RefObject, memo, useCallback } from 'react';
+import type { RefObject } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdPhotoLibrary } from 'react-icons/md';
-import { ImperativePanelHandle } from 'react-resizable-panels';
+import type { ImperativePanelHandle } from 'react-resizable-panels';
 
 type Props = {
   isGalleryCollapsed: boolean;

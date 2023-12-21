@@ -4,12 +4,8 @@ import AdvancedAddCheckpoint from './AdvancedAddCheckpoint';
 import AdvancedAddDiffusers from './AdvancedAddDiffusers';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
-import {
-  InvControl,
-  InvSelect,
-  InvSelectOnChange,
-  InvSelectOption,
-} from 'common/components';
+import type { InvSelectOnChange, InvSelectOption } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 
 export const zManualAddMode = z.enum(['diffusers', 'checkpoint']);
 export type ManualAddMode = z.infer<typeof zManualAddMode>;

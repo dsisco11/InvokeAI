@@ -1,6 +1,6 @@
-import { RootState } from 'app/store/store';
+import type { RootState } from 'app/store/store';
 import { forEach, size } from 'lodash-es';
-import {
+import type {
   CoreMetadataInvocation,
   LoraLoaderInvocation,
   NonNullableGraph,

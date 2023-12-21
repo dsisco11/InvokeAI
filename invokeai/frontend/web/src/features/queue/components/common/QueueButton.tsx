@@ -1,6 +1,7 @@
-import { ChakraProps, ThemeTypings } from '@chakra-ui/react';
+import type { ChakraProps, ThemeTypings } from '@chakra-ui/react';
 import { InvButton, InvIconButton } from 'common/components';
-import { ReactElement, ReactNode, memo } from 'react';
+import type { ReactElement, ReactNode } from 'react';
+import { memo } from 'react';
 
 type Props = {
   label: string;

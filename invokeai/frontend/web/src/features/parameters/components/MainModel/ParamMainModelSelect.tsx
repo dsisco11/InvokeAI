@@ -14,10 +14,8 @@ import { pick } from 'lodash-es';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NON_REFINER_BASE_MODELS } from 'services/api/constants';
-import {
-  MainModelConfigEntity,
-  useGetMainModelsQuery,
-} from 'services/api/endpoints/models';
+import type { MainModelConfigEntity } from 'services/api/endpoints/models';
+import { useGetMainModelsQuery } from 'services/api/endpoints/models';
 
 const selector = createMemoizedSelector(stateSelector, (state) => ({
   model: state.generation.model,

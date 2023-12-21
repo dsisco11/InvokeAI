@@ -4,11 +4,8 @@ import QueueControls from 'features/queue/components/QueueControls';
 import ResizeHandle from 'features/ui/components/tabs/ResizeHandle';
 import { usePanelStorage } from 'features/ui/hooks/usePanelStorage';
 import { memo, useCallback, useRef, useState } from 'react';
-import {
-  ImperativePanelGroupHandle,
-  Panel,
-  PanelGroup,
-} from 'react-resizable-panels';
+import type { ImperativePanelGroupHandle } from 'react-resizable-panels';
+import { Panel, PanelGroup } from 'react-resizable-panels';
 import 'reactflow/dist/style.css';
 import InspectorPanel from './inspector/InspectorPanel';
 import WorkflowPanel from './workflow/WorkflowPanel';

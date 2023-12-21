@@ -2,16 +2,14 @@ import { useAppDispatch } from 'app/store/storeHooks';
 import { InvControl, InvSelect, InvTooltip } from 'common/components';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
 import { fieldT2IAdapterModelValueChanged } from 'features/nodes/store/nodesSlice';
-import {
+import type {
   T2IAdapterModelFieldInputInstance,
   T2IAdapterModelFieldInputTemplate,
 } from 'features/nodes/types/field';
 import { memo, useCallback } from 'react';
-import {
-  T2IAdapterModelConfigEntity,
-  useGetT2IAdapterModelsQuery,
-} from 'services/api/endpoints/models';
-import { FieldComponentProps } from './types';
+import type { T2IAdapterModelConfigEntity } from 'services/api/endpoints/models';
+import { useGetT2IAdapterModelsQuery } from 'services/api/endpoints/models';
+import type { FieldComponentProps } from './types';
 
 const T2IAdapterModelFieldInputComponent = (
   props: FieldComponentProps<

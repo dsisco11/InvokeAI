@@ -8,14 +8,8 @@ import {
   forwardRef,
   useDisclosure,
 } from '@chakra-ui/react';
-import {
-  cloneElement,
-  memo,
-  ReactElement,
-  ReactNode,
-  useCallback,
-  useRef,
-} from 'react';
+import type { ReactElement, ReactNode } from 'react';
+import { cloneElement, memo, useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { InvButton } from './InvButton';
 

@@ -3,7 +3,8 @@ import IAIInformationalPopover from 'common/components/IAIInformationalPopover/I
 import { vaePrecisionChanged } from 'features/parameters/store/generationSlice';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { InvControl, InvSelect, InvSelectOnChange } from 'common/components';
+import type { InvSelectOnChange } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 import { isParameterPrecision } from 'features/parameters/types/parameterSchemas';
 
 const options = [

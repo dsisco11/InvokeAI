@@ -4,10 +4,8 @@ import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
 import { InvText, InvTooltip } from 'common/components';
 import { DRAG_HANDLE_CLASSNAME } from 'features/nodes/types/constants';
-import {
-  NodeExecutionState,
-  zNodeStatus,
-} from 'features/nodes/types/invocation';
+import type { NodeExecutionState } from 'features/nodes/types/invocation';
+import { zNodeStatus } from 'features/nodes/types/invocation';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaCheck, FaEllipsisH, FaExclamation } from 'react-icons/fa';

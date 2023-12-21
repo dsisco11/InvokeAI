@@ -5,7 +5,7 @@ import {
   Flex,
   forwardRef,
 } from '@chakra-ui/react';
-import { InvControlProps } from './types';
+import type { InvControlProps } from './types';
 
 export const InvControl = forwardRef((props: InvControlProps, ref) => {
   const {

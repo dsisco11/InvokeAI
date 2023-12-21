@@ -2,16 +2,14 @@ import { useAppDispatch } from 'app/store/storeHooks';
 import { InvControl, InvSelect, InvTooltip } from 'common/components';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
 import { fieldControlNetModelValueChanged } from 'features/nodes/store/nodesSlice';
-import {
+import type {
   ControlNetModelFieldInputInstance,
   ControlNetModelFieldInputTemplate,
 } from 'features/nodes/types/field';
 import { memo, useCallback } from 'react';
-import {
-  ControlNetModelConfigEntity,
-  useGetControlNetModelsQuery,
-} from 'services/api/endpoints/models';
-import { FieldComponentProps } from './types';
+import type { ControlNetModelConfigEntity } from 'services/api/endpoints/models';
+import { useGetControlNetModelsQuery } from 'services/api/endpoints/models';
+import type { FieldComponentProps } from './types';
 
 type Props = FieldComponentProps<
   ControlNetModelFieldInputInstance,

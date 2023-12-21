@@ -7,7 +7,7 @@ import {
 } from 'common/components';
 import AddEmbeddingButton from 'features/embedding/components/PromptWithEmbedding/AddEmbeddingButton';
 import { EmbeddingSelect } from 'features/embedding/components/PromptWithEmbedding/EmbeddingSelect';
-import { EmbeddingPopoverProps } from 'features/embedding/components/PromptWithEmbedding/types';
+import type { EmbeddingPopoverProps } from 'features/embedding/components/PromptWithEmbedding/types';
 import { PARAMETERS_PANEL_WIDTH } from 'theme/util/constants';
 
 export const EmbeddingPopover = (props: EmbeddingPopoverProps) => {

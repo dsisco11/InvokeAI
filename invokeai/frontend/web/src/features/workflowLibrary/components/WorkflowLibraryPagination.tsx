@@ -1,8 +1,9 @@
 import { InvButton, InvButtonGroup, InvIconButton } from 'common/components';
-import { Dispatch, SetStateAction, memo, useCallback, useMemo } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { paths } from 'services/api/schema';
+import type { paths } from 'services/api/schema';
 
 const PAGES_TO_DISPLAY = 7;
 

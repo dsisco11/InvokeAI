@@ -1,12 +1,12 @@
-import { EntityState } from '@reduxjs/toolkit';
-import {
+import type { EntityState } from '@reduxjs/toolkit';
+import type {
   ParameterControlNetModel,
   ParameterIPAdapterModel,
   ParameterT2IAdapterModel,
 } from 'features/parameters/types/parameterSchemas';
 import { isObject } from 'lodash-es';
-import { components } from 'services/api/schema';
-import {
+import type { components } from 'services/api/schema';
+import type {
   CannyImageProcessorInvocation,
   ColorMapImageProcessorInvocation,
   ContentShuffleImageProcessorInvocation,
@@ -21,7 +21,7 @@ import {
   PidiImageProcessorInvocation,
   ZoeDepthImageProcessorInvocation,
 } from 'services/api/types';
-import { O } from 'ts-toolbelt';
+import type { O } from 'ts-toolbelt';
 import { z } from 'zod';
 
 /**

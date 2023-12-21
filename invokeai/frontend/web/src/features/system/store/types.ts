@@ -1,6 +1,6 @@
-import { UseToastOptions } from '@chakra-ui/react';
-import { LogLevel } from 'app/logging/logger';
-import { ProgressImage } from 'services/events/types';
+import type { UseToastOptions } from '@chakra-ui/react';
+import type { LogLevel } from 'app/logging/logger';
+import type { ProgressImage } from 'services/events/types';
 import { z } from 'zod';
 
 export type SystemStatus =

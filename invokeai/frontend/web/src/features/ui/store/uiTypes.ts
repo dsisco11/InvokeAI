@@ -1,4 +1,4 @@
-import { InvokeTabName } from './tabMap';
+import type { InvokeTabName } from './tabMap';
 
 export type Coordinates = {
   x: number;

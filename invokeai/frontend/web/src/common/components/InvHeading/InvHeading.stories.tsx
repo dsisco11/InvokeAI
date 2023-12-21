@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvHeading } from './wrapper';
-import { InvHeadingProps } from './types';
+import type { InvHeadingProps } from './types';
 
 const meta: Meta<typeof InvHeading> = {
   title: 'Primitives/InvHeading',

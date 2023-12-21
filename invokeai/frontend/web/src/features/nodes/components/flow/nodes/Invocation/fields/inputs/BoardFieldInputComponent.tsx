@@ -1,18 +1,14 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import {
-  InvControl,
-  InvSelect,
-  InvSelectOnChange,
-  InvSelectOption,
-} from 'common/components';
+import type { InvSelectOnChange, InvSelectOption } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 import { fieldBoardValueChanged } from 'features/nodes/store/nodesSlice';
-import {
+import type {
   BoardFieldInputInstance,
   BoardFieldInputTemplate,
 } from 'features/nodes/types/field';
 import { memo, useCallback, useMemo } from 'react';
 import { useListAllBoardsQuery } from 'services/api/endpoints/boards';
-import { FieldComponentProps } from './types';
+import type { FieldComponentProps } from './types';
 import { useTranslation } from 'react-i18next';
 
 const BoardFieldInputComponent = (

@@ -1,5 +1,6 @@
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
-import { ReactNode, memo, useMemo } from 'react';
+import type { ReactNode } from 'react';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import ImportModelsPanel from 'features/modelManager/subpanels/ImportModelsPanel';
 import MergeModelsPanel from 'features/modelManager/subpanels/MergeModelsPanel';

@@ -1,4 +1,5 @@
-import { ScrollArea, ScrollAreaProps } from '@mantine/core';
+import type { ScrollAreaProps } from '@mantine/core';
+import { ScrollArea } from '@mantine/core';
 
 type IAIScrollArea = ScrollAreaProps;
 

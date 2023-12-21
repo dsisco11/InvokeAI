@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvEditable, InvEditablePreview, InvEditableInput } from './wrapper';
-import { InvEditableProps } from './types';
+import type { InvEditableProps } from './types';
 
 const meta: Meta<typeof InvEditable> = {
   title: 'Primitives/InvEditable',

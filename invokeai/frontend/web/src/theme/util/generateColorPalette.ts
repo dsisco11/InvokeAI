@@ -1,4 +1,4 @@
-import { InvokeAIPaletteSteps } from 'theme/themeTypes';
+import type { InvokeAIPaletteSteps } from 'theme/themeTypes';
 
 /**
  * Add two numbers together

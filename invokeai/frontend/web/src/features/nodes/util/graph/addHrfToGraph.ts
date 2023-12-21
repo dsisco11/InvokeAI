@@ -1,7 +1,7 @@
 import { logger } from 'app/logging/logger';
-import { RootState } from 'app/store/store';
+import type { RootState } from 'app/store/store';
 import { roundToMultiple } from 'common/util/roundDownToMultiple';
-import {
+import type {
   DenoiseLatentsInvocation,
   ESRGANInvocation,
   Edge,

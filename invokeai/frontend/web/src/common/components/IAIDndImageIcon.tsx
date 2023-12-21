@@ -1,5 +1,6 @@
-import { SystemStyleObject } from '@chakra-ui/react';
-import { MouseEvent, ReactElement, memo } from 'react';
+import type { SystemStyleObject } from '@chakra-ui/react';
+import type { MouseEvent, ReactElement } from 'react';
+import { memo } from 'react';
 import { InvIconButton } from 'common/components';
 
 type Props = {

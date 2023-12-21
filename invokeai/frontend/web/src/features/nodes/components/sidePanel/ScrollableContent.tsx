@@ -1,6 +1,8 @@
-import { Box, Flex, StyleProps } from '@chakra-ui/react';
+import type { StyleProps } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
-import { PropsWithChildren, memo } from 'react';
+import type { PropsWithChildren } from 'react';
+import { memo } from 'react';
 
 type Props = PropsWithChildren & {
   maxHeight?: StyleProps['maxHeight'];

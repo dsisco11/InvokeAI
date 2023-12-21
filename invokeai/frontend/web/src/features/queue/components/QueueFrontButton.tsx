@@ -4,7 +4,7 @@ import { FaBoltLightning } from 'react-icons/fa6';
 import { useQueueFront } from 'features/queue/hooks/useQueueFront';
 import EnqueueButtonTooltip from './QueueButtonTooltip';
 import QueueButton from './common/QueueButton';
-import { ChakraProps } from '@chakra-ui/react';
+import type { ChakraProps } from '@chakra-ui/react';
 
 type Props = {
   asIconButton?: boolean;

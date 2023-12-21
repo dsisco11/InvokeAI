@@ -1,10 +1,7 @@
-import {
-  Select as ChakraReactSelect,
-  GroupBase,
-  StylesConfig,
-} from 'chakra-react-select';
+import type { GroupBase, StylesConfig } from 'chakra-react-select';
+import { Select as ChakraReactSelect } from 'chakra-react-select';
 import { CustomComponents } from './CustomComponents';
-import {
+import type {
   CustomChakraStylesConfig,
   InvSelectOption,
   InvSelectProps,

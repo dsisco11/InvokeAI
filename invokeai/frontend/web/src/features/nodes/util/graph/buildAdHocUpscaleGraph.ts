@@ -1,6 +1,6 @@
-import { BoardId } from 'features/gallery/store/types';
-import { ParamESRGANModelName } from 'features/parameters/store/postprocessingSlice';
-import {
+import type { BoardId } from 'features/gallery/store/types';
+import type { ParamESRGANModelName } from 'features/parameters/store/postprocessingSlice';
+import type {
   ESRGANInvocation,
   Graph,
   LinearUIOutputInvocation,

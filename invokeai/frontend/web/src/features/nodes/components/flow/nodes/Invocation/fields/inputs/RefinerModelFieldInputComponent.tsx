@@ -1,19 +1,17 @@
 import { Flex } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import { fieldRefinerModelValueChanged } from 'features/nodes/store/nodesSlice';
-import {
+import type {
   SDXLRefinerModelFieldInputTemplate,
   SDXLRefinerModelFieldInputInstance,
 } from 'features/nodes/types/field';
-import { FieldComponentProps } from './types';
+import type { FieldComponentProps } from './types';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import SyncModelsButton from 'features/modelManager/subpanels/ModelManagerSettingsPanel/SyncModelsButton';
 import { memo, useCallback } from 'react';
 import { REFINER_BASE_MODELS } from 'services/api/constants';
-import {
-  MainModelConfigEntity,
-  useGetMainModelsQuery,
-} from 'services/api/endpoints/models';
+import type { MainModelConfigEntity } from 'services/api/endpoints/models';
+import { useGetMainModelsQuery } from 'services/api/endpoints/models';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
 import { InvControl, InvSelect } from 'common/components';
 

@@ -1,4 +1,5 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { z } from 'zod';
 
 export const zSeedBehaviour = z.enum(['PER_ITERATION', 'PER_PROMPT']);

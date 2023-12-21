@@ -2,8 +2,8 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { boardsApi } from 'services/api/endpoints/boards';
 import { imagesApi } from 'services/api/endpoints/images';
-import { ImageDTO } from 'services/api/types';
-import { BoardId, GalleryState, GalleryView } from './types';
+import type { ImageDTO } from 'services/api/types';
+import type { BoardId, GalleryState, GalleryView } from './types';
 import { uniqBy } from 'lodash-es';
 
 export const initialGalleryState: GalleryState = {

@@ -1,8 +1,8 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { initialImageChanged } from 'features/parameters/store/generationSlice';
-import { InvokeTabName } from './tabMap';
-import { UIState } from './uiTypes';
+import type { InvokeTabName } from './tabMap';
+import type { UIState } from './uiTypes';
 
 export const initialUIState: UIState = {
   activeTab: 'txt2img',

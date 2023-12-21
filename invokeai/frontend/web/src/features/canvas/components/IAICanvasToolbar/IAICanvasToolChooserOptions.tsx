@@ -24,7 +24,7 @@ import {
 } from 'features/canvas/store/canvasSlice';
 import { clamp } from 'lodash-es';
 import { memo, useCallback } from 'react';
-import { RgbaColor } from 'react-colorful';
+import type { RgbaColor } from 'react-colorful';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';
 import {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvAccordion, InvAccordionItem, InvAccordionPanel } from './wrapper';
-import { InvAccordionProps } from './types';
+import type { InvAccordionProps } from './types';
 import { InvText } from 'common/components/InvText';
 import { InvAccordionButton } from './InvAccordionButton';
 

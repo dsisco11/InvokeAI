@@ -1,17 +1,20 @@
+import type {
+  MenuProps,
+  MenuListProps,
+  MenuItemProps,
+  IconButtonProps,
+  ButtonProps,
+} from '@chakra-ui/react';
 import {
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
-  MenuProps,
-  MenuListProps,
-  MenuItemProps,
   IconButton,
   Button,
-  IconButtonProps,
-  ButtonProps,
 } from '@chakra-ui/react';
-import { memo, MouseEventHandler, ReactNode } from 'react';
+import type { MouseEventHandler, ReactNode } from 'react';
+import { memo } from 'react';
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 
 interface IAIMenuItem {

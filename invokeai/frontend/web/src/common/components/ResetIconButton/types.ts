@@ -1,4 +1,4 @@
-import { InvIconButtonProps } from 'common/components/InvIconButton';
+import type { InvIconButtonProps } from 'common/components/InvIconButton';
 
 export type ResetIconButtonProps = Omit<
   InvIconButtonProps,

@@ -1,4 +1,4 @@
-import { ThemeOverride, ToastProviderProps } from '@chakra-ui/react';
+import type { ThemeOverride, ToastProviderProps } from '@chakra-ui/react';
 import {
   accordionTheme,
   badgeTheme,

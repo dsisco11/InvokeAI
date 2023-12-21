@@ -1,5 +1,6 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import {
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import type {
   ParameterNegativeStylePromptSDXL,
   ParameterPositiveStylePromptSDXL,
   ParameterSDXLRefinerModel,

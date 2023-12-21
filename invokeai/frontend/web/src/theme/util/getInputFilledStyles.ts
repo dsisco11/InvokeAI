@@ -1,4 +1,4 @@
-import { SystemStyleObject } from '@chakra-ui/styled-system';
+import type { SystemStyleObject } from '@chakra-ui/styled-system';
 
 export const getInputFilledStyles = (): SystemStyleObject => {
   const baseColors = {

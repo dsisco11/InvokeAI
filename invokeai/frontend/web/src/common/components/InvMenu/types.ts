@@ -1,4 +1,4 @@
-import {
+import type {
   MenuProps as ChakraMenuProps,
   MenuButtonProps as ChakraMenuButtonProps,
   MenuListProps as ChakraMenuListProps,

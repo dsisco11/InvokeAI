@@ -15,14 +15,15 @@ import ImageGalleryContent from 'features/gallery/components/ImageGalleryContent
 import NodeEditorPanelGroup from 'features/nodes/components/sidePanel/NodeEditorPanelGroup';
 import { usePanel } from 'features/ui/hooks/usePanel';
 import { usePanelStorage } from 'features/ui/hooks/usePanelStorage';
-import { InvokeTabName } from 'features/ui/store/tabMap';
+import type { InvokeTabName } from 'features/ui/store/tabMap';
 import {
   activeTabIndexSelector,
   activeTabNameSelector,
 } from 'features/ui/store/uiSelectors';
 import { setActiveTab } from 'features/ui/store/uiSlice';
-import { ResourceKey } from 'i18next';
-import { MouseEvent, ReactNode, memo, useCallback, useMemo } from 'react';
+import type { ResourceKey } from 'i18next';
+import type { MouseEvent, ReactNode } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';
 import { FaCube, FaFont, FaImage, FaStream } from 'react-icons/fa';

@@ -11,7 +11,7 @@ import { $modifiers } from 'common/hooks/useGlobalModifiers';
 import { AnimatePresence } from 'framer-motion';
 import { useCallback, useMemo, useState } from 'react';
 import { InvSliderMark } from './InvSliderMark';
-import { InvFormattedMark, InvSliderProps } from './types';
+import type { InvFormattedMark, InvSliderProps } from './types';
 import { InvNumberInput } from 'common/components/InvNumberInput';
 
 export const InvSlider = (props: InvSliderProps) => {

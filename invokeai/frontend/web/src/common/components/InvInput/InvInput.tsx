@@ -1,7 +1,8 @@
 import { Input } from '@chakra-ui/react';
 import { useGlobalModifiersSetters } from 'common/hooks/useGlobalModifiers';
 import { stopPastePropagation } from 'common/util/stopPastePropagation';
-import { KeyboardEvent, useCallback } from 'react';
+import type { KeyboardEvent } from 'react';
+import { useCallback } from 'react';
 import type { InvInputProps } from './types';
 
 export const InvInput = (props: InvInputProps) => {

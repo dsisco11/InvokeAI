@@ -5,7 +5,7 @@ import { FaCopy, FaDownload, FaTrash } from 'react-icons/fa6';
 import { InvMenu, InvMenuButton } from './wrapper';
 import { InvMenuList } from './InvMenuList';
 import { InvMenuItem } from './InvMenuItem';
-import { InvMenuProps } from './types';
+import type { InvMenuProps } from './types';
 
 const meta: Meta<typeof InvMenu> = {
   title: 'Primitives/InvMenu',

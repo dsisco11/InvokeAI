@@ -1,5 +1,5 @@
 import path from 'path';
-import { UserConfig } from 'vite';
+import type { UserConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import { commonPlugins } from './common';

@@ -11,22 +11,22 @@ import {
 } from 'features/nodes/store/nodesSlice';
 import { validateSourceAndTargetTypes } from 'features/nodes/store/util/validateSourceAndTargetTypes';
 import { filter, map, memoize, some } from 'lodash-es';
-import { KeyboardEventHandler, memo, useCallback, useRef } from 'react';
+import type { KeyboardEventHandler } from 'react';
+import { memo, useCallback, useRef } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
-import { HotkeyCallback } from 'react-hotkeys-hook/dist/types';
+import type { HotkeyCallback } from 'react-hotkeys-hook/dist/types';
 import { useTranslation } from 'react-i18next';
 import 'reactflow/dist/style.css';
+import type { InvSelectOption, InvSelectOnChange } from 'common/components';
 import {
   InvPopover,
   InvPopoverAnchor,
   InvPopoverBody,
   InvPopoverContent,
-  InvSelectOption,
   InvSelect,
-  InvSelectOnChange,
 } from 'common/components';
-import { FilterOptionOption } from 'react-select/dist/declarations/src/filters';
-import { SelectInstance } from 'chakra-react-select';
+import type { FilterOptionOption } from 'react-select/dist/declarations/src/filters';
+import type { SelectInstance } from 'chakra-react-select';
 import { flushSync } from 'react-dom';
 
 const createRegex = memoize(

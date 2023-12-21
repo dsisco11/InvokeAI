@@ -1,7 +1,7 @@
 import { MenuItem } from '@chakra-ui/react';
 import { memo, useCallback } from 'react';
 import { FaTrash } from 'react-icons/fa';
-import { BoardDTO } from 'services/api/types';
+import type { BoardDTO } from 'services/api/types';
 import { useTranslation } from 'react-i18next';
 type Props = {
   board: BoardDTO;

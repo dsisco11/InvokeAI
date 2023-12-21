@@ -15,9 +15,9 @@ import {
   setCanvasBaseLayer,
   setCanvasStage,
 } from 'features/canvas/util/konvaInstanceProvider';
-import Konva from 'konva';
-import { KonvaEventObject } from 'konva/lib/Node';
-import { Vector2d } from 'konva/lib/types';
+import type Konva from 'konva';
+import type { KonvaEventObject } from 'konva/lib/Node';
+import type { Vector2d } from 'konva/lib/types';
 import { memo, useCallback, useEffect, useRef } from 'react';
 import { Layer, Stage } from 'react-konva';
 import IAICanvasBoundingBoxOverlay from './IAICanvasBoundingBoxOverlay';

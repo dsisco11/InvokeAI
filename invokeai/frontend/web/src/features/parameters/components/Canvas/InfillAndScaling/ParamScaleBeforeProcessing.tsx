@@ -1,10 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import {
-  InvControl,
-  InvSelect,
-  InvSelectOnChange,
-  InvSelectOption,
-} from 'common/components';
+import type { InvSelectOnChange, InvSelectOption } from 'common/components';
+import { InvControl, InvSelect } from 'common/components';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { setBoundingBoxScaleMethod } from 'features/canvas/store/canvasSlice';
 import { isBoundingBoxScaleMethod } from 'features/canvas/store/canvasTypes';

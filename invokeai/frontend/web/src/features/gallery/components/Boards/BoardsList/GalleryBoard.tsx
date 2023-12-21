@@ -14,7 +14,7 @@ import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvText, InvTooltip } from 'common/components';
 import IAIDroppable from 'common/components/IAIDroppable';
 import SelectionOverlay from 'common/components/SelectionOverlay';
-import { AddToBoardDropData } from 'features/dnd/types';
+import type { AddToBoardDropData } from 'features/dnd/types';
 import AutoAddIcon from 'features/gallery/components/Boards/AutoAddIcon';
 import BoardContextMenu from 'features/gallery/components/Boards/BoardContextMenu';
 import {
@@ -30,7 +30,7 @@ import {
   useUpdateBoardMutation,
 } from 'services/api/endpoints/boards';
 import { useGetImageDTOQuery } from 'services/api/endpoints/images';
-import { BoardDTO } from 'services/api/types';
+import type { BoardDTO } from 'services/api/types';
 
 interface GalleryBoardProps {
   board: BoardDTO;

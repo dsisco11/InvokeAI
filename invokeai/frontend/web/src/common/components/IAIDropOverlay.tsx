@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { ReactNode, memo, useRef } from 'react';
+import type { ReactNode } from 'react';
+import { memo, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 type Props = {

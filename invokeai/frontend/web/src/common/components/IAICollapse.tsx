@@ -1,7 +1,8 @@
 import { ChevronUpIcon } from '@chakra-ui/icons';
 import { Box, Collapse, Flex, Spacer, useDisclosure } from '@chakra-ui/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { PropsWithChildren, memo } from 'react';
+import type { PropsWithChildren } from 'react';
+import { memo } from 'react';
 import { InvText } from './InvText';
 
 export type IAIToggleCollapseProps = PropsWithChildren & {

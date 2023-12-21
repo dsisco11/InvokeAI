@@ -11,7 +11,7 @@ import { ParamWidth } from 'features/parameters/components/Core/ParamWidth';
 import { ParamSeed } from 'features/parameters/components/Seed/';
 import { useTranslation } from 'react-i18next';
 import { activeTabNameSelector } from 'features/ui/store/uiSelectors';
-import { InvokeTabName } from 'features/ui/store/tabMap';
+import type { InvokeTabName } from 'features/ui/store/tabMap';
 import ParamBoundingBoxWidth from 'features/parameters/components/Canvas/BoundingBox/ParamBoundingBoxWidth';
 import ParamBoundingBoxHeight from 'features/parameters/components/Canvas/BoundingBox/ParamBoundingBoxHeight';
 

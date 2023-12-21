@@ -23,10 +23,10 @@ import {
 } from 'features/nodes/store/nodesSlice';
 import { $flow } from 'features/nodes/store/reactFlowInstance';
 import { bumpGlobalMenuCloseTrigger } from 'features/ui/store/uiSlice';
-import { MouseEvent, useCallback, useRef } from 'react';
+import type { MouseEvent } from 'react';
+import { useCallback, useRef } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
-import {
-  Background,
+import type {
   OnConnect,
   OnConnectEnd,
   OnConnectStart,
@@ -39,10 +39,10 @@ import {
   OnNodesDelete,
   OnSelectionChangeFunc,
   ProOptions,
-  ReactFlow,
   ReactFlowProps,
   XYPosition,
 } from 'reactflow';
+import { Background, ReactFlow } from 'reactflow';
 import CustomConnectionLine from './connectionLines/CustomConnectionLine';
 import InvocationCollapsedEdge from './edges/InvocationCollapsedEdge';
 import InvocationDefaultEdge from './edges/InvocationDefaultEdge';

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvProgress } from './wrapper';
-import { InvProgressProps } from './types';
+import type { InvProgressProps } from './types';
 
 const meta: Meta<typeof InvProgress> = {
   title: 'Primitives/InvProgress',

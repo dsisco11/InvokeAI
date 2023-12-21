@@ -1,4 +1,4 @@
-import { MotionProps } from 'framer-motion';
+import type { MotionProps } from 'framer-motion';
 
 /**
  * Props for the animation of the MenuList.

@@ -1,15 +1,13 @@
 import { useAppDispatch } from 'app/store/storeHooks';
 import { fieldLoRAModelValueChanged } from 'features/nodes/store/nodesSlice';
-import {
+import type {
   LoRAModelFieldInputTemplate,
   LoRAModelFieldInputInstance,
 } from 'features/nodes/types/field';
-import { FieldComponentProps } from './types';
+import type { FieldComponentProps } from './types';
 import { memo, useCallback } from 'react';
-import {
-  LoRAModelConfigEntity,
-  useGetLoRAModelsQuery,
-} from 'services/api/endpoints/models';
+import type { LoRAModelConfigEntity } from 'services/api/endpoints/models';
+import { useGetLoRAModelsQuery } from 'services/api/endpoints/models';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
 import { InvControl, InvSelect } from 'common/components';
 

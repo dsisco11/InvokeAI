@@ -1,6 +1,7 @@
 import { createLogWriter } from '@roarr/browser-log-writer';
 import { atom } from 'nanostores';
-import { Logger, ROARR, Roarr } from 'roarr';
+import type { Logger } from 'roarr';
+import { ROARR, Roarr } from 'roarr';
 import { z } from 'zod';
 
 ROARR.write = createLogWriter();

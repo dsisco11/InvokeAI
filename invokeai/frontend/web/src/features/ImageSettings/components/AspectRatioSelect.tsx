@@ -1,7 +1,8 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { SingleValue } from 'chakra-react-select';
+import type { SingleValue } from 'chakra-react-select';
 import { InvControl } from 'common/components/InvControl';
-import { InvSelect, InvSelectOption } from 'common/components/InvSelect';
+import type { InvSelectOption } from 'common/components/InvSelect';
+import { InvSelect } from 'common/components/InvSelect';
 import { aspectRatioSelected } from 'features/parameters/store/generationSlice';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';

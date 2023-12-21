@@ -13,16 +13,10 @@ import {
   useGlobalModifiersSetters,
 } from 'common/hooks/useGlobalModifiers';
 import { stopPastePropagation } from 'common/util/stopPastePropagation';
-import {
-  FocusEventHandler,
-  KeyboardEvent,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import type { FocusEventHandler, KeyboardEvent } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
-import { InvNumberInputProps } from './types';
+import type { InvNumberInputProps } from './types';
 
 const isValidCharacter = (char: string) => /^[0-9\-.]$/i.test(char);
 

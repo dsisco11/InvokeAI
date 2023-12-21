@@ -5,17 +5,17 @@ import {
   roundToMultiple,
 } from 'common/util/roundDownToMultiple';
 import { aspectRatioSelected } from 'features/parameters/store/generationSlice';
-import { IRect, Vector2d } from 'konva/lib/types';
+import type { IRect, Vector2d } from 'konva/lib/types';
 import { clamp, cloneDeep } from 'lodash-es';
-import { RgbaColor } from 'react-colorful';
-import { ImageDTO } from 'services/api/types';
+import type { RgbaColor } from 'react-colorful';
+import type { ImageDTO } from 'services/api/types';
 import calculateCoordinates from 'features/canvas/util/calculateCoordinates';
 import calculateScale from 'features/canvas/util/calculateScale';
 import { STAGE_PADDING_PERCENTAGE } from 'features/canvas/util/constants';
 import floorCoordinates from 'features/canvas/util/floorCoordinates';
 import getScaledBoundingBoxDimensions from 'features/canvas/util/getScaledBoundingBoxDimensions';
 import roundDimensionsTo64 from 'features/canvas/util/roundDimensionsTo64';
-import {
+import type {
   BoundingBoxScaleMethod,
   CanvasBaseLine,
   CanvasImage,
@@ -25,6 +25,8 @@ import {
   CanvasState,
   CanvasTool,
   Dimensions,
+} from './canvasTypes';
+import {
   isCanvasAnyLine,
   isCanvasBaseImage,
   isCanvasMaskLine,

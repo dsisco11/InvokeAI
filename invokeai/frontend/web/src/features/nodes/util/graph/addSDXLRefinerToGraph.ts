@@ -1,5 +1,5 @@
-import { RootState } from 'app/store/store';
-import {
+import type { RootState } from 'app/store/store';
+import type {
   CreateDenoiseMaskInvocation,
   ImageDTO,
   NonNullableGraph,

@@ -1,10 +1,16 @@
-import { forwardRef, MenuList as ChakraMenuList } from '@chakra-ui/react';
+import {
+  forwardRef,
+  MenuList as ChakraMenuList,
+  Portal,
+} from '@chakra-ui/react';
 
 import { menuListMotionProps } from './constants';
 import type { InvMenuListProps } from './types';
 
 export const InvMenuList = forwardRef((props: InvMenuListProps, ref) => {
   return (
-    <ChakraMenuList ref={ref} motionProps={menuListMotionProps} {...props} />
+    <Portal>
+      <ChakraMenuList ref={ref} motionProps={menuListMotionProps} {...props} />
+    </Portal>
   );
 });

@@ -6,7 +6,7 @@ import { FaCopy, FaDownload, FaTrash } from 'react-icons/fa6';
 import { InvMenuItem } from './InvMenuItem';
 import { InvMenuList } from './InvMenuList';
 import type { InvMenuProps } from './types';
-import { InvMenu, InvMenuButton } from './wrapper';
+import { InvMenu, InvMenuButton, InvMenuGroup } from './wrapper';
 
 const meta: Meta<typeof InvMenu> = {
   title: 'Primitives/InvMenu',
@@ -27,17 +27,32 @@ const Component = (props: InvMenuProps) => {
         Actions
       </InvMenuButton>
       <InvMenuList>
-        <InvMenuItem icon={<FaDownload />} command="⌘S">
-          Download
-        </InvMenuItem>
-        <InvMenuItem icon={<FaCopy />} command="⌘C">
-          Create a Copy
-        </InvMenuItem>
-        <InvMenuItem>Mark as Draft</InvMenuItem>
-        <InvMenuItem icon={<FaTrash />} isDestructive>
-          Delete
-        </InvMenuItem>
-        <InvMenuItem>Attend a Workshop</InvMenuItem>
+        <InvMenuGroup title="Some Category">
+          <InvMenuItem icon={<FaDownload />} command="⌘S">
+            Download
+          </InvMenuItem>
+          <InvMenuItem icon={<FaCopy />} command="⌘C">
+            Create a Copy
+          </InvMenuItem>
+          <InvMenuItem>Mark as Draft</InvMenuItem>
+          <InvMenuItem icon={<FaTrash />} isDestructive>
+            Delete
+          </InvMenuItem>
+          <InvMenuItem>Attend a Workshop</InvMenuItem>
+        </InvMenuGroup>
+        <InvMenuGroup title="Another Category">
+          <InvMenuItem icon={<FaDownload />} command="⌘S">
+            Download
+          </InvMenuItem>
+          <InvMenuItem icon={<FaCopy />} command="⌘C">
+            Create a Copy
+          </InvMenuItem>
+          <InvMenuItem>Mark as Draft</InvMenuItem>
+          <InvMenuItem icon={<FaTrash />} isDestructive>
+            Delete
+          </InvMenuItem>
+          <InvMenuItem>Attend a Workshop</InvMenuItem>
+        </InvMenuGroup>
       </InvMenuList>
     </InvMenu>
   );

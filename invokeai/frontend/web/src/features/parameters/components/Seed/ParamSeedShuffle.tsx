@@ -1,8 +1,7 @@
 import { NUMPY_RAND_MAX, NUMPY_RAND_MIN } from 'app/constants';
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
-import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
+import { InvButton } from 'common/components/InvButton/InvButton';
 import randomInt from 'common/util/randomInt';
 import { setSeed } from 'features/parameters/store/generationSlice';
 import { useCallback } from 'react';
@@ -22,15 +21,14 @@ export const ParamSeedShuffle = () => {
   );
 
   return (
-    <InvTooltip label={t('parameters.shuffle')}>
-      <InvIconButton
-        size="sm"
-        variant="ghost"
-        isDisabled={shouldRandomizeSeed}
-        aria-label={t('parameters.shuffle')}
-        onClick={handleClickRandomizeSeed}
-        icon={<FaShuffle />}
-      />
-    </InvTooltip>
+    <InvButton
+      size="sm"
+      isDisabled={shouldRandomizeSeed}
+      onClick={handleClickRandomizeSeed}
+      leftIcon={<FaShuffle />}
+      flexShrink={0}
+    >
+      {t('parameters.shuffle')}
+    </InvButton>
   );
 };

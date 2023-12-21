@@ -13,7 +13,7 @@ export const ParamCpuNoiseToggle = () => {
   );
   const { t } = useTranslation();
 
-  const handleChange = useCallback(
+  const handleChangeShouldUseCpuNoise = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       dispatch(shouldUseCpuNoiseChanged(e.target.checked));
     },
@@ -26,7 +26,10 @@ export const ParamCpuNoiseToggle = () => {
       w="min-content"
       feature="noiseUseCPU"
     >
-      <InvSwitch isChecked={shouldUseCpuNoise} onChange={handleChange} />
+      <InvSwitch
+        isChecked={shouldUseCpuNoise}
+        onChange={handleChangeShouldUseCpuNoise}
+      />
     </InvControl>
   );
 };

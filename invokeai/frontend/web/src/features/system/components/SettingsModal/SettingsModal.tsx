@@ -17,6 +17,7 @@ import {
 import { InvSwitch } from 'common/components/InvSwitch/wrapper';
 import { InvText } from 'common/components/InvText/wrapper';
 import { useClearStorage } from 'common/hooks/useClearStorage';
+import { shouldUseCpuNoiseChanged } from 'features/parameters/store/generationSlice';
 import {
   setEnableImageDebugging,
   setShouldConfirmOnDelete,
@@ -40,31 +41,35 @@ import { SettingsLanguageSelect } from './SettingsLanguageSelect';
 import { SettingsLogLevelSelect } from './SettingsLogLevelSelect';
 import StyledFlex from './StyledFlex';
 
-const selector = createMemoizedSelector([stateSelector], ({ system, ui }) => {
-  const {
-    shouldConfirmOnDelete,
-    enableImageDebugging,
-    shouldLogToConsole,
-    shouldAntialiasProgressImage,
-    shouldUseNSFWChecker,
-    shouldUseWatermarker,
-    shouldEnableInformationalPopovers,
-  } = system;
+const selector = createMemoizedSelector(
+  [stateSelector],
+  ({ system, ui, generation }) => {
+    const {
+      shouldConfirmOnDelete,
+      enableImageDebugging,
+      shouldLogToConsole,
+      shouldAntialiasProgressImage,
+      shouldUseNSFWChecker,
+      shouldUseWatermarker,
+      shouldEnableInformationalPopovers,
+    } = system;
+    const { shouldUseCpuNoise } = generation;
+    const { shouldShowProgressInViewer, shouldAutoChangeDimensions } = ui;
 
-  const { shouldShowProgressInViewer, shouldAutoChangeDimensions } = ui;
-
-  return {
-    shouldConfirmOnDelete,
-    enableImageDebugging,
-    shouldShowProgressInViewer,
-    shouldLogToConsole,
-    shouldAntialiasProgressImage,
-    shouldUseNSFWChecker,
-    shouldUseWatermarker,
-    shouldAutoChangeDimensions,
-    shouldEnableInformationalPopovers,
-  };
-});
+    return {
+      shouldUseCpuNoise,
+      shouldConfirmOnDelete,
+      enableImageDebugging,
+      shouldShowProgressInViewer,
+      shouldLogToConsole,
+      shouldAntialiasProgressImage,
+      shouldUseNSFWChecker,
+      shouldUseWatermarker,
+      shouldAutoChangeDimensions,
+      shouldEnableInformationalPopovers,
+    };
+  }
+);
 
 type ConfigOptions = {
   shouldShowDeveloperSettings: boolean;
@@ -122,6 +127,7 @@ const SettingsModal = ({ children, config }: SettingsModalProps) => {
   } = useDisclosure();
 
   const {
+    shouldUseCpuNoise,
     shouldConfirmOnDelete,
     enableImageDebugging,
     shouldShowProgressInViewer,
@@ -203,6 +209,12 @@ const SettingsModal = ({ children, config }: SettingsModalProps) => {
     },
     [dispatch]
   );
+  const handleChangeShouldUseCpuNoise = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      dispatch(shouldUseCpuNoiseChanged(e.target.checked));
+    },
+    [dispatch]
+  );
 
   return (
     <>
@@ -272,6 +284,15 @@ const SettingsModal = ({ children, config }: SettingsModalProps) => {
                   <InvSwitch
                     isChecked={shouldAutoChangeDimensions}
                     onChange={handleChangeShouldAutoChangeDimensions}
+                  />
+                </InvControl>
+                <InvControl
+                  label={t('parameters.useCpuNoise')}
+                  feature="noiseUseCPU"
+                >
+                  <InvSwitch
+                    isChecked={shouldUseCpuNoise}
+                    onChange={handleChangeShouldUseCpuNoise}
                   />
                 </InvControl>
                 {shouldShowLocalizationToggle && <SettingsLanguageSelect />}

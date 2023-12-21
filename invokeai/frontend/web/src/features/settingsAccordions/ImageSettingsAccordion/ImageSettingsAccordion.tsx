@@ -10,7 +10,6 @@ import { ParamHeight } from 'features/parameters/components/Core/ParamHeight';
 import { ParamWidth } from 'features/parameters/components/Core/ParamWidth';
 import { AspectRatioPreviewWrapper } from 'features/parameters/components/ImageSize/AspectRatioPreviewWrapper';
 import { AspectRatioSelect } from 'features/parameters/components/ImageSize/AspectRatioSelect';
-import { ParamCpuNoiseToggle } from 'features/parameters/components/Noise/ParamCpuNoise';
 import { ParamSeedNumberInput } from 'features/parameters/components/Seed/ParamSeedNumberInput';
 import { ParamSeedRandomize } from 'features/parameters/components/Seed/ParamSeedRandomize';
 import { ParamSeedShuffle } from 'features/parameters/components/Seed/ParamSeedShuffle';
@@ -21,19 +20,10 @@ import { useTranslation } from 'react-i18next';
 const selector = createMemoizedSelector(
   [stateSelector, activeTabNameSelector],
   ({ generation }, activeTabName) => {
-    const {
-      aspectRatio,
-      width,
-      height,
-      shouldRandomizeSeed,
-      shouldUseCpuNoise,
-    } = generation;
+    const { aspectRatio, width, height, shouldRandomizeSeed } = generation;
     const badges = [`${width}×${height}`, aspectRatio.id];
     if (!shouldRandomizeSeed) {
       badges.push('Manual Seed');
-    }
-    if (!shouldUseCpuNoise) {
-      badges.push('GPU Noise');
     }
     return { badges, activeTabName };
   }
@@ -63,7 +53,6 @@ export const ImageSettingsAccordion = () => {
           <ParamSeedNumberInput />
           <ParamSeedShuffle />
           <ParamSeedRandomize />
-          <ParamCpuNoiseToggle />
         </Flex>
       </InvExpander>
     </InvSingleAccordion>

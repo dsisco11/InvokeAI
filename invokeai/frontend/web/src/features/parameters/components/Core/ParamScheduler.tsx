@@ -29,7 +29,11 @@ const ParamScheduler = () => {
   );
 
   return (
-    <InvControl label={t('parameters.scheduler')} feature="paramScheduler">
+    <InvControl
+      label={t('parameters.scheduler')}
+      feature="paramScheduler"
+      labelW="5rem"
+    >
       <InvSelect
         value={value}
         options={SCHEDULER_OPTIONS}

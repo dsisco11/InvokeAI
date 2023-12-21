@@ -25,6 +25,7 @@ const components: SelectComponentsConfig<
 > = {
   Option: CustomOption,
   MenuList: CustomMenuList,
+  // Menu: CustomMenu,
 };
 
 export const InvSelect = memo((props: InvSelectProps) => {

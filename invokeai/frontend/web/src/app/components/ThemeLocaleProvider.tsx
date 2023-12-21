@@ -1,6 +1,6 @@
 import '@fontsource-variable/inter';
 import 'overlayscrollbars/overlayscrollbars.css';
-import 'theme/css/overlayscrollbars.css';
+import 'common/components/OverlayScrollbars/overlayscrollbars.css';
 
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import type { ReactNode } from 'react';

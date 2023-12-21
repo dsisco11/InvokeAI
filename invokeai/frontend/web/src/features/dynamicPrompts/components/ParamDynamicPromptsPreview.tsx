@@ -7,7 +7,7 @@ import { IAINoContentFallback } from 'common/components/IAIImageFallback';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { InvControl } from 'common/components/InvControl/InvControl';
 import { InvText } from 'common/components/InvText/wrapper';
-import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
+import ScrollableContent from 'common/components/OverlayScrollbars/ScrollableContent';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaCircleExclamation } from 'react-icons/fa6';

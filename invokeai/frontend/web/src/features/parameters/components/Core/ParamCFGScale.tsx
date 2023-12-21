@@ -51,7 +51,11 @@ const ParamCFGScale = () => {
   }, [dispatch, initial]);
 
   return (
-    <InvControl label={t('parameters.cfgScale')} feature="paramCFGScale">
+    <InvControl
+      label={t('parameters.cfgScale')}
+      feature="paramCFGScale"
+      labelW="5rem"
+    >
       <InvSlider
         value={cfgScale}
         min={min}

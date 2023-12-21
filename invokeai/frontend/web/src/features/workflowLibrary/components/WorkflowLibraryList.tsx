@@ -20,7 +20,7 @@ import type {
   InvSelectOnChange,
   InvSelectOption,
 } from 'common/components/InvSelect/types';
-import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
+import ScrollableContent from 'common/components/OverlayScrollbars/ScrollableContent';
 import type { WorkflowCategory } from 'features/nodes/types/workflow';
 import WorkflowLibraryListItem from 'features/workflowLibrary/components/WorkflowLibraryListItem';
 import WorkflowLibraryPagination from 'features/workflowLibrary/components/WorkflowLibraryPagination';

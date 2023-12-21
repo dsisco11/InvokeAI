@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
+import { overlayScrollbarsParams } from 'common/components/OverlayScrollbars/constants';
 import { isString } from 'lodash-es';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import { memo, useCallback, useMemo } from 'react';
@@ -64,14 +65,7 @@ const DataViewer = (props: Props) => {
         <OverlayScrollbarsComponent
           defer
           style={{ height: '100%', width: '100%' }}
-          options={{
-            scrollbars: {
-              visibility: 'auto',
-              autoHide: 'scroll',
-              autoHideDelay: 1300,
-              theme: 'os-theme-dark',
-            },
-          }}
+          options={overlayScrollbarsParams.options}
         >
           <pre>{dataString}</pre>
         </OverlayScrollbarsComponent>

@@ -1,9 +1,12 @@
+import { Box } from '@chakra-ui/layout';
 import type { GroupBase, MenuListProps } from 'chakra-react-select';
 import { chakraComponents } from 'chakra-react-select';
-import { ClickScrollPlugin, OverlayScrollbars } from 'overlayscrollbars';
+import { overlayScrollbarsParams } from 'common/components/OverlayScrollbars/constants';
+import { cloneDeep, merge } from 'lodash-es';
+import type { UseOverlayScrollbarsParams } from 'overlayscrollbars-react';
 import { useOverlayScrollbars } from 'overlayscrollbars-react';
 import type { PropsWithChildren } from 'react';
-import { memo, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import type { InvSelectOption } from './types';
 
@@ -13,39 +16,48 @@ type CustomMenuListProps = MenuListProps<
   GroupBase<InvSelectOption>
 >;
 
-OverlayScrollbars.plugin(ClickScrollPlugin);
+const overlayScrollbarsParamsOverrides: Partial<UseOverlayScrollbarsParams> = {
+  options: { scrollbars: { autoHide: 'never' } },
+};
 
-const Scrollable = memo(
-  (props: PropsWithChildren<{ viewport: HTMLDivElement | null }>) => {
-    const { children, viewport } = props;
-
-    const targetRef = useRef<HTMLDivElement>(null);
-    const [initialize, getInstance] = useOverlayScrollbars({
-      options: { scrollbars: { clickScroll: true } },
-      defer: true,
-    });
-
-    useEffect(() => {
-      if (targetRef.current && viewport) {
-        initialize({
-          target: targetRef.current,
-          elements: {
-            viewport,
-          },
-        });
-      }
-      return () => getInstance()?.destroy();
-    }, [viewport, initialize, getInstance]);
-
-    return (
-      <div ref={targetRef} data-overlayscrollbars="">
-        {children}
-      </div>
-    );
-  }
+const osParams = merge(
+  cloneDeep(overlayScrollbarsParams),
+  overlayScrollbarsParamsOverrides
 );
 
-Scrollable.displayName = 'Scrollable';
+const Scrollable = (
+  props: PropsWithChildren<{ viewport: HTMLDivElement | null }>
+) => {
+  const { children, viewport } = props;
+
+  const targetRef = useRef<HTMLDivElement>(null);
+  const [initialize, getInstance] = useOverlayScrollbars(osParams);
+
+  useEffect(() => {
+    if (targetRef.current && viewport) {
+      initialize({
+        target: targetRef.current,
+        elements: {
+          viewport,
+        },
+      });
+    }
+    return () => getInstance()?.destroy();
+  }, [viewport, initialize, getInstance]);
+
+  return (
+    <Box
+      ref={targetRef}
+      data-overlayscrollbars=""
+      bg="none"
+      border="none"
+      shadow="dark-lg"
+      borderRadius="md"
+    >
+      {children}
+    </Box>
+  );
+};
 
 export const CustomMenuList = ({
   children,

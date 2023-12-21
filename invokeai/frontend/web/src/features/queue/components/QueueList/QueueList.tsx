@@ -3,11 +3,11 @@ import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { IAINoContentFallbackWithSpinner } from 'common/components/IAIImageFallback';
+import { overlayScrollbarsParams } from 'common/components/OverlayScrollbars/constants';
 import {
   listCursorChanged,
   listPriorityChanged,
 } from 'features/queue/store/queueSlice';
-import type { UseOverlayScrollbarsParams } from 'overlayscrollbars-react';
 import { useOverlayScrollbars } from 'overlayscrollbars-react';
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -26,19 +26,6 @@ import type { ListContext } from './types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TableVirtuosoScrollerRef = (ref: HTMLElement | Window | null) => any;
-
-const overlayScrollbarsConfig: UseOverlayScrollbarsParams = {
-  defer: true,
-  options: {
-    scrollbars: {
-      visibility: 'auto',
-      autoHide: 'scroll',
-      autoHideDelay: 1300,
-      theme: 'os-theme-dark',
-    },
-    overflow: { x: 'hidden' },
-  },
-};
 
 const selector = createMemoizedSelector(stateSelector, ({ queue }) => {
   const { listCursor, listPriority } = queue;
@@ -64,7 +51,7 @@ const QueueList = () => {
   const rootRef = useRef<HTMLDivElement>(null);
   const [scroller, setScroller] = useState<HTMLElement | null>(null);
   const [initialize, osInstance] = useOverlayScrollbars(
-    overlayScrollbarsConfig
+    overlayScrollbarsParams
   );
   const { t } = useTranslation();
 

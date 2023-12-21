@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import type { RootState } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
+import { overlayScrollbarsParams } from 'common/components/OverlayScrollbars/constants';
 import QueueControls from 'features/queue/components/QueueControls';
 import SDXLImageToImageTabParameters from 'features/sdxl/components/SDXLImageToImageTabParameters';
 import SDXLTextToImageTabParameters from 'features/sdxl/components/SDXLTextToImageTabParameters';
@@ -99,17 +100,7 @@ const ParametersPanelWrapper = memo((props: PropsWithChildren) => {
             <OverlayScrollbarsComponent
               defer
               style={{ height: '100%', width: '100%' }}
-              options={{
-                scrollbars: {
-                  visibility: 'auto',
-                  autoHide: 'scroll',
-                  autoHideDelay: 800,
-                  theme: 'os-theme-dark',
-                },
-                overflow: {
-                  x: 'hidden',
-                },
-              }}
+              options={overlayScrollbarsParams.options}
             >
               <Flex
                 sx={{

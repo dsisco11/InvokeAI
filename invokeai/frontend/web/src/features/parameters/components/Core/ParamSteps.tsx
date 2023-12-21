@@ -52,7 +52,11 @@ const ParamSteps = () => {
   }, [dispatch]);
 
   return (
-    <InvControl label={t('parameters.steps')} feature="paramSteps">
+    <InvControl
+      label={t('parameters.steps')}
+      feature="paramSteps"
+      labelW="5rem"
+    >
       <InvSlider
         value={steps}
         min={min}

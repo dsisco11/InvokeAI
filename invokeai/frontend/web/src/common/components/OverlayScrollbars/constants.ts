@@ -1,6 +1,9 @@
+import { ClickScrollPlugin, OverlayScrollbars } from 'overlayscrollbars';
 import type { UseOverlayScrollbarsParams } from 'overlayscrollbars-react';
 
-export const overlayScrollbarsConfig: UseOverlayScrollbarsParams = {
+OverlayScrollbars.plugin(ClickScrollPlugin);
+
+export const overlayScrollbarsParams: UseOverlayScrollbarsParams = {
   defer: true,
   options: {
     scrollbars: {
@@ -8,6 +11,7 @@ export const overlayScrollbarsConfig: UseOverlayScrollbarsParams = {
       autoHide: 'scroll',
       autoHideDelay: 1300,
       theme: 'os-theme-dark',
+      clickScroll: true,
     },
     overflow: { x: 'hidden' },
   },

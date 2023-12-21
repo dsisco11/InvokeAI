@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvControl } from 'common/components/InvControl/InvControl';
 import { InvInput } from 'common/components/InvInput/InvInput';
 import { InvTextarea } from 'common/components/InvTextarea/InvTextarea';
-import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
+import ScrollableContent from 'common/components/OverlayScrollbars/ScrollableContent';
 import {
   workflowAuthorChanged,
   workflowContactChanged,

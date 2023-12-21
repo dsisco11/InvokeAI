@@ -4,8 +4,8 @@ import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
 import { IAINoContentFallback } from 'common/components/IAIImageFallback';
 import { InvText } from 'common/components/InvText/wrapper';
+import ScrollableContent from 'common/components/OverlayScrollbars/ScrollableContent';
 import NotesTextarea from 'features/nodes/components/flow/nodes/Invocation/NotesTextarea';
-import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
 import type {
   InvocationNode,
   InvocationTemplate,

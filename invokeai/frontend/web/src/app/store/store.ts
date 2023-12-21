@@ -26,6 +26,7 @@ import dynamicMiddlewares from 'redux-dynamic-middlewares';
 import type { Driver } from 'redux-remember';
 import { rememberEnhancer, rememberReducer } from 'redux-remember';
 import { api } from 'services/api';
+import { authToastMiddleware } from 'services/api/authToastMiddleware';
 
 import { STORAGE_PREFIX } from './constants';
 import { serialize } from './enhancers/reduxRemember/serialize';
@@ -34,7 +35,6 @@ import { actionSanitizer } from './middleware/devtools/actionSanitizer';
 import { actionsDenylist } from './middleware/devtools/actionsDenylist';
 import { stateSanitizer } from './middleware/devtools/stateSanitizer';
 import { listenerMiddleware } from './middleware/listenerMiddleware';
-import { authToastMiddleware } from 'services/api/authToastMiddleware';
 
 const allReducers = {
   canvas: canvasReducer,

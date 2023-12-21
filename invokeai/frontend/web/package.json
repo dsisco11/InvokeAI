@@ -38,6 +38,9 @@
     "build-storybook": "storybook build"
   },
   "madge": {
+    "excludeRegExp": [
+      "^index.ts$"
+    ],
     "detectiveOptions": {
       "ts": {
         "skipTypeImports": true

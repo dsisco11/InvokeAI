@@ -2,18 +2,16 @@ import { Box, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import IAIColorPicker from 'common/components/IAIColorPicker';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvNumberInput } from 'common/components/InvNumberInput/InvNumberInput';
 import {
-  InvButtonGroup,
-  InvControl,
-  InvIconButton,
-  InvNumberInput,
-  InvPopover,
   InvPopoverBody,
   InvPopoverContent,
   InvPopoverTrigger,
-  InvSlider,
-} from 'common/components';
-import IAIColorPicker from 'common/components/IAIColorPicker';
+} from 'common/components/InvPopover/wrapper';
+import { InvSlider } from 'common/components/InvSlider/InvSlider';
 import { isStagingSelector } from 'features/canvas/store/canvasSelectors';
 import {
   addEraseRect,
@@ -22,6 +20,7 @@ import {
   setBrushSize,
   setTool,
 } from 'features/canvas/store/canvasSlice';
+import { InvIconButton, InvPopover } from 'index';
 import { clamp } from 'lodash-es';
 import { memo, useCallback } from 'react';
 import type { RgbaColor } from 'react-colorful';

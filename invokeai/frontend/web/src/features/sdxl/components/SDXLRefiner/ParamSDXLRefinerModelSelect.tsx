@@ -2,11 +2,9 @@ import { Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import {
-  InvControl,
-  InvSelect,
-  useGroupedModelInvSelect,
-} from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
 import SyncModelsButton from 'features/modelManager/subpanels/ModelManagerSettingsPanel/SyncModelsButton';
 import { refinerModelChanged } from 'features/sdxl/store/sdxlSlice';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';

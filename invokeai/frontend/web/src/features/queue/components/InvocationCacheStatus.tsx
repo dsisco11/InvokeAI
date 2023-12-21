@@ -1,4 +1,4 @@
-import { InvButtonGroup } from 'common/components';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetInvocationCacheStatusQuery } from 'services/api/endpoints/appInfo';

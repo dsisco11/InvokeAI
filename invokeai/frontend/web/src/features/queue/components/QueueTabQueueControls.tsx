@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { InvButtonGroup } from 'common/components';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { memo } from 'react';
 

@@ -1,4 +1,4 @@
-import type { InvSelectOption } from 'common/components';
+import type { InvSelectOption } from 'common/components/InvSelect/types';
 import type { LoRAModelFormat } from 'services/api/types';
 
 /**

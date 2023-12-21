@@ -1,5 +1,5 @@
 import { useDisclosure } from '@chakra-ui/react';
-import { InvButton } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
 import { WorkflowLibraryModalContext } from 'features/workflowLibrary/context/WorkflowLibraryModalContext';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';

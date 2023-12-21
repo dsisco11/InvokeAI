@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react';
 import { $customStarUI } from 'app/store/nanostores/customStarUI';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvMenuItem } from 'common/components';
+import { InvMenuItem } from 'common/components/InvMenu/InvMenuItem';
 import {
   imagesToChangeSelected,
   isModalOpenChanged,

@@ -1,5 +1,6 @@
 import { Flex, Heading, Link, useToast } from '@chakra-ui/react';
-import { InvButton, InvText } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvText } from 'common/components/InvText/wrapper';
 import newGithubIssueUrl from 'new-github-issue-url';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';

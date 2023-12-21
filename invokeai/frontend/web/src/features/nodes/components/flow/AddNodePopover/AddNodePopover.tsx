@@ -6,14 +6,17 @@ import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import type { SelectInstance } from 'chakra-react-select';
-import type { InvSelectOnChange, InvSelectOption } from 'common/components';
 import {
   InvPopover,
   InvPopoverAnchor,
   InvPopoverBody,
   InvPopoverContent,
-  InvSelect,
-} from 'common/components';
+} from 'common/components/InvPopover/wrapper';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type {
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components/InvSelect/types';
 import { useBuildNode } from 'features/nodes/hooks/useBuildNode';
 import {
   addNodePopoverClosed,

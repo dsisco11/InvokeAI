@@ -1,4 +1,5 @@
-import { InvIconButton, InvTooltip } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaCode } from 'react-icons/fa';

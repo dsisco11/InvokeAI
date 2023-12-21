@@ -1,4 +1,4 @@
-import type { InvSelectOption } from 'common/components/InvSelect';
+import type { InvSelectOption } from 'common/components/InvSelect/types';
 
 import type { AspectRatioID } from './types';
 

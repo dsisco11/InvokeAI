@@ -1,13 +1,11 @@
 import { DeleteIcon } from '@chakra-ui/icons';
 import { Badge, Flex, useDisclosure } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import {
-  InvButton,
-  InvConfirmationAlertDialog,
-  InvIconButton,
-  InvText,
-  InvTooltip,
-} from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvConfirmationAlertDialog } from 'common/components/InvConfirmationAlertDialog/InvConfirmationAlertDialog';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvText } from 'common/components/InvText/wrapper';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { MODEL_TYPE_SHORT_MAP } from 'features/parameters/types/constants';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';

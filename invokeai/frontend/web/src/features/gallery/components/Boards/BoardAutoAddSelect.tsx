@@ -1,8 +1,12 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import type { InvSelectOnChange, InvSelectOption } from 'common/components';
-import { InvControl, InvSelect } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type {
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components/InvSelect/types';
 import { autoAddBoardIdChanged } from 'features/gallery/store/gallerySlice';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';

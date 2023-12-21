@@ -1,5 +1,6 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvInput, InvTextarea } from 'common/components';
+import { InvInput } from 'common/components/InvInput/InvInput';
+import { InvTextarea } from 'common/components/InvTextarea/InvTextarea';
 import { fieldStringValueChanged } from 'features/nodes/store/nodesSlice';
 import type {
   StringFieldInputInstance,

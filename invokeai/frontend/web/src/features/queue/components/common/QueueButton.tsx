@@ -1,5 +1,6 @@
 import type { ChakraProps, ThemeTypings } from '@chakra-ui/react';
-import { InvButton, InvIconButton } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import type { ReactElement, ReactNode } from 'react';
 import { memo } from 'react';
 

@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import type { InvSelectOnChange } from 'common/components';
-import { InvControl, InvSelect } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type { InvSelectOnChange } from 'common/components/InvSelect/types';
 import { SCHEDULER_OPTIONS } from 'features/parameters/types/constants';
 import { isParameterScheduler } from 'features/parameters/types/parameterSchemas';
 import { setRefinerScheduler } from 'features/sdxl/store/sdxlSlice';

@@ -1,16 +1,17 @@
 import { Flex, Radio, RadioGroup } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import type { InvSelectOnChange, InvSelectOption } from 'common/components';
-import {
-  InvButton,
-  InvCheckbox,
-  InvControl,
-  InvInput,
-  InvSelect,
-  InvSlider,
-  InvText,
-  InvTooltip,
-} from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvCheckbox } from 'common/components/InvCheckbox/wrapper';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvInput } from 'common/components/InvInput/InvInput';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type {
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components/InvSelect/types';
+import { InvSlider } from 'common/components/InvSlider/InvSlider';
+import { InvText } from 'common/components/InvText/wrapper';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { pickBy } from 'lodash-es';

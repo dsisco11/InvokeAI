@@ -3,7 +3,7 @@ import { Flex, Icon, Skeleton, Spinner } from '@chakra-ui/react';
 import { FaImage } from 'react-icons/fa';
 import type { ImageDTO } from 'services/api/types';
 
-import { InvText } from './InvText';
+import { InvText } from './InvText/wrapper';
 
 type Props = { image: ImageDTO | undefined };
 

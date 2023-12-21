@@ -7,7 +7,7 @@ import {
   useEditableControls,
 } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvTooltip } from 'common/components';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { useFieldLabel } from 'features/nodes/hooks/useFieldLabel';
 import { useFieldTemplateTitle } from 'features/nodes/hooks/useFieldTemplateTitle';
 import { fieldLabelChanged } from 'features/nodes/store/nodesSlice';

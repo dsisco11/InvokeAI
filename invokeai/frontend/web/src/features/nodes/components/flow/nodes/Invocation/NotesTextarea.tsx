@@ -1,6 +1,6 @@
 import { FormControl, FormLabel } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvTextarea } from 'common/components';
+import { InvTextarea } from 'common/components/InvTextarea/InvTextarea';
 import { useNodeData } from 'features/nodes/hooks/useNodeData';
 import { nodeNotesChanged } from 'features/nodes/store/nodesSlice';
 import { isInvocationNodeData } from 'features/nodes/types/invocation';

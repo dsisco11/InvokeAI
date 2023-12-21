@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { InvText } from 'common/components';
+import { InvText } from 'common/components/InvText/wrapper';
 
 import type { InvSelectFallbackProps } from './types';
 

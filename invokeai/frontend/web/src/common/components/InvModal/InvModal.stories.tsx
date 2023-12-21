@@ -1,6 +1,6 @@
 import { useDisclosure } from '@chakra-ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvButton } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
 
 import {
   InvModal,

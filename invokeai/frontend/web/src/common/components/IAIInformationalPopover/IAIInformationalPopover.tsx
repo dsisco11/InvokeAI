@@ -8,16 +8,16 @@ import {
   Portal,
 } from '@chakra-ui/react';
 import { useAppSelector } from 'app/store/storeHooks';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvHeading } from 'common/components/InvHeading/wrapper';
 import {
-  InvButton,
-  InvHeading,
   InvPopover,
   InvPopoverBody,
   InvPopoverCloseButton,
   InvPopoverContent,
   InvPopoverTrigger,
-  InvText,
-} from 'common/components';
+} from 'common/components/InvPopover/wrapper';
+import { InvText } from 'common/components/InvText/wrapper';
 import { merge, omit } from 'lodash-es';
 import type { PropsWithChildren } from 'react';
 import { memo, useCallback, useMemo } from 'react';

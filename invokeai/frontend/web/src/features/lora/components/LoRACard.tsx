@@ -3,11 +3,11 @@ import {
   InvCard,
   InvCardBody,
   InvCardHeader,
-  InvIconButton,
-  InvNumberInput,
-  InvSlider,
-  InvText,
-} from 'common/components';
+} from 'common/components/InvCard/wrapper';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvNumberInput } from 'common/components/InvNumberInput/InvNumberInput';
+import { InvSlider } from 'common/components/InvSlider/InvSlider';
+import { InvText } from 'common/components/InvText/wrapper';
 import type { LoRA } from 'features/lora/store/loraSlice';
 import {
   loraRemoved,

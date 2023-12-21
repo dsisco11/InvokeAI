@@ -1,4 +1,4 @@
-import { InvMenuItem } from 'common/components';
+import { InvMenuItem } from 'common/components/InvMenu/InvMenuItem';
 import { useLoadWorkflowFromFile } from 'features/workflowLibrary/hooks/useLoadWorkflowFromFile';
 import { memo, useCallback, useRef } from 'react';
 import { useDropzone } from 'react-dropzone';

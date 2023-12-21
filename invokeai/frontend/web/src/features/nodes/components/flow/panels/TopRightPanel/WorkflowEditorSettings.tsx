@@ -2,16 +2,16 @@ import { Divider, Flex, Heading, useDisclosure } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import { InvControl } from 'common/components/InvControl/InvControl';
 import {
-  InvControl,
   InvModal,
   InvModalBody,
   InvModalCloseButton,
   InvModalContent,
   InvModalHeader,
   InvModalOverlay,
-  InvSwitch,
-} from 'common/components';
+} from 'common/components/InvModal/wrapper';
+import { InvSwitch } from 'common/components/InvSwitch/wrapper';
 import ReloadNodeTemplatesButton from 'features/nodes/components/flow/panels/TopCenterPanel/ReloadSchemaButton';
 import {
   selectionModeChanged,

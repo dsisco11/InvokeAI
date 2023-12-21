@@ -1,8 +1,8 @@
 import { Box, Flex } from '@chakra-ui/react';
 import type { EntityId } from '@reduxjs/toolkit';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvButton } from 'common/components';
 import { IAINoContentFallback } from 'common/components/IAIImageFallback';
+import { InvButton } from 'common/components/InvButton/InvButton';
 import type { VirtuosoGalleryContext } from 'features/gallery/components/ImageGrid/types';
 import { $useNextPrevImageState } from 'features/gallery/hooks/useNextPrevImage';
 import { selectListImagesBaseQueryArgs } from 'features/gallery/store/gallerySelectors';

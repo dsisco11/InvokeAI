@@ -4,7 +4,7 @@ import {
   InvPopoverBody,
   InvPopoverContent,
   InvPopoverTrigger,
-} from 'common/components';
+} from 'common/components/InvPopover/wrapper';
 import AddEmbeddingButton from 'features/embedding/components/PromptWithEmbedding/AddEmbeddingButton';
 import { EmbeddingSelect } from 'features/embedding/components/PromptWithEmbedding/EmbeddingSelect';
 import type { EmbeddingPopoverProps } from 'features/embedding/components/PromptWithEmbedding/types';

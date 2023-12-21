@@ -1,6 +1,7 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import type { InvSelectOnChange } from 'common/components';
-import { InvControl, InvSelect } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type { InvSelectOnChange } from 'common/components/InvSelect/types';
 import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
 import { useControlAdapterResizeMode } from 'features/controlAdapters/hooks/useControlAdapterResizeMode';
 import { controlAdapterResizeModeChanged } from 'features/controlAdapters/store/controlAdaptersSlice';

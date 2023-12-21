@@ -2,15 +2,13 @@ import { Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import { InvCheckbox } from 'common/components/InvCheckbox/wrapper';
+import { InvControl } from 'common/components/InvControl/InvControl';
 import {
-  InvCheckbox,
-  InvControl,
-  InvIconButton,
-  InvPopover,
   InvPopoverBody,
   InvPopoverContent,
   InvPopoverTrigger,
-} from 'common/components';
+} from 'common/components/InvPopover/wrapper';
 import ClearCanvasHistoryButtonModal from 'features/canvas/components/ClearCanvasHistoryButtonModal';
 import {
   setShouldAntialias,
@@ -23,6 +21,7 @@ import {
   setShouldShowIntermediates,
   setShouldSnapToGrid,
 } from 'features/canvas/store/canvasSlice';
+import { InvIconButton, InvPopover } from 'index';
 import type { ChangeEvent } from 'react';
 import { memo, useCallback } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';

@@ -8,8 +8,8 @@ import {
   TabPanels,
   Tabs,
 } from '@chakra-ui/react';
-import { InvText } from 'common/components';
 import { IAINoContentFallback } from 'common/components/IAIImageFallback';
+import { InvText } from 'common/components/InvText/wrapper';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';

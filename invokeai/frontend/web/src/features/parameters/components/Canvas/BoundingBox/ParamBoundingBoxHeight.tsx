@@ -1,7 +1,8 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvControl, InvSlider } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSlider } from 'common/components/InvSlider/InvSlider';
 import { roundToMultiple } from 'common/util/roundDownToMultiple';
 import { isStagingSelector } from 'features/canvas/store/canvasSelectors';
 import { setBoundingBoxDimensions } from 'features/canvas/store/canvasSlice';

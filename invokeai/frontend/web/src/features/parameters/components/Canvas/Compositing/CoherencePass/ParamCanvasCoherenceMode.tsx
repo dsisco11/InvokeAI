@@ -1,7 +1,11 @@
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import type { InvSelectOnChange, InvSelectOption } from 'common/components';
-import { InvControl, InvSelect } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type {
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components/InvSelect/types';
 import { setCanvasCoherenceMode } from 'features/parameters/store/generationSlice';
 import { isParameterCanvasCoherenceMode } from 'features/parameters/types/parameterSchemas';
 import { memo, useCallback, useMemo } from 'react';

@@ -1,8 +1,8 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import type { SingleValue } from 'chakra-react-select';
-import { InvControl } from 'common/components/InvControl';
-import type { InvSelectOption } from 'common/components/InvSelect';
-import { InvSelect } from 'common/components/InvSelect';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type { InvSelectOption } from 'common/components/InvSelect/types';
 import { ASPECT_RATIO_OPTIONS } from 'features/ImageSettings/constants';
 import { isAspectRatioID } from 'features/ImageSettings/types';
 import { aspectRatioSelected } from 'features/parameters/store/generationSlice';

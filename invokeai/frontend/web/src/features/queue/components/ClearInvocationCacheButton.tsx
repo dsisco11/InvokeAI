@@ -1,4 +1,4 @@
-import { InvButton } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
 import { useClearInvocationCache } from 'features/queue/hooks/useClearInvocationCache';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';

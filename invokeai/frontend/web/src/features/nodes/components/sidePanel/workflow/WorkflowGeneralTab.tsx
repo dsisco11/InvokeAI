@@ -2,7 +2,9 @@ import { Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvControl, InvInput, InvTextarea } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvInput } from 'common/components/InvInput/InvInput';
+import { InvTextarea } from 'common/components/InvTextarea/InvTextarea';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
 import {
   workflowAuthorChanged,

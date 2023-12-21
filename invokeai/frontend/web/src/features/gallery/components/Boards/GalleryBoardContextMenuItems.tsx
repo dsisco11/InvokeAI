@@ -1,4 +1,4 @@
-import { InvMenuItem } from 'common/components';
+import { InvMenuItem } from 'common/components/InvMenu/InvMenuItem';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaTrash } from 'react-icons/fa';

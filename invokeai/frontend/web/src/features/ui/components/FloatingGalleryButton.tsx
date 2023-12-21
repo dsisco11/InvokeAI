@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/layout';
 import { Portal } from '@chakra-ui/portal';
-import { InvIconButton } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import type { RefObject } from 'react';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

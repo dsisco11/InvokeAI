@@ -1,4 +1,6 @@
-import { InvButton, InvButtonGroup, InvIconButton } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import type { Dispatch, SetStateAction } from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';

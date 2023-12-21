@@ -10,9 +10,9 @@ import {
   InvAlertDialogFooter,
   InvAlertDialogHeader,
   InvAlertDialogOverlay,
-  InvButton,
-  InvText,
-} from 'common/components';
+} from 'common/components/InvAlertDialog/wrapper';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvText } from 'common/components/InvText/wrapper';
 import ImageUsageMessage from 'features/deleteImageModal/components/ImageUsageMessage';
 import { getImageUsage } from 'features/deleteImageModal/store/selectors';
 import type { ImageUsage } from 'features/deleteImageModal/store/types';

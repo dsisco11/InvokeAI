@@ -3,7 +3,7 @@ import { Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvIconButton } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { boardSearchTextChanged } from 'features/gallery/store/gallerySlice';
 import type { ChangeEvent, KeyboardEvent } from 'react';
 import { memo, useCallback, useEffect, useRef } from 'react';

@@ -1,6 +1,7 @@
 import { Flex, Heading, Spacer } from '@chakra-ui/react';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvButton, InvText } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvText } from 'common/components/InvText/wrapper';
 import dateFormat, { masks } from 'dateformat';
 import { useWorkflowLibraryModalContext } from 'features/workflowLibrary/context/useWorkflowLibraryModalContext';
 import { useDeleteLibraryWorkflow } from 'features/workflowLibrary/hooks/useDeleteLibraryWorkflow';

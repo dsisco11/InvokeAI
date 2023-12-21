@@ -1,6 +1,6 @@
 import type { ChakraProps } from '@chakra-ui/react';
 import { Box, Flex, Heading, Image } from '@chakra-ui/react';
-import { InvText } from 'common/components';
+import { InvText } from 'common/components/InvText/wrapper';
 import type { TypesafeDraggableData } from 'features/dnd/types';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';

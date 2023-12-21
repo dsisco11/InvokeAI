@@ -4,7 +4,7 @@ import ParamCFGScale from 'features/parameters/components/Core/ParamCFGScale';
 import ParamIterations from 'features/parameters/components/Core/ParamIterations';
 import ParamModelandVAEandScheduler from 'features/parameters/components/Core/ParamModelandVAEandScheduler';
 import ParamSteps from 'features/parameters/components/Core/ParamSteps';
-import { ParamSeed } from 'features/parameters/components/Seed/';
+import { ParamSeed } from 'features/parameters/components/Seed/ParamSeed';
 import { useCoreParametersCollapseLabel } from 'features/parameters/hooks/useCoreParametersCollapseLabel';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';

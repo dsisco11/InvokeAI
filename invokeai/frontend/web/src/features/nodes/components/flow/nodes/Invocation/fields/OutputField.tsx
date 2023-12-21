@@ -1,5 +1,5 @@
 import { Flex, FormControl, FormLabel } from '@chakra-ui/react';
-import { InvTooltip } from 'common/components';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { useConnectionState } from 'features/nodes/hooks/useConnectionState';
 import { useFieldOutputInstance } from 'features/nodes/hooks/useFieldOutputInstance';
 import { useFieldOutputTemplate } from 'features/nodes/hooks/useFieldOutputTemplate';

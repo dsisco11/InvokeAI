@@ -1,8 +1,10 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvControl, InvSelect, InvTooltip } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
 import { useControlAdapterModel } from 'features/controlAdapters/hooks/useControlAdapterModel';
 import { useControlAdapterModelEntities } from 'features/controlAdapters/hooks/useControlAdapterModelEntities';

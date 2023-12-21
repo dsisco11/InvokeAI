@@ -1,11 +1,9 @@
 import { useDisclosure } from '@chakra-ui/react';
 import { useAppSelector } from 'app/store/storeHooks';
-import {
-  InvConfirmationAlertDialog,
-  InvControl,
-  InvInput,
-  InvMenuItem,
-} from 'common/components';
+import { InvConfirmationAlertDialog } from 'common/components/InvConfirmationAlertDialog/InvConfirmationAlertDialog';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvInput } from 'common/components/InvInput/InvInput';
+import { InvMenuItem } from 'common/components/InvMenu/InvMenuItem';
 import { useSaveWorkflowAs } from 'features/workflowLibrary/hooks/useSaveWorkflowAs';
 import { getWorkflowCopyName } from 'features/workflowLibrary/util/getWorkflowCopyName';
 import type { ChangeEvent } from 'react';

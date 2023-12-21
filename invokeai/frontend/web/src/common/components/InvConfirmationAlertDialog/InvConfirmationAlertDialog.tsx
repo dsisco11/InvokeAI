@@ -5,8 +5,8 @@ import {
   InvAlertDialogFooter,
   InvAlertDialogHeader,
   InvAlertDialogOverlay,
-} from 'common/components/InvAlertDialog';
-import { InvButton } from 'common/components/InvButton';
+} from 'common/components/InvAlertDialog/wrapper';
+import { InvButton } from 'common/components/InvButton/InvButton';
 import { useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 

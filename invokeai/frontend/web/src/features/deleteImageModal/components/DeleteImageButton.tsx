@@ -1,6 +1,6 @@
 import { useAppSelector } from 'app/store/storeHooks';
-import type { InvIconButtonProps } from 'common/components';
-import { InvIconButton } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import type { InvIconButtonProps } from 'common/components/InvIconButton/types';
 import { useTranslation } from 'react-i18next';
 import { FaTrash } from 'react-icons/fa';
 

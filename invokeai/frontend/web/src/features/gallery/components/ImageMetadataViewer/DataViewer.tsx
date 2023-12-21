@@ -1,5 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react';
-import { InvIconButton, InvTooltip } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { isString } from 'lodash-es';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import { memo, useCallback, useMemo } from 'react';

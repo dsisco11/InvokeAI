@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { InvText } from 'common/components';
+import { InvText } from 'common/components/InvText/wrapper';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ALL_BASE_MODELS } from 'services/api/constants';

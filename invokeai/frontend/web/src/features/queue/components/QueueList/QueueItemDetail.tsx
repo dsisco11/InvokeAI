@@ -1,5 +1,7 @@
 import { Flex, Heading, Spinner } from '@chakra-ui/react';
-import { InvButton, InvButtonGroup, InvText } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
+import { InvText } from 'common/components/InvText/wrapper';
 import DataViewer from 'features/gallery/components/ImageMetadataViewer/DataViewer';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
 import { useCancelBatch } from 'features/queue/hooks/useCancelBatch';

@@ -2,13 +2,14 @@ import { Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import type { InvSelectOnChange, InvSelectOption } from 'common/components';
-import {
-  InvConfirmationAlertDialog,
-  InvControl,
-  InvSelect,
-  InvText,
-} from 'common/components';
+import { InvConfirmationAlertDialog } from 'common/components/InvConfirmationAlertDialog/InvConfirmationAlertDialog';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type {
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components/InvSelect/types';
+import { InvText } from 'common/components/InvText/wrapper';
 import {
   changeBoardReset,
   isModalOpenChanged,

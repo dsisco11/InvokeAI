@@ -8,7 +8,7 @@ import ParamIterations from 'features/parameters/components/Core/ParamIterations
 import ParamModelandVAEandScheduler from 'features/parameters/components/Core/ParamModelandVAEandScheduler';
 import ParamSteps from 'features/parameters/components/Core/ParamSteps';
 import ImageToImageFit from 'features/parameters/components/ImageToImage/ImageToImageFit';
-import { ParamSeed } from 'features/parameters/components/Seed/';
+import { ParamSeed } from 'features/parameters/components/Seed/ParamSeed';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 

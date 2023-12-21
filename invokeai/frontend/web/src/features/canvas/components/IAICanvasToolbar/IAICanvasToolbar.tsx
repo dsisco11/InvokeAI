@@ -2,14 +2,11 @@ import { Box, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import type { InvSelectOnChange } from 'common/components';
-import {
-  InvButtonGroup,
-  InvControl,
-  InvIconButton,
-  InvSelect,
-  InvTooltip,
-} from 'common/components';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type { InvSelectOnChange } from 'common/components/InvSelect/types';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { useCopyImageToClipboard } from 'common/hooks/useCopyImageToClipboard';
 import { useImageUploadButton } from 'common/hooks/useImageUploadButton';
 import { useSingleAndDoubleClick } from 'common/hooks/useSingleAndDoubleClick';
@@ -30,6 +27,7 @@ import {
 import type { CanvasLayer } from 'features/canvas/store/canvasTypes';
 import { LAYER_NAMES_DICT } from 'features/canvas/store/canvasTypes';
 import { getCanvasBaseLayer } from 'features/canvas/util/konvaInstanceProvider';
+import { InvIconButton } from 'index';
 import { memo, useCallback, useMemo } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';

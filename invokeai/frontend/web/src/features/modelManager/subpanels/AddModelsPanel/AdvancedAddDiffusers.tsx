@@ -1,7 +1,9 @@
 import { Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvButton, InvControl, InvInput } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvInput } from 'common/components/InvInput/InvInput';
 import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
 import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
 import ModelVariantSelect from 'features/modelManager/subpanels/shared/ModelVariantSelect';

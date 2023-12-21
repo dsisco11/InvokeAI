@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { InvText } from 'common/components';
+import { InvText } from 'common/components/InvText/wrapper';
 import { useFieldInstance } from 'features/nodes/hooks/useFieldData';
 import { useFieldTemplate } from 'features/nodes/hooks/useFieldTemplate';
 import { useFieldTypeName } from 'features/nodes/hooks/usePrettyFieldType';

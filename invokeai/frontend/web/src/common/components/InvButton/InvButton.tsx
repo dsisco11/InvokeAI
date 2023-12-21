@@ -1,5 +1,5 @@
 import { Button, forwardRef } from '@chakra-ui/react';
-import { InvTooltip } from 'common/components/InvTooltip';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 
 import type { InvButtonProps } from './types';
 

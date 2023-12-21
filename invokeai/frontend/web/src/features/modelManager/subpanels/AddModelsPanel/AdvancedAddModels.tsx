@@ -1,6 +1,10 @@
 import { Flex } from '@chakra-ui/react';
-import type { InvSelectOnChange, InvSelectOption } from 'common/components';
-import { InvControl, InvSelect } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type {
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components/InvSelect/types';
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';

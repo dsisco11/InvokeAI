@@ -1,6 +1,8 @@
 import type { ChakraProps } from '@chakra-ui/react';
 import { Collapse, Flex } from '@chakra-ui/react';
-import { InvButtonGroup, InvIconButton, InvText } from 'common/components';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvText } from 'common/components/InvText/wrapper';
 import QueueStatusBadge from 'features/queue/components/common/QueueStatusBadge';
 import { useCancelQueueItem } from 'features/queue/hooks/useCancelQueueItem';
 import { getSecondsFromTimestamps } from 'features/queue/util/getSecondsFromTimestamps';

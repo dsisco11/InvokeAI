@@ -1,6 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvControl, InvSelect } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
 import SyncModelsButton from 'features/modelManager/subpanels/ModelManagerSettingsPanel/SyncModelsButton';
 import { fieldRefinerModelValueChanged } from 'features/nodes/store/nodesSlice';

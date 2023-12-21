@@ -1,7 +1,8 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvControl, InvNumberInput } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvNumberInput } from 'common/components/InvNumberInput/InvNumberInput';
 import { setIterations } from 'features/parameters/store/generationSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

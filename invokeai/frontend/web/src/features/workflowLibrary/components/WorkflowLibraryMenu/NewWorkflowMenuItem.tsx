@@ -1,10 +1,8 @@
 import { Flex, useDisclosure } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import {
-  InvConfirmationAlertDialog,
-  InvMenuItem,
-  InvText,
-} from 'common/components';
+import { InvConfirmationAlertDialog } from 'common/components/InvConfirmationAlertDialog/InvConfirmationAlertDialog';
+import { InvMenuItem } from 'common/components/InvMenu/InvMenuItem';
+import { InvText } from 'common/components/InvText/wrapper';
 import { nodeEditorReset } from 'features/nodes/store/nodesSlice';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';

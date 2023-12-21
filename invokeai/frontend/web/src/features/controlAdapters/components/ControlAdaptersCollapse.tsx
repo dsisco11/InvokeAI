@@ -2,8 +2,9 @@ import { Divider, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvButton, InvButtonGroup } from 'common/components';
 import IAICollapse from 'common/components/IAICollapse';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
 import ControlAdapterConfig from 'features/controlAdapters/components/ControlAdapterConfig';
 import { useAddControlAdapter } from 'features/controlAdapters/hooks/useAddControlAdapter';
 import {

@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvNumberInput } from 'common/components';
+import { InvNumberInput } from 'common/components/InvNumberInput/InvNumberInput';
 import { fieldNumberValueChanged } from 'features/nodes/store/nodesSlice';
 import type {
   FloatFieldInputInstance,

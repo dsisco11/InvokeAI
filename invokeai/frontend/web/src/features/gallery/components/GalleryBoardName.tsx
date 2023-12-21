@@ -3,7 +3,7 @@ import { Button, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvText } from 'common/components';
+import { InvText } from 'common/components/InvText/wrapper';
 import { memo, useMemo } from 'react';
 import { useBoardName } from 'services/api/hooks/useBoardName';
 

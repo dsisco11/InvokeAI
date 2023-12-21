@@ -2,8 +2,9 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { roundToMultiple } from 'common/util/roundDownToMultiple';
 import { isAnyControlAdapterAdded } from 'features/controlAdapters/store/controlAdaptersSlice';
-import type { AspectRatioID } from 'features/ImageSettings';
-import { ASPECT_RATIO_MAP, calculateNewSize } from 'features/ImageSettings';
+import { ASPECT_RATIO_MAP } from 'features/ImageSettings/constants';
+import type { AspectRatioID } from 'features/ImageSettings/types';
+import { calculateNewSize } from 'features/ImageSettings/util/calculateNewSize';
 import { CLIP_SKIP_MAP } from 'features/parameters/types/constants';
 import type {
   ParameterCanvasCoherenceMode,

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvControl } from 'common/components/InvControl';
+import { InvControl } from 'common/components/InvControl/InvControl';
 import type { InvSliderProps } from 'common/components/InvSlider/types';
 import { useCallback, useState } from 'react';
 

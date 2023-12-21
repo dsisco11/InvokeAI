@@ -1,4 +1,4 @@
-import { InvMenuItem } from 'common/components';
+import { InvMenuItem } from 'common/components/InvMenu/InvMenuItem';
 import WorkflowEditorSettings from 'features/nodes/components/flow/panels/TopRightPanel/WorkflowEditorSettings';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';

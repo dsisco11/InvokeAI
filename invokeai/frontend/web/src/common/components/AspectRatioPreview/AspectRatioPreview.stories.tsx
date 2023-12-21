@@ -1,7 +1,7 @@
 import { Flex } from '@chakra-ui/layout';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvControl } from 'common/components/InvControl';
-import { InvSlider } from 'common/components/InvSlider';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSlider } from 'common/components/InvSlider/InvSlider';
 import { useState } from 'react';
 
 import { AspectRatioPreview } from './AspectRatioPreview';

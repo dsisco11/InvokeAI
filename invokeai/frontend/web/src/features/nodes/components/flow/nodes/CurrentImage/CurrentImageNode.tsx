@@ -1,9 +1,9 @@
 import { Flex, Image } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
-import { InvText } from 'common/components';
 import IAIDndImage from 'common/components/IAIDndImage';
 import { IAINoContentFallback } from 'common/components/IAIImageFallback';
+import { InvText } from 'common/components/InvText/wrapper';
 import NextPrevImageButtons from 'features/gallery/components/NextPrevImageButtons';
 import NodeWrapper from 'features/nodes/components/flow/nodes/common/NodeWrapper';
 import { DRAG_HANDLE_CLASSNAME } from 'features/nodes/types/constants';

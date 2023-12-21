@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvButton } from 'common/components/InvButton/InvButton';
-import { InvIconButton } from 'common/components/InvIconButton';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { FaImage } from 'react-icons/fa';
 
 import { InvButtonGroup } from './InvButtonGroup';

@@ -1,14 +1,14 @@
 import { Flex, useDisclosure } from '@chakra-ui/react';
 import { upscaleRequested } from 'app/store/middleware/listenerMiddleware/listeners/upscaleRequested';
 import { useAppDispatch } from 'app/store/storeHooks';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import {
-  InvButton,
-  InvIconButton,
   InvPopover,
   InvPopoverBody,
   InvPopoverContent,
   InvPopoverTrigger,
-} from 'common/components';
+} from 'common/components/InvPopover/wrapper';
 import { useIsAllowedToUpscale } from 'features/parameters/hooks/useIsAllowedToUpscale';
 import { useIsQueueMutationInProgress } from 'features/queue/hooks/useIsQueueMutationInProgress';
 import { memo, useCallback } from 'react';

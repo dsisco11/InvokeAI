@@ -3,7 +3,7 @@ import { useStore } from '@nanostores/react';
 import { useAppToaster } from 'app/components/Toaster';
 import { $customStarUI } from 'app/store/nanostores/customStarUI';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvMenuItem } from 'common/components';
+import { InvMenuItem } from 'common/components/InvMenu/InvMenuItem';
 import { useCopyImageToClipboard } from 'common/hooks/useCopyImageToClipboard';
 import { setInitialCanvasImage } from 'features/canvas/store/canvasSlice';
 import {

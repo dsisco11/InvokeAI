@@ -2,12 +2,10 @@ import { Divider, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import {
-  InvConfirmationAlertDialog,
-  InvControl,
-  InvSwitch,
-  InvText,
-} from 'common/components';
+import { InvConfirmationAlertDialog } from 'common/components/InvConfirmationAlertDialog/InvConfirmationAlertDialog';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSwitch } from 'common/components/InvSwitch/wrapper';
+import { InvText } from 'common/components/InvText/wrapper';
 import { imageDeletionConfirmed } from 'features/deleteImageModal/store/actions';
 import {
   getImageUsage,

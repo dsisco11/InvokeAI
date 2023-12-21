@@ -1,9 +1,11 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvMenuGroup, InvMenuItem, InvMenuList } from 'common/components';
 import type { IAIContextMenuProps } from 'common/components/IAIContextMenu';
 import { IAIContextMenu } from 'common/components/IAIContextMenu';
+import { InvMenuItem } from 'common/components/InvMenu/InvMenuItem';
+import { InvMenuList } from 'common/components/InvMenu/InvMenuList';
+import { InvMenuGroup } from 'common/components/InvMenu/wrapper';
 import { useFieldInputKind } from 'features/nodes/hooks/useFieldInputKind';
 import { useFieldLabel } from 'features/nodes/hooks/useFieldLabel';
 import { useFieldTemplateTitle } from 'features/nodes/hooks/useFieldTemplateTitle';

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvNumberInput } from 'common/components/InvNumberInput';
-import type { InvSelectOption } from 'common/components/InvSelect';
-import { InvSelect } from 'common/components/InvSelect';
-import { InvSlider } from 'common/components/InvSlider';
+import { InvNumberInput } from 'common/components/InvNumberInput/InvNumberInput';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type { InvSelectOption } from 'common/components/InvSelect/types';
+import { InvSlider } from 'common/components/InvSlider/InvSlider';
 import { useState } from 'react';
 
 import { InvControl } from './InvControl';

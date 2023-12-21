@@ -1,4 +1,4 @@
-import { InvMenuItem } from 'common/components';
+import { InvMenuItem } from 'common/components/InvMenu/InvMenuItem';
 import { useDownloadWorkflow } from 'features/nodes/hooks/useDownloadWorkflow';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';

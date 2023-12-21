@@ -2,10 +2,10 @@ import { Flex, useDisclosure } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvHeading } from 'common/components/InvHeading/wrapper';
 import {
-  InvButton,
-  InvControl,
-  InvHeading,
   InvModal,
   InvModalBody,
   InvModalCloseButton,
@@ -13,9 +13,9 @@ import {
   InvModalFooter,
   InvModalHeader,
   InvModalOverlay,
-  InvSwitch,
-  InvText,
-} from 'common/components';
+} from 'common/components/InvModal/wrapper';
+import { InvSwitch } from 'common/components/InvSwitch/wrapper';
+import { InvText } from 'common/components/InvText/wrapper';
 import { useClearStorage } from 'common/hooks/useClearStorage';
 import {
   setEnableImageDebugging,

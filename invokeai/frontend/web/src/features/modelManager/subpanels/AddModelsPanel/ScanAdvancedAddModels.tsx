@@ -1,13 +1,14 @@
 import { Box, Flex } from '@chakra-ui/react';
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import type { InvSelectOnChange, InvSelectOption } from 'common/components';
-import {
-  InvControl,
-  InvIconButton,
-  InvSelect,
-  InvText,
-} from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type {
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components/InvSelect/types';
+import { InvText } from 'common/components/InvText/wrapper';
 import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
 import { motion } from 'framer-motion';
 import { useCallback, useEffect, useMemo, useState } from 'react';

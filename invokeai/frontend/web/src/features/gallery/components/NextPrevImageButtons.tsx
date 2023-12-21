@@ -1,6 +1,6 @@
 import type { ChakraProps } from '@chakra-ui/react';
 import { Box, Flex, Spinner } from '@chakra-ui/react';
-import { InvIconButton } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { useNextPrevImage } from 'features/gallery/hooks/useNextPrevImage';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';

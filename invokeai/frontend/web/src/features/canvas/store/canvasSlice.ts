@@ -10,7 +10,7 @@ import { STAGE_PADDING_PERCENTAGE } from 'features/canvas/util/constants';
 import floorCoordinates from 'features/canvas/util/floorCoordinates';
 import getScaledBoundingBoxDimensions from 'features/canvas/util/getScaledBoundingBoxDimensions';
 import roundDimensionsTo64 from 'features/canvas/util/roundDimensionsTo64';
-import { ASPECT_RATIO_MAP } from 'features/ImageSettings';
+import { ASPECT_RATIO_MAP } from 'features/ImageSettings/constants';
 import { aspectRatioSelected } from 'features/parameters/store/generationSlice';
 import type { IRect, Vector2d } from 'konva/lib/types';
 import { clamp, cloneDeep } from 'lodash-es';

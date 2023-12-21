@@ -1,9 +1,11 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvMenuGroup, InvMenuItem, InvMenuList } from 'common/components/';
 import type { IAIContextMenuProps } from 'common/components/IAIContextMenu';
 import { IAIContextMenu } from 'common/components/IAIContextMenu';
+import { InvMenuItem } from 'common/components/InvMenu/InvMenuItem';
+import { InvMenuList } from 'common/components/InvMenu/InvMenuList';
+import { InvMenuGroup } from 'common/components/InvMenu/wrapper';
 import { autoAddBoardIdChanged } from 'features/gallery/store/gallerySlice';
 import type { BoardId } from 'features/gallery/store/types';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';

@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { InvTab } from 'common/components/InvTabs/InvTab';
 import {
-  InvTab,
   InvTabList,
   InvTabPanel,
   InvTabPanels,
   InvTabs,
-} from 'common/components/InvTabs';
-import { InvText } from 'common/components/InvText';
+} from 'common/components/InvTabs/wrapper';
+import { InvText } from 'common/components/InvText/wrapper';
 
 import { InvSingleAccordion } from './InvSingleAccordion';
 import type { InvSingleAccordionProps } from './types';

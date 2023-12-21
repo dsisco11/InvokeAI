@@ -1,7 +1,7 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvIconButton } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { redo } from 'features/canvas/store/canvasSlice';
 import { activeTabNameSelector } from 'features/ui/store/uiSelectors';
 import { useCallback } from 'react';

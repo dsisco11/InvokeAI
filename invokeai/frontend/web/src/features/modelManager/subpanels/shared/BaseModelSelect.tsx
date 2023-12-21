@@ -1,5 +1,8 @@
-import type { InvSelectOption, InvSelectProps } from 'common/components';
-import { InvSelect } from 'common/components';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type {
+  InvSelectOption,
+  InvSelectProps,
+} from 'common/components/InvSelect/types';
 import { MODEL_TYPE_MAP } from 'features/parameters/types/constants';
 
 const options: InvSelectOption[] = [

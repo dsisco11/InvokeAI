@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvIconButton } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { addNodePopoverOpened } from 'features/nodes/store/nodesSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

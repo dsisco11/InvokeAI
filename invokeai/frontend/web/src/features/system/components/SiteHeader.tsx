@@ -1,12 +1,12 @@
 import { Flex, Spacer, useDisclosure } from '@chakra-ui/react';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvMenuItem } from 'common/components/InvMenu/InvMenuItem';
+import { InvMenuList } from 'common/components/InvMenu/InvMenuList';
 import {
   InvMenu,
   InvMenuButton,
   InvMenuGroup,
-  InvMenuItem,
-  InvMenuList,
-} from 'common/components';
-import { InvIconButton } from 'common/components';
+} from 'common/components/InvMenu/wrapper';
 import { useGlobalMenuCloseTrigger } from 'common/hooks/useGlobalMenuCloseTrigger';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { memo } from 'react';

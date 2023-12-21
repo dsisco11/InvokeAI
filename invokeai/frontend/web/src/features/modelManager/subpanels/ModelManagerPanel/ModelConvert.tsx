@@ -7,13 +7,12 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import {
-  InvConfirmationAlertDialog,
-  InvControl,
-  InvInput,
-  InvTooltip,
-} from 'common/components';
-import { InvButton, InvText } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvConfirmationAlertDialog } from 'common/components/InvConfirmationAlertDialog/InvConfirmationAlertDialog';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvInput } from 'common/components/InvInput/InvInput';
+import { InvText } from 'common/components/InvText/wrapper';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import type { ChangeEvent } from 'react';

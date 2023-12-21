@@ -1,8 +1,10 @@
 import { Flex } from '@chakra-ui/react';
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvControl, InvInput } from 'common/components';
-import { InvButton, InvText } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvInput } from 'common/components/InvInput/InvInput';
+import { InvText } from 'common/components/InvText/wrapper';
 import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
 import { addToast } from 'features/system/store/systemSlice';

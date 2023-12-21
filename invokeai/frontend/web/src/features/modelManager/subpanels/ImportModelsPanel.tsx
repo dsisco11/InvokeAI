@@ -1,5 +1,6 @@
 import { Flex } from '@chakra-ui/react';
-import { InvButton, InvButtonGroup } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 

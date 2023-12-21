@@ -1,7 +1,7 @@
 import { Divider, Flex } from '@chakra-ui/layout';
 import { Collapse, Icon, useDisclosure } from '@chakra-ui/react';
 import type { InvExpanderProps } from 'common/components/InvExpander/types';
-import { InvText } from 'common/components/InvText';
+import { InvText } from 'common/components/InvText/wrapper';
 import { t } from 'i18next';
 import { BiCollapseVertical, BiExpandVertical } from 'react-icons/bi';
 

@@ -1,5 +1,6 @@
 import { Flex, Icon } from '@chakra-ui/react';
-import { InvText, InvTooltip } from 'common/components';
+import { InvText } from 'common/components/InvText/wrapper';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { compare } from 'compare-versions';
 import { useNodeData } from 'features/nodes/hooks/useNodeData';
 import { useNodeNeedsUpdate } from 'features/nodes/hooks/useNodeNeedsUpdate';

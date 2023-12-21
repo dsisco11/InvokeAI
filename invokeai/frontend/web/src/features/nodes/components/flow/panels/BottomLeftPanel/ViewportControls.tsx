@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvButtonGroup, InvIconButton } from 'common/components';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import {
   // shouldShowFieldTypeLegendChanged,
   shouldShowMinimapPanelChanged,

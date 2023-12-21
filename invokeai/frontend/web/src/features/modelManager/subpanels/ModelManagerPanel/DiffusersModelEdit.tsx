@@ -1,7 +1,10 @@
 import { Divider, Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvButton, InvControl, InvInput, InvText } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvInput } from 'common/components/InvInput/InvInput';
+import { InvText } from 'common/components/InvText/wrapper';
 import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
 import ModelVariantSelect from 'features/modelManager/subpanels/shared/ModelVariantSelect';
 import { MODEL_TYPE_MAP } from 'features/parameters/types/constants';

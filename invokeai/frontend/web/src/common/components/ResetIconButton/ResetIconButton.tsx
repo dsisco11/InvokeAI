@@ -1,4 +1,4 @@
-import { InvIconButton } from 'common/components/InvIconButton';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { useTranslation } from 'react-i18next';
 import { FaArrowsRotate } from 'react-icons/fa6';
 

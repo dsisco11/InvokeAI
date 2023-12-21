@@ -1,5 +1,6 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvControl, InvSwitch } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSwitch } from 'common/components/InvSwitch/wrapper';
 import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
 import { useControlAdapterShouldAutoConfig } from 'features/controlAdapters/hooks/useControlAdapterShouldAutoConfig';
 import { controlAdapterAutoConfigToggled } from 'features/controlAdapters/store/controlAdaptersSlice';

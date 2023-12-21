@@ -1,4 +1,5 @@
-import { InvControl, InvSlider } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSlider } from 'common/components/InvSlider/InvSlider';
 import { useProcessorNodeChanged } from 'features/controlAdapters/components/hooks/useProcessorNodeChanged';
 import { CONTROLNET_PROCESSORS } from 'features/controlAdapters/store/constants';
 import type { RequiredMidasDepthImageProcessorInvocation } from 'features/controlAdapters/store/types';

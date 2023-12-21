@@ -2,7 +2,7 @@ import ControlAdaptersCollapse from 'features/controlAdapters/components/Control
 import ParamDynamicPromptsCollapse from 'features/dynamicPrompts/components/ParamDynamicPromptsCollapse';
 import LoRACollapse from 'features/lora/components/LoRACollapse';
 import ParamAdvancedCollapse from 'features/parameters/components/Advanced/ParamAdvancedCollapse';
-import { SDXLPrompts } from 'features/sdxl/components/SDXLPrompts';
+import { SDXLPrompts } from 'features/sdxl/components/SDXLPrompts/SDXLPrompts';
 import { memo } from 'react';
 
 import ParamSDXLRefinerCollapse from './ParamSDXLRefinerCollapse';

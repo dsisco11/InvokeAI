@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvIconButton } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import {
   canvasImageToControlAdapter,
   canvasMaskToControlAdapter,

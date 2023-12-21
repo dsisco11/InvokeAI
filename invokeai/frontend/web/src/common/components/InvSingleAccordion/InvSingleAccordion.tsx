@@ -1,9 +1,9 @@
+import { InvAccordionButton } from 'common/components/InvAccordion/InvAccordionButton';
 import {
   InvAccordion,
-  InvAccordionButton,
   InvAccordionItem,
   InvAccordionPanel,
-} from 'common/components/InvAccordion';
+} from 'common/components/InvAccordion/wrapper';
 
 import type { InvSingleAccordionProps } from './types';
 

@@ -7,7 +7,8 @@ import {
   RangeSliderTrack,
 } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvControl, InvTooltip } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { useControlAdapterBeginEndStepPct } from 'features/controlAdapters/hooks/useControlAdapterBeginEndStepPct';
 import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
 import {

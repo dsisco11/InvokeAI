@@ -1,6 +1,7 @@
 import { Flex, Spacer } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvButton, InvButtonGroup } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
 import CancelCurrentQueueItemButton from 'features/queue/components/CancelCurrentQueueItemButton';
 import ClearQueueButton from 'features/queue/components/ClearQueueButton';
 import PauseProcessorButton from 'features/queue/components/PauseProcessorButton';

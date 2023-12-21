@@ -6,7 +6,7 @@ import {
   InvModalFooter,
   InvModalHeader,
   InvModalOverlay,
-} from 'common/components';
+} from 'common/components/InvModal/wrapper';
 import WorkflowLibraryContent from 'features/workflowLibrary/components/WorkflowLibraryContent';
 import { useWorkflowLibraryModalContext } from 'features/workflowLibrary/context/useWorkflowLibraryModalContext';
 import { memo } from 'react';

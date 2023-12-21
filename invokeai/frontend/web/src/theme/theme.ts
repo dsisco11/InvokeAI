@@ -1,28 +1,25 @@
 import type { ThemeOverride, ToastProviderProps } from '@chakra-ui/react';
-import {
-  accordionTheme,
-  badgeTheme,
-  buttonTheme,
-  cardTheme,
-  checkboxTheme,
-  editableTheme,
-  formLabelTheme,
-  formTheme,
-  headingTheme,
-  inputTheme,
-  menuTheme,
-  modalTheme,
-  numberInputTheme,
-  popoverTheme,
-  progressTheme,
-  skeletonTheme,
-  sliderTheme,
-  switchTheme,
-  tabsTheme,
-  textareaTheme,
-  textTheme,
-  tooltipTheme,
-} from 'common/components';
+import { accordionTheme } from 'common/components/InvAccordion/theme';
+import { badgeTheme } from 'common/components/InvBadge/theme';
+import { buttonTheme } from 'common/components/InvButton/theme';
+import { cardTheme } from 'common/components/InvCard/theme';
+import { checkboxTheme } from 'common/components/InvCheckbox/theme';
+import { formLabelTheme, formTheme } from 'common/components/InvControl/theme';
+import { editableTheme } from 'common/components/InvEditable/theme';
+import { headingTheme } from 'common/components/InvHeading/theme';
+import { inputTheme } from 'common/components/InvInput/theme';
+import { menuTheme } from 'common/components/InvMenu/theme';
+import { modalTheme } from 'common/components/InvModal/theme';
+import { numberInputTheme } from 'common/components/InvNumberInput/theme';
+import { popoverTheme } from 'common/components/InvPopover/theme';
+import { progressTheme } from 'common/components/InvProgress/theme';
+import { skeletonTheme } from 'common/components/InvSkeleton/theme';
+import { sliderTheme } from 'common/components/InvSlider/theme';
+import { switchTheme } from 'common/components/InvSwitch/theme';
+import { tabsTheme } from 'common/components/InvTabs/theme';
+import { textTheme } from 'common/components/InvText/theme';
+import { textareaTheme } from 'common/components/InvTextarea/theme';
+import { tooltipTheme } from 'common/components/InvTooltip/theme';
 
 import { InvokeAIColors } from './colors/colors';
 import { reactflowStyles } from './custom/reactflow';

@@ -1,4 +1,4 @@
-import { InvTooltip } from 'common/components';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { colorTokenToCssVar } from 'common/util/colorTokenToCssVar';
 import { getFieldColor } from 'features/nodes/components/flow/edges/util/getEdgeColor';
 import { useFieldTypeName } from 'features/nodes/hooks/usePrettyFieldType';

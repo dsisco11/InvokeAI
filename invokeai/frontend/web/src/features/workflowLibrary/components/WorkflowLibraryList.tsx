@@ -7,18 +7,19 @@ import {
   InputRightElement,
   Spacer,
 } from '@chakra-ui/react';
-import type { InvSelectOnChange, InvSelectOption } from 'common/components';
-import {
-  InvButton,
-  InvButtonGroup,
-  InvControl,
-  InvIconButton,
-  InvSelect,
-} from 'common/components';
 import {
   IAINoContentFallback,
   IAINoContentFallbackWithSpinner,
 } from 'common/components/IAIImageFallback';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type {
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components/InvSelect/types';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
 import type { WorkflowCategory } from 'features/nodes/types/workflow';
 import WorkflowLibraryListItem from 'features/workflowLibrary/components/WorkflowLibraryListItem';

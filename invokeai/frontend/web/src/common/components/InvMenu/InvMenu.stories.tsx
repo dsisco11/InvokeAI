@@ -1,6 +1,6 @@
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvButton } from 'common/components/InvButton';
+import { InvButton } from 'common/components/InvButton/InvButton';
 import { FaCopy, FaDownload, FaTrash } from 'react-icons/fa6';
 
 import { InvMenuItem } from './InvMenuItem';

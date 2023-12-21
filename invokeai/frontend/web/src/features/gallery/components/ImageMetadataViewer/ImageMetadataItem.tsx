@@ -1,6 +1,8 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { Flex, Link } from '@chakra-ui/react';
-import { InvIconButton, InvText, InvTooltip } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvText } from 'common/components/InvText/wrapper';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaCopy } from 'react-icons/fa';

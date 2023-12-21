@@ -1,7 +1,9 @@
 import { ChevronUpIcon } from '@chakra-ui/icons';
 import { Box, Flex } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvControl, InvIconButton, InvSwitch } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvSwitch } from 'common/components/InvSwitch/wrapper';
 import { useControlAdapterIsEnabled } from 'features/controlAdapters/hooks/useControlAdapterIsEnabled';
 import { useControlAdapterType } from 'features/controlAdapters/hooks/useControlAdapterType';
 import {

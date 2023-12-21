@@ -2,7 +2,9 @@ import { Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvIconButton, InvInput, InvText } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvInput } from 'common/components/InvInput/InvInput';
+import { InvText } from 'common/components/InvText/wrapper';
 import {
   setAdvancedAddScanModel,
   setSearchFolder,

@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import type { PropsWithChildren } from 'react';
 import { memo } from 'react';
 
-import { InvText } from './InvText';
+import { InvText } from './InvText/wrapper';
 
 export type IAIToggleCollapseProps = PropsWithChildren & {
   label: string;

@@ -5,13 +5,10 @@ import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { upscaleRequested } from 'app/store/middleware/listenerMiddleware/listeners/upscaleRequested';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import {
-  InvButtonGroup,
-  InvIconButton,
-  InvMenu,
-  InvMenuButton,
-  InvMenuList,
-} from 'common/components/';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvMenuList } from 'common/components/InvMenu/InvMenuList';
+import { InvMenu, InvMenuButton } from 'common/components/InvMenu/wrapper';
 import { DeleteImageButton } from 'features/deleteImageModal/components/DeleteImageButton';
 import { imagesToDeleteSelected } from 'features/deleteImageModal/store/slice';
 import SingleSelectionMenuItems from 'features/gallery/components/ImageContextMenu/SingleSelectionMenuItems';

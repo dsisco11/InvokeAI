@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvButton } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
 import { useGetNodesNeedUpdate } from 'features/nodes/hooks/useGetNodesNeedUpdate';
 import { updateAllNodesRequested } from 'features/nodes/store/actions';
 import { memo, useCallback } from 'react';

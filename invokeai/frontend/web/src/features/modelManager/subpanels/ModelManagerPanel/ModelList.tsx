@@ -1,7 +1,10 @@
 import { Flex, Spinner } from '@chakra-ui/react';
 import type { EntityState } from '@reduxjs/toolkit';
-import { InvControl, InvInput } from 'common/components';
-import { InvButton, InvButtonGroup, InvText } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvInput } from 'common/components/InvInput/InvInput';
+import { InvText } from 'common/components/InvText/wrapper';
 import { forEach } from 'lodash-es';
 import type { ChangeEvent, PropsWithChildren } from 'react';
 import { memo } from 'react';

@@ -2,17 +2,17 @@ import { Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import { InvCheckbox } from 'common/components/InvCheckbox/wrapper';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import {
-  InvCheckbox,
-  InvControl,
-  InvIconButton,
   InvPopover,
   InvPopoverBody,
   InvPopoverContent,
   InvPopoverTrigger,
-  InvSlider,
-  InvSwitch,
-} from 'common/components';
+} from 'common/components/InvPopover/wrapper';
+import { InvSlider } from 'common/components/InvSlider/InvSlider';
+import { InvSwitch } from 'common/components/InvSwitch/wrapper';
 import {
   autoAssignBoardOnClickChanged,
   setGalleryImageMinimumWidth,

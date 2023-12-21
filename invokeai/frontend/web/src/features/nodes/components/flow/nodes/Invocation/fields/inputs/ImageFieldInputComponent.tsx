@@ -1,9 +1,9 @@
 import { Flex } from '@chakra-ui/react';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvText } from 'common/components';
 import IAIDndImage from 'common/components/IAIDndImage';
 import IAIDndImageIcon from 'common/components/IAIDndImageIcon';
+import { InvText } from 'common/components/InvText/wrapper';
 import type {
   TypesafeDraggableData,
   TypesafeDroppableData,

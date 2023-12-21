@@ -1,6 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvTextarea } from 'common/components';
+import { InvTextarea } from 'common/components/InvTextarea/InvTextarea';
 import NodeCollapseButton from 'features/nodes/components/flow/nodes/common/NodeCollapseButton';
 import NodeTitle from 'features/nodes/components/flow/nodes/common/NodeTitle';
 import NodeWrapper from 'features/nodes/components/flow/nodes/common/NodeWrapper';

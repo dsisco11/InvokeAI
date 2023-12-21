@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { InvText } from 'common/components';
+import { InvText } from 'common/components/InvText/wrapper';
 import { useTranslation } from 'react-i18next';
 
 import SyncModelsButton from './SyncModelsButton';

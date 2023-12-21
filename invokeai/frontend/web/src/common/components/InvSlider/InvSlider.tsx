@@ -6,8 +6,8 @@ import {
   useFormControl,
 } from '@chakra-ui/react';
 import { useStore } from '@nanostores/react';
-import { InvNumberInput } from 'common/components/InvNumberInput';
-import { InvTooltip } from 'common/components/InvTooltip';
+import { InvNumberInput } from 'common/components/InvNumberInput/InvNumberInput';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { $modifiers } from 'common/hooks/useGlobalModifiers';
 import { AnimatePresence } from 'framer-motion';
 import { useCallback, useMemo, useState } from 'react';

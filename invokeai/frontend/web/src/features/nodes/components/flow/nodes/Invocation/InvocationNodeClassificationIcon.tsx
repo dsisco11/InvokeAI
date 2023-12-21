@@ -1,5 +1,5 @@
 import { Icon } from '@chakra-ui/react';
-import { InvTooltip } from 'common/components';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { useNodeClassification } from 'features/nodes/hooks/useNodeClassification';
 import type { Classification } from 'features/nodes/types/common';
 import { memo } from 'react';

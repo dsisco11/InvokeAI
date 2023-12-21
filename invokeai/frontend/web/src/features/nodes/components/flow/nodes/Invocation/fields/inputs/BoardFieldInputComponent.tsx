@@ -1,6 +1,10 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import type { InvSelectOnChange, InvSelectOption } from 'common/components';
-import { InvControl, InvSelect } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type {
+  InvSelectOnChange,
+  InvSelectOption,
+} from 'common/components/InvSelect/types';
 import { fieldBoardValueChanged } from 'features/nodes/store/nodesSlice';
 import type {
   BoardFieldInputInstance,

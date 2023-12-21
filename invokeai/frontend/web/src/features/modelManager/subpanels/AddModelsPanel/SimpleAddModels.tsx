@@ -1,8 +1,11 @@
 import { Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
-import type { InvSelectOption } from 'common/components';
-import { InvButton, InvControl, InvInput, InvSelect } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvInput } from 'common/components/InvInput/InvInput';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import type { InvSelectOption } from 'common/components/InvSelect/types';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { useTranslation } from 'react-i18next';

@@ -3,7 +3,8 @@ import { skipToken } from '@reduxjs/toolkit/query';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvButton, InvButtonGroup, InvIconButton } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
 import { stagingAreaImageSaved } from 'features/canvas/store/actions';
 import {
   commitStagingAreaImage,
@@ -13,6 +14,7 @@ import {
   setShouldShowStagingImage,
   setShouldShowStagingOutline,
 } from 'features/canvas/store/canvasSlice';
+import { InvIconButton } from 'index';
 import { memo, useCallback } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';

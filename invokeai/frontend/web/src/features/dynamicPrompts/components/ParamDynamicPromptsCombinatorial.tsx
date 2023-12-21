@@ -1,7 +1,8 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvControl, InvSwitch } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSwitch } from 'common/components/InvSwitch/wrapper';
 import { combinatorialToggled } from 'features/dynamicPrompts/store/dynamicPromptsSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

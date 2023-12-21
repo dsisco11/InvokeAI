@@ -10,8 +10,8 @@ import {
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvButton } from 'common/components';
-import { InvButtonGroup } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
 import { galleryViewChanged } from 'features/gallery/store/gallerySlice';
 import { memo, useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';

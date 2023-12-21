@@ -1,4 +1,4 @@
-import { InvIconButton } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaPlus } from 'react-icons/fa';

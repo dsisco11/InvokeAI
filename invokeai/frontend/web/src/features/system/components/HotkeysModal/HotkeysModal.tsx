@@ -1,10 +1,12 @@
 import { Divider, Flex, useDisclosure } from '@chakra-ui/react';
+import { InvAccordionButton } from 'common/components/InvAccordion/InvAccordionButton';
 import {
   InvAccordion,
-  InvAccordionButton,
   InvAccordionIcon,
   InvAccordionItem,
   InvAccordionPanel,
+} from 'common/components/InvAccordion/wrapper';
+import {
   InvModal,
   InvModalBody,
   InvModalCloseButton,
@@ -12,7 +14,7 @@ import {
   InvModalFooter,
   InvModalHeader,
   InvModalOverlay,
-} from 'common/components';
+} from 'common/components/InvModal/wrapper';
 import type { ReactElement } from 'react';
 import { cloneElement } from 'react';
 import { useTranslation } from 'react-i18next';

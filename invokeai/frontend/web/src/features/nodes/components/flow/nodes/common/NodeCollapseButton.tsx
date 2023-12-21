@@ -1,6 +1,6 @@
 import { ChevronUpIcon } from '@chakra-ui/icons';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvIconButton } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { nodeIsOpenChanged } from 'features/nodes/store/nodesSlice';
 import { memo, useCallback } from 'react';
 import { useUpdateNodeInternals } from 'reactflow';

@@ -1,6 +1,7 @@
 import { useDisclosure } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvButton, InvConfirmationAlertDialog } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvConfirmationAlertDialog } from 'common/components/InvConfirmationAlertDialog/InvConfirmationAlertDialog';
 import { isStagingSelector } from 'features/canvas/store/canvasSelectors';
 import { clearCanvasHistory } from 'features/canvas/store/canvasSlice';
 import { memo, useCallback } from 'react';

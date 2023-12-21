@@ -1,11 +1,11 @@
 import { useDisclosure } from '@chakra-ui/react';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvMenuList } from 'common/components/InvMenu/InvMenuList';
 import {
-  InvIconButton,
   InvMenu,
   InvMenuButton,
   InvMenuDivider,
-  InvMenuList,
-} from 'common/components';
+} from 'common/components/InvMenu/wrapper';
 import { useGlobalMenuCloseTrigger } from 'common/hooks/useGlobalMenuCloseTrigger';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import DownloadWorkflowMenuItem from 'features/workflowLibrary/components/WorkflowLibraryMenu/DownloadWorkflowMenuItem';

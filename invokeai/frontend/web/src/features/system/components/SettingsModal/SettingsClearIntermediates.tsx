@@ -1,6 +1,7 @@
 import { Heading } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvButton, InvText } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvText } from 'common/components/InvText/wrapper';
 import { resetCanvas } from 'features/canvas/store/canvasSlice';
 import { controlAdaptersReset } from 'features/controlAdapters/store/controlAdaptersSlice';
 import { addToast } from 'features/system/store/systemSlice';

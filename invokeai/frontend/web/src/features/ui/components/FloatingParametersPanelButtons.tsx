@@ -1,6 +1,7 @@
 import type { ChakraProps } from '@chakra-ui/react';
 import { Flex, Portal } from '@chakra-ui/react';
-import { InvButtonGroup, InvIconButton } from 'common/components';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import CancelCurrentQueueItemButton from 'features/queue/components/CancelCurrentQueueItemButton';
 import ClearQueueButton from 'features/queue/components/ClearQueueButton';
 import QueueBackButton from 'features/queue/components/QueueBackButton';

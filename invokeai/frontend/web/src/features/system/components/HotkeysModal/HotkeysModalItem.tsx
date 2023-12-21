@@ -1,5 +1,5 @@
 import { Box, Grid } from '@chakra-ui/react';
-import { InvText } from 'common/components';
+import { InvText } from 'common/components/InvText/wrapper';
 
 interface HotkeysModalProps {
   hotkey: string;

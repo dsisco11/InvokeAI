@@ -2,17 +2,17 @@ import { Box, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import IAIColorPicker from 'common/components/IAIColorPicker';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvCheckbox } from 'common/components/InvCheckbox/wrapper';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import {
-  InvButton,
-  InvCheckbox,
-  InvControl,
-  InvIconButton,
   InvPopover,
   InvPopoverBody,
   InvPopoverContent,
   InvPopoverTrigger,
-} from 'common/components';
-import IAIColorPicker from 'common/components/IAIColorPicker';
+} from 'common/components/InvPopover/wrapper';
 import { canvasMaskSavedToGallery } from 'features/canvas/store/actions';
 import { isStagingSelector } from 'features/canvas/store/canvasSelectors';
 import {

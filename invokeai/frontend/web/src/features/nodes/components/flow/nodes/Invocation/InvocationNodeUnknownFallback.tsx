@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { InvText } from 'common/components';
+import { InvText } from 'common/components/InvText/wrapper';
 import NodeCollapseButton from 'features/nodes/components/flow/nodes/common/NodeCollapseButton';
 import NodeWrapper from 'features/nodes/components/flow/nodes/common/NodeWrapper';
 import { useNodePack } from 'features/nodes/hooks/useNodePack';

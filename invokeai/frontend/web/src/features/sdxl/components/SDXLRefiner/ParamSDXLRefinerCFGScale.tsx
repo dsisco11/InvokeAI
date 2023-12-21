@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvControl, InvNumberInput } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvNumberInput } from 'common/components/InvNumberInput/InvNumberInput';
 import { setRefinerCFGScale } from 'features/sdxl/store/sdxlSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

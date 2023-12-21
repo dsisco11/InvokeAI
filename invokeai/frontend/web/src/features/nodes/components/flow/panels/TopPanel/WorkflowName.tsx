@@ -1,5 +1,5 @@
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvText } from 'common/components';
+import { InvText } from 'common/components/InvText/wrapper';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';

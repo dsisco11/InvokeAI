@@ -6,7 +6,7 @@ import ParamModelandVAEandScheduler from 'features/parameters/components/Core/Pa
 import ParamSteps from 'features/parameters/components/Core/ParamSteps';
 import ImageToImageFit from 'features/parameters/components/ImageToImage/ImageToImageFit';
 import ImageToImageStrength from 'features/parameters/components/ImageToImage/ImageToImageStrength';
-import { ParamSeed } from 'features/parameters/components/Seed/';
+import { ParamSeed } from 'features/parameters/components/Seed/ParamSeed';
 import { useCoreParametersCollapseLabel } from 'features/parameters/hooks/useCoreParametersCollapseLabel';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';

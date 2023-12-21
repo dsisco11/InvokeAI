@@ -1,6 +1,8 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvControl, InvSelect, InvTooltip } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { fieldT2IAdapterModelValueChanged } from 'features/nodes/store/nodesSlice';
 import type {
   T2IAdapterModelFieldInputInstance,

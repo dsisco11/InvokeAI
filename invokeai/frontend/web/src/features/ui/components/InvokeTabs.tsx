@@ -11,7 +11,7 @@ import {
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvTooltip } from 'common/components';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import ImageGalleryContent from 'features/gallery/components/ImageGalleryContent';
 import NodeEditorPanelGroup from 'features/nodes/components/sidePanel/NodeEditorPanelGroup';
 import { usePanel } from 'features/ui/hooks/usePanel';

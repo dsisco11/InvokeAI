@@ -2,7 +2,7 @@ import {
   AccordionButton as ChakraAccordionButton,
   Spacer,
 } from '@chakra-ui/react';
-import { InvBadge } from 'common/components/InvBadge';
+import { InvBadge } from 'common/components/InvBadge/wrapper';
 
 import type { InvAccordionButtonProps } from './types';
 import { InvAccordionIcon } from './wrapper';

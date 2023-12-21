@@ -1,5 +1,7 @@
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvControl, InvSelect, InvSelectFallback } from 'common/components/';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvSelect } from 'common/components/InvSelect/InvSelect';
+import { InvSelectFallback } from 'common/components/InvSelect/InvSelectFallback';
 import { useGroupedModelInvSelect } from 'common/components/InvSelect/useGroupedModelInvSelect';
 import type { EmbeddingSelectProps } from 'features/embedding/components/PromptWithEmbedding/types';
 import { t } from 'i18next';

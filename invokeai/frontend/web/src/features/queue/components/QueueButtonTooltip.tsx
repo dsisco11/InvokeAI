@@ -2,7 +2,7 @@ import { Divider, Flex, ListItem, UnorderedList } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvText } from 'common/components';
+import { InvText } from 'common/components/InvText/wrapper';
 import { useIsReadyToEnqueue } from 'common/hooks/useIsReadyToEnqueue';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';

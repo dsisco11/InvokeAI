@@ -1,13 +1,11 @@
 import { Badge, Divider, Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
-import {
-  InvButton,
-  InvCheckbox,
-  InvControl,
-  InvInput,
-  InvText,
-} from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvCheckbox } from 'common/components/InvCheckbox/wrapper';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvInput } from 'common/components/InvInput/InvInput';
+import { InvText } from 'common/components/InvText/wrapper';
 import BaseModelSelect from 'features/modelManager/subpanels/shared/BaseModelSelect';
 import CheckpointConfigsSelect from 'features/modelManager/subpanels/shared/CheckpointConfigsSelect';
 import ModelVariantSelect from 'features/modelManager/subpanels/shared/ModelVariantSelect';

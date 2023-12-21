@@ -1,6 +1,7 @@
 import { Flex, FormControl, FormLabel, Icon, Spacer } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvIconButton, InvTooltip } from 'common/components';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import NodeSelectionOverlay from 'common/components/NodeSelectionOverlay';
 import { useMouseOverNode } from 'features/nodes/hooks/useMouseOverNode';
 import { workflowExposedFieldRemoved } from 'features/nodes/store/workflowSlice';

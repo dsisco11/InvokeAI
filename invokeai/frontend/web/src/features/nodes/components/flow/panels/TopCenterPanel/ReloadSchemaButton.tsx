@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvButton } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaSyncAlt } from 'react-icons/fa';

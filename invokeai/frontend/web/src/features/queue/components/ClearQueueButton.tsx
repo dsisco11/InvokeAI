@@ -1,6 +1,6 @@
 import { type ChakraProps, useDisclosure } from '@chakra-ui/react';
-import { InvText } from 'common/components';
 import { InvConfirmationAlertDialog } from 'common/components/InvConfirmationAlertDialog/InvConfirmationAlertDialog';
+import { InvText } from 'common/components/InvText/wrapper';
 import { useClearQueue } from 'features/queue/hooks/useClearQueue';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';

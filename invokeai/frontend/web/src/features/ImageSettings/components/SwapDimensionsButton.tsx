@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvIconButton } from 'common/components/InvIconButton';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { dimensionsSwapped } from 'features/parameters/store/generationSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

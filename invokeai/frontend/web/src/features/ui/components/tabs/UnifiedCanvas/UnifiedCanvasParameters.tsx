@@ -4,7 +4,7 @@ import LoRACollapse from 'features/lora/components/LoRACollapse';
 import ParamAdvancedCollapse from 'features/parameters/components/Advanced/ParamAdvancedCollapse';
 import ParamCompositingSettingsCollapse from 'features/parameters/components/Canvas/Compositing/ParamCompositingSettingsCollapse';
 import ParamInfillAndScalingCollapse from 'features/parameters/components/Canvas/InfillAndScaling/ParamInfillAndScalingCollapse';
-import { Prompts } from 'features/parameters/components/Prompts';
+import { Prompts } from 'features/parameters/components/Prompts/Prompts';
 import ParamSymmetryCollapse from 'features/parameters/components/Symmetry/ParamSymmetryCollapse';
 import { memo } from 'react';
 

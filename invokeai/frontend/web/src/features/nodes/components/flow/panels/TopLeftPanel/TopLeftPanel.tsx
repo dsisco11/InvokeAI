@@ -1,6 +1,7 @@
 import { Flex } from '@chakra-ui/layout';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvButton, InvIconButton } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { useGetNodesNeedUpdate } from 'features/nodes/hooks/useGetNodesNeedUpdate';
 import { updateAllNodesRequested } from 'features/nodes/store/actions';
 import { addNodePopoverOpened } from 'features/nodes/store/nodesSlice';

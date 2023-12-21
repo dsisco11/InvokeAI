@@ -1,7 +1,8 @@
 import { NUMPY_RAND_MAX, NUMPY_RAND_MIN } from 'app/constants';
 import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvIconButton, InvTooltip } from 'common/components/';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import randomInt from 'common/util/randomInt';
 import { setSeed } from 'features/parameters/store/generationSlice';
 import { useCallback } from 'react';

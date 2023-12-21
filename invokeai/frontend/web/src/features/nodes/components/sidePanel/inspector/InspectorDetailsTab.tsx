@@ -2,8 +2,8 @@ import { Box, Flex, FormControl, FormLabel, HStack } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvText } from 'common/components';
 import { IAINoContentFallback } from 'common/components/IAIImageFallback';
+import { InvText } from 'common/components/InvText/wrapper';
 import NotesTextarea from 'features/nodes/components/flow/nodes/Invocation/NotesTextarea';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
 import type {

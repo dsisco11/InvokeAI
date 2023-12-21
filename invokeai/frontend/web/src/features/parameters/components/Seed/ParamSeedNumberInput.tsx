@@ -1,15 +1,15 @@
 import { NUMPY_RAND_MAX, NUMPY_RAND_MIN } from 'app/constants';
-import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvControl, InvNumberInput } from 'common/components';
+import { InvControl } from 'common/components/InvControl/InvControl';
+import { InvNumberInput } from 'common/components/InvNumberInput/InvNumberInput';
 import { setSeed } from 'features/parameters/store/generationSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const ParamSeedNumberInput = () => {
-  const seed = useAppSelector((state: RootState) => state.generation.seed);
+  const seed = useAppSelector((state) => state.generation.seed);
   const shouldRandomizeSeed = useAppSelector(
-    (state: RootState) => state.generation.shouldRandomizeSeed
+    (state) => state.generation.shouldRandomizeSeed
   );
 
   const { t } = useTranslation();

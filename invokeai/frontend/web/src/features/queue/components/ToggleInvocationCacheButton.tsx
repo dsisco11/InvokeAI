@@ -1,4 +1,4 @@
-import { InvButton } from 'common/components';
+import { InvButton } from 'common/components/InvButton/InvButton';
 import { useDisableInvocationCache } from 'features/queue/hooks/useDisableInvocationCache';
 import { useEnableInvocationCache } from 'features/queue/hooks/useEnableInvocationCache';
 import { memo } from 'react';

@@ -8,5 +8,3 @@ export const InvMenuList = forwardRef((props: InvMenuListProps, ref) => {
     <ChakraMenuList ref={ref} motionProps={menuListMotionProps} {...props} />
   );
 });
-
-export default InvMenuList;

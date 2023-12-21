@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvTextarea } from 'common/components';
+import { InvTextarea } from 'common/components/InvTextarea/InvTextarea';
 import { EmbeddingPopover } from 'features/embedding/components/PromptWithEmbedding/EmbeddingPopover';
 import { usePrompt } from 'features/embedding/components/PromptWithEmbedding/usePrompt';
 import { setNegativeStylePromptSDXL } from 'features/sdxl/store/sdxlSlice';

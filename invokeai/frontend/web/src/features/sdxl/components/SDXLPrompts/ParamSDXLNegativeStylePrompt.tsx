@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvTextarea } from 'common/components/InvTextarea/InvTextarea';
+import { InvAutosizeTextarea } from 'common/components/InvAutosizeTextarea/InvAutosizeTextarea';
 import { EmbeddingPopover } from 'features/embedding/EmbeddingPopover';
 import { usePrompt } from 'features/embedding/usePrompt';
 import { setNegativeStylePromptSDXL } from 'features/sdxl/store/sdxlSlice';
@@ -12,7 +12,7 @@ import { SDXLConcatLink } from './SDXLConcatLink';
 export const ParamSDXLNegativeStylePrompt = () => {
   const dispatch = useAppDispatch();
   const prompt = useAppSelector((state) => state.sdxl.negativeStylePrompt);
-  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const { t } = useTranslation();
   const handleChange = useCallback(
     (v: string) => {
@@ -30,7 +30,7 @@ export const ParamSDXLNegativeStylePrompt = () => {
     onFocus,
   } = usePrompt({
     prompt,
-    textareaRef: inputRef,
+    textareaRef: textareaRef,
     onChange: handleChange,
   });
 
@@ -42,19 +42,20 @@ export const ParamSDXLNegativeStylePrompt = () => {
       onClose={onClose}
       onOpen={onOpen}
       onSelect={onSelectEmbedding}
-      width={inputRef.current?.clientWidth}
+      width={textareaRef.current?.clientWidth}
     >
-      <InvTextarea
+      <InvAutosizeTextarea
         id="prompt"
         name="prompt"
-        ref={inputRef}
+        ref={textareaRef}
         value={prompt}
         placeholder={t('sdxl.negStylePrompt')}
         onChange={onChange}
         onKeyDown={onKeyDown}
-        resize="vertical"
+        minH="unset"
         fontSize="sm"
-        minH={16}
+        minRows={2}
+        maxRows={5}
       />
       <SDXLConcatLink />
     </EmbeddingPopover>

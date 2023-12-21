@@ -4,7 +4,6 @@ import { EmbeddingPopover } from 'features/embedding/EmbeddingPopover';
 import { usePrompt } from 'features/embedding/usePrompt';
 import { setNegativePrompt } from 'features/parameters/store/generationSlice';
 import { useCallback, useRef } from 'react';
-import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';
 
 export const ParamNegativePrompt = () => {
@@ -18,21 +17,12 @@ export const ParamNegativePrompt = () => {
     },
     [dispatch]
   );
-  const {
-    onChange,
-    isOpen,
-    onClose,
-    onOpen,
-    onSelectEmbedding,
-    onKeyDown,
-    onFocus,
-  } = usePrompt({
-    prompt,
-    textareaRef,
-    onChange: _onChange,
-  });
-
-  useHotkeys('alt+a', onFocus, []);
+  const { onChange, isOpen, onClose, onOpen, onSelectEmbedding, onKeyDown } =
+    usePrompt({
+      prompt,
+      textareaRef,
+      onChange: _onChange,
+    });
 
   return (
     <EmbeddingPopover
@@ -45,12 +35,12 @@ export const ParamNegativePrompt = () => {
       <InvAutosizeTextarea
         id="negativePrompt"
         name="negativePrompt"
-        minH="unset"
         ref={textareaRef}
         value={prompt}
         placeholder={t('parameters.negativePromptPlaceholder')}
         onChange={onChange}
         onKeyDown={onKeyDown}
+        minH="unset"
         fontSize="sm"
         minRows={2}
         maxRows={5}

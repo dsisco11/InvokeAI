@@ -4,13 +4,14 @@ import { EmbeddingPopover } from 'features/embedding/EmbeddingPopover';
 import { usePrompt } from 'features/embedding/usePrompt';
 import { setPositivePrompt } from 'features/parameters/store/generationSlice';
 import { useCallback, useRef } from 'react';
+import type { HotkeyCallback } from 'react-hotkeys-hook';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';
 
 export const ParamPositivePrompt = () => {
   const dispatch = useAppDispatch();
   const prompt = useAppSelector((state) => state.generation.positivePrompt);
-  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const { t } = useTranslation();
   const handleChange = useCallback(
     (v: string) => {
@@ -28,11 +29,19 @@ export const ParamPositivePrompt = () => {
     onFocus,
   } = usePrompt({
     prompt,
-    textareaRef: inputRef,
+    textareaRef: textareaRef,
     onChange: handleChange,
   });
 
-  useHotkeys('alt+a', onFocus, []);
+  const focus: HotkeyCallback = useCallback(
+    (e) => {
+      onFocus();
+      e.preventDefault();
+    },
+    [onFocus]
+  );
+
+  useHotkeys('alt+a', focus, []);
 
   return (
     <EmbeddingPopover
@@ -40,12 +49,12 @@ export const ParamPositivePrompt = () => {
       onClose={onClose}
       onOpen={onOpen}
       onSelect={onSelectEmbedding}
-      width={inputRef.current?.clientWidth}
+      width={textareaRef.current?.clientWidth}
     >
       <InvAutosizeTextarea
         id="prompt"
         name="prompt"
-        ref={inputRef}
+        ref={textareaRef}
         value={prompt}
         placeholder={t('parameters.positivePromptPlaceholder')}
         onChange={onChange}

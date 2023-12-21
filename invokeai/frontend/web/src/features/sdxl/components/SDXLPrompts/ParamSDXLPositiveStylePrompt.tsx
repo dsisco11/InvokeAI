@@ -1,10 +1,9 @@
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvTextarea } from 'common/components/InvTextarea/InvTextarea';
+import { InvAutosizeTextarea } from 'common/components/InvAutosizeTextarea/InvAutosizeTextarea';
 import { EmbeddingPopover } from 'features/embedding/EmbeddingPopover';
 import { usePrompt } from 'features/embedding/usePrompt';
 import { setPositiveStylePromptSDXL } from 'features/sdxl/store/sdxlSlice';
 import { useCallback, useRef } from 'react';
-import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';
 
 import { SDXLConcatLink } from './SDXLConcatLink';
@@ -12,7 +11,7 @@ import { SDXLConcatLink } from './SDXLConcatLink';
 export const ParamSDXLPositiveStylePrompt = () => {
   const dispatch = useAppDispatch();
   const prompt = useAppSelector((state) => state.sdxl.positiveStylePrompt);
-  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const { t } = useTranslation();
   const handleChange = useCallback(
     (v: string) => {
@@ -20,21 +19,12 @@ export const ParamSDXLPositiveStylePrompt = () => {
     },
     [dispatch]
   );
-  const {
-    onChange,
-    isOpen,
-    onClose,
-    onOpen,
-    onSelectEmbedding,
-    onKeyDown,
-    onFocus,
-  } = usePrompt({
-    prompt,
-    textareaRef: inputRef,
-    onChange: handleChange,
-  });
-
-  useHotkeys('alt+a', onFocus, []);
+  const { onChange, isOpen, onClose, onOpen, onSelectEmbedding, onKeyDown } =
+    usePrompt({
+      prompt,
+      textareaRef: textareaRef,
+      onChange: handleChange,
+    });
 
   return (
     <EmbeddingPopover
@@ -42,19 +32,20 @@ export const ParamSDXLPositiveStylePrompt = () => {
       onClose={onClose}
       onOpen={onOpen}
       onSelect={onSelectEmbedding}
-      width={inputRef.current?.clientWidth}
+      width={textareaRef.current?.clientWidth}
     >
-      <InvTextarea
+      <InvAutosizeTextarea
         id="prompt"
         name="prompt"
-        ref={inputRef}
+        ref={textareaRef}
         value={prompt}
         placeholder={t('sdxl.posStylePrompt')}
         onChange={onChange}
         onKeyDown={onKeyDown}
-        resize="vertical"
+        minH="unset"
         fontSize="sm"
-        minH={16}
+        minRows={2}
+        maxRows={5}
       />
       <SDXLConcatLink />
     </EmbeddingPopover>

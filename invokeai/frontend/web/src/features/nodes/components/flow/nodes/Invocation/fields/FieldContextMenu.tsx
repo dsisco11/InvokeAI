@@ -1,8 +1,8 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import type { IAIContextMenuProps } from 'common/components/IAIContextMenu';
-import { IAIContextMenu } from 'common/components/IAIContextMenu';
+import type { InvContextMenuProps } from 'common/components/InvContextMenu/InvContextMenu';
+import { InvContextMenu } from 'common/components/InvContextMenu/InvContextMenu';
 import { InvMenuItem } from 'common/components/InvMenu/InvMenuItem';
 import { InvMenuList } from 'common/components/InvMenu/InvMenuList';
 import { InvMenuGroup } from 'common/components/InvMenu/wrapper';
@@ -22,7 +22,7 @@ type Props = {
   nodeId: string;
   fieldName: string;
   kind: 'input' | 'output';
-  children: IAIContextMenuProps<HTMLDivElement>['children'];
+  children: InvContextMenuProps<HTMLDivElement>['children'];
 };
 
 const FieldContextMenu = ({ nodeId, fieldName, kind, children }: Props) => {
@@ -118,19 +118,7 @@ const FieldContextMenu = ({ nodeId, fieldName, kind, children }: Props) => {
   );
 
   return (
-    <IAIContextMenu<HTMLDivElement>
-      menuProps={{
-        size: 'sm',
-        isLazy: true,
-      }}
-      menuButtonProps={{
-        bg: 'transparent',
-        _hover: { bg: 'transparent' },
-      }}
-      renderMenu={renderMenuFunc}
-    >
-      {children}
-    </IAIContextMenu>
+    <InvContextMenu renderMenu={renderMenuFunc}>{children}</InvContextMenu>
   );
 };
 

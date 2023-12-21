@@ -1,8 +1,8 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import type { IAIContextMenuProps } from 'common/components/IAIContextMenu';
-import { IAIContextMenu } from 'common/components/IAIContextMenu';
+import type { InvContextMenuProps } from 'common/components/InvContextMenu/InvContextMenu';
+import { InvContextMenu } from 'common/components/InvContextMenu/InvContextMenu';
 import { InvMenuItem } from 'common/components/InvMenu/InvMenuItem';
 import { InvMenuList } from 'common/components/InvMenu/InvMenuList';
 import { InvMenuGroup } from 'common/components/InvMenu/wrapper';
@@ -23,7 +23,7 @@ import GalleryBoardContextMenuItems from './GalleryBoardContextMenuItems';
 type Props = {
   board?: BoardDTO;
   board_id: BoardId;
-  children: IAIContextMenuProps<HTMLDivElement>['children'];
+  children: InvContextMenuProps<HTMLDivElement>['children'];
   setBoardToDelete?: (board?: BoardDTO) => void;
 };
 
@@ -137,16 +137,7 @@ const BoardContextMenu = ({
   );
 
   return (
-    <IAIContextMenu<HTMLDivElement>
-      menuProps={{ size: 'sm', isLazy: true }}
-      menuButtonProps={{
-        bg: 'transparent',
-        _hover: { bg: 'transparent' },
-      }}
-      renderMenu={renderMenuFunc}
-    >
-      {children}
-    </IAIContextMenu>
+    <InvContextMenu renderMenu={renderMenuFunc}>{children}</InvContextMenu>
   );
 };
 

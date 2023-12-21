@@ -1,8 +1,8 @@
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import type { IAIContextMenuProps } from 'common/components/IAIContextMenu';
-import { IAIContextMenu } from 'common/components/IAIContextMenu';
+import type { InvContextMenuProps } from 'common/components/InvContextMenu/InvContextMenu';
+import { InvContextMenu } from 'common/components/InvContextMenu/InvContextMenu';
 import { InvMenuList } from 'common/components/InvMenu/InvMenuList';
 import type { MouseEvent } from 'react';
 import { memo, useCallback } from 'react';
@@ -13,7 +13,7 @@ import SingleSelectionMenuItems from './SingleSelectionMenuItems';
 
 type Props = {
   imageDTO: ImageDTO | undefined;
-  children: IAIContextMenuProps<HTMLDivElement>['children'];
+  children: InvContextMenuProps<HTMLDivElement>['children'];
 };
 
 const selector = createMemoizedSelector([stateSelector], ({ gallery }) => {
@@ -56,16 +56,7 @@ const ImageContextMenu = ({ imageDTO, children }: Props) => {
   }, [imageDTO, selectionCount, skipEvent]);
 
   return (
-    <IAIContextMenu<HTMLDivElement>
-      menuProps={{ size: 'sm', isLazy: true }}
-      menuButtonProps={{
-        bg: 'transparent',
-        _hover: { bg: 'transparent' },
-      }}
-      renderMenu={renderMenuFunc}
-    >
-      {children}
-    </IAIContextMenu>
+    <InvContextMenu renderMenu={renderMenuFunc}>{children}</InvContextMenu>
   );
 };
 

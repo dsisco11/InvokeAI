@@ -9,17 +9,18 @@
  *
  * As a (hopefully temporary) workaround, we will use a dirty hack:
  * - create `globalContextMenuCloseTrigger: number` in `ui` slice
- * - increment it in `onPaneClick`
+ * - increment it in `onPaneClick` (and wherever else we want to close the menu)
  * - `useEffect()` to close the menu when `globalContextMenuCloseTrigger` changes
  */
 import type { MenuButtonProps, MenuProps, PortalProps } from '@chakra-ui/react';
-import { Menu, MenuButton, Portal, useEventListener } from '@chakra-ui/react';
+import { Portal, useEventListener } from '@chakra-ui/react';
+import { InvMenu, InvMenuButton } from 'common/components/InvMenu/wrapper';
 import { useGlobalMenuCloseTrigger } from 'common/hooks/useGlobalMenuCloseTrigger';
 import type * as React from 'react';
 import type { MutableRefObject } from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-export interface IAIContextMenuProps<T extends HTMLElement> {
+export interface InvContextMenuProps<T extends HTMLElement = HTMLDivElement> {
   renderMenu: () => JSX.Element | null;
   children: (ref: MutableRefObject<T | null>) => JSX.Element | null;
   menuProps?: Omit<MenuProps, 'children'> & { children?: React.ReactNode };
@@ -27,9 +28,9 @@ export interface IAIContextMenuProps<T extends HTMLElement> {
   menuButtonProps?: MenuButtonProps;
 }
 
-export function IAIContextMenu<T extends HTMLElement = HTMLElement>(
-  props: IAIContextMenuProps<T>
-) {
+export const InvContextMenu = <T extends HTMLElement = HTMLElement>(
+  props: InvContextMenuProps<T>
+) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isRendered, setIsRendered] = useState(false);
   const [isDeferredOpen, setIsDeferredOpen] = useState(false);
@@ -58,6 +59,9 @@ export function IAIContextMenu<T extends HTMLElement = HTMLElement>(
     setIsDeferredOpen(false);
     setIsRendered(false);
   }, []);
+
+  // This is the change from the original chakra-ui-contextmenu
+  // Close all menus when the globalContextMenuCloseTrigger changes
   useGlobalMenuCloseTrigger(onClose);
 
   useEventListener('contextmenu', (e) => {
@@ -83,28 +87,30 @@ export function IAIContextMenu<T extends HTMLElement = HTMLElement>(
       {props.children(targetRef)}
       {isRendered && (
         <Portal {...props.portalProps}>
-          <Menu
+          <InvMenu
+            isLazy
             isOpen={isDeferredOpen}
             gutter={0}
-            {...props.menuProps}
             onClose={onCloseHandler}
+            {...props.menuProps}
           >
-            <MenuButton
+            <InvMenuButton
               aria-hidden={true}
               w={1}
               h={1}
-              style={{
-                position: 'absolute',
-                left: position[0],
-                top: position[1],
-                cursor: 'default',
-              }}
+              position="absolute"
+              left={position[0]}
+              top={position[1]}
+              cursor="default"
+              bg="transparent"
+              size="sm"
+              _hover={{ bg: 'transparent' }}
               {...props.menuButtonProps}
             />
             {props.renderMenu()}
-          </Menu>
+          </InvMenu>
         </Portal>
       )}
     </>
   );
-}
+};

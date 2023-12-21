@@ -49,7 +49,6 @@ const Scrollable = (
     <Box
       ref={targetRef}
       data-overlayscrollbars=""
-      bg="none"
       border="none"
       shadow="dark-lg"
       borderRadius="md"

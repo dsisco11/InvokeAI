@@ -24,10 +24,16 @@ const invokeAI = definePartsStyle(() => ({
     bg: 'base.800',
     shadow: 'dark-lg',
     border: 'none',
-    py: 0,
+    p: 0,
   },
   item: {
     // this will style the MenuItem and MenuItemOption components
+    _first: {
+      borderTopRadius: 'md',
+    },
+    _last: {
+      borderBottomRadius: 'md',
+    },
     fontSize: 'sm',
     bg: 'base.800',
     _hover: {

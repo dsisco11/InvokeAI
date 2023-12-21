@@ -1,4 +1,4 @@
-import { Text } from '@chakra-ui/react';
+import { InvText } from 'common/components';
 import { forwardRef } from 'react';
 import 'reactflow/dist/style.css';
 
@@ -13,10 +13,10 @@ export const AddNodePopoverSelectItem = forwardRef<HTMLDivElement, ItemProps>(
     return (
       <div ref={ref} {...others}>
         <div>
-          <Text fontWeight={600}>{label}</Text>
-          <Text size="xs" sx={{ color: 'base.500' }}>
+          <InvText fontWeight={600}>{label}</InvText>
+          <InvText size="xs" sx={{ color: 'base.500' }}>
             {description}
-          </Text>
+          </InvText>
         </div>
       </div>
     );

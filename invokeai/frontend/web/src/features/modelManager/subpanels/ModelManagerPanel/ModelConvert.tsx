@@ -3,7 +3,6 @@ import {
   ListItem,
   Radio,
   RadioGroup,
-  Text,
   Tooltip,
   UnorderedList,
 } from '@chakra-ui/react';
@@ -11,13 +10,13 @@ import { makeToast } from 'features/system/util/makeToast';
 // import { convertToDiffusers } from 'app/socketio/actions';
 import { useAppDispatch } from 'app/store/storeHooks';
 import IAIAlertDialog from 'common/components/IAIAlertDialog';
-import IAIInput from 'common/components/IAIInput';
+import { InvControl, InvInput } from 'common/components';
 import { addToast } from 'features/system/store/systemSlice';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useConvertMainModelsMutation } from 'services/api/endpoints/models';
 import { CheckpointModelConfig } from 'services/api/types';
-import { InvButton } from 'common/components';
+import { InvButton, InvText } from 'common/components';
 
 interface ModelConvertProps {
   model: CheckpointModelConfig;
@@ -139,21 +138,21 @@ export default function ModelConvert(props: ModelConvertProps) {
       motionPreset="slideInBottom"
     >
       <Flex flexDirection="column" rowGap={4}>
-        <Text>{t('modelManager.convertToDiffusersHelpText1')}</Text>
+        <InvText>{t('modelManager.convertToDiffusersHelpText1')}</InvText>
         <UnorderedList>
           <ListItem>{t('modelManager.convertToDiffusersHelpText2')}</ListItem>
           <ListItem>{t('modelManager.convertToDiffusersHelpText3')}</ListItem>
           <ListItem>{t('modelManager.convertToDiffusersHelpText4')}</ListItem>
           <ListItem>{t('modelManager.convertToDiffusersHelpText5')}</ListItem>
         </UnorderedList>
-        <Text>{t('modelManager.convertToDiffusersHelpText6')}</Text>
+        <InvText>{t('modelManager.convertToDiffusersHelpText6')}</InvText>
       </Flex>
 
       <Flex flexDir="column" gap={2}>
         <Flex marginTop={4} flexDir="column" gap={2}>
-          <Text fontWeight="600">
+          <InvText fontWeight="600">
             {t('modelManager.convertToDiffusersSaveLocation')}
-          </Text>
+          </InvText>
           <RadioGroup value={saveLocation} onChange={handleChangeSaveLocation}>
             <Flex gap={4}>
               <Radio value="InvokeAIRoot">
@@ -170,16 +169,13 @@ export default function ModelConvert(props: ModelConvertProps) {
           </RadioGroup>
         </Flex>
         {saveLocation === 'Custom' && (
-          <Flex flexDirection="column" rowGap={2}>
-            <Text fontWeight="500" fontSize="sm" variant="subtext">
-              {t('modelManager.customSaveLocation')}
-            </Text>
-            <IAIInput
+          <InvControl label={t('modelManager.customSaveLocation')}>
+            <InvInput
+              width="full"
               value={customSaveLocation}
               onChange={handleChangeCustomSaveLocation}
-              width="full"
             />
-          </Flex>
+          </InvControl>
         )}
       </Flex>
     </IAIAlertDialog>

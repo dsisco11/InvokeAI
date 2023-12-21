@@ -1,9 +1,9 @@
 import { DeleteIcon } from '@chakra-ui/icons';
-import { Badge, Flex, Text, Tooltip } from '@chakra-ui/react';
+import { Badge, Flex, Tooltip } from '@chakra-ui/react';
 import { makeToast } from 'features/system/util/makeToast';
 import { useAppDispatch } from 'app/store/storeHooks';
 import IAIAlertDialog from 'common/components/IAIAlertDialog';
-import { InvIconButton, InvButton } from 'common/components';
+import { InvIconButton, InvButton, InvText } from 'common/components';
 import { addToast } from 'features/system/store/systemSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -106,7 +106,7 @@ export default function ModelListItem(props: ModelListItemProps) {
             }
           </Badge>
           <Tooltip label={model.description} hasArrow placement="bottom">
-            <Text sx={{ fontWeight: 500 }}>{model.model_name}</Text>
+            <InvText sx={{ fontWeight: 500 }}>{model.model_name}</InvText>
           </Tooltip>
         </Flex>
       </Flex>

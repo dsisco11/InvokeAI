@@ -1,10 +1,11 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { useNodePack } from 'features/nodes/hooks/useNodePack';
 import { DRAG_HANDLE_CLASSNAME } from 'features/nodes/types/constants';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import NodeCollapseButton from 'features/nodes/components/flow/nodes/common/NodeCollapseButton';
 import NodeWrapper from 'features/nodes/components/flow/nodes/common/NodeWrapper';
+import { InvText } from 'common/components';
 
 type Props = {
   nodeId: string;
@@ -38,7 +39,7 @@ const InvocationNodeUnknownFallback = ({
         }}
       >
         <NodeCollapseButton nodeId={nodeId} isOpen={isOpen} />
-        <Text
+        <InvText
           sx={{
             w: 'full',
             textAlign: 'center',
@@ -47,7 +48,7 @@ const InvocationNodeUnknownFallback = ({
           }}
         >
           {label ? `${label} (${type})` : type}
-        </Text>
+        </InvText>
       </Flex>
       {isOpen && (
         <Flex
@@ -64,19 +65,19 @@ const InvocationNodeUnknownFallback = ({
           }}
         >
           <Flex gap={2} flexDir="column">
-            <Text as="span">
+            <InvText as="span">
               {t('nodes.unknownNodeType')}:{' '}
-              <Text as="span" fontWeight={600}>
+              <InvText as="span" fontWeight={600}>
                 {type}
-              </Text>
-            </Text>
+              </InvText>
+            </InvText>
             {nodePack && (
-              <Text as="span">
+              <InvText as="span">
                 {t('nodes.nodePack')}:{' '}
-                <Text as="span" fontWeight={600}>
+                <InvText as="span" fontWeight={600}>
                   {nodePack}
-                </Text>
-              </Text>
+                </InvText>
+              </InvText>
             )}
           </Flex>
         </Flex>

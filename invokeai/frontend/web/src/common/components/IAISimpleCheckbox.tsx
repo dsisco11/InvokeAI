@@ -9,14 +9,14 @@ const IAISimpleCheckbox = (props: IAISimpleCheckboxProps) => {
   const { label, ...rest } = props;
   return (
     <Checkbox colorScheme="accent" {...rest}>
-      <Text
+      <InvText
         sx={{
           fontSize: 'sm',
           color: 'base.200',
         }}
       >
         {label}
-      </Text>
+      </InvText>
     </Checkbox>
   );
 };

@@ -1,6 +1,6 @@
-import { Flex, Spinner, Text } from '@chakra-ui/react';
+import { Flex, Spinner } from '@chakra-ui/react';
 import { EntityState } from '@reduxjs/toolkit';
-import IAIInput from 'common/components/IAIInput';
+import { InvControl, InvInput } from 'common/components';
 import { forEach } from 'lodash-es';
 import { ChangeEvent, PropsWithChildren, memo } from 'react';
 import { useCallback, useState } from 'react';
@@ -15,7 +15,7 @@ import {
   useGetOnnxModelsQuery,
 } from 'services/api/endpoints/models';
 import ModelListItem from './ModelListItem';
-import { InvButton, InvButtonGroup } from 'common/components';
+import { InvButton, InvButtonGroup, InvText } from 'common/components';
 
 type ModelListProps = {
   selectedModelId: string | undefined;
@@ -143,11 +143,9 @@ const ModelList = (props: ModelListProps) => {
           </InvButton>
         </InvButtonGroup>
 
-        <IAIInput
-          onChange={handleSearchFilter}
-          label={t('modelManager.search')}
-          labelPos="side"
-        />
+        <InvControl label={t('modelManager.search')}>
+          <InvInput onChange={handleSearchFilter} />
+        </InvControl>
 
         <Flex
           flexDirection="column"
@@ -298,9 +296,9 @@ const ModelListWrapper = memo((props: ModelListWrapperProps) => {
   return (
     <StyledModelContainer>
       <Flex sx={{ gap: 2, flexDir: 'column' }}>
-        <Text variant="subtext" fontSize="sm">
+        <InvText variant="subtext" fontSize="sm">
           {title}
-        </Text>
+        </InvText>
         {modelList.map((model) => (
           <ModelListItem
             key={model.id}
@@ -328,9 +326,9 @@ const FetchingModelsLoader = memo(
           gap={8}
         >
           <Spinner />
-          <Text variant="subtext">
+          <InvText variant="subtext">
             {loadingMessage ? loadingMessage : 'Fetching...'}
-          </Text>
+          </InvText>
         </Flex>
       </StyledModelContainer>
     );

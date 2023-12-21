@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
@@ -14,6 +14,7 @@ import ParamSDXLRefinerScheduler from './SDXLRefiner/ParamSDXLRefinerScheduler';
 import ParamSDXLRefinerStart from './SDXLRefiner/ParamSDXLRefinerStart';
 import ParamSDXLRefinerSteps from './SDXLRefiner/ParamSDXLRefinerSteps';
 import ParamUseSDXLRefiner from './SDXLRefiner/ParamUseSDXLRefiner';
+import { InvText } from 'common/components';
 
 const selector = createMemoizedSelector(stateSelector, (state) => {
   const { shouldUseSDXLRefiner } = state.sdxl;
@@ -31,9 +32,9 @@ const ParamSDXLRefinerCollapse = () => {
     return (
       <IAICollapse label={t('sdxl.refiner')} activeLabel={activeLabel}>
         <Flex sx={{ justifyContent: 'center', p: 2 }}>
-          <Text sx={{ fontSize: 'sm', color: 'base.500' }}>
+          <InvText sx={{ fontSize: 'sm', color: 'base.500' }}>
             {t('models.noRefinerModelsInstalled')}
-          </Text>
+          </InvText>
         </Flex>
       </IAICollapse>
     );

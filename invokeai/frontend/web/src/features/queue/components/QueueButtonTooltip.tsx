@@ -1,7 +1,8 @@
-import { Divider, Flex, ListItem, Text, UnorderedList } from '@chakra-ui/react';
+import { Divider, Flex, ListItem, UnorderedList } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
+import { InvText } from 'common/components';
 import { useIsReadyToEnqueue } from 'common/hooks/useIsReadyToEnqueue';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -46,23 +47,23 @@ const QueueButtonTooltipContent = ({ prepend = false }: Props) => {
 
   return (
     <Flex flexDir="column" gap={1}>
-      <Text fontWeight={600}>{label}</Text>
+      <InvText fontWeight={600}>{label}</InvText>
       {reasons.length > 0 && (
         <UnorderedList>
           {reasons.map((reason, i) => (
             <ListItem key={`${reason}.${i}`}>
-              <Text fontWeight={400}>{reason}</Text>
+              <InvText fontWeight={400}>{reason}</InvText>
             </ListItem>
           ))}
         </UnorderedList>
       )}
       <StyledDivider />
-      <Text fontWeight={400} fontStyle="oblique 10deg">
+      <InvText fontWeight={400} fontStyle="oblique 10deg">
         {t('parameters.invoke.addingImagesTo')}{' '}
-        <Text as="span" fontWeight={600}>
+        <InvText as="span" fontWeight={600}>
           {autoAddBoardName || t('boards.uncategorized')}
-        </Text>
-      </Text>
+        </InvText>
+      </InvText>
     </Flex>
   );
 };

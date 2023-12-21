@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import {
@@ -7,6 +7,7 @@ import {
   InvSelect,
   InvSelectOnChange,
   InvSelectOption,
+  InvText,
 } from 'common/components';
 import { motion } from 'framer-motion';
 import { useCallback, useEffect, useState, useMemo } from 'react';
@@ -92,11 +93,11 @@ export default function ScanAdvancedAddModels() {
       }}
     >
       <Flex justifyContent="space-between" alignItems="center">
-        <Text size="xl" fontWeight={600}>
+        <InvText size="xl" fontWeight={600}>
           {isCheckpoint || advancedAddMode === 'checkpoint'
             ? 'Add Checkpoint Model'
             : 'Add Diffusers Model'}
-        </Text>
+        </InvText>
         <InvIconButton
           icon={<FaTimes />}
           aria-label={t('modelManager.closeAdvanced')}

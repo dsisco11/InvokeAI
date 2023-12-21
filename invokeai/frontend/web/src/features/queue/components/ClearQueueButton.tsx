@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { FaTrash } from 'react-icons/fa';
 import { useClearQueue } from 'features/queue/hooks/useClearQueue';
 import QueueButton from './common/QueueButton';
-import { ChakraProps, Text } from '@chakra-ui/react';
+import { ChakraProps } from '@chakra-ui/react';
 import IAIAlertDialog from 'common/components/IAIAlertDialog';
+import { InvText } from 'common/components';
 
 type Props = {
   asIconButton?: boolean;
@@ -33,9 +34,9 @@ const ClearQueueButton = ({ asIconButton, sx }: Props) => {
         />
       }
     >
-      <Text>{t('queue.clearQueueAlertDialog')}</Text>
+      <InvText>{t('queue.clearQueueAlertDialog')}</InvText>
       <br />
-      <Text>{t('queue.clearQueueAlertDialog2')}</Text>
+      <InvText>{t('queue.clearQueueAlertDialog2')}</InvText>
     </IAIAlertDialog>
   );
 };

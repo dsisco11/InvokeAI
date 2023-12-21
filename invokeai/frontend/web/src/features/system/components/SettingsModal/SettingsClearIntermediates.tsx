@@ -1,4 +1,4 @@
-import { Heading, Text } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import { controlAdaptersReset } from 'features/controlAdapters/store/controlAdaptersSlice';
 import { useCallback } from 'react';
@@ -75,9 +75,15 @@ export default function SettingsClearIntermediates() {
           count: intermediatesCount ?? 0,
         })}
       </InvButton>
-      <Text fontWeight="bold">{t('settings.clearIntermediatesDesc1')}</Text>
-      <Text variant="subtext">{t('settings.clearIntermediatesDesc2')}</Text>
-      <Text variant="subtext">{t('settings.clearIntermediatesDesc3')}</Text>
+      <InvText fontWeight="bold">
+        {t('settings.clearIntermediatesDesc1')}
+      </InvText>
+      <InvText variant="subtext">
+        {t('settings.clearIntermediatesDesc2')}
+      </InvText>
+      <InvText variant="subtext">
+        {t('settings.clearIntermediatesDesc3')}
+      </InvText>
     </StyledFlex>
   );
 }

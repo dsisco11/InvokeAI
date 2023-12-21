@@ -7,12 +7,11 @@ import {
   AlertDialogOverlay,
   Divider,
   Flex,
-  Text,
 } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvButton, InvControl, InvSwitch } from 'common/components';
+import { InvButton, InvControl, InvSwitch, InvText } from 'common/components';
 import { imageDeletionConfirmed } from 'features/deleteImageModal/store/actions';
 import {
   getImageUsage,
@@ -112,12 +111,12 @@ const DeleteImageModal = () => {
             <Flex direction="column" gap={3}>
               <ImageUsageMessage imageUsage={imageUsageSummary} />
               <Divider />
-              <Text>
+              <InvText>
                 {canRestoreDeletedImagesFromBin
                   ? t('gallery.deleteImageBin')
                   : t('gallery.deleteImagePermanent')}
-              </Text>
-              <Text>{t('common.areYouSure')}</Text>
+              </InvText>
+              <InvText>{t('common.areYouSure')}</InvText>
               <InvControl label={t('common.dontAskMeAgain')}>
                 <InvSwitch
                   isChecked={!shouldConfirmOnDelete}

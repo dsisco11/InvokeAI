@@ -1,11 +1,4 @@
-import {
-  Box,
-  Flex,
-  FormControl,
-  FormLabel,
-  HStack,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Flex, FormControl, FormLabel, HStack } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
@@ -21,6 +14,7 @@ import { getNeedsUpdate } from 'features/nodes/util/node/nodeUpdate';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import EditableNodeTitle from './details/EditableNodeTitle';
+import { InvText } from 'common/components';
 
 const selector = createMemoizedSelector(stateSelector, ({ nodes }) => {
   const lastSelectedNodeId =
@@ -88,9 +82,9 @@ const Content = memo(({ node, template }: ContentProps) => {
           <HStack>
             <FormControl>
               <FormLabel>{t('nodes.nodeType')}</FormLabel>
-              <Text fontSize="sm" fontWeight={600}>
+              <InvText fontSize="sm" fontWeight={600}>
                 {template.title}
-              </Text>
+              </InvText>
             </FormControl>
             <Flex
               flexDir="row"
@@ -100,9 +94,9 @@ const Content = memo(({ node, template }: ContentProps) => {
             >
               <FormControl isInvalid={needsUpdate}>
                 <FormLabel>{t('nodes.nodeVersion')}</FormLabel>
-                <Text fontSize="sm" fontWeight={600}>
+                <InvText fontSize="sm" fontWeight={600}>
                   {node.data.version}
-                </Text>
+                </InvText>
               </FormControl>
             </Flex>
           </HStack>

@@ -1,4 +1,5 @@
-import { Flex, Text, forwardRef } from '@chakra-ui/react';
+import { Flex, forwardRef } from '@chakra-ui/react';
+import { InvText } from 'common/components';
 import { useFieldLabel } from 'features/nodes/hooks/useFieldLabel';
 import { useFieldTemplateTitle } from 'features/nodes/hooks/useFieldTemplateTitle';
 import { memo } from 'react';
@@ -28,9 +29,9 @@ const FieldTitle = forwardRef((props: Props, ref) => {
         w: 'full',
       }}
     >
-      <Text sx={{ fontWeight: isMissingInput ? 600 : 400 }}>
+      <InvText sx={{ fontWeight: isMissingInput ? 600 : 400 }}>
         {label || fieldTemplateTitle}
-      </Text>
+      </InvText>
     </Flex>
   );
 });

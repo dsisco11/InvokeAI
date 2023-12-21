@@ -1,6 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAITextarea from 'common/components/IAITextarea';
+import { InvTextarea } from 'common/components';
 import { notesNodeValueChanged } from 'features/nodes/store/nodesSlice';
 import { NotesNodeData } from 'features/nodes/types/invocation';
 import { ChangeEvent, memo, useCallback } from 'react';
@@ -55,7 +55,7 @@ const NotesNode = (props: NodeProps<NotesNodeData>) => {
               className="nopan"
               sx={{ flexDir: 'column', w: 'full', h: 'full' }}
             >
-              <IAITextarea
+              <InvTextarea
                 value={notes}
                 onChange={handleChange}
                 rows={8}

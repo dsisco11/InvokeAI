@@ -1,8 +1,8 @@
-import { Flex, Spacer, Text } from '@chakra-ui/react';
+import { Flex, Spacer } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvIconButton } from 'common/components';
+import { InvIconButton, InvText } from 'common/components';
 import { useImageUploadButton } from 'common/hooks/useImageUploadButton';
 import { useRecallParameters } from 'features/parameters/hooks/useRecallParameters';
 import { clearInitialImage } from 'features/parameters/store/generationSlice';
@@ -71,7 +71,7 @@ const InitialImageDisplay = () => {
           gap: 2,
         }}
       >
-        <Text
+        <InvText
           sx={{
             ps: 2,
             fontWeight: 600,
@@ -80,7 +80,7 @@ const InitialImageDisplay = () => {
           }}
         >
           {t('metadata.initImage')}
-        </Text>
+        </InvText>
         <Spacer />
         <InvIconButton
           tooltip="Upload Initial Image"

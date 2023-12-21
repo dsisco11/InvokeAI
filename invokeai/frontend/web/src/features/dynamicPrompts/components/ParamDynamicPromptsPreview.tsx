@@ -6,11 +6,11 @@ import {
   ListItem,
   OrderedList,
   Spinner,
-  Text,
 } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
+import { InvText } from 'common/components';
 import { IAINoContentFallback } from 'common/components/IAIImageFallback';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
@@ -84,7 +84,7 @@ const ParamDynamicPromptsPreview = () => {
                   key={`${prompt}.${i}`}
                   sx={listItemStyles}
                 >
-                  <Text as="span">{prompt}</Text>
+                  <InvText as="span">{prompt}</InvText>
                 </ListItem>
               ))}
             </OrderedList>

@@ -6,7 +6,6 @@ import {
   AlertDialogHeader,
   AlertDialogOverlay,
   Flex,
-  Text,
 } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
@@ -17,6 +16,7 @@ import {
   InvSelect,
   InvSelectOnChange,
   InvSelectOption,
+  InvText,
 } from 'common/components';
 import {
   changeBoardReset,
@@ -117,12 +117,12 @@ const ChangeBoardModal = () => {
 
           <AlertDialogBody>
             <Flex sx={{ flexDir: 'column', gap: 4 }}>
-              <Text>
+              <InvText>
                 {t('boards.movingImagesToBoard', {
                   count: imagesToChange.length,
                 })}
                 :
-              </Text>
+              </InvText>
               <InvControl isDisabled={isFetching}>
                 <InvSelect
                   placeholder={

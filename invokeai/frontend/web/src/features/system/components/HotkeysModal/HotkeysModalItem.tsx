@@ -1,4 +1,4 @@
-import { Box, Grid, Text } from '@chakra-ui/react';
+import { Box, Grid } from '@chakra-ui/react';
 
 interface HotkeysModalProps {
   hotkey: string;
@@ -17,16 +17,16 @@ export default function HotkeysModalItem(props: HotkeysModalProps) {
       }}
     >
       <Grid>
-        <Text fontWeight={600}>{title}</Text>
+        <InvText fontWeight={600}>{title}</InvText>
         {description && (
-          <Text
+          <InvText
             sx={{
               fontSize: 'sm',
             }}
             variant="subtext"
           >
             {description}
-          </Text>
+          </InvText>
         )}
       </Grid>
       <Box

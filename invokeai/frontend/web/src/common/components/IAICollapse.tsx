@@ -1,14 +1,8 @@
 import { ChevronUpIcon } from '@chakra-ui/icons';
-import {
-  Box,
-  Collapse,
-  Flex,
-  Spacer,
-  Text,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Collapse, Flex, Spacer, useDisclosure } from '@chakra-ui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { PropsWithChildren, memo } from 'react';
+import { InvText } from './InvText';
 
 export type IAIToggleCollapseProps = PropsWithChildren & {
   label: string;
@@ -62,7 +56,7 @@ const IAICollapse = (props: IAIToggleCollapseProps) => {
                 transition: { duration: 0.1 },
               }}
             >
-              <Text sx={{ color: 'accent.300' }}>{activeLabel}</Text>
+              <InvText sx={{ color: 'accent.300' }}>{activeLabel}</InvText>
             </motion.div>
           )}
         </AnimatePresence>

@@ -13,7 +13,6 @@ import {
   PopoverProps,
   PopoverTrigger,
   Portal,
-  Text,
   forwardRef,
 } from '@chakra-ui/react';
 import { merge, omit } from 'lodash-es';
@@ -27,6 +26,7 @@ import {
   POPOVER_DATA,
   POPPER_MODIFIERS,
 } from './constants';
+import { InvText } from 'common/components/InvText';
 
 type Props = PropsWithChildren & {
   feature: Feature;
@@ -125,7 +125,7 @@ const IAIInformationalPopover = forwardRef(
                   </>
                 )}
                 {paragraphs.map((p) => (
-                  <Text key={p}>{p}</Text>
+                  <InvText key={p}>{p}</InvText>
                 ))}
                 {data?.href && (
                   <>

@@ -1,4 +1,4 @@
-import { Flex, Heading, Spacer, Text } from '@chakra-ui/react';
+import { Flex, Heading, Spacer } from '@chakra-ui/react';
 import dateFormat, { masks } from 'dateformat';
 import { useDeleteLibraryWorkflow } from 'features/workflowLibrary/hooks/useDeleteLibraryWorkflow';
 import { useGetAndLoadLibraryWorkflow } from 'features/workflowLibrary/hooks/useGetAndLoadLibraryWorkflow';
@@ -7,7 +7,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { WorkflowRecordListItemDTO } from 'services/api/types';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvButton } from 'common/components';
+import { InvButton, InvText } from 'common/components';
 
 type Props = {
   workflowDTO: WorkflowRecordListItemDTO;
@@ -44,35 +44,35 @@ const WorkflowLibraryListItem = ({ workflowDTO }: Props) => {
             </Heading>
             <Spacer />
             {workflowDTO.category === 'user' && (
-              <Text fontSize="sm" variant="subtext">
+              <InvText fontSize="sm" variant="subtext">
                 {t('common.updated')}:{' '}
                 {dateFormat(workflowDTO.updated_at, masks.shortDate)}{' '}
                 {dateFormat(workflowDTO.updated_at, masks.shortTime)}
-              </Text>
+              </InvText>
             )}
           </Flex>
           <Flex alignItems="center" w="full" h="50%">
             {workflowDTO.description ? (
-              <Text fontSize="sm" noOfLines={1}>
+              <InvText fontSize="sm" noOfLines={1}>
                 {workflowDTO.description}
-              </Text>
+              </InvText>
             ) : (
-              <Text
+              <InvText
                 fontSize="sm"
                 variant="subtext"
                 fontStyle="italic"
                 noOfLines={1}
               >
                 {t('workflows.noDescription')}
-              </Text>
+              </InvText>
             )}
             <Spacer />
             {workflowDTO.category === 'user' && (
-              <Text fontSize="sm" variant="subtext">
+              <InvText fontSize="sm" variant="subtext">
                 {t('common.created')}:{' '}
                 {dateFormat(workflowDTO.created_at, masks.shortDate)}{' '}
                 {dateFormat(workflowDTO.created_at, masks.shortTime)}
-              </Text>
+              </InvText>
             )}
           </Flex>
         </Flex>

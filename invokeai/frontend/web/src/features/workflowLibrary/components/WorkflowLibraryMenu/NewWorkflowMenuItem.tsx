@@ -7,11 +7,10 @@ import {
   AlertDialogOverlay,
   Flex,
   MenuItem,
-  Text,
   useDisclosure,
 } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvButton } from 'common/components';
+import { InvButton, InvText } from 'common/components';
 import { nodeEditorReset } from 'features/nodes/store/nodesSlice';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
@@ -70,8 +69,8 @@ const NewWorkflowMenuItem = () => {
 
           <AlertDialogBody py={4}>
             <Flex flexDir="column" gap={2}>
-              <Text>{t('nodes.newWorkflowDesc')}</Text>
-              <Text variant="subtext">{t('nodes.newWorkflowDesc2')}</Text>
+              <InvText>{t('nodes.newWorkflowDesc')}</InvText>
+              <InvText variant="subtext">{t('nodes.newWorkflowDesc2')}</InvText>
             </Flex>
           </AlertDialogBody>
 

@@ -1,6 +1,5 @@
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAIInput from 'common/components/IAIInput';
-import IAITextarea from 'common/components/IAITextarea';
+import { InvTextarea, InvInput } from 'common/components';
 import { fieldStringValueChanged } from 'features/nodes/store/nodesSlice';
 import {
   StringFieldInputInstance,
@@ -30,7 +29,7 @@ const StringFieldInputComponent = (
 
   if (fieldTemplate.ui_component === 'textarea') {
     return (
-      <IAITextarea
+      <InvTextarea
         className="nodrag"
         onChange={handleValueChanged}
         value={field.value}
@@ -40,7 +39,7 @@ const StringFieldInputComponent = (
     );
   }
 
-  return <IAIInput onChange={handleValueChanged} value={field.value} />;
+  return <InvInput onChange={handleValueChanged} value={field.value} />;
 };
 
 export default memo(StringFieldInputComponent);

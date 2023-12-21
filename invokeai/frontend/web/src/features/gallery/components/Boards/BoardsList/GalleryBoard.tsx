@@ -6,13 +6,13 @@ import {
   Flex,
   Icon,
   Image,
-  Text,
   Tooltip,
 } from '@chakra-ui/react';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import { InvText } from 'common/components';
 import IAIDroppable from 'common/components/IAIDroppable';
 import SelectionOverlay from 'common/components/SelectionOverlay';
 import { AddToBoardDropData } from 'features/dnd/types';
@@ -266,7 +266,7 @@ const GalleryBoard = ({
                 <IAIDroppable
                   data={droppableData}
                   dropLabel={
-                    <Text fontSize="md">{t('unifiedCanvas.move')}</Text>
+                    <InvText fontSize="md">{t('unifiedCanvas.move')}</InvText>
                   }
                 />
               </Flex>

@@ -1,4 +1,4 @@
-import { Badge, Divider, Flex, Text } from '@chakra-ui/react';
+import { Badge, Divider, Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
 import {
@@ -6,6 +6,7 @@ import {
   InvCheckbox,
   InvControl,
   InvInput,
+  InvText,
 } from 'common/components';
 import { MODEL_TYPE_MAP } from 'features/parameters/types/constants';
 import { addToast } from 'features/system/store/systemSlice';
@@ -113,12 +114,12 @@ export default function CheckpointModelEdit(props: CheckpointModelEditProps) {
     <Flex flexDirection="column" rowGap={4} width="100%">
       <Flex justifyContent="space-between" alignItems="center">
         <Flex flexDirection="column">
-          <Text fontSize="lg" fontWeight="bold">
+          <InvText fontSize="lg" fontWeight="bold">
             {model.model_name}
-          </Text>
-          <Text fontSize="sm" color="base.400">
+          </InvText>
+          <InvText fontSize="sm" color="base.400">
             {MODEL_TYPE_MAP[model.base_model]} {t('modelManager.model')}
-          </Text>
+          </InvText>
         </Flex>
         {![''].includes(model.base_model) ? (
           <ModelConvert model={model} />

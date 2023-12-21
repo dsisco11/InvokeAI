@@ -1,8 +1,8 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvIconButton, InvInput } from 'common/components';
+import { InvIconButton, InvInput, InvText } from 'common/components';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaSearch, FaSync, FaTrash } from 'react-icons/fa';
@@ -66,7 +66,7 @@ function SearchFolderForm() {
         }}
       >
         <Flex w="100%" alignItems="center" gap={4} minH={12}>
-          <Text
+          <InvText
             sx={{
               fontSize: 'sm',
               fontWeight: 600,
@@ -75,7 +75,7 @@ function SearchFolderForm() {
             }}
           >
             {t('common.folder')}
-          </Text>
+          </InvText>
           {!searchFolder ? (
             <InvInput
               w="100%"

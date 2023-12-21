@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { useState } from 'react';
 import {
   MainModelConfigEntity,
@@ -13,6 +13,7 @@ import LoRAModelEdit from './ModelManagerPanel/LoRAModelEdit';
 import ModelList from './ModelManagerPanel/ModelList';
 import { ALL_BASE_MODELS } from 'services/api/constants';
 import { useTranslation } from 'react-i18next';
+import { InvText } from 'common/components';
 
 export default function ModelManagerPanel() {
   const [selectedModelId, setSelectedModelId] = useState<string>();
@@ -76,7 +77,7 @@ const ModelEdit = (props: ModelEditProps) => {
         userSelect: 'none',
       }}
     >
-      <Text variant="subtext">{t('modelManager.noModelSelected')}</Text>
+      <InvText variant="subtext">{t('modelManager.noModelSelected')}</InvText>
     </Flex>
   );
 };

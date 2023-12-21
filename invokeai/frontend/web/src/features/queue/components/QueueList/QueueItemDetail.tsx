@@ -1,5 +1,5 @@
-import { Flex, Heading, Spinner, Text } from '@chakra-ui/react';
-import { InvButton, InvButtonGroup } from 'common/components';
+import { Flex, Heading, Spinner } from '@chakra-ui/react';
+import { InvButton, InvButtonGroup, InvText } from 'common/components';
 import DataViewer from 'features/gallery/components/ImageMetadataViewer/DataViewer';
 import ScrollableContent from 'features/nodes/components/sidePanel/ScrollableContent';
 import { useCancelBatch } from 'features/queue/hooks/useCancelBatch';
@@ -154,9 +154,9 @@ const QueueItemData = ({ label, data }: QueueItemDataProps) => {
       >
         {label}
       </Heading>
-      <Text overflow="hidden" textOverflow="ellipsis" whiteSpace="nowrap">
+      <InvText overflow="hidden" textOverflow="ellipsis" whiteSpace="nowrap">
         {data}
-      </Text>
+      </InvText>
     </Flex>
   );
 };

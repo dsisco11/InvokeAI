@@ -7,13 +7,12 @@ import {
   AlertDialogOverlay,
   Flex,
   Skeleton,
-  Text,
 } from '@chakra-ui/react';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
-import { InvButton } from 'common/components';
+import { InvButton, InvText } from 'common/components';
 import ImageUsageMessage from 'features/deleteImageModal/components/ImageUsageMessage';
 import { getImageUsage } from 'features/deleteImageModal/store/selectors';
 import { ImageUsage } from 'features/deleteImageModal/store/types';
@@ -136,12 +135,12 @@ const DeleteBoardModal = (props: Props) => {
                   bottomMessage={t('boards.bottomMessage')}
                 />
               )}
-              <Text>{t('boards.deletedBoardsCannotbeRestored')}</Text>
-              <Text>
+              <InvText>{t('boards.deletedBoardsCannotbeRestored')}</InvText>
+              <InvText>
                 {canRestoreDeletedImagesFromBin
                   ? t('gallery.deleteImageBin')
                   : t('gallery.deleteImagePermanent')}
-              </Text>
+              </InvText>
             </Flex>
           </AlertDialogBody>
           <AlertDialogFooter>

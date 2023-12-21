@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { useFieldInstance } from 'features/nodes/hooks/useFieldData';
 import { useFieldTemplate } from 'features/nodes/hooks/useFieldTemplate';
 import {
@@ -55,6 +55,7 @@ import SchedulerFieldInputComponent from './inputs/SchedulerFieldInputComponent'
 import StringFieldInputComponent from './inputs/StringFieldInputComponent';
 import T2IAdapterModelFieldInputComponent from './inputs/T2IAdapterModelFieldInputComponent';
 import VAEModelFieldInputComponent from './inputs/VAEModelFieldInputComponent';
+import { InvText } from 'common/components';
 
 type InputFieldProps = {
   nodeId: string;
@@ -290,7 +291,7 @@ const InputFieldRenderer = ({ nodeId, fieldName }: InputFieldProps) => {
 
   return (
     <Box p={1}>
-      <Text
+      <InvText
         sx={{
           fontSize: 'sm',
           fontWeight: 600,
@@ -298,7 +299,7 @@ const InputFieldRenderer = ({ nodeId, fieldName }: InputFieldProps) => {
         }}
       >
         {t('nodes.unknownFieldType', { type: fieldInstance?.type.name })}
-      </Text>
+      </InvText>
     </Box>
   );
 };

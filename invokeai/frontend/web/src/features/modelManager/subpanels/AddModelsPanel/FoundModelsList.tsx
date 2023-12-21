@@ -1,8 +1,8 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { makeToast } from 'features/system/util/makeToast';
 import { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIInput from 'common/components/IAIInput';
+import { InvInput, InvControl } from 'common/components';
 import IAIScrollArea from 'common/components/IAIScrollArea';
 import { addToast } from 'features/system/store/systemSlice';
 import { difference, forEach, intersection, map, values } from 'lodash-es';
@@ -16,7 +16,7 @@ import {
 } from 'services/api/endpoints/models';
 import { setAdvancedAddScanModel } from 'features/modelManager/store/modelManagerSlice';
 import { ALL_BASE_MODELS } from 'services/api/constants';
-import { InvButton } from 'common/components';
+import { InvButton, InvText } from 'common/components';
 
 export default function FoundModelsList() {
   const searchFolder = useAppSelector(
@@ -117,17 +117,17 @@ export default function FoundModelsList() {
           key={model}
         >
           <Flex w="100%" sx={{ flexDirection: 'column', minW: '25%' }}>
-            <Text sx={{ fontWeight: 600 }}>
+            <InvText sx={{ fontWeight: 600 }}>
               {model.split('\\').slice(-1)[0]}
-            </Text>
-            <Text
+            </InvText>
+            <InvText
               sx={{
                 fontSize: 'sm',
                 color: 'base.400',
               }}
             >
               {model}
-            </Text>
+            </InvText>
           </Flex>
           {showActions ? (
             <Flex gap={2}>
@@ -146,7 +146,7 @@ export default function FoundModelsList() {
               </InvButton>
             </Flex>
           ) : (
-            <Text
+            <InvText
               sx={{
                 fontWeight: 600,
                 p: 2,
@@ -156,7 +156,7 @@ export default function FoundModelsList() {
               }}
             >
               {t('common.installed')}
-            </Text>
+            </InvText>
           )}
         </Flex>
       );
@@ -181,7 +181,7 @@ export default function FoundModelsList() {
             bg: 'base.900',
           }}
         >
-          <Text variant="subtext">{t('modelManager.noModels')}</Text>
+          <InvText variant="subtext">{t('modelManager.noModels')}</InvText>
         </Flex>
       );
     }
@@ -195,23 +195,21 @@ export default function FoundModelsList() {
           minW: '50%',
         }}
       >
-        <IAIInput
-          onChange={handleSearchFilter}
-          label={t('modelManager.search')}
-          labelPos="side"
-        />
+        <InvControl label={t('modelManager.search')}>
+          <InvInput onChange={handleSearchFilter} />
+        </InvControl>
         <Flex p={2} gap={2}>
-          <Text sx={{ fontWeight: 600 }}>
+          <InvText sx={{ fontWeight: 600 }}>
             {t('modelManager.modelsFound')}: {foundModels.length}
-          </Text>
-          <Text
+          </InvText>
+          <InvText
             sx={{
               fontWeight: 600,
               color: 'accent.200',
             }}
           >
             {t('common.notInstalled')}: {filteredModels.length}
-          </Text>
+          </InvText>
         </Flex>
 
         <IAIScrollArea offsetScrollbars>

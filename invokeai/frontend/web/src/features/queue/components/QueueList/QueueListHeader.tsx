@@ -1,7 +1,8 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { memo } from 'react';
 import { COLUMN_WIDTHS } from './constants';
 import { useTranslation } from 'react-i18next';
+import { InvText } from 'common/components';
 const QueueListHeader = () => {
   const { t } = useTranslation();
   return (
@@ -20,19 +21,19 @@ const QueueListHeader = () => {
         justifyContent="flex-end"
         alignItems="center"
       >
-        <Text variant="subtext">#</Text>
+        <InvText variant="subtext">#</InvText>
       </Flex>
       <Flex ps={0.5} w={COLUMN_WIDTHS.statusBadge} alignItems="center">
-        <Text variant="subtext">{t('queue.status')}</Text>
+        <InvText variant="subtext">{t('queue.status')}</InvText>
       </Flex>
       <Flex ps={0.5} w={COLUMN_WIDTHS.time} alignItems="center">
-        <Text variant="subtext">{t('queue.time')}</Text>
+        <InvText variant="subtext">{t('queue.time')}</InvText>
       </Flex>
       <Flex ps={0.5} w={COLUMN_WIDTHS.batchId} alignItems="center">
-        <Text variant="subtext">{t('queue.batch')}</Text>
+        <InvText variant="subtext">{t('queue.batch')}</InvText>
       </Flex>
       <Flex ps={0.5} w={COLUMN_WIDTHS.fieldValues} alignItems="center">
-        <Text variant="subtext">{t('queue.batchFieldValues')}</Text>
+        <InvText variant="subtext">{t('queue.batchFieldValues')}</InvText>
       </Flex>
     </Flex>
   );

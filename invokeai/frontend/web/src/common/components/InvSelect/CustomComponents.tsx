@@ -1,11 +1,11 @@
-import { Flex, Text } from '@chakra-ui/layout';
+import { Flex } from '@chakra-ui/layout';
 import {
   GroupBase,
   OptionProps,
   SelectComponentsConfig,
   chakraComponents,
 } from 'chakra-react-select';
-import { InvTooltip } from 'common/components/InvTooltip';
+import { InvText, InvTooltip } from 'common/components';
 import { InvSelectOption } from './types';
 
 type CustomSelectComponentConfig = SelectComponentsConfig<
@@ -34,9 +34,9 @@ export const CustomComponents: CustomSelectComponentConfig = {
                 {props.data.icon}
               </Flex>
               <Flex flexDir="column">
-                <Text>{children}</Text>
+                <InvText>{children}</InvText>
                 {props.data.description && (
-                  <Text
+                  <InvText
                     data-option-desc
                     fontSize="xs"
                     colorScheme="base"
@@ -44,7 +44,7 @@ export const CustomComponents: CustomSelectComponentConfig = {
                     noOfLines={1}
                   >
                     {props.data.description}
-                  </Text>
+                  </InvText>
                 )}
               </Flex>
             </Flex>
@@ -57,9 +57,9 @@ export const CustomComponents: CustomSelectComponentConfig = {
       <chakraComponents.Option {...props}>
         <InvTooltip label={props.data.tooltip}>
           <Flex w="full" h="full" flexDir="column" p={1} px={4}>
-            <Text>{children}</Text>
+            <InvText>{children}</InvText>
             {props.data.description && (
-              <Text
+              <InvText
                 data-option-desc
                 fontSize="xs"
                 colorScheme="base"
@@ -67,7 +67,7 @@ export const CustomComponents: CustomSelectComponentConfig = {
                 noOfLines={1}
               >
                 {props.data.description}
-              </Text>
+              </InvText>
             )}
           </Flex>
         </InvTooltip>

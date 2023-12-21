@@ -1,5 +1,5 @@
-import { Text } from '@chakra-ui/layout';
 import { useAppSelector } from 'app/store/storeHooks';
+import { InvText } from 'common/components';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
@@ -12,7 +12,7 @@ const TopCenterPanel = () => {
     useFeatureStatus('workflowLibrary').isFeatureEnabled;
 
   return (
-    <Text
+    <InvText
       m={2}
       fontSize="lg"
       userSelect="none"
@@ -23,7 +23,7 @@ const TopCenterPanel = () => {
     >
       {name || t('workflows.unnamedWorkflow')}
       {isTouched && isWorkflowLibraryEnabled ? ` (${t('common.unsaved')})` : ''}
-    </Text>
+    </InvText>
   );
 };
 

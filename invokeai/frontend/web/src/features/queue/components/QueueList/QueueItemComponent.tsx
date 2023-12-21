@@ -1,5 +1,5 @@
-import { ChakraProps, Collapse, Flex, Text } from '@chakra-ui/react';
-import { InvButtonGroup, InvIconButton } from 'common/components';
+import { ChakraProps, Collapse, Flex } from '@chakra-ui/react';
+import { InvButtonGroup, InvIconButton, InvText } from 'common/components';
 import { useCancelQueueItem } from 'features/queue/hooks/useCancelQueueItem';
 import { getSecondsFromTimestamps } from 'features/queue/util/getSecondsFromTimestamps';
 import { MouseEvent, memo, useCallback, useMemo } from 'react';
@@ -82,7 +82,7 @@ const QueueItemComponent = ({ index, item, context }: InnerItemProps) => {
           alignItems="center"
           flexShrink={0}
         >
-          <Text variant="subtext">{index + 1}</Text>
+          <InvText variant="subtext">{index + 1}</InvText>
         </Flex>
         <Flex w={COLUMN_WIDTHS.statusBadge} alignItems="center" flexShrink={0}>
           <QueueStatusBadge status={item.status} />
@@ -91,14 +91,14 @@ const QueueItemComponent = ({ index, item, context }: InnerItemProps) => {
           {executionTime || '-'}
         </Flex>
         <Flex w={COLUMN_WIDTHS.batchId} flexShrink={0}>
-          <Text
+          <InvText
             overflow="hidden"
             textOverflow="ellipsis"
             whiteSpace="nowrap"
             alignItems="center"
           >
             {item.batch_id}
-          </Text>
+          </InvText>
         </Flex>
         <Flex alignItems="center" overflow="hidden" flexGrow={1}>
           {item.field_values && (
@@ -112,15 +112,15 @@ const QueueItemComponent = ({ index, item, context }: InnerItemProps) => {
               {item.field_values
                 .filter((v) => v.node_path !== 'metadata_accumulator')
                 .map(({ node_path, field_name, value }) => (
-                  <Text
+                  <InvText
                     as="span"
                     key={`${item.item_id}.${node_path}.${field_name}.${value}`}
                   >
-                    <Text as="span" fontWeight={600}>
+                    <InvText as="span" fontWeight={600}>
                       {node_path}.{field_name}
-                    </Text>
+                    </InvText>
                     : {value}
-                  </Text>
+                  </InvText>
                 ))}
             </Flex>
           )}

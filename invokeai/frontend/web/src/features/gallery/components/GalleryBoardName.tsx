@@ -1,8 +1,9 @@
 import { ChevronUpIcon } from '@chakra-ui/icons';
-import { Button, Flex, Text } from '@chakra-ui/react';
+import { Button, Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
+import { InvText } from 'common/components';
 import { memo, useMemo } from 'react';
 import { useBoardName } from 'services/api/hooks/useBoardName';
 
@@ -43,7 +44,7 @@ const GalleryBoardName = (props: Props) => {
         px: 2,
       }}
     >
-      <Text
+      <InvText
         noOfLines={1}
         sx={{
           fontWeight: 600,
@@ -53,7 +54,7 @@ const GalleryBoardName = (props: Props) => {
         }}
       >
         {formattedBoardName}
-      </Text>
+      </InvText>
       <ChevronUpIcon
         sx={{
           transform: isOpen ? 'rotate(0deg)' : 'rotate(180deg)',

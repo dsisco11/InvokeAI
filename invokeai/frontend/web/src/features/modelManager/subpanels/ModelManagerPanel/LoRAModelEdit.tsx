@@ -1,7 +1,7 @@
-import { Divider, Flex, Text } from '@chakra-ui/react';
+import { Divider, Flex } from '@chakra-ui/react';
 import { useForm } from '@mantine/form';
 import { useAppDispatch } from 'app/store/storeHooks';
-import { InvButton, InvControl, InvInput } from 'common/components';
+import { InvButton, InvControl, InvInput, InvText } from 'common/components';
 import {
   LORA_MODEL_FORMAT_MAP,
   MODEL_TYPE_MAP,
@@ -90,13 +90,13 @@ export default function LoRAModelEdit(props: LoRAModelEditProps) {
   return (
     <Flex flexDirection="column" rowGap={4} width="100%">
       <Flex flexDirection="column">
-        <Text fontSize="lg" fontWeight="bold">
+        <InvText fontSize="lg" fontWeight="bold">
           {model.model_name}
-        </Text>
-        <Text fontSize="sm" color="base.400">
+        </InvText>
+        <InvText fontSize="sm" color="base.400">
           {MODEL_TYPE_MAP[model.base_model]} {t('modelManager.model')} ⋅{' '}
           {LORA_MODEL_FORMAT_MAP[model.model_format]} {t('common.format')}
-        </Text>
+        </InvText>
       </Flex>
       <Divider />
 

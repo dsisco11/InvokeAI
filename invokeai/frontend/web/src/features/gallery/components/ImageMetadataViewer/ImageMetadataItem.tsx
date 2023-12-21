@@ -1,6 +1,6 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { Flex, Link, Text, Tooltip } from '@chakra-ui/react';
-import { InvIconButton } from 'common/components';
+import { Flex, Link, Tooltip } from '@chakra-ui/react';
+import { InvIconButton, InvText } from 'common/components';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaCopy } from 'react-icons/fa';
@@ -64,17 +64,17 @@ const ImageMetadataItem = ({
         </Tooltip>
       )}
       <Flex direction={labelPosition ? 'column' : 'row'}>
-        <Text fontWeight="semibold" whiteSpace="pre-wrap" pr={2}>
+        <InvText fontWeight="semibold" whiteSpace="pre-wrap" pr={2}>
           {label}:
-        </Text>
+        </InvText>
         {isLink ? (
           <Link href={value.toString()} isExternal wordBreak="break-all">
             {value.toString()} <ExternalLinkIcon mx="2px" />
           </Link>
         ) : (
-          <Text overflowY="scroll" wordBreak="break-all">
+          <InvText overflowY="scroll" wordBreak="break-all">
             {value.toString()}
-          </Text>
+          </InvText>
         )}
       </Flex>
     </Flex>

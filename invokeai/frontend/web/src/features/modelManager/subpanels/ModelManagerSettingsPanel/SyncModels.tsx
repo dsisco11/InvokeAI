@@ -1,6 +1,7 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import SyncModelsButton from './SyncModelsButton';
+import { InvText } from 'common/components';
 
 export default function SyncModels() {
   const { t } = useTranslation();
@@ -23,10 +24,12 @@ export default function SyncModels() {
           gap: 2,
         }}
       >
-        <Text sx={{ fontWeight: 600 }}>{t('modelManager.syncModels')}</Text>
-        <Text fontSize="sm" sx={{ color: 'base.400' }}>
+        <InvText sx={{ fontWeight: 600 }}>
+          {t('modelManager.syncModels')}
+        </InvText>
+        <InvText fontSize="sm" sx={{ color: 'base.400' }}>
           {t('modelManager.syncModelsDesc')}
-        </Text>
+        </InvText>
       </Flex>
       <SyncModelsButton />
     </Flex>

@@ -63,7 +63,7 @@ const IAISwitch = (props: IAISwitchProps) => {
           </Flex>
           {helperText && (
             <FormHelperText>
-              <Text variant="subtext">{helperText}</Text>
+              <InvText variant="subtext">{helperText}</InvText>
             </FormHelperText>
           )}
         </Flex>

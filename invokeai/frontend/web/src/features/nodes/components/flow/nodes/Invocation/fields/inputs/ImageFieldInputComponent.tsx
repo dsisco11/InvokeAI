@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import IAIDndImage from 'common/components/IAIDndImage';
@@ -18,6 +18,7 @@ import { useTranslation } from 'react-i18next';
 import { FaUndo } from 'react-icons/fa';
 import { useGetImageDTOQuery } from 'services/api/endpoints/images';
 import { PostUploadAction } from 'services/api/types';
+import { InvText } from 'common/components';
 
 const ImageFieldInputComponent = (
   props: FieldComponentProps<ImageFieldInputInstance, ImageFieldInputTemplate>
@@ -108,9 +109,9 @@ export default memo(ImageFieldInputComponent);
 const UploadElement = memo(() => {
   const { t } = useTranslation();
   return (
-    <Text fontSize={16} fontWeight={600}>
+    <InvText fontSize={16} fontWeight={600}>
       {t('gallery.dropOrUpload')}
-    </Text>
+    </InvText>
   );
 });
 
@@ -119,9 +120,9 @@ UploadElement.displayName = 'UploadElement';
 const DropLabel = memo(() => {
   const { t } = useTranslation();
   return (
-    <Text fontSize={16} fontWeight={600}>
+    <InvText fontSize={16} fontWeight={600}>
       {t('gallery.drop')}
-    </Text>
+    </InvText>
   );
 });
 

@@ -1,4 +1,4 @@
-import { Flex, Icon, Text } from '@chakra-ui/react';
+import { Flex, Icon } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
@@ -69,7 +69,7 @@ const StatusIndicator = () => {
               transition: { delay: 0.8 },
             }}
           >
-            <Text
+            <InvText
               sx={{
                 fontSize: 'sm',
                 fontWeight: '600',
@@ -79,7 +79,7 @@ const StatusIndicator = () => {
               }}
             >
               {t(statusTranslationKey as ResourceKey)}
-            </Text>
+            </InvText>
           </motion.div>
         )}
       </AnimatePresence>

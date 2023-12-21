@@ -1,7 +1,8 @@
-import { Box, ChakraProps, Flex, Heading, Image, Text } from '@chakra-ui/react';
+import { Box, ChakraProps, Flex, Heading, Image } from '@chakra-ui/react';
 import { memo } from 'react';
 import { TypesafeDraggableData } from 'features/dnd/types';
 import { useTranslation } from 'react-i18next';
+import { InvText } from 'common/components';
 
 type OverlayDragImageProps = {
   dragData: TypesafeDraggableData | null;
@@ -44,7 +45,7 @@ const DragPreview = (props: OverlayDragImageProps) => {
           fontSize: 'sm',
         }}
       >
-        <Text>{field.label || fieldTemplate.title}</Text>
+        <InvText>{field.label || fieldTemplate.title}</InvText>
       </Box>
     );
   }

@@ -4,12 +4,12 @@ import {
   Flex,
   Icon,
   Image,
-  Text,
   Tooltip,
 } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
+import { InvText } from 'common/components';
 import { DRAG_HANDLE_CLASSNAME } from 'features/nodes/types/constants';
 import {
   NodeExecutionState,
@@ -78,7 +78,7 @@ const TooltipLabel = memo(({ nodeExecutionState }: TooltipLabelProps) => {
   const { status, progress, progressImage } = nodeExecutionState;
   const { t } = useTranslation();
   if (status === zNodeStatus.enum.PENDING) {
-    return <Text>{t('queue.pending')}</Text>;
+    return <InvText>{t('queue.pending')}</InvText>;
   }
   if (status === zNodeStatus.enum.IN_PROGRESS) {
     if (progressImage) {
@@ -102,21 +102,21 @@ const TooltipLabel = memo(({ nodeExecutionState }: TooltipLabelProps) => {
 
     if (progress !== null) {
       return (
-        <Text>
+        <InvText>
           {t('nodes.executionStateInProgress')} ({Math.round(progress * 100)}%)
-        </Text>
+        </InvText>
       );
     }
 
-    return <Text>{t('nodes.executionStateInProgress')}</Text>;
+    return <InvText>{t('nodes.executionStateInProgress')}</InvText>;
   }
 
   if (status === zNodeStatus.enum.COMPLETED) {
-    return <Text>{t('nodes.executionStateCompleted')}</Text>;
+    return <InvText>{t('nodes.executionStateCompleted')}</InvText>;
   }
 
   if (status === zNodeStatus.enum.FAILED) {
-    return <Text>{t('nodes.executionStateError')}</Text>;
+    return <InvText>{t('nodes.executionStateError')}</InvText>;
   }
 
   return null;

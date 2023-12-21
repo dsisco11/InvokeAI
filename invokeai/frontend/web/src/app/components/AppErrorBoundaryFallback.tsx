@@ -1,5 +1,5 @@
-import { Flex, Heading, Link, Text, useToast } from '@chakra-ui/react';
-import { InvButton } from 'common/components';
+import { Flex, Heading, Link, useToast } from '@chakra-ui/react';
+import { InvButton, InvText } from 'common/components';
 import newGithubIssueUrl from 'new-github-issue-url';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -67,14 +67,9 @@ const AppErrorBoundaryFallback = ({ error, resetErrorBoundary }: Props) => {
             alignItems: 'center',
           }}
         >
-          <Text
-            sx={{
-              fontWeight: 600,
-              color: 'error.400',
-            }}
-          >
+          <InvText fontWeight={600} color="error.400">
             {error.name}: {error.message}
-          </Text>
+          </InvText>
         </Flex>
         <Flex sx={{ gap: 4 }}>
           <InvButton

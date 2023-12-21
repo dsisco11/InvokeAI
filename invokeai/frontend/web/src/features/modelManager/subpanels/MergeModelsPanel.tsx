@@ -1,15 +1,16 @@
-import { Flex, Radio, RadioGroup, Text, Tooltip } from '@chakra-ui/react';
+import { Flex, Radio, RadioGroup, Tooltip } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import {
   InvButton,
+  InvCheckbox,
   InvControl,
+  InvInput,
   InvSelect,
   InvSelectOnChange,
   InvSelectOption,
   InvSlider,
+  InvText,
 } from 'common/components';
-import IAIInput from 'common/components/IAIInput';
-import IAISimpleCheckbox from 'common/components/IAISimpleCheckbox';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
 import { pickBy } from 'lodash-es';
@@ -263,10 +264,10 @@ export default function MergeModelsPanel() {
           rowGap: 1,
         }}
       >
-        <Text>{t('modelManager.modelMergeHeaderHelp1')}</Text>
-        <Text fontSize="sm" variant="subtext">
+        <InvText>{t('modelManager.modelMergeHeaderHelp1')}</InvText>
+        <InvText fontSize="sm" variant="subtext">
           {t('modelManager.modelMergeHeaderHelp2')}
-        </Text>
+        </InvText>
       </Flex>
 
       <Flex columnGap={4}>
@@ -301,11 +302,12 @@ export default function MergeModelsPanel() {
         </InvControl>
       </Flex>
 
-      <IAIInput
-        label={t('modelManager.mergedModelName')}
-        value={mergedModelName}
-        onChange={handleChangeMergedModelName}
-      />
+      <InvControl label={t('modelManager.mergedModelName')}>
+        <InvInput
+          value={mergedModelName}
+          onChange={handleChangeMergedModelName}
+        />
+      </InvControl>
 
       <Flex
         sx={{
@@ -341,21 +343,25 @@ export default function MergeModelsPanel() {
           bg: 'base.800',
         }}
       >
-        <Text fontWeight={500} fontSize="sm" variant="subtext">
+        <InvText fontWeight={500} fontSize="sm" variant="subtext">
           {t('modelManager.interpolationType')}
-        </Text>
+        </InvText>
         <RadioGroup value={modelMergeInterp} onChange={handleChangeMergeInterp}>
           <Flex columnGap={4}>
             {modelThree === null ? (
               <>
                 <Radio value="weighted_sum">
-                  <Text fontSize="sm">{t('modelManager.weightedSum')}</Text>
+                  <InvText fontSize="sm">
+                    {t('modelManager.weightedSum')}
+                  </InvText>
                 </Radio>
                 <Radio value="sigmoid">
-                  <Text fontSize="sm">{t('modelManager.sigmoid')}</Text>
+                  <InvText fontSize="sm">{t('modelManager.sigmoid')}</InvText>
                 </Radio>
                 <Radio value="inv_sigmoid">
-                  <Text fontSize="sm">{t('modelManager.inverseSigmoid')}</Text>
+                  <InvText fontSize="sm">
+                    {t('modelManager.inverseSigmoid')}
+                  </InvText>
                 </Radio>
               </>
             ) : (
@@ -363,7 +369,9 @@ export default function MergeModelsPanel() {
                 <Tooltip
                   label={t('modelManager.modelMergeInterpAddDifferenceHelp')}
                 >
-                  <Text fontSize="sm">{t('modelManager.addDifference')}</Text>
+                  <InvText fontSize="sm">
+                    {t('modelManager.addDifference')}
+                  </InvText>
                 </Tooltip>
               </Radio>
             )}
@@ -381,40 +389,43 @@ export default function MergeModelsPanel() {
         }}
       >
         <Flex columnGap={4}>
-          <Text fontWeight="500" fontSize="sm" variant="subtext">
+          <InvText fontWeight="500" fontSize="sm" variant="subtext">
             {t('modelManager.mergedModelSaveLocation')}
-          </Text>
+          </InvText>
           <RadioGroup
             value={modelMergeSaveLocType}
             onChange={handleChangeMergeSaveLocType}
           >
             <Flex columnGap={4}>
               <Radio value="root">
-                <Text fontSize="sm">{t('modelManager.invokeAIFolder')}</Text>
+                <InvText fontSize="sm">
+                  {t('modelManager.invokeAIFolder')}
+                </InvText>
               </Radio>
 
               <Radio value="custom">
-                <Text fontSize="sm">{t('modelManager.custom')}</Text>
+                <InvText fontSize="sm">{t('modelManager.custom')}</InvText>
               </Radio>
             </Flex>
           </RadioGroup>
         </Flex>
 
         {modelMergeSaveLocType === 'custom' && (
-          <IAIInput
-            label={t('modelManager.mergedModelCustomSaveLocation')}
-            value={modelMergeCustomSaveLoc}
-            onChange={handleChangeMergeCustomSaveLoc}
-          />
+          <InvControl label={t('modelManager.mergedModelCustomSaveLocation')}>
+            <InvInput
+              value={modelMergeCustomSaveLoc}
+              onChange={handleChangeMergeCustomSaveLoc}
+            />
+          </InvControl>
         )}
       </Flex>
 
-      <IAISimpleCheckbox
-        label={t('modelManager.ignoreMismatch')}
-        isChecked={modelMergeForce}
-        onChange={handleChangeModelMergeForce}
-        fontWeight="500"
-      />
+      <InvControl label={t('modelManager.ignoreMismatch')}>
+        <InvCheckbox
+          isChecked={modelMergeForce}
+          onChange={handleChangeModelMergeForce}
+        />
+      </InvControl>
 
       <InvButton
         onClick={mergeModelsHandler}

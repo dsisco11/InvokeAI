@@ -6,10 +6,10 @@ import {
   Skeleton,
   Spinner,
   StyleProps,
-  Text,
 } from '@chakra-ui/react';
 import { FaImage } from 'react-icons/fa';
 import { ImageDTO } from 'services/api/types';
+import { InvText } from './InvText';
 
 type Props = { image: ImageDTO | undefined };
 
@@ -71,7 +71,7 @@ export const IAINoContentFallback = (props: IAINoImageFallbackProps) => {
       {...rest}
     >
       {icon && <Icon as={icon} boxSize={boxSize} opacity={0.7} />}
-      {props.label && <Text textAlign="center">{props.label}</Text>}
+      {props.label && <InvText textAlign="center">{props.label}</InvText>}
     </Flex>
   );
 };
@@ -103,7 +103,7 @@ export const IAINoContentFallbackWithSpinner = (
       {...rest}
     >
       <Spinner size="xl" />
-      {props.label && <Text textAlign="center">{props.label}</Text>}
+      {props.label && <InvText textAlign="center">{props.label}</InvText>}
     </Flex>
   );
 };

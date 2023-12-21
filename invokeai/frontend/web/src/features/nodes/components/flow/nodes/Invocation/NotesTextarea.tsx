@@ -1,6 +1,6 @@
 import { FormControl, FormLabel } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
-import IAITextarea from 'common/components/IAITextarea';
+import { InvTextarea } from 'common/components';
 import { useNodeData } from 'features/nodes/hooks/useNodeData';
 import { nodeNotesChanged } from 'features/nodes/store/nodesSlice';
 import { isInvocationNodeData } from 'features/nodes/types/invocation';
@@ -23,7 +23,7 @@ const NotesTextarea = ({ nodeId }: { nodeId: string }) => {
   return (
     <FormControl>
       <FormLabel>{t('nodes.notes')}</FormLabel>
-      <IAITextarea
+      <InvTextarea
         value={data?.notes}
         onChange={handleNotesChanged}
         rows={10}

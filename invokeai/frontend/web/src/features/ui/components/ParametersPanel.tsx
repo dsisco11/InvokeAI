@@ -72,49 +72,38 @@ const ParametersPanelWrapper = memo((props: PropsWithChildren) => {
     >
       <QueueControls />
       <Flex
-        layerStyle="first"
         sx={{
           w: 'full',
           h: 'full',
           position: 'relative',
-          borderRadius: 'base',
-          p: 2,
         }}
       >
-        <Flex
+        <Box
           sx={{
-            w: 'full',
-            h: 'full',
-            position: 'relative',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
           }}
         >
-          <Box
-            sx={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-            }}
+          <OverlayScrollbarsComponent
+            defer
+            style={{ height: '100%', width: '100%' }}
+            options={overlayScrollbarsParams.options}
           >
-            <OverlayScrollbarsComponent
-              defer
-              style={{ height: '100%', width: '100%' }}
-              options={overlayScrollbarsParams.options}
+            <Flex
+              sx={{
+                gap: 2,
+                flexDirection: 'column',
+                h: 'full',
+                w: 'full',
+              }}
             >
-              <Flex
-                sx={{
-                  gap: 2,
-                  flexDirection: 'column',
-                  h: 'full',
-                  w: 'full',
-                }}
-              >
-                {props.children}
-              </Flex>
-            </OverlayScrollbarsComponent>
-          </Box>
-        </Flex>
+              {props.children}
+            </Flex>
+          </OverlayScrollbarsComponent>
+        </Box>
       </Flex>
     </Flex>
   );

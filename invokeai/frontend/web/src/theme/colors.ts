@@ -25,3 +25,35 @@ export const InvokeAIColors: InvokeAIThemeColors = {
   error: generateColorPalette(ERROR.H, ERROR.S),
   errorAlpha: generateColorPalette(ERROR.H, ERROR.S, true),
 };
+
+export const layerStyleBody = {
+  bg: 'black',
+  color: 'base.50',
+} as const;
+export const layerStyleFirst = {
+  bg: 'base.900',
+  color: 'base.50',
+} as const;
+export const layerStyleSecond = {
+  bg: 'base.800',
+  color: 'base.50',
+} as const;
+export const layerStyleThird = {
+  bg: 'base.700',
+  color: 'base.50',
+} as const;
+export const layerStyleNodeBody = {
+  bg: 'base.800',
+  color: 'base.100',
+} as const;
+export const layerStyleNodeHeader = {
+  bg: 'base.900',
+  color: 'base.100',
+} as const;
+export const layerStyleNodeFooter = {
+  bg: 'base.900',
+  color: 'base.100',
+} as const;
+export const layerStyleDanger = {
+  color: 'error.500 !important',
+} as const;

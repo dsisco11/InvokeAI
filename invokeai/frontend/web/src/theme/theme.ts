@@ -21,9 +21,19 @@ import { textTheme } from 'common/components/InvText/theme';
 import { textareaTheme } from 'common/components/InvTextarea/theme';
 import { tooltipTheme } from 'common/components/InvTooltip/theme';
 
-import { InvokeAIColors } from './colors/colors';
-import { reactflowStyles } from './custom/reactflow';
-import { no_scrollbar } from './custom/scrollbar';
+import {
+  InvokeAIColors,
+  layerStyleBody,
+  layerStyleDanger,
+  layerStyleFirst,
+  layerStyleNodeBody,
+  layerStyleNodeFooter,
+  layerStyleNodeHeader,
+  layerStyleSecond,
+  layerStyleThird,
+} from './colors';
+import { reactflowStyles } from './reactflow';
+import { no_scrollbar } from './scrollbar';
 
 export const theme: ThemeOverride = {
   config: {
@@ -32,14 +42,14 @@ export const theme: ThemeOverride = {
     useSystemColorMode: false,
   },
   layerStyles: {
-    body: { bg: 'base.900', color: 'base.50' },
-    first: { bg: 'base.850', color: 'base.100' },
-    second: { bg: 'base.800', color: 'base.100' },
-    third: { bg: 'base.750', color: 'base.100' },
-    nodeBody: { bg: 'base.800', color: 'base.100' },
-    nodeHeader: { bg: 'base.900', color: 'base.100' },
-    nodeFooter: { bg: 'base.900', color: 'base.100' },
-    danger: { color: 'error.500 !important' },
+    body: layerStyleBody,
+    first: layerStyleFirst,
+    second: layerStyleSecond,
+    third: layerStyleThird,
+    nodeBody: layerStyleNodeBody,
+    nodeHeader: layerStyleNodeHeader,
+    nodeFooter: layerStyleNodeFooter,
+    danger: layerStyleDanger,
   },
   styles: {
     global: () => ({

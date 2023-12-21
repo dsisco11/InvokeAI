@@ -1,13 +1,13 @@
 import { DeleteIcon } from '@chakra-ui/icons';
-import { Badge, Flex } from '@chakra-ui/react';
+import { Badge, Flex, useDisclosure } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import {
   InvButton,
+  InvConfirmationAlertDialog,
   InvIconButton,
   InvText,
   InvTooltip,
 } from 'common/components';
-import IAIAlertDialog from 'common/components/IAIAlertDialog';
 import { MODEL_TYPE_SHORT_MAP } from 'features/parameters/types/constants';
 import { addToast } from 'features/system/store/systemSlice';
 import { makeToast } from 'features/system/util/makeToast';
@@ -34,6 +34,7 @@ export default function ModelListItem(props: ModelListItemProps) {
   const dispatch = useAppDispatch();
   const [deleteMainModel] = useDeleteMainModelsMutation();
   const [deleteLoRAModel] = useDeleteLoRAModelsMutation();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const { model, isSelected, setSelectedModelId } = props;
 
@@ -117,23 +118,24 @@ export default function ModelListItem(props: ModelListItemProps) {
           </InvTooltip>
         </Flex>
       </Flex>
-      <IAIAlertDialog
+      <InvIconButton
+        onClick={onOpen}
+        icon={<DeleteIcon />}
+        aria-label={t('modelManager.deleteConfig')}
+        colorScheme="error"
+      />
+      <InvConfirmationAlertDialog
+        isOpen={isOpen}
+        onClose={onClose}
         title={t('modelManager.deleteModel')}
         acceptCallback={handleModelDelete}
         acceptButtonText={t('modelManager.delete')}
-        triggerComponent={
-          <InvIconButton
-            icon={<DeleteIcon />}
-            aria-label={t('modelManager.deleteConfig')}
-            colorScheme="error"
-          />
-        }
       >
         <Flex rowGap={4} flexDirection="column">
           <p style={{ fontWeight: 'bold' }}>{t('modelManager.deleteMsg1')}</p>
           <p>{t('modelManager.deleteMsg2')}</p>
         </Flex>
-      </IAIAlertDialog>
+      </InvConfirmationAlertDialog>
     </Flex>
   );
 }

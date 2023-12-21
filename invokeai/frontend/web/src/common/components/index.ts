@@ -4,6 +4,7 @@ export * from './InvButton';
 export * from './InvButtonGroup';
 export * from './InvCard';
 export * from './InvCheckbox';
+export * from './InvConfirmationAlertDialog';
 export * from './InvControl';
 export * from './InvEditable';
 export * from './InvExpander';

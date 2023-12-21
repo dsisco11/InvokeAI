@@ -2,8 +2,15 @@ import { Flex } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import { InvCheckbox, InvControl, InvIconButton } from 'common/components';
-import IAIPopover from 'common/components/IAIPopover';
+import {
+  InvCheckbox,
+  InvControl,
+  InvIconButton,
+  InvPopover,
+  InvPopoverBody,
+  InvPopoverContent,
+  InvPopoverTrigger,
+} from 'common/components';
 import ClearCanvasHistoryButtonModal from 'features/canvas/components/ClearCanvasHistoryButtonModal';
 import {
   setShouldAntialias,
@@ -126,74 +133,76 @@ const IAICanvasSettingsButtonPopover = () => {
   );
 
   return (
-    <IAIPopover
-      isLazy={false}
-      triggerComponent={
+    <InvPopover>
+      <InvPopoverTrigger>
         <InvIconButton
           tooltip={t('unifiedCanvas.canvasSettings')}
           aria-label={t('unifiedCanvas.canvasSettings')}
           icon={<FaWrench />}
         />
-      }
-    >
-      <Flex direction="column" gap={2}>
-        <InvControl label={t('unifiedCanvas.showIntermediates')}>
-          <InvCheckbox
-            isChecked={shouldShowIntermediates}
-            onChange={handleChangeShouldShowIntermediates}
-          />
-        </InvControl>
-        <InvControl label={t('unifiedCanvas.showGrid')}>
-          <InvCheckbox
-            isChecked={shouldShowGrid}
-            onChange={handleChangeShouldShowGrid}
-          />
-        </InvControl>
-        <InvControl label={t('unifiedCanvas.snapToGrid')}>
-          <InvCheckbox
-            isChecked={shouldSnapToGrid}
-            onChange={handleChangeShouldSnapToGrid}
-          />
-        </InvControl>
-        <InvControl label={t('unifiedCanvas.darkenOutsideSelection')}>
-          <InvCheckbox
-            isChecked={shouldDarkenOutsideBoundingBox}
-            onChange={handleChangeShouldDarkenOutsideBoundingBox}
-          />
-        </InvControl>
-        <InvControl label={t('unifiedCanvas.autoSaveToGallery')}>
-          <InvCheckbox
-            isChecked={shouldAutoSave}
-            onChange={handleChangeShouldAutoSave}
-          />
-        </InvControl>
-        <InvControl label={t('unifiedCanvas.saveBoxRegionOnly')}>
-          <InvCheckbox
-            isChecked={shouldCropToBoundingBoxOnSave}
-            onChange={handleChangeShouldCropToBoundingBoxOnSave}
-          />
-        </InvControl>
-        <InvControl label={t('unifiedCanvas.limitStrokesToBox')}>
-          <InvCheckbox
-            isChecked={shouldRestrictStrokesToBox}
-            onChange={handleChangeShouldRestrictStrokesToBox}
-          />
-        </InvControl>
-        <InvControl label={t('unifiedCanvas.showCanvasDebugInfo')}>
-          <InvCheckbox
-            isChecked={shouldShowCanvasDebugInfo}
-            onChange={handleChangeShouldShowCanvasDebugInfo}
-          />
-        </InvControl>
-        <InvControl label={t('unifiedCanvas.antialiasing')}>
-          <InvCheckbox
-            isChecked={shouldAntialias}
-            onChange={handleChangeShouldAntialias}
-          />
-        </InvControl>
-        <ClearCanvasHistoryButtonModal />
-      </Flex>
-    </IAIPopover>
+      </InvPopoverTrigger>
+      <InvPopoverContent>
+        <InvPopoverBody>
+          <Flex direction="column" gap={2}>
+            <InvControl label={t('unifiedCanvas.showIntermediates')}>
+              <InvCheckbox
+                isChecked={shouldShowIntermediates}
+                onChange={handleChangeShouldShowIntermediates}
+              />
+            </InvControl>
+            <InvControl label={t('unifiedCanvas.showGrid')}>
+              <InvCheckbox
+                isChecked={shouldShowGrid}
+                onChange={handleChangeShouldShowGrid}
+              />
+            </InvControl>
+            <InvControl label={t('unifiedCanvas.snapToGrid')}>
+              <InvCheckbox
+                isChecked={shouldSnapToGrid}
+                onChange={handleChangeShouldSnapToGrid}
+              />
+            </InvControl>
+            <InvControl label={t('unifiedCanvas.darkenOutsideSelection')}>
+              <InvCheckbox
+                isChecked={shouldDarkenOutsideBoundingBox}
+                onChange={handleChangeShouldDarkenOutsideBoundingBox}
+              />
+            </InvControl>
+            <InvControl label={t('unifiedCanvas.autoSaveToGallery')}>
+              <InvCheckbox
+                isChecked={shouldAutoSave}
+                onChange={handleChangeShouldAutoSave}
+              />
+            </InvControl>
+            <InvControl label={t('unifiedCanvas.saveBoxRegionOnly')}>
+              <InvCheckbox
+                isChecked={shouldCropToBoundingBoxOnSave}
+                onChange={handleChangeShouldCropToBoundingBoxOnSave}
+              />
+            </InvControl>
+            <InvControl label={t('unifiedCanvas.limitStrokesToBox')}>
+              <InvCheckbox
+                isChecked={shouldRestrictStrokesToBox}
+                onChange={handleChangeShouldRestrictStrokesToBox}
+              />
+            </InvControl>
+            <InvControl label={t('unifiedCanvas.showCanvasDebugInfo')}>
+              <InvCheckbox
+                isChecked={shouldShowCanvasDebugInfo}
+                onChange={handleChangeShouldShowCanvasDebugInfo}
+              />
+            </InvControl>
+            <InvControl label={t('unifiedCanvas.antialiasing')}>
+              <InvCheckbox
+                isChecked={shouldAntialias}
+                onChange={handleChangeShouldAntialias}
+              />
+            </InvControl>
+            <ClearCanvasHistoryButtonModal />
+          </Flex>
+        </InvPopoverBody>
+      </InvPopoverContent>
+    </InvPopover>
   );
 };
 

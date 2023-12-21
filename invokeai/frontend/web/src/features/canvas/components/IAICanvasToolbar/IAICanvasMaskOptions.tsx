@@ -4,13 +4,15 @@ import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import {
   InvButton,
-  InvControl,
   InvCheckbox,
+  InvControl,
   InvIconButton,
-  InvButtonGroup,
+  InvPopover,
+  InvPopoverBody,
+  InvPopoverContent,
+  InvPopoverTrigger,
 } from 'common/components';
 import IAIColorPicker from 'common/components/IAIColorPicker';
-import IAIPopover from 'common/components/IAIPopover';
 import { canvasMaskSavedToGallery } from 'features/canvas/store/actions';
 import { isStagingSelector } from 'features/canvas/store/canvasSelectors';
 import {
@@ -122,43 +124,51 @@ const IAICanvasMaskOptions = () => {
   );
 
   return (
-    <IAIPopover
-      triggerComponent={
-        <InvButtonGroup>
-          <InvIconButton
-            aria-label={t('unifiedCanvas.maskingOptions')}
-            tooltip={t('unifiedCanvas.maskingOptions')}
-            icon={<FaMask />}
-            isChecked={layer === 'mask'}
-            isDisabled={isStaging}
-          />
-        </InvButtonGroup>
-      }
-    >
-      <Flex direction="column" gap={2}>
-        <InvControl label={`${t('unifiedCanvas.enableMask')} (H)`}>
-          <InvCheckbox
-            isChecked={isMaskEnabled}
-            onChange={handleToggleEnableMask}
-          />
-        </InvControl>
-        <InvControl label={t('unifiedCanvas.preserveMaskedArea')}>
-          <InvCheckbox
-            isChecked={shouldPreserveMaskedArea}
-            onChange={handleChangePreserveMaskedArea}
-          />
-        </InvControl>
-        <Box sx={{ paddingTop: 2, paddingBottom: 2 }}>
-          <IAIColorPicker color={maskColor} onChange={handleChangeMaskColor} />
-        </Box>
-        <InvButton size="sm" leftIcon={<FaSave />} onClick={handleSaveMask}>
-          {t('unifiedCanvas.saveMask')}
-        </InvButton>
-        <InvButton size="sm" leftIcon={<FaTrash />} onClick={handleClearMask}>
-          {t('unifiedCanvas.clearMask')}
-        </InvButton>
-      </Flex>
-    </IAIPopover>
+    <InvPopover>
+      <InvPopoverTrigger>
+        <InvIconButton
+          aria-label={t('unifiedCanvas.maskingOptions')}
+          tooltip={t('unifiedCanvas.maskingOptions')}
+          icon={<FaMask />}
+          isChecked={layer === 'mask'}
+          isDisabled={isStaging}
+        />
+      </InvPopoverTrigger>
+      <InvPopoverContent>
+        <InvPopoverBody>
+          <Flex direction="column" gap={2}>
+            <InvControl label={`${t('unifiedCanvas.enableMask')} (H)`}>
+              <InvCheckbox
+                isChecked={isMaskEnabled}
+                onChange={handleToggleEnableMask}
+              />
+            </InvControl>
+            <InvControl label={t('unifiedCanvas.preserveMaskedArea')}>
+              <InvCheckbox
+                isChecked={shouldPreserveMaskedArea}
+                onChange={handleChangePreserveMaskedArea}
+              />
+            </InvControl>
+            <Box sx={{ paddingTop: 2, paddingBottom: 2 }}>
+              <IAIColorPicker
+                color={maskColor}
+                onChange={handleChangeMaskColor}
+              />
+            </Box>
+            <InvButton size="sm" leftIcon={<FaSave />} onClick={handleSaveMask}>
+              {t('unifiedCanvas.saveMask')}
+            </InvButton>
+            <InvButton
+              size="sm"
+              leftIcon={<FaTrash />}
+              onClick={handleClearMask}
+            >
+              {t('unifiedCanvas.clearMask')}
+            </InvButton>
+          </Flex>
+        </InvPopoverBody>
+      </InvPopoverContent>
+    </InvPopover>
   );
 };
 

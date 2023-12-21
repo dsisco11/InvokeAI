@@ -10,7 +10,7 @@ import {
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
-import IAIButton from 'common/components/IAIButton';
+import { InvButton } from 'common/components';
 import { galleryViewChanged } from 'features/gallery/store/gallerySlice';
 import { memo, useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -93,7 +93,7 @@ const ImageGalleryContent = () => {
             <TabList>
               <InvButtonGroup w="full">
                 <Tab
-                  as={IAIButton}
+                  as={InvButton}
                   size="sm"
                   isChecked={galleryView === 'images'}
                   onClick={handleClickImages}
@@ -106,7 +106,7 @@ const ImageGalleryContent = () => {
                   {t('parameters.images')}
                 </Tab>
                 <Tab
-                  as={IAIButton}
+                  as={InvButton}
                   size="sm"
                   isChecked={galleryView === 'assets'}
                   onClick={handleClickAssets}

@@ -2,11 +2,8 @@ import { Flex, Spacer } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import { InvButton } from 'common/components/InvButton/InvButton';
 import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
-import CancelCurrentQueueItemButton from 'features/queue/components/CancelCurrentQueueItemButton';
 import ClearQueueButton from 'features/queue/components/ClearQueueButton';
-import PauseProcessorButton from 'features/queue/components/PauseProcessorButton';
 import QueueFrontButton from 'features/queue/components/QueueFrontButton';
-import ResumeProcessorButton from 'features/queue/components/ResumeProcessorButton';
 import ProgressBar from 'features/system/components/ProgressBar';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { setActiveTab } from 'features/ui/store/uiSlice';
@@ -37,9 +34,9 @@ const QueueControls = () => {
         <InvokeQueueBackButton />
         <Spacer />
         <QueueActionsMenuButton />
-        <CancelCurrentQueueItemButton asIconButton />
+        {/* <CancelCurrentQueueItemButton asIconButton />
         {isResumeEnabled && <ResumeProcessorButton asIconButton />}
-        {isPauseEnabled && <PauseProcessorButton asIconButton />}
+        {isPauseEnabled && <PauseProcessorButton asIconButton />} */}
         <ClearQueueButton asIconButton />
       </InvButtonGroup>
       <Flex h={1} w="full">

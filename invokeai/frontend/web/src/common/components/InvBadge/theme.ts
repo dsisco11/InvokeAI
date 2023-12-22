@@ -9,8 +9,8 @@ const baseStyle = defineStyle((props) => ({
   borderRadius: 'sm',
   bg: `${props.colorScheme}.300`,
   color: 'base.900',
-  fontWeight: 'bold',
-  letterSpacing: 1.15,
+  fontWeight: 'extrabold',
+  letterSpacing: 0.5,
 }));
 
 export const badgeTheme = defineStyleConfig({

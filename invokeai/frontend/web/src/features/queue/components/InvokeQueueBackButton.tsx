@@ -17,7 +17,7 @@ import { QueueButtonTooltip } from './QueueButtonTooltip';
 const invoke = 'Invoke';
 
 const numberInputFieldProps: InvNumberInputFieldProps = {
-  ps: 8,
+  ps: 6,
   borderInlineStartRadius: 'base',
   h: 'full',
   textAlign: 'center',
@@ -69,7 +69,7 @@ export const InvokeQueueBackButton = () => {
           insetInlineEnd={0}
           h="full"
           ps={0}
-          w="100px"
+          w="72px"
           flexShrink={0}
         />
       </IAIInformationalPopover>
@@ -83,7 +83,7 @@ export const InvokeQueueBackButton = () => {
         zIndex={1}
         colorScheme="yellow"
         size="lg"
-        w="calc(100% - 84px)"
+        w="calc(100% - 60px)"
         flexShrink={0}
       >
         {invoke}

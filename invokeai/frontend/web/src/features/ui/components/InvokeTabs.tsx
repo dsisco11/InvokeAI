@@ -230,7 +230,7 @@ const InvokeTabs = () => {
         <Spacer />
       </InvTabList>
       {!NO_SIDE_PANEL_TABS.includes(activeTabName) && (
-        <Flex h="full" w={434}>
+        <Flex h="full" w={434} flexShrink={0}>
           {activeTabName === 'nodes' ? (
             <NodeEditorPanelGroup />
           ) : (

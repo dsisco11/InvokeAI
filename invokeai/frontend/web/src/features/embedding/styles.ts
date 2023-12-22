@@ -11,6 +11,10 @@ export const buttonVariantPromptOverlay = defineStyle(() => {
   };
 
   return {
+    fontSize: 'xs',
+    h: 6,
+    w: 6,
+    minW: 'unset',
     bg: 'none',
     color: 'base.400',
     svg: {
@@ -20,7 +24,22 @@ export const buttonVariantPromptOverlay = defineStyle(() => {
     _hover: {
       bg: 'none',
       color: 'base.300',
+      svg: {
+        fill: 'base.300',
+      },
       _disabled,
+    },
+    '&[data-checked="true"]': {
+      color: 'blue.300',
+      svg: {
+        fill: 'blue.300',
+      },
+      _hover: {
+        color: 'blue.400',
+        svg: {
+          fill: 'blue.400',
+        },
+      },
     },
   };
 });

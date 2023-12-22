@@ -10,6 +10,7 @@ export type InvControlProps = ChakraFormControlProps & {
   helperText?: string;
   labelW?: ChakraFormLabelProps['w'];
   feature?: Feature;
+  direction?: 'row' | 'column';
 };
 
 export type InvLabelProps = PropsWithChildren<{

@@ -13,8 +13,7 @@ const track = defineStyle(() => {
   };
 });
 
-const filledTrack = defineStyle((props) => {
-  const { colorScheme: c } = props;
+const filledTrack = defineStyle((_props) => {
   return {
     bg: 'base.400',
     h: 2,
@@ -26,7 +25,7 @@ const thumb = defineStyle(() => {
     w: 4,
     h: 4,
     bg: 'base.400',
-    borderRadius: 'full',
+    borderRadius: 'base',
     borderColor: 'base.200',
     borderWidth: 3,
     _hover: {

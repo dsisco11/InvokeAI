@@ -7,25 +7,23 @@ import {
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys);
 
-const invokeAITrack = defineStyle((props) => {
-  const { colorScheme: c } = props;
-
+const invokeAITrack = defineStyle((_props) => {
   return {
+    borderRadius: 'base',
     bg: 'base.600',
     _focusVisible: {
       boxShadow: 'none',
     },
     _checked: {
-      bg: `${c}.500`,
+      bg: 'blue.400',
     },
   };
 });
 
-const invokeAIThumb = defineStyle((props) => {
-  const { colorScheme: c } = props;
-
+const invokeAIThumb = defineStyle((_props) => {
   return {
-    bg: `${c}.50`,
+    borderRadius: 'base',
+    bg: 'base.50',
   };
 });
 
@@ -40,6 +38,5 @@ export const switchTheme = defineMultiStyleConfig({
   defaultProps: {
     size: 'md',
     variant: 'invokeAI',
-    colorScheme: 'blue',
   },
 });

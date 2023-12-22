@@ -39,7 +39,7 @@ export const ImageSettingsAccordion = () => {
       defaultIsOpen={true}
       badges={badges}
     >
-      <Flex gap={2} alignItems="center" p={4} pb={0}>
+      <Flex gap={4} alignItems="center" p={4} pb={0}>
         <Flex gap={2} flexDirection="column" width="full">
           <AspectRatioSelect />
           <WidthHeight activeTabName={activeTabName} />

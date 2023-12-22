@@ -59,6 +59,7 @@ const ParamDynamicPromptsPreview = () => {
         parsingError && ` - ${parsingError}`
       }`}
       feature="dynamicPrompts"
+      direction="column"
     >
       <Flex h={64} pos="relative" layerStyle="third" borderRadius="base" p={2}>
         <ScrollableContent>

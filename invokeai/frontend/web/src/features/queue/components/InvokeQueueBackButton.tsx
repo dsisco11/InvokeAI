@@ -2,10 +2,10 @@ import { Flex, Spacer } from '@chakra-ui/layout';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
 import { InvButton } from 'common/components/InvButton/InvButton';
 import { InvNumberInput } from 'common/components/InvNumberInput/InvNumberInput';
 import type { InvNumberInputFieldProps } from 'common/components/InvNumberInput/types';
-import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import { setIterations } from 'features/parameters/store/generationSlice';
 import { useQueueBack } from 'features/queue/hooks/useQueueBack';
 import { useCallback } from 'react';
@@ -17,8 +17,8 @@ import { QueueButtonTooltip } from './QueueButtonTooltip';
 const invoke = 'Invoke';
 
 const invokeButtonWidth = 128;
-const iterationsInsetInlineStart = invokeButtonWidth;
-const iterationsWidth = iterationsInsetInlineStart + 78;
+const iterationsInsetInlineStart = invokeButtonWidth + 12;
+const iterationsWidth = iterationsInsetInlineStart + 72;
 
 const numberInputFieldProps: InvNumberInputFieldProps = {
   ps: `${iterationsInsetInlineStart}px`,
@@ -72,11 +72,12 @@ export const InvokeQueueBackButton = () => {
         colorScheme="yellow"
         size="lg"
         tooltip={<QueueButtonTooltip />}
+        w={`${invokeButtonWidth}px`}
       >
         {invoke}
         <Spacer />
       </InvButton>
-      <InvTooltip placement="bottom-end" label={t('parameters.iterations')}>
+      <IAIInformationalPopover feature="paramIterations">
         <InvNumberInput
           step={step}
           fineStep={fineStep}
@@ -89,7 +90,7 @@ export const InvokeQueueBackButton = () => {
           w={`${iterationsWidth}px`}
           numberInputFieldProps={numberInputFieldProps}
         />
-      </InvTooltip>
+      </IAIInformationalPopover>
     </Flex>
   );
 };

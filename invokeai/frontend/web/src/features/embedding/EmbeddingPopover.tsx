@@ -1,11 +1,9 @@
-import { Box } from '@chakra-ui/layout';
 import {
   InvPopover,
+  InvPopoverAnchor,
   InvPopoverBody,
   InvPopoverContent,
-  InvPopoverTrigger,
 } from 'common/components/InvPopover/wrapper';
-import AddEmbeddingButton from 'features/embedding/AddEmbeddingButton';
 import { EmbeddingSelect } from 'features/embedding/EmbeddingSelect';
 import type { EmbeddingPopoverProps } from 'features/embedding/types';
 import { PARAMETERS_PANEL_WIDTH } from 'theme/util/constants';
@@ -31,12 +29,7 @@ export const EmbeddingPopover = (props: EmbeddingPopoverProps) => {
       returnFocusOnClose={true}
       isLazy
     >
-      <InvPopoverTrigger>
-        <Box position="relative">
-          {children}
-          <AddEmbeddingButton isOpen={isOpen} onOpen={onOpen} />
-        </Box>
-      </InvPopoverTrigger>
+      <InvPopoverAnchor>{children}</InvPopoverAnchor>
       <InvPopoverContent
         p={0}
         insetBlockStart={-1}

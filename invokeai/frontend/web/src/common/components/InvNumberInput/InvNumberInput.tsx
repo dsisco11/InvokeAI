@@ -42,7 +42,7 @@ export const InvNumberInput = forwardRef((props: InvNumberInputProps, ref) => {
     [isInteger]
   );
 
-  const precision = useMemo(() => (isInteger ? 0 : undefined), [isInteger]);
+  const precision = useMemo(() => (isInteger ? 0 : 3), [isInteger]);
 
   const onChange = useCallback(
     (valueAsString: string, valueAsNumber: number) => {
@@ -73,6 +73,7 @@ export const InvNumberInput = forwardRef((props: InvNumberInputProps, ref) => {
         const roundedValue = isInteger
           ? roundToMultiple(valueAsNumber, _fineStep ?? _step)
           : Number(valueAsNumber.toFixed(precision));
+        console.log({ roundedValue, valueAsNumber, precision });
         // Clamp to min/max
         const clampedValue = clamp(roundedValue, min, max);
         onChange(String(clampedValue), clampedValue);

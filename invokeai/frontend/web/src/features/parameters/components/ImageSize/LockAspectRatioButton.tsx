@@ -3,7 +3,7 @@ import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { isLockedToggled } from 'features/parameters/store/generationSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaLink, FaLinkSlash } from 'react-icons/fa6';
+import { FaLock, FaUnlock } from 'react-icons/fa6';
 
 export const LockAspectRatioButton = () => {
   const { t } = useTranslation();
@@ -21,7 +21,7 @@ export const LockAspectRatioButton = () => {
       onClick={onClick}
       variant={isLocked ? 'outline' : 'ghost'}
       size="sm"
-      icon={isLocked ? <FaLink /> : <FaLinkSlash />}
+      icon={isLocked ? <FaLock /> : <FaUnlock />}
     />
   );
 };

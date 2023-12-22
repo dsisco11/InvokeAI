@@ -5,7 +5,6 @@ import { ParamPositivePrompt } from 'features/parameters/components/Core/ParamPo
 
 import { ParamSDXLNegativeStylePrompt } from './ParamSDXLNegativeStylePrompt';
 import { ParamSDXLPositiveStylePrompt } from './ParamSDXLPositiveStylePrompt';
-import { SDXLConcatButton } from './SDXLConcatButton';
 
 export const SDXLPrompts = () => {
   const shouldConcatSDXLStylePrompt = useAppSelector(
@@ -14,7 +13,6 @@ export const SDXLPrompts = () => {
   return (
     <Flex flexDir="column" gap={2} pos="relative">
       <ParamPositivePrompt />
-      <SDXLConcatButton />
       {!shouldConcatSDXLStylePrompt && <ParamSDXLPositiveStylePrompt />}
       <ParamNegativePrompt />
       {!shouldConcatSDXLStylePrompt && <ParamSDXLNegativeStylePrompt />}

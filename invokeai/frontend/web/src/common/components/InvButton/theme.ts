@@ -13,6 +13,11 @@ export const buttonTheme = defineStyleConfig({
         transform: 'scale(1.2)',
       },
     },
+    _active: {
+      svg: {
+        transform: 'scale(1.4)',
+      },
+    },
   },
   sizes: {
     sm: {

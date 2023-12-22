@@ -14,6 +14,7 @@ export const InvControl = forwardRef((props: InvControlProps, ref) => {
     helperText,
     labelW = 'min-content',
     feature,
+    direction = 'row',
     ...formControlProps
   } = props;
 
@@ -22,6 +23,7 @@ export const InvControl = forwardRef((props: InvControlProps, ref) => {
       <ChakraFormControl
         ref={ref}
         variant="withHelperText"
+        flexDir={direction}
         {...formControlProps}
       >
         <Flex>
@@ -38,7 +40,7 @@ export const InvControl = forwardRef((props: InvControlProps, ref) => {
   }
 
   return (
-    <ChakraFormControl ref={ref} {...formControlProps}>
+    <ChakraFormControl ref={ref} {...formControlProps} flexDir={direction}>
       {props.label && (
         <InvLabel feature={feature} labelW={labelW}>
           {props.label}

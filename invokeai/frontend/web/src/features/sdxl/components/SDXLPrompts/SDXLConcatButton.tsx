@@ -1,4 +1,3 @@
-import type { RootState } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
@@ -9,7 +8,7 @@ import { FaLink, FaUnlink } from 'react-icons/fa';
 
 export const SDXLConcatButton = () => {
   const shouldConcatSDXLStylePrompt = useAppSelector(
-    (state: RootState) => state.sdxl.shouldConcatSDXLStylePrompt
+    (state) => state.sdxl.shouldConcatSDXLStylePrompt
   );
 
   const dispatch = useAppDispatch();
@@ -33,11 +32,7 @@ export const SDXLConcatButton = () => {
         aria-label={label}
         onClick={handleShouldConcatPromptChange}
         icon={shouldConcatSDXLStylePrompt ? <FaLink /> : <FaUnlink />}
-        size="xs"
         variant="promptOverlay"
-        pos="absolute"
-        insetInlineEnd={1}
-        insetBlockStart={6}
       />
     </InvTooltip>
   );

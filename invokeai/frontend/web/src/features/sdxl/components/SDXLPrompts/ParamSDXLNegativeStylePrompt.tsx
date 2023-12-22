@@ -1,9 +1,10 @@
-import { Box, Flex } from '@chakra-ui/layout';
+import { Box } from '@chakra-ui/layout';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvAutosizeTextarea } from 'common/components/InvAutosizeTextarea/InvAutosizeTextarea';
 import { AddEmbeddingButton } from 'features/embedding/AddEmbeddingButton';
 import { EmbeddingPopover } from 'features/embedding/EmbeddingPopover';
 import { usePrompt } from 'features/embedding/usePrompt';
+import { PromptOverlayButtonWrapper } from 'features/parameters/components/Prompts/PromptOverlayButtonWrapper';
 import { setNegativeStylePromptSDXL } from 'features/sdxl/store/sdxlSlice';
 import { useCallback, useRef } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
@@ -58,14 +59,9 @@ export const ParamSDXLNegativeStylePrompt = () => {
           minRows={2}
           maxRows={5}
         />
-        <Flex
-          pos="absolute"
-          insetBlockStart={0}
-          insetInlineEnd={0}
-          flexDir="column"
-        >
+        <PromptOverlayButtonWrapper>
           <AddEmbeddingButton isOpen={isOpen} onOpen={onOpen} />
-        </Flex>
+        </PromptOverlayButtonWrapper>
       </Box>
     </EmbeddingPopover>
   );

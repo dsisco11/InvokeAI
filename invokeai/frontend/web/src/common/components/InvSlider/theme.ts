@@ -27,7 +27,7 @@ const thumb = defineStyle(() => {
     bg: 'base.400',
     borderRadius: 'base',
     borderColor: 'base.200',
-    borderWidth: 3,
+    borderWidth: 2,
     _hover: {
       transform: `translateY(-50%) scale(1.15)`,
       transition: 'transform 0.1s',

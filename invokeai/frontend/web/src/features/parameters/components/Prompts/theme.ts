@@ -11,10 +11,11 @@ export const buttonVariantPromptOverlay = defineStyle(() => {
   };
 
   return {
-    fontSize: 'xs',
-    h: 6,
-    w: 6,
+    fontSize: 14,
+    h: 'min-content',
+    w: 'min-content',
     minW: 'unset',
+    minH: 'unset',
     bg: 'none',
     color: 'base.400',
     svg: {

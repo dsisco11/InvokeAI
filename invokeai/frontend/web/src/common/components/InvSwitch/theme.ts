@@ -11,6 +11,7 @@ const invokeAITrack = defineStyle((_props) => {
   return {
     borderRadius: 'sm',
     bg: 'base.600',
+    p: 1,
     _focusVisible: {
       boxShadow: 'none',
     },

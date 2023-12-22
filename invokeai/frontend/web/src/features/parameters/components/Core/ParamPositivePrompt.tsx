@@ -1,10 +1,11 @@
-import { Box, Flex } from '@chakra-ui/layout';
+import { Box } from '@chakra-ui/layout';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvAutosizeTextarea } from 'common/components/InvAutosizeTextarea/InvAutosizeTextarea';
 import { ShowDynamicPromptsPreviewButton } from 'features/dynamicPrompts/components/ShowDynamicPromptsPreviewButton';
 import { AddEmbeddingButton } from 'features/embedding/AddEmbeddingButton';
 import { EmbeddingPopover } from 'features/embedding/EmbeddingPopover';
 import { usePrompt } from 'features/embedding/usePrompt';
+import { PromptOverlayButtonWrapper } from 'features/parameters/components/Prompts/PromptOverlayButtonWrapper';
 import { setPositivePrompt } from 'features/parameters/store/generationSlice';
 import { SDXLConcatButton } from 'features/sdxl/components/SDXLPrompts/SDXLConcatButton';
 import { useCallback, useRef } from 'react';
@@ -70,16 +71,11 @@ export const ParamPositivePrompt = () => {
           minRows={4}
           maxRows={7}
         />
-        <Flex
-          pos="absolute"
-          insetBlockStart={0}
-          insetInlineEnd={0}
-          flexDir="column"
-        >
+        <PromptOverlayButtonWrapper>
           <AddEmbeddingButton isOpen={isOpen} onOpen={onOpen} />
           {baseModel === 'sdxl' && <SDXLConcatButton />}
           <ShowDynamicPromptsPreviewButton />
-        </Flex>
+        </PromptOverlayButtonWrapper>
       </Box>
     </EmbeddingPopover>
   );

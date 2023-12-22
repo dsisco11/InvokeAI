@@ -1,6 +1,6 @@
 .os-scrollbar {
   /*      The size of the scrollbar */
-  --os-size: 12px;
+  --os-size: 9px;
   /*      The axis-perpedicular padding of the scrollbar (horizontal: padding-y, vertical: padding-x) */
   /* --os-padding-perpendicular: 0; */
   /*      The axis padding of the scrollbar (horizontal: padding-x, vertical: padding-y) */

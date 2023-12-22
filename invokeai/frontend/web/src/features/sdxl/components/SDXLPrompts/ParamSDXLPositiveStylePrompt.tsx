@@ -1,9 +1,10 @@
-import { Box, Flex } from '@chakra-ui/layout';
+import { Box } from '@chakra-ui/layout';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvAutosizeTextarea } from 'common/components/InvAutosizeTextarea/InvAutosizeTextarea';
 import { AddEmbeddingButton } from 'features/embedding/AddEmbeddingButton';
 import { EmbeddingPopover } from 'features/embedding/EmbeddingPopover';
 import { usePrompt } from 'features/embedding/usePrompt';
+import { PromptOverlayButtonWrapper } from 'features/parameters/components/Prompts/PromptOverlayButtonWrapper';
 import { setPositiveStylePromptSDXL } from 'features/sdxl/store/sdxlSlice';
 import { useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -34,7 +35,6 @@ export const ParamSDXLPositiveStylePrompt = () => {
       onSelect={onSelectEmbedding}
       width={textareaRef.current?.clientWidth}
     >
-      {' '}
       <Box pos="relative">
         <InvAutosizeTextarea
           id="prompt"
@@ -49,14 +49,9 @@ export const ParamSDXLPositiveStylePrompt = () => {
           minRows={2}
           maxRows={5}
         />
-        <Flex
-          pos="absolute"
-          insetBlockStart={0}
-          insetInlineEnd={0}
-          flexDir="column"
-        >
+        <PromptOverlayButtonWrapper>
           <AddEmbeddingButton isOpen={isOpen} onOpen={onOpen} />
-        </Flex>
+        </PromptOverlayButtonWrapper>
       </Box>
     </EmbeddingPopover>
   );

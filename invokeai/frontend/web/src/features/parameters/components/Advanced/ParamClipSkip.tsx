@@ -50,7 +50,7 @@ export default function ParamClipSkip() {
     <InvControl
       label={t('parameters.clipSkip')}
       feature="clipSkip"
-      labelW="10rem"
+      labelW="132px"
     >
       <InvSlider
         value={clipSkip}

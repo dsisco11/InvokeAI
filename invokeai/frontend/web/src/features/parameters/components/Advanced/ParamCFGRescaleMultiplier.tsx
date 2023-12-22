@@ -26,7 +26,7 @@ const ParamCFGRescaleMultiplier = () => {
     <InvControl
       label={t('parameters.cfgRescaleMultiplier')}
       feature="paramCFGRescaleMultiplier"
-      labelW="10rem"
+      labelW="132px"
     >
       <InvSlider
         value={cfgRescaleMultiplier}

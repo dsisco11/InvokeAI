@@ -17,7 +17,7 @@ export const InvSingleAccordion = (props: InvSingleAccordionProps) => {
         <InvAccordionButton badges={props.badges}>
           {props.label}
         </InvAccordionButton>
-        <InvAccordionPanel>{props.children}</InvAccordionPanel>
+        <InvAccordionPanel pb={4}>{props.children}</InvAccordionPanel>
       </InvAccordionItem>
     </InvAccordion>
   );

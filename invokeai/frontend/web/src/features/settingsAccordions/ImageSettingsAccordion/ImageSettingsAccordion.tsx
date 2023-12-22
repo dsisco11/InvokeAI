@@ -39,7 +39,7 @@ export const ImageSettingsAccordion = () => {
       defaultIsOpen={true}
       badges={badges}
     >
-      <Flex gap={4} alignItems="center" p={4} pb={0}>
+      <Flex gap={4} alignItems="center" p={4}>
         <Flex gap={2} flexDirection="column" width="full">
           <AspectRatioSelect />
           <WidthHeight activeTabName={activeTabName} />
@@ -49,7 +49,7 @@ export const ImageSettingsAccordion = () => {
         </Flex>
       </Flex>
       <InvExpander>
-        <Flex gap={4} p={4} pt={0}>
+        <Flex gap={4} p={4} pb={0}>
           <ParamSeedNumberInput />
           <ParamSeedShuffle />
           <ParamSeedRandomize />

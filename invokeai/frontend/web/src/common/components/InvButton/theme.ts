@@ -140,7 +140,7 @@ const getStyles = (
     filter: 'contrast(35%) brightness(55%)',
   };
 
-  return {
+  const _base = {
     bg: bg,
     color: fg,
     borderWidth: borderWidth,
@@ -149,6 +149,10 @@ const getStyles = (
     svg: {
       fill: fg,
     },
+  };
+
+  return {
+    ..._base,
     _hover: {
       bg: bgHover,
       color: fgHover,
@@ -158,6 +162,7 @@ const getStyles = (
       },
       _disabled,
     },
+    _active: { ..._base },
     _disabled,
   } as const;
 };

@@ -34,7 +34,7 @@ export const AspectRatioPreview = (props: AspectRatioPreviewProps) => {
       ref={containerRef}
     >
       <Flex
-        layerStyle="first"
+        bg="blackAlpha.400"
         borderRadius="base"
         width={`${width}px`}
         height={`${height}px`}

@@ -45,7 +45,7 @@ export const ImageSettingsAccordion = () => {
             <AspectRatioSelect />
             <WidthHeight activeTabName={activeTabName} />
           </Flex>
-          <Flex w={32} h={32} flexShrink={0} flexGrow={0}>
+          <Flex w="98px" h="98px" flexShrink={0} flexGrow={0}>
             <AspectRatioPreviewWrapper />
           </Flex>
         </Flex>

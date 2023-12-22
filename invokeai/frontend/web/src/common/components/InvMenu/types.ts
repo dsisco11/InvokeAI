@@ -14,6 +14,7 @@ export type InvMenuButtonProps = ChakraMenuButtonProps;
 export type InvMenuListProps = ChakraMenuListProps;
 export type InvMenuItemProps = ChakraMenuItemProps & {
   isDestructive?: boolean;
+  isLoading?: boolean;
 };
 export type InvMenuItemOptionProps = ChakraMenuItemOptionProps;
 export type InvMenuGroupProps = ChakraMenuGroupProps;

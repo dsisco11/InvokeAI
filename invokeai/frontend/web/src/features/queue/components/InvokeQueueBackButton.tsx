@@ -9,7 +9,6 @@ import type { InvNumberInputFieldProps } from 'common/components/InvNumberInput/
 import { setIterations } from 'features/parameters/store/generationSlice';
 import { useQueueBack } from 'features/queue/hooks/useQueueBack';
 import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { IoSparkles } from 'react-icons/io5';
 
 import { QueueButtonTooltip } from './QueueButtonTooltip';
@@ -22,7 +21,7 @@ const numberInputFieldProps: InvNumberInputFieldProps = {
   h: 'full',
   textAlign: 'center',
   fontSize: 'md',
-  fontWeight: 'bold',
+  fontWeight: 'semibold',
 };
 
 const selector = createMemoizedSelector([stateSelector], (state) => {
@@ -45,8 +44,6 @@ export const InvokeQueueBackButton = () => {
   const { queueBack, isLoading, isDisabled } = useQueueBack();
   const { iterations, step, fineStep } = useAppSelector(selector);
   const dispatch = useAppDispatch();
-  const { t } = useTranslation();
-
   const handleChange = useCallback(
     (v: number) => {
       dispatch(setIterations(v));

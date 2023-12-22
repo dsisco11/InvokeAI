@@ -37,8 +37,8 @@ const invokeAI = definePartsStyle(() => ({
 
 const filled = definePartsStyle(() => {
   return {
-    root: {},
-    field: { ...getInputFilledStyles(), pe: 6 },
+    root: { h: '26px' },
+    field: { ...getInputFilledStyles(), pe: 6, h: 'full' },
     stepperGroup: {
       border: 'none',
       w: 6,

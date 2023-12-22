@@ -23,16 +23,11 @@ const invokeAI = definePartsStyle(() => ({
     bg: 'base.800',
     shadow: 'dark-lg',
     border: 'none',
-    p: 0,
+    p: 1,
   },
   item: {
     // this will style the MenuItem and MenuItemOption components
-    _first: {
-      borderTopRadius: 'md',
-    },
-    _last: {
-      borderBottomRadius: 'md',
-    },
+    borderRadius: 'sm',
     fontSize: 'sm',
     bg: 'base.800',
     _hover: {
@@ -49,10 +44,10 @@ const invokeAI = definePartsStyle(() => ({
       fontSize: 14,
     },
     "&[data-destructive='true']": {
-      color: 'error.500',
+      color: 'error.300',
       fill: 'error.300',
       _hover: {
-        bg: 'error.500',
+        bg: 'error.600',
         color: 'base.50',
         fill: 'base.50',
       },

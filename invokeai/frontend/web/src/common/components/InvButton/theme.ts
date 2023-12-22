@@ -42,10 +42,12 @@ export const buttonTheme = defineStyleConfig({
       const { colorScheme: c } = props;
 
       const bgBase = 'base.300';
-      const bgColor = `${c}.500`;
+      // const bgColor = `${c}.500`;
+      const bgColor = c === 'yellow' ? `${c}.500` : `${c}.400`;
       const bgBaseHover = 'base.400';
-      const bgColorHover = `${c}.400`;
-      const fg = 'base.800';
+      // const bgColorHover = `${c}.400`;
+      const bgColorHover = c === 'yellow' ? `${c}.400` : `${c}.300`;
+      const fg = 'base.900';
 
       const bg = c === 'base' ? bgBase : bgColor;
       const bgHover = c === 'base' ? bgBaseHover : bgColorHover;

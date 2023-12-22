@@ -52,6 +52,7 @@ const Scrollable = (
       border="none"
       shadow="dark-lg"
       borderRadius="md"
+      p={1}
     >
       {children}
     </Box>

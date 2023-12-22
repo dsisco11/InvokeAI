@@ -1,10 +1,42 @@
-import { forwardRef, MenuItem as ChakraMenuItem } from '@chakra-ui/react';
+import { SpinnerIcon } from '@chakra-ui/icons';
+import {
+  forwardRef,
+  keyframes,
+  MenuItem as ChakraMenuItem,
+} from '@chakra-ui/react';
 
 import type { InvMenuItemProps } from './types';
 
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
 export const InvMenuItem = forwardRef((props: InvMenuItemProps, ref) => {
-  const { isDestructive = false, ...rest } = props;
+  const {
+    isDestructive = false,
+    isLoading = false,
+    isDisabled,
+    icon,
+    ...rest
+  } = props;
   return (
-    <ChakraMenuItem ref={ref} data-destructive={isDestructive} {...rest} />
+    <ChakraMenuItem
+      ref={ref}
+      icon={
+        isLoading ? (
+          <SpinnerIcon animation={`${spin} 1s linear infinite`} />
+        ) : (
+          icon
+        )
+      }
+      isDisabled={isLoading || isDisabled}
+      data-destructive={isDestructive}
+      {...rest}
+    />
   );
 });

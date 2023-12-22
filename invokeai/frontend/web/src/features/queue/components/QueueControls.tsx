@@ -1,19 +1,19 @@
 import { Flex, Spacer } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import { InvButton } from 'common/components/InvButton/InvButton';
-import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
 import CancelCurrentQueueItemButton from 'features/queue/components/CancelCurrentQueueItemButton';
 import ClearQueueButton from 'features/queue/components/ClearQueueButton';
 import PauseProcessorButton from 'features/queue/components/PauseProcessorButton';
-import QueueBackButton from 'features/queue/components/QueueBackButton';
 import QueueFrontButton from 'features/queue/components/QueueFrontButton';
 import ResumeProcessorButton from 'features/queue/components/ResumeProcessorButton';
 import ProgressBar from 'features/system/components/ProgressBar';
 import { useFeatureStatus } from 'features/system/hooks/useFeatureStatus';
 import { setActiveTab } from 'features/ui/store/uiSlice';
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetQueueStatusQuery } from 'services/api/endpoints/queue';
+
+import { InvokeQueueBackButton } from './InvokeQueueBackButton';
 
 const QueueControls = () => {
   const isPauseEnabled = useFeatureStatus('pauseQueue').isFeatureEnabled;
@@ -26,34 +26,28 @@ const QueueControls = () => {
         w: 'full',
         position: 'relative',
         borderRadius: 'base',
-        p: 2,
         gap: 2,
         flexDir: 'column',
       }}
     >
       <Flex gap={2} w="full">
-        <InvButtonGroup flexGrow={2}>
-          <QueueBackButton />
-          {isPrependEnabled ? <QueueFrontButton asIconButton /> : <></>}
-          <CancelCurrentQueueItemButton asIconButton />
-        </InvButtonGroup>
-        <InvButtonGroup>
-          {isResumeEnabled ? <ResumeProcessorButton asIconButton /> : <></>}
-          {isPauseEnabled ? <PauseProcessorButton asIconButton /> : <></>}
-        </InvButtonGroup>
+        {isPrependEnabled && <QueueFrontButton asIconButton />}
+        <InvokeQueueBackButton />
+        <CancelCurrentQueueItemButton asIconButton />
+        {isResumeEnabled && <ResumeProcessorButton asIconButton />}
+        {isPauseEnabled && <PauseProcessorButton asIconButton />}
         <ClearQueueButton asIconButton />
       </Flex>
-      <Flex h={3} w="full">
+      <Flex h={2} w="full">
         <ProgressBar />
       </Flex>
-      <QueueCounts />
     </Flex>
   );
 };
 
-export default memo(QueueControls);
+export default QueueControls;
 
-const QueueCounts = memo(() => {
+const QueueCounts = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const { hasItems, pending } = useGetQueueStatusQuery(undefined, {
@@ -102,6 +96,4 @@ const QueueCounts = memo(() => {
       </InvButton>
     </Flex>
   );
-});
-
-QueueCounts.displayName = 'QueueCounts';
+};

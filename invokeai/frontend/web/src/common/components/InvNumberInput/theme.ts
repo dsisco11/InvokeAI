@@ -64,13 +64,13 @@ const filled = definePartsStyle(() => {
       _first: {
         border: 'none',
         margin: 0,
-        borderTopEndRadius: '3px',
+        borderTopEndRadius: 'base',
         borderBottomStartRadius: '3px',
       },
       _last: {
         border: 'none',
         margin: 0,
-        borderBottomEndRadius: '3px',
+        borderBottomEndRadius: 'base',
         borderTopStartRadius: '3px',
       },
     },

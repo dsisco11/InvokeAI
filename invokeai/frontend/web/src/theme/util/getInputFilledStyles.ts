@@ -43,7 +43,7 @@ export const getInputFilledStyles = (): SystemStyleObject => {
   return {
     ...baseColors,
     borderWidth: 1,
-    borderRadius: 'md',
+    borderRadius: 'base',
     outline: 'none',
     boxShadow: 'none',
     _hover,

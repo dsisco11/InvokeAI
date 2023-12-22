@@ -6,7 +6,15 @@ import type {
   NumberInputStepperProps as ChakraNumberInputStepperProps,
 } from '@chakra-ui/react';
 
-export type InvNumberInputProps = Omit<ChakraNumberInputProps, 'onChange'> & {
+export type InvNumberInputFieldProps = ChakraNumberInputFieldProps;
+export type InvNumberInputStepperProps = ChakraNumberInputStepperProps;
+export type InvNumberIncrementStepperProps = ChakraNumberIncrementStepperProps;
+export type InvNumberDecrementStepperProps = ChakraNumberDecrementStepperProps;
+
+export type InvNumberInputProps = Omit<
+  ChakraNumberInputProps,
+  'onChange' | 'min' | 'max'
+> & {
   /**
    * The value
    */
@@ -14,11 +22,11 @@ export type InvNumberInputProps = Omit<ChakraNumberInputProps, 'onChange'> & {
   /**
    * The minimum value
    */
-  min?: number;
+  min: number;
   /**
    * The maximum value
    */
-  max?: number;
+  max: number;
   /**
    * The default step
    */
@@ -34,17 +42,5 @@ export type InvNumberInputProps = Omit<ChakraNumberInputProps, 'onChange'> & {
   /**
    * Override props for the Chakra NumberInputField component
    */
-  numberInputFieldProps?: ChakraNumberInputFieldProps;
-  /**
-   * Override props for the Chakra NumberInputStepper component
-   */
-  numberInputStepperProps?: ChakraNumberInputStepperProps;
-  /**
-   * Override props for the Chakra NumberIncrementStepper component
-   */
-  numberIncrementStepperProps?: ChakraNumberIncrementStepperProps;
-  /**
-   * Override props for the Chakra NumberDecrementStepper component
-   */
-  numberDecrementStepperProps?: ChakraNumberDecrementStepperProps;
+  numberInputFieldProps?: InvNumberInputFieldProps;
 };

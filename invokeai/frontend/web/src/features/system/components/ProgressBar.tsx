@@ -30,7 +30,7 @@ const ProgressBar = () => {
       }
       h="full"
       w="full"
-      borderRadius={2}
+      borderRadius="full"
       colorScheme="accent"
     />
   );

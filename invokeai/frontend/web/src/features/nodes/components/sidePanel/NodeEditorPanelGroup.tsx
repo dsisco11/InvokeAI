@@ -39,7 +39,7 @@ const NodeEditorPanelGroup = () => {
           flexDir: 'column',
         }}
       >
-        <ParamIterations asSlider />
+        <ParamIterations />
       </Flex>
       <PanelGroup
         ref={panelGroupRef}

@@ -1,22 +1,14 @@
-import {
-  forwardRef,
-  Icon as ChakraIcon,
-  NumberDecrementStepper as ChakraNumberDecrementStepper,
-  NumberIncrementStepper as ChakraNumberIncrementStepper,
-  NumberInput as ChakraNumberInput,
-  NumberInputField as ChakraNumberInputField,
-  NumberInputStepper as ChakraNumberInputStepper,
-} from '@chakra-ui/react';
+import { forwardRef, NumberInput as ChakraNumberInput } from '@chakra-ui/react';
 import { useStore } from '@nanostores/react';
-import {
-  $modifiers,
-  useGlobalModifiersSetters,
-} from 'common/hooks/useGlobalModifiers';
+import { $modifiers } from 'common/hooks/useGlobalModifiers';
+import { roundToMultiple } from 'common/util/roundDownToMultiple';
 import { stopPastePropagation } from 'common/util/stopPastePropagation';
-import type { FocusEventHandler, KeyboardEvent } from 'react';
+import { clamp } from 'lodash-es';
+import type { FocusEventHandler } from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { FaMinus, FaPlus } from 'react-icons/fa6';
 
+import { InvNumberInputField } from './InvNumberInputField';
+import { InvNumberInputStepper } from './InvNumberInputStepper';
 import type { InvNumberInputProps } from './types';
 
 const isValidCharacter = (char: string) => /^[0-9\-.]$/i.test(char);
@@ -30,15 +22,11 @@ export const InvNumberInput = forwardRef((props: InvNumberInputProps, ref) => {
     fineStep: _fineStep,
     onChange: _onChange,
     numberInputFieldProps,
-    numberInputStepperProps,
-    numberIncrementStepperProps,
-    numberDecrementStepperProps,
-    ...numberInputProps
+    ...rest
   } = props;
 
   const [valueAsString, setValueAsString] = useState<string>(String(value));
   const [valueAsNumber, setValueAsNumber] = useState<number>(value);
-  const { setShift } = useGlobalModifiersSetters();
   const modifiers = useStore($modifiers);
   const step = useMemo(
     () => (modifiers.shift ? _fineStep ?? _step : _step),
@@ -48,6 +36,13 @@ export const InvNumberInput = forwardRef((props: InvNumberInputProps, ref) => {
     () => Number.isInteger(_step) && Number.isInteger(_fineStep ?? 1),
     [_step, _fineStep]
   );
+
+  const inputMode = useMemo(
+    () => (isInteger ? 'numeric' : 'decimal'),
+    [isInteger]
+  );
+
+  const precision = useMemo(() => (isInteger ? 0 : undefined), [isInteger]);
 
   const onChange = useCallback(
     (valueAsString: string, valueAsNumber: number) => {
@@ -61,25 +56,29 @@ export const InvNumberInput = forwardRef((props: InvNumberInputProps, ref) => {
     [_onChange]
   );
 
-  const onKeyUpDown = useCallback(
-    (e: KeyboardEvent<HTMLInputElement>) => {
-      setShift(e.shiftKey);
-    },
-    [setShift]
-  );
-
-  const stepperOnClick = useCallback(
-    () => _onChange(Number(valueAsString)),
-    [_onChange, valueAsString]
-  );
+  // This appears to be unnecessary? Cannot figure out what it did but leaving it here in case
+  // it was important.
+  // const onClickStepper = useCallback(
+  //   () => _onChange(Number(valueAsString)),
+  //   [_onChange, valueAsString]
+  // );
 
   const onBlur: FocusEventHandler<HTMLInputElement> = useCallback(
     (e) => {
       if (!e.target.value) {
+        // If the input is empty, we set it to the minimum value
         onChange(String(min), min);
+      } else {
+        // Otherwise, we round the value to the nearest multiple if integer, else 3 decimals
+        const roundedValue = isInteger
+          ? roundToMultiple(valueAsNumber, _fineStep ?? _step)
+          : Number(valueAsNumber.toFixed(precision));
+        // Clamp to min/max
+        const clampedValue = clamp(roundedValue, min, max);
+        onChange(String(clampedValue), clampedValue);
       }
     },
-    [min, onChange]
+    [_fineStep, _step, isInteger, max, min, onChange, precision, valueAsNumber]
   );
 
   /**
@@ -103,33 +102,17 @@ export const InvNumberInput = forwardRef((props: InvNumberInputProps, ref) => {
       value={valueAsString}
       onChange={onChange}
       onBlur={onBlur}
+      clampValueOnBlur={false}
       isValidCharacter={isValidCharacter}
       focusInputOnChange={false}
       onPaste={stopPastePropagation}
-      inputMode={isInteger ? 'numeric' : 'decimal'}
-      precision={isInteger ? 0 : undefined}
+      inputMode={inputMode}
+      precision={precision}
       variant="filled"
-      {...numberInputProps}
+      {...rest}
     >
-      <ChakraNumberInputField
-        onKeyUp={onKeyUpDown}
-        onKeyDown={onKeyUpDown}
-        {...numberInputFieldProps}
-      />
-      <ChakraNumberInputStepper {...numberInputStepperProps}>
-        <ChakraNumberIncrementStepper
-          onClick={stepperOnClick}
-          {...numberIncrementStepperProps}
-        >
-          <ChakraIcon as={FaPlus} boxSize={2} />
-        </ChakraNumberIncrementStepper>
-        <ChakraNumberDecrementStepper
-          onClick={stepperOnClick}
-          {...numberDecrementStepperProps}
-        >
-          <ChakraIcon as={FaMinus} boxSize={2} />
-        </ChakraNumberDecrementStepper>
-      </ChakraNumberInputStepper>
+      <InvNumberInputField {...numberInputFieldProps} />
+      <InvNumberInputStepper />
     </ChakraNumberInput>
   );
 });

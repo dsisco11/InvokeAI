@@ -1,3 +1,4 @@
+import { NUMPY_RAND_MAX, NUMPY_RAND_MIN } from 'app/constants';
 import { useAppDispatch } from 'app/store/storeHooks';
 import { InvNumberInput } from 'common/components/InvNumberInput/InvNumberInput';
 import { fieldNumberValueChanged } from 'features/nodes/store/nodesSlice';
@@ -62,8 +63,8 @@ const NumberFieldInputComponent = (
     <InvNumberInput
       onChange={handleValueChanged}
       value={field.value}
-      min={min}
-      max={max}
+      min={min ?? NUMPY_RAND_MIN}
+      max={max ?? NUMPY_RAND_MAX}
       step={isIntegerField ? 1 : 0.1}
       className="nodrag"
     />

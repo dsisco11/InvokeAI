@@ -13,8 +13,8 @@ const QueueListHeader = () => {
       p={1}
       pb={2}
       textTransform="uppercase"
-      fontWeight={700}
-      fontSize="xs"
+      fontWeight="bold"
+      fontSize="sm"
       letterSpacing={1}
     >
       <Flex

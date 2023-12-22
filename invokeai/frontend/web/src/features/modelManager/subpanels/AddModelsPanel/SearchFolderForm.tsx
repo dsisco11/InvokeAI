@@ -71,7 +71,7 @@ function SearchFolderForm() {
           <InvText
             sx={{
               fontSize: 'sm',
-              fontWeight: 600,
+              fontWeight: 'semibold',
               color: 'base.300',
               minW: 'max-content',
             }}

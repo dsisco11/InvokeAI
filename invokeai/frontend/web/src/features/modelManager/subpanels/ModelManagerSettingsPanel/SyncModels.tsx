@@ -24,7 +24,7 @@ export default function SyncModels() {
           gap: 2,
         }}
       >
-        <InvText sx={{ fontWeight: 600 }}>
+        <InvText sx={{ fontWeight: 'semibold' }}>
           {t('modelManager.syncModels')}
         </InvText>
         <InvText fontSize="sm" sx={{ color: 'base.400' }}>

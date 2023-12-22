@@ -152,7 +152,7 @@ export default function ModelConvert(props: ModelConvertProps) {
 
         <Flex flexDir="column" gap={2}>
           <Flex marginTop={4} flexDir="column" gap={2}>
-            <InvText fontWeight="600">
+            <InvText fontWeight="semibold">
               {t('modelManager.convertToDiffusersSaveLocation')}
             </InvText>
             <RadioGroup

@@ -83,7 +83,7 @@ const Content = memo(({ node, template }: ContentProps) => {
           <HStack>
             <FormControl>
               <FormLabel>{t('nodes.nodeType')}</FormLabel>
-              <InvText fontSize="sm" fontWeight={600}>
+              <InvText fontSize="sm" fontWeight="semibold">
                 {template.title}
               </InvText>
             </FormControl>
@@ -95,7 +95,7 @@ const Content = memo(({ node, template }: ContentProps) => {
             >
               <FormControl isInvalid={needsUpdate}>
                 <FormLabel>{t('nodes.nodeVersion')}</FormLabel>
-                <InvText fontSize="sm" fontWeight={600}>
+                <InvText fontSize="sm" fontWeight="semibold">
                   {node.data.version}
                 </InvText>
               </FormControl>

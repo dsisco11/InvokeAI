@@ -54,8 +54,8 @@ export const QueueButtonTooltip = memo(({ prepend = false }: Props) => {
 
   return (
     <Flex flexDir="column" gap={1}>
-      <InvText fontWeight={600}>{label}</InvText>
-      <InvText fontWeight={400}>
+      <InvText fontWeight="semibold">{label}</InvText>
+      <InvText>
         {t('queue.queueCountPrediction', {
           promptsCount,
           iterations,
@@ -68,16 +68,16 @@ export const QueueButtonTooltip = memo(({ prepend = false }: Props) => {
           <UnorderedList>
             {reasons.map((reason, i) => (
               <ListItem key={`${reason}.${i}`}>
-                <InvText fontWeight={400}>{reason}</InvText>
+                <InvText>{reason}</InvText>
               </ListItem>
             ))}
           </UnorderedList>
         </>
       )}
       <StyledDivider />
-      <InvText fontWeight={400} fontStyle="oblique 10deg">
+      <InvText fontStyle="oblique 10deg">
         {t('parameters.invoke.addingImagesTo')}{' '}
-        <InvText as="span" fontWeight={600}>
+        <InvText as="span" fontWeight="semibold">
           {autoAddBoardName || t('boards.uncategorized')}
         </InvText>
       </InvText>

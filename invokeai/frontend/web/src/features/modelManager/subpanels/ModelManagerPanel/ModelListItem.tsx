@@ -112,7 +112,7 @@ export default function ModelListItem(props: ModelListItemProps) {
             }
           </Badge>
           <InvTooltip label={model.description} placement="bottom">
-            <InvText sx={{ fontWeight: 500 }}>{model.model_name}</InvText>
+            <InvText>{model.model_name}</InvText>
           </InvTooltip>
         </Flex>
       </Flex>

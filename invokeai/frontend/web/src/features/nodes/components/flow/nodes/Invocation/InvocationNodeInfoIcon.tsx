@@ -104,12 +104,16 @@ const TooltipContent = memo(({ nodeId }: { nodeId: string }) => {
   }, [data, nodeTemplate, t]);
 
   if (!isInvocationNodeData(data)) {
-    return <InvText sx={{ fontWeight: 600 }}>{t('nodes.unknownNode')}</InvText>;
+    return (
+      <InvText sx={{ fontWeight: 'semibold' }}>
+        {t('nodes.unknownNode')}
+      </InvText>
+    );
   }
 
   return (
     <Flex sx={{ flexDir: 'column' }}>
-      <InvText as="span" sx={{ fontWeight: 600 }}>
+      <InvText as="span" sx={{ fontWeight: 'semibold' }}>
         {title}
       </InvText>
       {nodeTemplate?.nodePack && (

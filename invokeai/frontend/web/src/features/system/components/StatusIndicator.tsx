@@ -73,7 +73,7 @@ const StatusIndicator = () => {
             <InvText
               sx={{
                 fontSize: 'sm',
-                fontWeight: '600',
+                fontWeight: 'semibold',
                 pb: '1px',
                 userSelect: 'none',
                 color: COLOR_MAP[statusColor],

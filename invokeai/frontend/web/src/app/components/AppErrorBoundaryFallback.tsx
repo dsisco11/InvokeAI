@@ -68,7 +68,7 @@ const AppErrorBoundaryFallback = ({ error, resetErrorBoundary }: Props) => {
             alignItems: 'center',
           }}
         >
-          <InvText fontWeight={600} color="error.400">
+          <InvText fontWeight="semibold" color="error.400">
             {error.name}: {error.message}
           </InvText>
         </Flex>

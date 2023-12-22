@@ -14,7 +14,7 @@ export const baseStyle = definePartsStyle(() => ({
     bg: 'base.800',
   },
   header: {
-    fontWeight: '600',
+    fontWeight: 'semibold',
     fontSize: 'lg',
   },
   closeButton: {

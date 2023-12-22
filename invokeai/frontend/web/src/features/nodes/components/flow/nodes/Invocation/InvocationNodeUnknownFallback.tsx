@@ -34,7 +34,7 @@ const InvocationNodeUnknownFallback = ({
           borderBottomRadius: isOpen ? 0 : 'base',
           alignItems: 'center',
           h: 8,
-          fontWeight: 600,
+          fontWeight: 'semibold',
           fontSize: 'sm',
         }}
       >
@@ -67,14 +67,14 @@ const InvocationNodeUnknownFallback = ({
           <Flex gap={2} flexDir="column">
             <InvText as="span">
               {t('nodes.unknownNodeType')}:{' '}
-              <InvText as="span" fontWeight={600}>
+              <InvText as="span" fontWeight="semibold">
                 {type}
               </InvText>
             </InvText>
             {nodePack && (
               <InvText as="span">
                 {t('nodes.nodePack')}:{' '}
-                <InvText as="span" fontWeight={600}>
+                <InvText as="span" fontWeight="semibold">
                   {nodePack}
                 </InvText>
               </InvText>

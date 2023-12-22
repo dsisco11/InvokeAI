@@ -69,7 +69,7 @@ const InputField = ({ nodeId, fieldName }: Props) => {
               px: 1,
               gap: 2,
               h: 'full',
-              fontWeight: 600,
+              fontWeight: 'semibold',
               color: 'error.300',
             }}
           >

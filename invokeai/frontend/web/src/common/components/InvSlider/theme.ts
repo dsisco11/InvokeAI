@@ -41,8 +41,7 @@ const thumb = defineStyle(() => {
 
 const mark = defineStyle(() => {
   return {
-    fontSize: '2xs',
-    fontWeight: '500',
+    fontSize: '10px',
     color: 'base.400',
     mt: 2,
   };

@@ -51,7 +51,7 @@ const InvokeAILogoComponent = ({ showVersion = true }: Props) => {
             >
               <InvText
                 sx={{
-                  fontWeight: 600,
+                  fontWeight: 'semibold',
                   marginTop: 1,
                   color: 'base.300',
                   fontSize: 14,

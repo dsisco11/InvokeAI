@@ -100,7 +100,7 @@ const Wrapper = (props: PropsWithChildren<{ nodeProps: NodeProps }>) => {
           <InvText
             sx={{
               fontSize: 'sm',
-              fontWeight: 600,
+              fontWeight: 'semibold',
               color: 'base.200',
             }}
           >

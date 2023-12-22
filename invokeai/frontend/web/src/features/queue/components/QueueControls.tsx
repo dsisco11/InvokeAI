@@ -88,7 +88,6 @@ const QueueCounts = () => {
         onClick={handleClick}
         size="sm"
         variant="link"
-        fontWeight={400}
         opacity={0.7}
         fontStyle="oblique 10deg"
       >

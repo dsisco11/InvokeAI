@@ -70,7 +70,7 @@ const BoardsSearch = () => {
         <InputRightElement>
           <InvIconButton
             onClick={clearBoardSearch}
-            size="xs"
+            size="sm"
             variant="ghost"
             aria-label={t('boards.clearSearch')}
             opacity={0.5}

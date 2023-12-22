@@ -101,10 +101,10 @@ const EditableFieldTitle = forwardRef((props: Props, ref) => {
           <EditablePreview
             sx={{
               p: 0,
-              fontWeight: isMissingInput ? 600 : 400,
+              fontWeight: isMissingInput ? 'bold' : 'normal',
               textAlign: 'left',
               _hover: {
-                fontWeight: '600 !important',
+                fontWeight: 'semibold !important',
               },
             }}
             noOfLines={1}
@@ -114,7 +114,7 @@ const EditableFieldTitle = forwardRef((props: Props, ref) => {
             sx={{
               p: 0,
               w: 'full',
-              fontWeight: 600,
+              fontWeight: 'semibold',
               color: 'base.100',
               _focusVisible: {
                 p: 0,

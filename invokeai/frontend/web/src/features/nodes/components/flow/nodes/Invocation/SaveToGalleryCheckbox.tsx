@@ -30,7 +30,7 @@ const SaveToGalleryCheckbox = ({ nodeId }: { nodeId: string }) => {
 
   return (
     <FormControl as={Flex} sx={{ alignItems: 'center', gap: 2, w: 'auto' }}>
-      <FormLabel sx={{ fontSize: 'xs', mb: '1px' }}>
+      <FormLabel sx={{ fontSize: 'sm', mb: '1px' }}>
         {t('hotkeys.saveToGallery.title')}
       </FormLabel>
       <Checkbox

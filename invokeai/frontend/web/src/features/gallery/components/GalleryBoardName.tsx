@@ -47,7 +47,7 @@ const GalleryBoardName = (props: Props) => {
       <InvText
         noOfLines={1}
         sx={{
-          fontWeight: 600,
+          fontWeight: 'semibold',
           w: '100%',
           textAlign: 'center',
           color: 'base.200',

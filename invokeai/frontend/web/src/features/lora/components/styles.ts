@@ -19,7 +19,7 @@ export const cardVariantLora = definePartsStyle({
     justifyContent: 'space-between',
     p: 0,
     fontSize: 'md',
-    fontWeight: 600,
+    fontWeight: 'semibold',
   },
   body: {
     p: 0,

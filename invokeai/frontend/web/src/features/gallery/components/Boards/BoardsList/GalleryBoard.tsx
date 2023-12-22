@@ -242,7 +242,7 @@ const GalleryBoard = ({
                     <EditablePreview
                       sx={{
                         p: 0,
-                        fontWeight: isSelected ? 700 : 500,
+                        fontWeight: isSelected ? 'bold' : 'normal',
                         textAlign: 'center',
                         overflow: 'hidden',
                         textOverflow: 'ellipsis',

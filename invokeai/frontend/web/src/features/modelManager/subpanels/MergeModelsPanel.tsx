@@ -345,7 +345,7 @@ export default function MergeModelsPanel() {
           bg: 'base.800',
         }}
       >
-        <InvText fontWeight={500} fontSize="sm" variant="subtext">
+        <InvText fontSize="sm" variant="subtext">
           {t('modelManager.interpolationType')}
         </InvText>
         <RadioGroup value={modelMergeInterp} onChange={handleChangeMergeInterp}>
@@ -391,7 +391,7 @@ export default function MergeModelsPanel() {
         }}
       >
         <Flex columnGap={4}>
-          <InvText fontWeight="500" fontSize="sm" variant="subtext">
+          <InvText fontSize="sm" variant="subtext">
             {t('modelManager.mergedModelSaveLocation')}
           </InvText>
           <RadioGroup

@@ -31,7 +31,7 @@ export const CustomOption = ({ children, ...props }: CustomOptionProps) => {
               {props.data.description && (
                 <InvText
                   data-option-desc
-                  fontSize="xs"
+                  fontSize="sm"
                   colorScheme="base"
                   variant="subtext"
                   noOfLines={1}
@@ -54,7 +54,7 @@ export const CustomOption = ({ children, ...props }: CustomOptionProps) => {
           {props.data.description && (
             <InvText
               data-option-desc
-              fontSize="xs"
+              fontSize="sm"
               colorScheme="base"
               variant="subtext"
               noOfLines={1}

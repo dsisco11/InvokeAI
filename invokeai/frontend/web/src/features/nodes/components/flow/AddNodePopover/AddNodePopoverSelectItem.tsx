@@ -14,7 +14,7 @@ export const AddNodePopoverSelectItem = forwardRef<HTMLDivElement, ItemProps>(
     return (
       <div ref={ref} {...others}>
         <div>
-          <InvText fontWeight={600}>{label}</InvText>
+          <InvText fontWeight="semibold">{label}</InvText>
           <InvText size="xs" sx={{ color: 'base.500' }}>
             {description}
           </InvText>

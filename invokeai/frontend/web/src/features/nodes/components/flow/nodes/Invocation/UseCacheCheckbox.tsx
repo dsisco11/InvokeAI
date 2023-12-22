@@ -23,7 +23,7 @@ const UseCacheCheckbox = ({ nodeId }: { nodeId: string }) => {
   const { t } = useTranslation();
   return (
     <FormControl as={Flex} sx={{ alignItems: 'center', gap: 2, w: 'auto' }}>
-      <FormLabel sx={{ fontSize: 'xs', mb: '1px' }}>
+      <FormLabel sx={{ fontSize: 'sm', mb: '1px' }}>
         {t('invocationCache.useCache')}
       </FormLabel>
       <Checkbox

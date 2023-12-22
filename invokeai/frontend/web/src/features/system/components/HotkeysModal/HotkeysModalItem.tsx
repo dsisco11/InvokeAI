@@ -18,7 +18,7 @@ export default function HotkeysModalItem(props: HotkeysModalProps) {
       }}
     >
       <Grid>
-        <InvText fontWeight={600}>{title}</InvText>
+        <InvText fontWeight="semibold">{title}</InvText>
         {description && (
           <InvText
             sx={{
@@ -33,7 +33,7 @@ export default function HotkeysModalItem(props: HotkeysModalProps) {
       <Box
         sx={{
           fontSize: 'sm',
-          fontWeight: 600,
+          fontWeight: 'semibold',
           px: 2,
           py: 1,
         }}

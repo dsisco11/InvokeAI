@@ -76,7 +76,7 @@ const InitialImageDisplay = () => {
         <InvText
           sx={{
             ps: 2,
-            fontWeight: 600,
+            fontWeight: 'semibold',
             userSelect: 'none',
             color: 'base.200',
           }}

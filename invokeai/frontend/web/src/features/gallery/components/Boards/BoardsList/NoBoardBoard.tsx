@@ -141,7 +141,7 @@ const NoBoardBoard = memo(({ isSelected }: Props) => {
                     color: isSelected ? 'base.50' : 'base.100',
                     lineHeight: 'short',
                     fontSize: 'xs',
-                    fontWeight: isSelected ? 700 : 500,
+                    fontWeight: isSelected ? 'bold' : 'normal',
                   }}
                 >
                   {boardName}

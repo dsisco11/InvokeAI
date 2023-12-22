@@ -49,7 +49,7 @@ const OutputField = ({ nodeId, fieldName }: Props) => {
               px: 1,
               gap: 2,
               h: 'full',
-              fontWeight: 600,
+              fontWeight: 'semibold',
               color: 'error.300',
             }}
           >
@@ -77,9 +77,7 @@ const OutputField = ({ nodeId, fieldName }: Props) => {
         shouldWrapChildren
       >
         <FormControl isDisabled={isConnected} pe={2}>
-          <FormLabel sx={{ mb: 0, fontWeight: 500 }}>
-            {fieldTemplate?.title}
-          </FormLabel>
+          <FormLabel sx={{ mb: 0 }}>{fieldTemplate?.title}</FormLabel>
         </FormControl>
       </InvTooltip>
       <FieldHandle

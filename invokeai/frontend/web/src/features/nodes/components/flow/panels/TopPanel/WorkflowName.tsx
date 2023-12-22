@@ -26,7 +26,7 @@ const TopCenterPanel = () => {
       userSelect="none"
       noOfLines={1}
       wordBreak="break-all"
-      fontWeight={600}
+      fontWeight="semibold"
       opacity={0.8}
     >
       {displayName}

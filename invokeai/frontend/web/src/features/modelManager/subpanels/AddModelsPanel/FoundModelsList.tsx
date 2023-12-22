@@ -120,7 +120,7 @@ export default function FoundModelsList() {
           key={model}
         >
           <Flex w="100%" sx={{ flexDirection: 'column', minW: '25%' }}>
-            <InvText sx={{ fontWeight: 600 }}>
+            <InvText sx={{ fontWeight: 'semibold' }}>
               {model.split('\\').slice(-1)[0]}
             </InvText>
             <InvText
@@ -151,7 +151,7 @@ export default function FoundModelsList() {
           ) : (
             <InvText
               sx={{
-                fontWeight: 600,
+                fontWeight: 'semibold',
                 p: 2,
                 borderRadius: 4,
                 color: 'blue.100',
@@ -202,12 +202,12 @@ export default function FoundModelsList() {
           <InvInput onChange={handleSearchFilter} />
         </InvControl>
         <Flex p={2} gap={2}>
-          <InvText sx={{ fontWeight: 600 }}>
+          <InvText sx={{ fontWeight: 'semibold' }}>
             {t('modelManager.modelsFound')}: {foundModels.length}
           </InvText>
           <InvText
             sx={{
-              fontWeight: 600,
+              fontWeight: 'semibold',
               color: 'blue.200',
             }}
           >

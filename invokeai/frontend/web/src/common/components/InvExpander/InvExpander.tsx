@@ -27,7 +27,7 @@ export const InvExpander = ({
             fontSize="12px"
             color="base.400"
           />
-          <InvText variant="subtext" fontSize="xs" flexShrink={0} mb="2px">
+          <InvText variant="subtext" fontSize="sm" flexShrink={0} mb="2px">
             {label}
           </InvText>
         </Flex>

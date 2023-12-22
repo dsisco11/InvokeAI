@@ -19,7 +19,7 @@ const invokeAIContainer = defineStyle({
 const invokeAIButton = defineStyle((_props) => {
   return {
     gap: 2,
-    fontWeight: '600',
+    fontWeight: 'semibold',
     fontSize: 'sm',
     border: 'none',
     borderRadius: 'base',

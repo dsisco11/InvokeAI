@@ -95,7 +95,7 @@ export default function ScanAdvancedAddModels() {
       }}
     >
       <Flex justifyContent="space-between" alignItems="center">
-        <InvText size="xl" fontWeight={600}>
+        <InvText size="xl" fontWeight="semibold">
           {isCheckpoint || advancedAddMode === 'checkpoint'
             ? 'Add Checkpoint Model'
             : 'Add Diffusers Model'}

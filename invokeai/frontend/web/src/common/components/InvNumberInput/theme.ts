@@ -12,7 +12,7 @@ const invokeAI = definePartsStyle(() => ({
   },
   field: {
     border: 'none',
-    fontWeight: '600',
+    fontWeight: 'semibold',
     height: 'auto',
     py: 1,
     ps: 2,

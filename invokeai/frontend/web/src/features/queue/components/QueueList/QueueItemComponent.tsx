@@ -121,7 +121,7 @@ const QueueItemComponent = ({ index, item, context }: InnerItemProps) => {
                     as="span"
                     key={`${item.item_id}.${node_path}.${field_name}.${value}`}
                   >
-                    <InvText as="span" fontWeight={600}>
+                    <InvText as="span" fontWeight="semibold">
                       {node_path}.{field_name}
                     </InvText>
                     : {value}

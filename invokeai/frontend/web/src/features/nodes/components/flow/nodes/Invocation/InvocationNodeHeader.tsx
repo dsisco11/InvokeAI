@@ -27,7 +27,6 @@ const InvocationNodeHeader = ({ nodeId, isOpen }: Props) => {
         justifyContent: 'space-between',
         h: 8,
         textAlign: 'center',
-        fontWeight: 500,
         color: 'base.200',
       }}
     >

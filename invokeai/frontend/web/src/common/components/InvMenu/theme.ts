@@ -9,13 +9,12 @@ const invokeAI = definePartsStyle(() => ({
   // define the part you're going to style
   button: {
     // this will style the MenuButton component
-    fontWeight: 500,
     bg: 'base.500',
     color: 'base.100',
     _hover: {
       bg: 'base.600',
       color: 'base.50',
-      fontWeight: 600,
+      fontWeight: 'semibold',
     },
   },
   list: {
@@ -59,7 +58,7 @@ const invokeAI = definePartsStyle(() => ({
       },
     },
     "&[aria-selected='true']": {
-      fontWeight: 600,
+      fontWeight: 'semibold',
       bg: 'blue.300 !important',
       color: 'base.800 !important',
       _hover: {

@@ -59,7 +59,7 @@ const EditableNodeTitle = ({ nodeId, title }: Props) => {
         onChange={handleChange}
         onSubmit={handleSubmit}
         w="full"
-        fontWeight={600}
+        fontWeight="semibold"
       >
         <EditablePreview noOfLines={1} />
         <EditableInput

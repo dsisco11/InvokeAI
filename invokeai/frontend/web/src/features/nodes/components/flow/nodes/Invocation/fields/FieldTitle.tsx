@@ -29,7 +29,7 @@ const FieldTitle = forwardRef((props: Props, ref) => {
         w: 'full',
       }}
     >
-      <InvText sx={{ fontWeight: isMissingInput ? 600 : 400 }}>
+      <InvText sx={{ fontWeight: isMissingInput ? 'bold' : 'normal' }}>
         {label || fieldTemplateTitle}
       </InvText>
     </Flex>

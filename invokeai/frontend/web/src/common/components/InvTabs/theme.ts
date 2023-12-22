@@ -43,7 +43,6 @@ const line = definePartsStyle(() => ({
     py: 1,
     fontSize: 'sm',
     color: 'base.400',
-    fontWeight: 500,
     _selected: {
       color: 'blue.400',
     },
@@ -76,7 +75,7 @@ const collapse = definePartsStyle(() => ({
     gap: 4,
     bg: TAB_INACTIVE,
     fontSize: 'sm',
-    fontWeight: 600,
+    fontWeight: 'semibold',
     borderInlineEnd: 1,
     borderInlineEndColor: TAB_ACTIVE,
     borderInlineEndStyle: 'solid',

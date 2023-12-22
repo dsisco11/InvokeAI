@@ -74,7 +74,7 @@ export const IAIDropOverlay = (props: Props) => {
           <Box
             sx={{
               fontSize: '2xl',
-              fontWeight: 600,
+              fontWeight: 'semibold',
               transform: isOver ? 'scale(1.1)' : 'scale(1)',
               color: isOver ? 'base.50' : 'base.300',
               transitionProperty: 'common',

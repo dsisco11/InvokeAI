@@ -110,7 +110,7 @@ export default memo(ImageFieldInputComponent);
 const UploadElement = memo(() => {
   const { t } = useTranslation();
   return (
-    <InvText fontSize={16} fontWeight={600}>
+    <InvText fontSize={16} fontWeight="semibold">
       {t('gallery.dropOrUpload')}
     </InvText>
   );
@@ -121,7 +121,7 @@ UploadElement.displayName = 'UploadElement';
 const DropLabel = memo(() => {
   const { t } = useTranslation();
   return (
-    <InvText fontSize={16} fontWeight={600}>
+    <InvText fontSize={16} fontWeight="semibold">
       {t('gallery.drop')}
     </InvText>
   );

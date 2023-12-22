@@ -295,7 +295,7 @@ const InputFieldRenderer = ({ nodeId, fieldName }: InputFieldProps) => {
       <InvText
         sx={{
           fontSize: 'sm',
-          fontWeight: 600,
+          fontWeight: 'semibold',
           color: 'error.300',
         }}
       >

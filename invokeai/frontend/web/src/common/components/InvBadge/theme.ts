@@ -1,7 +1,7 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
 
 const baseStyle = defineStyle((props) => ({
-  fontSize: 10,
+  fontSize: '10px',
   px: 2,
   py: 1,
   minW: 4,

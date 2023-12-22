@@ -33,7 +33,7 @@ const IAICollapse = (props: IAIToggleCollapseProps) => {
             bg: 'base.700',
           },
           fontSize: 'sm',
-          fontWeight: 600,
+          fontWeight: 'semibold',
           cursor: 'pointer',
           transitionProperty: 'common',
           transitionDuration: 'normal',

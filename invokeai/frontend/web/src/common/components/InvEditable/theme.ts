@@ -23,8 +23,8 @@ const baseStyleInput = defineStyle(() => ({
   _focusVisible: { boxShadow: 'outline' },
   _placeholder: { opacity: 0.6 },
   '::selection': {
-    color: 'accent.50',
-    bg: 'accent.400',
+    color: 'blue.50',
+    bg: 'blue.400',
   },
 }));
 

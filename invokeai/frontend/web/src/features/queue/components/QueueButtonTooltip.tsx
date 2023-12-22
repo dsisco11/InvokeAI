@@ -9,6 +9,8 @@ import { useTranslation } from 'react-i18next';
 import { useEnqueueBatchMutation } from 'services/api/endpoints/queue';
 import { useBoardName } from 'services/api/hooks/useBoardName';
 
+const StyledDivider = () => <Divider opacity={0.2} borderColor="base.900" />;
+
 const tooltipSelector = createMemoizedSelector(
   [stateSelector],
   ({ gallery }) => {
@@ -23,7 +25,7 @@ type Props = {
   prepend?: boolean;
 };
 
-const QueueButtonTooltipContent = ({ prepend = false }: Props) => {
+export const QueueButtonTooltip = memo(({ prepend = false }: Props) => {
   const { t } = useTranslation();
   const { isReady, reasons } = useIsReadyToEnqueue();
   const { autoAddBoardId } = useAppSelector(tooltipSelector);
@@ -66,12 +68,6 @@ const QueueButtonTooltipContent = ({ prepend = false }: Props) => {
       </InvText>
     </Flex>
   );
-};
+});
 
-export default memo(QueueButtonTooltipContent);
-
-const StyledDivider = memo(() => (
-  <Divider opacity={0.2} borderColor="base.900" />
-));
-
-StyledDivider.displayName = 'StyledDivider';
+QueueButtonTooltip.displayName = 'QueueButtonTooltip';

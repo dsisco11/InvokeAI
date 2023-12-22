@@ -70,20 +70,20 @@ export const theme: ThemeOverride = {
     heading: "'Inter Variable', sans-serif",
   },
   shadows: {
-    accent: '0 0 10px 0 var(--invokeai-colors-accent-600)',
-    accentHover: '0 0 10px 0 var(--invokeai-colors-accent-500)',
+    blue: '0 0 10px 0 var(--invokeai-colors-blue-600)',
+    blueHover: '0 0 10px 0 var(--invokeai-colors-blue-500)',
     ok: '0 0 7px var(--invokeai-colors-ok-400)',
     working: '0 0 7px var(--invokeai-colors-working-400)',
     error: '0 0 7px var(--invokeai-colors-error-400)',
     selected:
-      '0px 0px 0px 1px var(--invokeai-colors-base-900), 0px 0px 0px 4px var(--invokeai-colors-accent-500)',
+      '0px 0px 0px 1px var(--invokeai-colors-base-900), 0px 0px 0px 4px var(--invokeai-colors-blue-500)',
     hoverSelected:
-      '0px 0px 0px 1px var(--invokeai-colors-base-900), 0px 0px 0px 4px var(--invokeai-colors-accent-400)',
+      '0px 0px 0px 1px var(--invokeai-colors-base-900), 0px 0px 0px 4px var(--invokeai-colors-blue-400)',
     hoverUnselected:
-      '0px 0px 0px 1px var(--invokeai-colors-base-900), 0px 0px 0px 3px var(--invokeai-colors-accent-400)',
-    nodeSelected: '0 0 0 3px var(--invokeai-colors-accent-500)',
-    nodeHovered: '0 0 0 2px var(--invokeai-colors-accent-400)',
-    nodeHoveredSelected: '0 0 0 3px var(--invokeai-colors-accent-400)',
+      '0px 0px 0px 1px var(--invokeai-colors-base-900), 0px 0px 0px 3px var(--invokeai-colors-blue-400)',
+    nodeSelected: '0 0 0 3px var(--invokeai-colors-blue-500)',
+    nodeHovered: '0 0 0 2px var(--invokeai-colors-blue-400)',
+    nodeHoveredSelected: '0 0 0 3px var(--invokeai-colors-blue-400)',
     nodeInProgress:
       '0 0 0 2px var(--invokeai-colors-yellow-400), 0 0 20px 2px var(--invokeai-colors-orange-700)',
   },

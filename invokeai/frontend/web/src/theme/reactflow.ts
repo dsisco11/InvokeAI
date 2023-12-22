@@ -1,8 +1,8 @@
 import type { SystemStyleObject } from '@chakra-ui/styled-system';
 
 const selectionStyles: SystemStyleObject = {
-  backgroundColor: 'accentAlpha.150 !important',
-  borderColor: 'accent.400 !important',
+  backgroundColor: 'blueAlpha.150 !important',
+  borderColor: 'blue.400 !important',
   borderRadius: 'base !important',
   borderStyle: 'dashed !important',
 };

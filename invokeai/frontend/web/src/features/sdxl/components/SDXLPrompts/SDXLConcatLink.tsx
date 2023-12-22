@@ -53,7 +53,7 @@ export const SDXLConcatLink = () => {
                 borderColor: 'base.400',
                 ...sharedConcatLinkStyle,
                 _dark: {
-                  borderColor: 'accent.500',
+                  borderColor: 'blue.500',
                 },
               }}
             />
@@ -79,10 +79,10 @@ export const SDXLConcatLink = () => {
                 top: '3px',
                 p: 1,
                 borderRadius: 4,
-                bg: 'accent.400',
+                bg: 'blue.400',
                 color: 'base.50',
                 _dark: {
-                  bg: 'accent.500',
+                  bg: 'blue.500',
                 },
               }}
             >
@@ -107,7 +107,7 @@ export const SDXLConcatLink = () => {
                 borderColor: 'base.400',
                 ...sharedConcatLinkStyle,
                 _dark: {
-                  borderColor: 'accent.500',
+                  borderColor: 'blue.500',
                 },
               }}
             />

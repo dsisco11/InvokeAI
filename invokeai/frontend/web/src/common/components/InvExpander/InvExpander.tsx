@@ -24,9 +24,10 @@ export const InvExpander = ({
         >
           <Icon
             as={isOpen ? BiCollapseVertical : BiExpandVertical}
+            fontSize="12px"
             color="base.400"
           />
-          <InvText variant="subtext" flexShrink={0}>
+          <InvText variant="subtext" fontSize="xs" flexShrink={0} mb="2px">
             {label}
           </InvText>
         </Flex>

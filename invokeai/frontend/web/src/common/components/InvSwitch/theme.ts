@@ -40,6 +40,6 @@ export const switchTheme = defineMultiStyleConfig({
   defaultProps: {
     size: 'md',
     variant: 'invokeAI',
-    colorScheme: 'accent',
+    colorScheme: 'blue',
   },
 });

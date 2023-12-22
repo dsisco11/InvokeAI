@@ -3,7 +3,6 @@ import {
   createMultiStyleConfigHelpers,
   defineStyle,
 } from '@chakra-ui/styled-system';
-import { mode } from '@chakra-ui/theme-tools';
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys);
@@ -11,57 +10,17 @@ const { defineMultiStyleConfig, definePartsStyle } =
 const appTabsRoot = defineStyle(() => {
   return {
     display: 'flex',
-    columnGap: 4,
+    gap: 4,
   };
 });
 
 const appTabsTab = defineStyle(() => ({}));
 
-const appTabsTablist = defineStyle((props) => {
-  const { colorScheme: c } = props;
-
+const appTabsTablist = defineStyle((_props) => {
   return {
     display: 'flex',
     flexDirection: 'column',
     gap: 1,
-    color: 'base.400',
-    button: {
-      fontSize: 'sm',
-      padding: 2,
-      borderRadius: 'base',
-      textShadow: mode(
-        `0 0 0.3rem var(--invokeai-colors-accent-100)`,
-        `0 0 0.3rem var(--invokeai-colors-accent-900)`
-      )(props),
-      svg: {
-        fill: 'base.300',
-      },
-      _selected: {
-        bg: 'accent.600',
-        color: 'base.100',
-        svg: {
-          fill: `base.100`,
-          filter: mode(
-            `drop-shadow(0px 0px 0.3rem var(--invokeai-colors-${c}-600))`,
-            `drop-shadow(0px 0px 0.3rem var(--invokeai-colors-${c}-800))`
-          )(props),
-        },
-        _hover: {
-          bg: 'accent.500',
-          color: 'base.50',
-          svg: {
-            fill: 'base.50',
-          },
-        },
-      },
-      _hover: {
-        bg: 'base.800',
-        color: 'base.50',
-        svg: {
-          fill: `base.100`,
-        },
-      },
-    },
   };
 });
 
@@ -86,7 +45,7 @@ const line = definePartsStyle(() => ({
     color: 'base.400',
     fontWeight: 500,
     _selected: {
-      color: 'accent.400',
+      color: 'blue.400',
     },
   },
   tabpanel: {
@@ -116,7 +75,7 @@ const collapse = definePartsStyle(() => ({
   tab: {
     gap: 4,
     bg: TAB_INACTIVE,
-    fontSize: 'xs',
+    fontSize: 'sm',
     fontWeight: 600,
     borderInlineEnd: 1,
     borderInlineEndColor: TAB_ACTIVE,
@@ -151,6 +110,6 @@ export const tabsTheme = defineMultiStyleConfig({
   },
   defaultProps: {
     variant: 'line',
-    colorScheme: 'accent',
+    colorScheme: 'blue',
   },
 });

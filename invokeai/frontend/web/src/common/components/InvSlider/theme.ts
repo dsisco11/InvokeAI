@@ -16,7 +16,7 @@ const track = defineStyle(() => {
 const filledTrack = defineStyle((props) => {
   const { colorScheme: c } = props;
   return {
-    bg: `${c}.600`,
+    bg: 'base.400',
     h: 2,
   };
 });
@@ -25,7 +25,7 @@ const thumb = defineStyle(() => {
   return {
     w: 4,
     h: 4,
-    bg: 'accent.400',
+    bg: 'base.400',
     borderRadius: 'full',
     borderColor: 'base.200',
     borderWidth: 3,
@@ -60,6 +60,6 @@ const baseStyle = definePartsStyle((props) => ({
 export const sliderTheme = defineMultiStyleConfig({
   baseStyle,
   defaultProps: {
-    colorScheme: 'accent',
+    colorScheme: 'base',
   },
 });

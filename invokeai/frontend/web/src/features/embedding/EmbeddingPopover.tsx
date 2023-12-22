@@ -41,7 +41,7 @@ export const EmbeddingPopover = (props: EmbeddingPopoverProps) => {
         p={0}
         insetBlockStart={-1}
         shadow="dark-lg"
-        borderColor="accent.300"
+        borderColor="blue.300"
         borderWidth="2px"
         borderStyle="solid"
       >

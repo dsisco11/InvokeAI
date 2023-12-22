@@ -60,15 +60,15 @@ const invokeAI = definePartsStyle(() => ({
     },
     "&[aria-selected='true']": {
       fontWeight: 600,
-      bg: 'accent.500 !important',
-      color: 'base.100 !important',
+      bg: 'blue.300 !important',
+      color: 'base.800 !important',
       _hover: {
-        color: 'base.50 !important',
-        bg: 'accent.400 !important',
+        color: 'base.900 !important',
+        bg: 'blue.400 !important',
       },
     },
     "&[aria-selected='true'] [data-option-desc='true']": {
-      color: 'base.100',
+      color: 'base.800',
     },
   },
   divider: {

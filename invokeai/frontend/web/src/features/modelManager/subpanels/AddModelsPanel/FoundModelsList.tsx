@@ -154,8 +154,8 @@ export default function FoundModelsList() {
                 fontWeight: 600,
                 p: 2,
                 borderRadius: 4,
-                color: 'accent.100',
-                bg: 'accent.600',
+                color: 'blue.100',
+                bg: 'blue.600',
               }}
             >
               {t('common.installed')}
@@ -208,7 +208,7 @@ export default function FoundModelsList() {
           <InvText
             sx={{
               fontWeight: 600,
-              color: 'accent.200',
+              color: 'blue.200',
             }}
           >
             {t('common.notInstalled')}: {filteredModels.length}

@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaBoltLightning } from 'react-icons/fa6';
 
-import EnqueueButtonTooltip from './QueueButtonTooltip';
+import { QueueButtonTooltip } from './QueueButtonTooltip';
 
 const QueueFrontButton = () => {
   const { t } = useTranslation();
@@ -15,7 +15,7 @@ const QueueFrontButton = () => {
       isDisabled={isDisabled}
       isLoading={isLoading}
       onClick={queueFront}
-      tooltip={<EnqueueButtonTooltip prepend />}
+      tooltip={<QueueButtonTooltip prepend />}
       icon={<FaBoltLightning />}
       size="lg"
     />

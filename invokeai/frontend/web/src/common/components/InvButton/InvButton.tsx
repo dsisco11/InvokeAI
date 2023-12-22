@@ -8,11 +8,7 @@ export const InvButton = forwardRef(
     if (tooltip) {
       return (
         <InvTooltip label={tooltip}>
-          <Button
-            ref={ref}
-            colorScheme={isChecked ? 'accent' : 'base'}
-            {...rest}
-          >
+          <Button ref={ref} colorScheme={isChecked ? 'blue' : 'base'} {...rest}>
             {children}
           </Button>
         </InvTooltip>
@@ -20,7 +16,7 @@ export const InvButton = forwardRef(
     }
 
     return (
-      <Button ref={ref} colorScheme={isChecked ? 'accent' : 'base'} {...rest}>
+      <Button ref={ref} colorScheme={isChecked ? 'blue' : 'base'} {...rest}>
         {children}
       </Button>
     );

@@ -26,7 +26,7 @@ const MinimapPanel = () => {
               borderRadius: 'inherit',
             },
           }}
-          nodeColor="var(--invokeai-colors-accent-600)"
+          nodeColor="var(--invokeai-colors-blue-600)"
           maskColor="var(--invokeai-colors-blackAlpha-600)"
         />
       )}

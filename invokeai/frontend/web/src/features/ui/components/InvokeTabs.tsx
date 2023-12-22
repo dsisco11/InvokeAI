@@ -1,16 +1,15 @@
-import {
-  Icon,
-  Spacer,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
-  VisuallyHidden,
-} from '@chakra-ui/react';
+import { Spacer } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
+import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
+import { InvTab } from 'common/components/InvTabs/InvTab';
+import {
+  InvTabList,
+  InvTabPanel,
+  InvTabPanels,
+  InvTabs,
+} from 'common/components/InvTabs/wrapper';
 import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import ImageGalleryContent from 'features/gallery/components/ImageGalleryContent';
 import NodeEditorPanelGroup from 'features/nodes/components/sidePanel/NodeEditorPanelGroup';
@@ -22,8 +21,7 @@ import {
   activeTabNameSelector,
 } from 'features/ui/store/uiSelectors';
 import { setActiveTab } from 'features/ui/store/uiSlice';
-import type { ResourceKey } from 'i18next';
-import type { MouseEvent, ReactNode } from 'react';
+import type { MouseEvent, ReactElement, ReactNode } from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useTranslation } from 'react-i18next';
@@ -46,7 +44,7 @@ import UnifiedCanvasTab from './tabs/UnifiedCanvas/UnifiedCanvasTab';
 export interface InvokeTabInfo {
   id: InvokeTabName;
   translationKey: string;
-  icon: ReactNode;
+  icon: ReactElement;
   content: ReactNode;
 }
 
@@ -54,39 +52,37 @@ const tabs: InvokeTabInfo[] = [
   {
     id: 'txt2img',
     translationKey: 'common.txt2img',
-    icon: <Icon as={FaFont} sx={{ boxSize: 6, pointerEvents: 'none' }} />,
+    icon: <FaFont />,
     content: <TextToImageTab />,
   },
   {
     id: 'img2img',
     translationKey: 'common.img2img',
-    icon: <Icon as={FaImage} sx={{ boxSize: 6, pointerEvents: 'none' }} />,
+    icon: <FaImage />,
     content: <ImageTab />,
   },
   {
     id: 'unifiedCanvas',
     translationKey: 'common.unifiedCanvas',
-    icon: <Icon as={MdGridOn} sx={{ boxSize: 6, pointerEvents: 'none' }} />,
+    icon: <MdGridOn />,
     content: <UnifiedCanvasTab />,
   },
   {
     id: 'nodes',
     translationKey: 'common.nodes',
-    icon: (
-      <Icon as={FaCircleNodes} sx={{ boxSize: 6, pointerEvents: 'none' }} />
-    ),
+    icon: <FaCircleNodes />,
     content: <NodesTab />,
   },
   {
     id: 'modelManager',
     translationKey: 'modelManager.modelManager',
-    icon: <Icon as={FaCube} sx={{ boxSize: 6, pointerEvents: 'none' }} />,
+    icon: <FaCube />,
     content: <ModelManagerTab />,
   },
   {
     id: 'queue',
     translationKey: 'queue.queue',
-    icon: <Icon as={FaStream} sx={{ boxSize: 6, pointerEvents: 'none' }} />,
+    icon: <FaStream />,
     content: <QueueTab />,
   },
 ];
@@ -123,25 +119,27 @@ const InvokeTabs = () => {
   const tabs = useMemo(
     () =>
       enabledTabs.map((tab) => (
-        <InvTooltip
-          key={tab.id}
-          label={String(t(tab.translationKey as ResourceKey))}
-          placement="end"
-        >
-          <Tab onClick={handleClickTab}>
-            <VisuallyHidden>
-              {String(t(tab.translationKey as ResourceKey))}
-            </VisuallyHidden>
-            {tab.icon}
-          </Tab>
+        <InvTooltip key={tab.id} label={t(tab.translationKey)} placement="end">
+          <InvTab p={0}>
+            <InvIconButton
+              onClick={handleClickTab}
+              icon={tab.icon}
+              size="md"
+              fontSize="24px"
+              variant={activeTabName === tab.id ? 'solid' : 'ghost'}
+              aria-label={t(tab.translationKey)}
+            />
+          </InvTab>
         </InvTooltip>
       )),
-    [enabledTabs, t, handleClickTab]
+    [enabledTabs, t, handleClickTab, activeTabName]
   );
 
   const tabPanels = useMemo(
     () =>
-      enabledTabs.map((tab) => <TabPanel key={tab.id}>{tab.content}</TabPanel>),
+      enabledTabs.map((tab) => (
+        <InvTabPanel key={tab.id}>{tab.content}</InvTabPanel>
+      )),
     [enabledTabs]
   );
 
@@ -211,7 +209,7 @@ const InvokeTabs = () => {
   const panelStorage = usePanelStorage();
 
   return (
-    <Tabs
+    <InvTabs
       variant="appTabs"
       defaultIndex={activeTabIndex}
       index={activeTabIndex}
@@ -222,16 +220,15 @@ const InvokeTabs = () => {
       }}
       isLazy
     >
-      <TabList
+      <InvTabList
         sx={{
-          pt: 2,
           gap: 4,
           flexDir: 'column',
         }}
       >
         {tabs}
         <Spacer />
-      </TabList>
+      </InvTabList>
       <PanelGroup
         id="app"
         autoSaveId="app"
@@ -268,9 +265,9 @@ const InvokeTabs = () => {
           </>
         )}
         <Panel id="main" order={1} minSize={MAIN_PANEL_MIN_SIZE_PX}>
-          <TabPanels style={{ height: '100%', width: '100%' }}>
+          <InvTabPanels style={{ height: '100%', width: '100%' }}>
             {tabPanels}
-          </TabPanels>
+          </InvTabPanels>
         </Panel>
         {!NO_GALLERY_TABS.includes(activeTabName) && (
           <>
@@ -296,7 +293,7 @@ const InvokeTabs = () => {
           </>
         )}
       </PanelGroup>
-    </Tabs>
+    </InvTabs>
   );
 };
 

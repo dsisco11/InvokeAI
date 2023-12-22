@@ -13,10 +13,10 @@ export const getInputOutlineStyles = (): SystemStyleObject => ({
     borderColor: 'base.600',
   },
   _focus: {
-    borderColor: 'accent.600',
+    borderColor: 'blue.600',
     boxShadow: 'none',
     _hover: {
-      borderColor: 'accent.500',
+      borderColor: 'blue.500',
     },
   },
   _invalid: {
@@ -38,6 +38,6 @@ export const getInputOutlineStyles = (): SystemStyleObject => ({
     color: 'base.400',
   },
   '::selection': {
-    bg: 'accent.400',
+    bg: 'blue.400',
   },
 });

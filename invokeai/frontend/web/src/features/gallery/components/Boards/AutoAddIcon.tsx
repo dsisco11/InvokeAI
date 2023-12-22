@@ -13,7 +13,7 @@ const AutoAddIcon = () => {
         p: 1,
       }}
     >
-      <Badge variant="solid" sx={{ bg: 'accent.500' }}>
+      <Badge variant="solid" sx={{ bg: 'blue.500' }}>
         {t('common.auto')}
       </Badge>
     </Flex>

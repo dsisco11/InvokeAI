@@ -1,7 +1,8 @@
 import type { InvokeAIThemeColors } from 'theme/themeTypes';
 import { generateColorPalette } from 'theme/util/generateColorPalette';
 
-const BASE = { H: 220, S: 16 };
+const BASE = { H: 220, S: 0 };
+// const BASE = { H: 220, S: 16 };
 const ACCENT = { H: 250, S: 42 };
 const WORKING = { H: 47, S: 42 };
 const GOLD = { H: 40, S: 70 };

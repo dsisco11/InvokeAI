@@ -4,7 +4,6 @@ import { buttonVariantPromptOverlay } from 'features/embedding/styles';
 export const buttonTheme = defineStyleConfig({
   baseStyle: {
     fontWeight: 'bold',
-    // borderRadius: 'sm',
     svg: {
       transitionProperty: 'all',
       transitionDuration: 'faster',
@@ -37,24 +36,30 @@ export const buttonTheme = defineStyleConfig({
     solid: defineStyle((props) => {
       const { colorScheme: c } = props;
 
-      const bg = c === 'base' ? `${c}.300` : `${c}.500`;
-      const bgHover = c === 'base' ? `${c}.400` : `${c}.400`;
+      const bgBase = 'base.300';
+      const bgColor = `${c}.500`;
+      const bgBaseHover = 'base.400';
+      const bgColorHover = `${c}.400`;
       const fg = 'base.800';
 
+      const bg = c === 'base' ? bgBase : bgColor;
+      const bgHover = c === 'base' ? bgBaseHover : bgColorHover;
+
       const _disabled = {
-        bg: bg,
+        bg: bgBase,
         color: fg,
         svg: {
           fill: fg,
         },
         _hover: {
-          bg: bgHover,
+          bg: bgBase,
           color: fg,
           svg: {
             fill: fg,
+            transform: 'none',
           },
         },
-        opacity: 0.7,
+        filter: 'contrast(50%)',
       };
 
       return {
@@ -63,14 +68,15 @@ export const buttonTheme = defineStyleConfig({
         svg: {
           fill: fg,
         },
-        _disabled,
         _hover: {
           bg: bgHover,
           color: fg,
           svg: {
             fill: fg,
           },
+          _disabled,
         },
+        _disabled,
       };
     }),
     outline: defineStyle((props) => {

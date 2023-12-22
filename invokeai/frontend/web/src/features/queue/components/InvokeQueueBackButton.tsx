@@ -68,6 +68,7 @@ export const InvokeQueueBackButton = () => {
           ps={0}
           w="72px"
           flexShrink={0}
+          variant="darkFilled"
         />
       </IAIInformationalPopover>
       <InvButton

@@ -35,10 +35,10 @@ const invokeAI = definePartsStyle(() => ({
   },
 }));
 
-const filled = definePartsStyle(() => {
+const filled = definePartsStyle((props) => {
   return {
     root: { h: '26px' },
-    field: { ...getInputFilledStyles(), pe: 6, h: 'full' },
+    field: { ...getInputFilledStyles(props), pe: 6, h: 'full' },
     stepperGroup: {
       border: 'none',
       w: 6,
@@ -75,6 +75,7 @@ export const numberInputTheme = defineMultiStyleConfig({
   variants: {
     invokeAI,
     filled,
+    darkFilled: filled,
   },
   defaultProps: {
     size: 'sm',

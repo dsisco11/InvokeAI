@@ -39,22 +39,24 @@ export const ImageSettingsAccordion = () => {
       defaultIsOpen={true}
       badges={badges}
     >
-      <Flex gap={4} alignItems="center" p={4}>
-        <Flex gap={2} flexDirection="column" width="full">
-          <AspectRatioSelect />
-          <WidthHeight activeTabName={activeTabName} />
+      <Flex px={4} pt={4} w="full" h="full" flexDir="column">
+        <Flex gap={4} alignItems="center">
+          <Flex gap={4} flexDirection="column" width="full">
+            <AspectRatioSelect />
+            <WidthHeight activeTabName={activeTabName} />
+          </Flex>
+          <Flex w={32} h={32} flexShrink={0} flexGrow={0}>
+            <AspectRatioPreviewWrapper />
+          </Flex>
         </Flex>
-        <Flex w={32} h={32} flexShrink={0} flexGrow={0}>
-          <AspectRatioPreviewWrapper />
-        </Flex>
+        <InvExpander>
+          <Flex gap={4} pb={4}>
+            <ParamSeedNumberInput />
+            <ParamSeedShuffle />
+            <ParamSeedRandomize />
+          </Flex>
+        </InvExpander>
       </Flex>
-      <InvExpander>
-        <Flex gap={4} p={4} pb={0}>
-          <ParamSeedNumberInput />
-          <ParamSeedShuffle />
-          <ParamSeedRandomize />
-        </Flex>
-      </InvExpander>
     </InvSingleAccordion>
   );
 };

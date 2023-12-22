@@ -1,20 +1,14 @@
-import {
-  Box,
-  forwardRef,
-  Icon,
-  Textarea as ChakraTextarea,
-} from '@chakra-ui/react';
+import { Box, forwardRef, Textarea as ChakraTextarea } from '@chakra-ui/react';
 import { useGlobalModifiersSetters } from 'common/hooks/useGlobalModifiers';
 import { stopPastePropagation } from 'common/util/stopPastePropagation';
 import type { KeyboardEvent } from 'react';
 import { useCallback } from 'react';
-import { IoResizeSharp } from 'react-icons/io5';
 
 import type { InvTextareaProps } from './types';
 
 export const InvTextarea = forwardRef<InvTextareaProps, typeof ChakraTextarea>(
   (props: InvTextareaProps, ref) => {
-    const { resize = 'none', ...rest } = props;
+    const { ...rest } = props;
     const { setShift } = useGlobalModifiersSetters();
     const onKeyUpDown = useCallback(
       (e: KeyboardEvent<HTMLTextAreaElement>) => {
@@ -29,14 +23,8 @@ export const InvTextarea = forwardRef<InvTextareaProps, typeof ChakraTextarea>(
           onPaste={stopPastePropagation}
           onKeyUp={onKeyUpDown}
           onKeyDown={onKeyUpDown}
-          resize={resize}
           {...rest}
         />
-        {resize !== 'none' && (
-          <Box className="textarea-resize-handle" pos="absolute" lineHeight={0}>
-            <Icon as={IoResizeSharp} />
-          </Box>
-        )}
       </Box>
     );
   }

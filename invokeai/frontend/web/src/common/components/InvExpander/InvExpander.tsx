@@ -13,7 +13,7 @@ export const InvExpander = ({
   const { isOpen, onToggle } = useDisclosure({ defaultIsOpen });
   return (
     <Flex flexDir="column" w="full">
-      <Flex flexDir="row" alignItems="center" gap={3} px={4}>
+      <Flex flexDir="row" alignItems="center" gap={3} py={4}>
         <Divider w="unset" flexGrow={1} />
         <Flex
           as="button"

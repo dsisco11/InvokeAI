@@ -9,9 +9,9 @@ const { definePartsStyle, defineMultiStyleConfig } =
 
 const invokeAIContainer = defineStyle({
   border: 'none',
-  bg: 'base.800',
+  bg: 'base.850',
   borderRadius: 'base',
-  ':has(&div &button:hover)': { bg: 'base.750' },
+  ':has(&div &button:hover)': { bg: 'base.800' },
   transitionProperty: 'common',
   transitionDuration: '0.1s',
 });
@@ -34,7 +34,7 @@ const invokeAIButton = defineStyle((_props) => {
 const invokeAIPanel = defineStyle((props) => {
   const { colorScheme: c } = props;
   return {
-    bg: `${c}.750`,
+    bg: `${c}.800`,
     borderRadius: 'base',
     p: 0,
     transitionProperty: 'common',

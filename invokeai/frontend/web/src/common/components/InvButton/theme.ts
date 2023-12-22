@@ -123,7 +123,7 @@ const getStyles = (
   const _disabled = {
     bg: bgDisabled,
     color: fgDisabled,
-    opacity: 1,
+    opacity: 0.7,
     borderColor: borderColorDisabled,
     svg: {
       fill: fgDisabled,
@@ -137,7 +137,7 @@ const getStyles = (
         transform: 'none',
       },
     },
-    filter: 'contrast(50%) brightness(80%)',
+    filter: 'contrast(35%) brightness(60%)',
   };
 
   return {

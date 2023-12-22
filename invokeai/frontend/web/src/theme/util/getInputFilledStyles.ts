@@ -1,44 +1,40 @@
-import type { SystemStyleObject } from '@chakra-ui/styled-system';
+import type {
+  StyleFunctionProps,
+  SystemStyleObject,
+} from '@chakra-ui/styled-system';
 
-export const getInputFilledStyles = (): SystemStyleObject => {
+export const getInputFilledStyles = (
+  props: StyleFunctionProps
+): SystemStyleObject => {
+  const { variant } = props;
+
+  const bg = variant === 'darkFilled' ? 'base.800' : 'base.700';
+  const bgHover = variant === 'darkFilled' ? 'base.750' : 'base.650';
+  const error = 'error.600';
+  const errorHover = 'error.500';
+  const fg = 'base.200';
+
   const baseColors = {
-    color: 'base.200',
-    bg: 'base.800',
-    borderColor: 'base.800',
+    color: fg,
+    bg: bg,
+    borderColor: bg,
   };
   const _invalid = {
-    borderColor: 'error.600',
+    borderColor: error,
     _hover: {
-      borderColor: 'error.500',
-    },
-    '~ .textarea-resize-handle': {
-      borderColor: 'error.600',
-      _hover: {
-        borderColor: 'error.500',
-      },
+      borderColor: errorHover,
     },
   };
   const _hover = {
-    bg: 'base.750',
-    borderColor: 'base.750',
-    '~ .textarea-resize-handle': {
-      bg: 'base.750',
-      borderColor: 'base.750',
-    },
+    bg: bgHover,
+    borderColor: bgHover,
   };
   const _focusVisible = {
     ..._hover,
     _invalid,
-    '~ .textarea-resize-handle': {
-      ..._hover,
-      _invalid,
-    },
   };
   const _disabled = {
     _hover: baseColors,
-    '~ .textarea-resize-handle': {
-      _hover: baseColors,
-    },
   };
   return {
     ...baseColors,
@@ -50,21 +46,5 @@ export const getInputFilledStyles = (): SystemStyleObject => {
     _focusVisible,
     _invalid,
     _disabled,
-    '~ .textarea-resize-handle': {
-      ...baseColors,
-      transitionProperty: 'common',
-      transitionDuration: 'normal',
-      borderBottomEndRadius: 'base',
-      position: 'absolute',
-      insetInlineEnd: 0,
-      insetBlockEnd: 0,
-      paddingInlineEnd: 1,
-      paddingBlockEnd: 1,
-      paddingInlineStart: 3,
-      paddingBlockStart: 3,
-      '& svg': {
-        color: 'base.400',
-      },
-    },
   };
 };

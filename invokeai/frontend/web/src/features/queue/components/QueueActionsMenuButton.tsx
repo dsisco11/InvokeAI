@@ -18,7 +18,13 @@ export const QueueActionsMenuButton = () => {
   const { t } = useTranslation();
   const isPauseEnabled = useFeatureStatus('pauseQueue').isFeatureEnabled;
   const isResumeEnabled = useFeatureStatus('resumeQueue').isFeatureEnabled;
-  const { data: queueStatus } = useGetQueueStatusQuery();
+  const { queueSize } = useGetQueueStatusQuery(undefined, {
+    selectFromResult: (res) => ({
+      queueSize: res.data
+        ? res.data.queue.pending + res.data.queue.in_progress
+        : 0,
+    }),
+  });
   const {
     cancelQueueItem,
     isLoading: isLoadingCancelQueueItem,
@@ -80,7 +86,7 @@ export const QueueActionsMenuButton = () => {
           )}
         </InvMenuList>
       </InvMenu>
-      {queueStatus && (
+      {queueSize > 0 && (
         <InvBadge
           pos="absolute"
           insetInlineStart={-3}
@@ -88,7 +94,7 @@ export const QueueActionsMenuButton = () => {
           colorScheme="yellow"
           zIndex="docked"
         >
-          {queueStatus.queue.pending + queueStatus.queue.in_progress}
+          {queueSize}
         </InvBadge>
       )}
     </Box>

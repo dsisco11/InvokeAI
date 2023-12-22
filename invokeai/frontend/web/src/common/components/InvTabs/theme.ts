@@ -59,8 +59,8 @@ const line = definePartsStyle(() => ({
   },
 }));
 
-const TAB_INACTIVE = 'base.700';
-const TAB_ACTIVE = 'base.750';
+const TAB_INACTIVE = 'base.750';
+const TAB_ACTIVE = 'base.800';
 
 const collapse = definePartsStyle(() => ({
   indicator: {},

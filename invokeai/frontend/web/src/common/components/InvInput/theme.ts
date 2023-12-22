@@ -5,15 +5,14 @@ import { getInputFilledStyles } from 'theme/util/getInputFilledStyles';
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys);
 
-const filled = definePartsStyle(() => {
-  return {
-    field: getInputFilledStyles(),
-  };
-});
-
 export const inputTheme = defineMultiStyleConfig({
   variants: {
-    filled,
+    filled: definePartsStyle((props) => ({
+      field: getInputFilledStyles(props),
+    })),
+    darkFilled: definePartsStyle((props) => ({
+      field: getInputFilledStyles(props),
+    })),
   },
   defaultProps: {
     size: 'sm',

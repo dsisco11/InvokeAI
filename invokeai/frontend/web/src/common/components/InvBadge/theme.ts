@@ -9,7 +9,7 @@ const baseStyle = defineStyle((props) => ({
   borderRadius: 'sm',
   bg: `${props.colorScheme}.300`,
   color: 'base.900',
-  fontWeight: 'extrabold',
+  fontWeight: 'bold',
   letterSpacing: 0.5,
 }));
 

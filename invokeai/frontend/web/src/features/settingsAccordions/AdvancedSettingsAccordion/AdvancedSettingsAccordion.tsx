@@ -16,7 +16,7 @@ export const AdvancedSettingsAccordion = () => {
       label={t('accordions.advanced.title')}
       defaultIsOpen={true}
     >
-      <Flex gap={4} alignItems="center" p={4} pb={0} flexDir="column">
+      <Flex gap={4} alignItems="center" p={4} flexDir="column">
         <Flex gap={4} w="full">
           <ParamVAEModelSelect />
           <ParamVAEPrecision />

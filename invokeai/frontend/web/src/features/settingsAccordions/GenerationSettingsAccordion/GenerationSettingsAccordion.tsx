@@ -36,13 +36,13 @@ export const GenerationSettingsAccordion = () => {
           </InvTab>
         </InvTabList>
         <InvTabPanels>
-          <InvTabPanel>
-            <Flex gap={4} p={4}>
+          <InvTabPanel overflow="visible" px={4} pt={4}>
+            <Flex gap={4}>
               <ParamMainModelSelect />
               <SyncModelsIconButton />
             </Flex>
             <InvExpander>
-              <Flex gap={4} p={4} pb={0} flexDir="column">
+              <Flex gap={4} flexDir="column" pb={4}>
                 <ParamScheduler />
                 <ParamSteps />
                 <ParamCFGScale />
@@ -50,7 +50,7 @@ export const GenerationSettingsAccordion = () => {
             </InvExpander>
           </InvTabPanel>
           <InvTabPanel>
-            <Flex gap={4} p={4} pb={0} flexDir="column">
+            <Flex gap={4} p={4} flexDir="column">
               <LoRASelect />
               <LoRAList />
             </Flex>

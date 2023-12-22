@@ -17,7 +17,6 @@ const QueueTabContent = () => {
       borderRadius="base"
       w="full"
       h="full"
-      p={2}
       flexDir="column"
       gap={2}
     >

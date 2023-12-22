@@ -1,4 +1,4 @@
-import { Spacer } from '@chakra-ui/react';
+import { Flex, Spacer } from '@chakra-ui/react';
 import { createMemoizedSelector } from 'app/store/createMemoizedSelector';
 import { stateSelector } from 'app/store/store';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
@@ -31,7 +31,6 @@ import { MdGridOn } from 'react-icons/md';
 import { Panel, PanelGroup } from 'react-resizable-panels';
 
 import FloatingGalleryButton from './FloatingGalleryButton';
-import FloatingSidePanelButtons from './FloatingParametersPanelButtons';
 import ParametersPanel from './ParametersPanel';
 import ImageTab from './tabs/ImageToImage/ImageToImageTab';
 import ModelManagerTab from './tabs/ModelManager/ModelManagerTab';
@@ -230,6 +229,15 @@ const InvokeTabs = () => {
         {tabs}
         <Spacer />
       </InvTabList>
+      {!NO_SIDE_PANEL_TABS.includes(activeTabName) && (
+        <Flex h="full" w={580}>
+          {activeTabName === 'nodes' ? (
+            <NodeEditorPanelGroup />
+          ) : (
+            <ParametersPanel />
+          )}
+        </Flex>
+      )}
       <PanelGroup
         id="app"
         autoSaveId="app"
@@ -238,7 +246,7 @@ const InvokeTabs = () => {
         storage={panelStorage}
         units="pixels"
       >
-        {!NO_SIDE_PANEL_TABS.includes(activeTabName) && (
+        {/* {!NO_SIDE_PANEL_TABS.includes(activeTabName) && (
           <>
             <Panel
               order={0}
@@ -264,7 +272,7 @@ const InvokeTabs = () => {
               sidePanelRef={sidePanelRef}
             />
           </>
-        )}
+        )} */}
         <Panel id="main" order={1} minSize={MAIN_PANEL_MIN_SIZE_PX}>
           <InvTabPanels style={{ height: '100%', width: '100%' }}>
             {tabPanels}

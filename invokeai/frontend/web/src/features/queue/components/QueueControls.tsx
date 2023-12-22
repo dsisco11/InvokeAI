@@ -1,6 +1,7 @@
 import { Flex, Spacer } from '@chakra-ui/react';
 import { useAppDispatch } from 'app/store/storeHooks';
 import { InvButton } from 'common/components/InvButton/InvButton';
+import { InvButtonGroup } from 'common/components/InvButtonGroup/InvButtonGroup';
 import CancelCurrentQueueItemButton from 'features/queue/components/CancelCurrentQueueItemButton';
 import ClearQueueButton from 'features/queue/components/ClearQueueButton';
 import PauseProcessorButton from 'features/queue/components/PauseProcessorButton';
@@ -14,6 +15,7 @@ import { useTranslation } from 'react-i18next';
 import { useGetQueueStatusQuery } from 'services/api/endpoints/queue';
 
 import { InvokeQueueBackButton } from './InvokeQueueBackButton';
+import { QueueActionsMenuButton } from './QueueActionsMenuButton';
 
 const QueueControls = () => {
   const isPauseEnabled = useFeatureStatus('pauseQueue').isFeatureEnabled;
@@ -30,14 +32,16 @@ const QueueControls = () => {
         flexDir: 'column',
       }}
     >
-      <Flex gap={2} w="full">
+      <InvButtonGroup size="lg" isAttached={false}>
         {isPrependEnabled && <QueueFrontButton />}
         <InvokeQueueBackButton />
+        <Spacer />
+        <QueueActionsMenuButton />
         <CancelCurrentQueueItemButton asIconButton />
         {isResumeEnabled && <ResumeProcessorButton asIconButton />}
         {isPauseEnabled && <PauseProcessorButton asIconButton />}
         <ClearQueueButton asIconButton />
-      </Flex>
+      </InvButtonGroup>
       <Flex h={1} w="full">
         <ProgressBar />
       </Flex>

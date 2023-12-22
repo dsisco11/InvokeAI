@@ -11,6 +11,7 @@ import { useClearStorage } from 'common/hooks/useClearStorage';
 import { useGlobalModifiersInit } from 'common/hooks/useGlobalModifiers';
 import ChangeBoardModal from 'features/changeBoardModal/components/ChangeBoardModal';
 import DeleteImageModal from 'features/deleteImageModal/components/DeleteImageModal';
+import { DynamicPromptsModal } from 'features/dynamicPrompts/components/DynamicPromptsPreviewModal';
 import SiteHeader from 'features/system/components/SiteHeader';
 import { configChanged } from 'features/system/store/configSlice';
 import { languageSelector } from 'features/system/store/systemSelectors';
@@ -98,6 +99,7 @@ const App = ({ config = DEFAULT_CONFIG, selectedImage }: Props) => {
       </Grid>
       <DeleteImageModal />
       <ChangeBoardModal />
+      <DynamicPromptsModal />
       <Toaster />
       <PreselectedImage selectedImage={selectedImage} />
     </ErrorBoundary>

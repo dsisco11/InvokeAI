@@ -126,7 +126,8 @@ const InvokeTabs = () => {
               icon={tab.icon}
               size="md"
               fontSize="24px"
-              variant={activeTabName === tab.id ? 'solid' : 'ghost'}
+              variant="appTab"
+              data-selected={activeTabName === tab.id}
               aria-label={t(tab.translationKey)}
             />
           </InvTab>

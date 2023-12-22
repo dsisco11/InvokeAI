@@ -46,6 +46,7 @@ export const InvNumberInput = forwardRef((props: InvNumberInputProps, ref) => {
 
   const onChange = useCallback(
     (valueAsString: string, valueAsNumber: number) => {
+      console.log({ valueAsString, valueAsNumber });
       setValueAsString(valueAsString);
       if (isNaN(valueAsNumber)) {
         return;
@@ -65,8 +66,10 @@ export const InvNumberInput = forwardRef((props: InvNumberInputProps, ref) => {
 
   const onBlur: FocusEventHandler<HTMLInputElement> = useCallback(
     (e) => {
+      console.log('blur!');
       if (!e.target.value) {
         // If the input is empty, we set it to the minimum value
+        console.log({ min });
         onChange(String(min), min);
       } else {
         // Otherwise, we round the value to the nearest multiple if integer, else 3 decimals
@@ -102,7 +105,6 @@ export const InvNumberInput = forwardRef((props: InvNumberInputProps, ref) => {
       step={step}
       value={valueAsString}
       onChange={onChange}
-      onBlur={onBlur}
       clampValueOnBlur={false}
       isValidCharacter={isValidCharacter}
       focusInputOnChange={false}
@@ -112,7 +114,7 @@ export const InvNumberInput = forwardRef((props: InvNumberInputProps, ref) => {
       variant="filled"
       {...rest}
     >
-      <InvNumberInputField {...numberInputFieldProps} />
+      <InvNumberInputField onBlur={onBlur} {...numberInputFieldProps} />
       <InvNumberInputStepper />
     </ChakraNumberInput>
   );

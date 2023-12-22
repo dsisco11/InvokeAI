@@ -299,7 +299,7 @@
         "queue": "Queue",
         "queueFront": "Add to Front of Queue",
         "queueBack": "Add to Queue",
-        "queueCountPrediction": "Add {{predicted}} to Queue",
+        "queueCountPrediction": "{{promptsCount}} prompts × {{iterations}} iterations -> {{count}} generations",
         "queueMaxExceeded": "Max of {{max_queue_size}} exceeded, would skip {{skip}}",
         "queuedCount": "{{pending}} Pending",
         "queueTotal": "{{total}} Total",
@@ -1194,6 +1194,7 @@
     },
     "dynamicPrompts": {
         "combinatorial": "Combinatorial Generation",
+        "showDynamicPrompts": "Show Dynamic Prompts",
         "dynamicPrompts": "Dynamic Prompts",
         "enableDynamicPrompts": "Enable Dynamic Prompts",
         "maxPrompts": "Max Prompts",

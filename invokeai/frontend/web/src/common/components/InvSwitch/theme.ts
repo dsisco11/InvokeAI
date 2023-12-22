@@ -9,7 +9,7 @@ const { defineMultiStyleConfig, definePartsStyle } =
 
 const invokeAITrack = defineStyle((_props) => {
   return {
-    borderRadius: 'base',
+    borderRadius: 'sm',
     bg: 'base.600',
     _focusVisible: {
       boxShadow: 'none',
@@ -22,7 +22,7 @@ const invokeAITrack = defineStyle((_props) => {
 
 const invokeAIThumb = defineStyle((_props) => {
   return {
-    borderRadius: 'base',
+    borderRadius: 'sm',
     bg: 'base.50',
   };
 });

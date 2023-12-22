@@ -5,10 +5,9 @@ import { stateSelector } from 'app/store/store';
 import { useAppSelector } from 'app/store/storeHooks';
 import { IAINoContentFallback } from 'common/components/IAIImageFallback';
 import IAIInformationalPopover from 'common/components/IAIInformationalPopover/IAIInformationalPopover';
-import { InvControl } from 'common/components/InvControl/InvControl';
 import { InvText } from 'common/components/InvText/wrapper';
 import ScrollableContent from 'common/components/OverlayScrollbars/ScrollableContent';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaCircleExclamation } from 'react-icons/fa6';
 
@@ -32,6 +31,14 @@ const ParamDynamicPromptsPreview = () => {
   const { prompts, parsingError, isLoading, isError } =
     useAppSelector(selector);
 
+  const label = useMemo(() => {
+    let _label = `${t('dynamicPrompts.promptsPreview')} (${prompts.length})`;
+    if (parsingError) {
+      _label += ` - ${parsingError}`;
+    }
+    return _label;
+  }, [parsingError, prompts.length, t]);
+
   if (isError) {
     return (
       <IAIInformationalPopover feature="dynamicPrompts">
@@ -53,15 +60,18 @@ const ParamDynamicPromptsPreview = () => {
   }
 
   return (
-    <InvControl
-      isInvalid={Boolean(parsingError)}
-      label={`${t('dynamicPrompts.promptsPreview')} (${prompts.length})${
-        parsingError && ` - ${parsingError}`
-      }`}
-      feature="dynamicPrompts"
-      direction="column"
-    >
-      <Flex h={64} pos="relative" layerStyle="third" borderRadius="base" p={2}>
+    <>
+      <InvText fontSize="sm" fontWeight="bold">
+        {label}
+      </InvText>
+      <Flex
+        w="full"
+        h="full"
+        pos="relative"
+        layerStyle="first"
+        p={4}
+        borderRadius="base"
+      >
         <ScrollableContent>
           <OrderedList stylePosition="inside" ms={0}>
             {prompts.map((prompt, i) => (
@@ -91,7 +101,7 @@ const ParamDynamicPromptsPreview = () => {
           </Flex>
         )}
       </Flex>
-    </InvControl>
+    </>
   );
 };
 

@@ -11,11 +11,19 @@ const selector = createSelector(
   ({ system }) => system.shouldEnableInformationalPopovers
 );
 
-export const InvLabel = ({ feature, labelW, children }: InvLabelProps) => {
+export const InvLabel = ({
+  feature,
+  labelW,
+  renderInfoPopoverInPortal,
+  children,
+}: InvLabelProps) => {
   const shouldEnableInformationalPopovers = useAppSelector(selector);
   if (feature && shouldEnableInformationalPopovers) {
     return (
-      <IAIInformationalPopover feature={feature}>
+      <IAIInformationalPopover
+        feature={feature}
+        inPortal={renderInfoPopoverInPortal}
+      >
         <Flex
           as="span"
           flexShrink={0}

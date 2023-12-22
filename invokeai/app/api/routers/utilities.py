@@ -27,6 +27,7 @@ async def parse_dynamicprompts(
     combinatorial: bool = Body(default=True, description="Whether to use the combinatorial generator"),
 ) -> DynamicPromptsResponse:
     """Creates a batch process"""
+    max_prompts = min(max_prompts, 10000)
     generator: Union[RandomPromptGenerator, CombinatorialPromptGenerator]
     try:
         error: Optional[str] = None

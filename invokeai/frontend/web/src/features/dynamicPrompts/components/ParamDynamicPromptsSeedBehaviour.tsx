@@ -53,6 +53,7 @@ const ParamDynamicPromptsSeedBehaviour = () => {
     <InvControl
       label={t('dynamicPrompts.seedBehaviour.label')}
       feature="dynamicPromptsSeedBehaviour"
+      renderInfoPopoverInPortal={false}
     >
       <InvSelect value={value} options={options} onChange={handleChange} />
     </InvControl>

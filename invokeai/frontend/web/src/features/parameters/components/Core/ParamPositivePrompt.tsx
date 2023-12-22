@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/layout';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
 import { InvAutosizeTextarea } from 'common/components/InvAutosizeTextarea/InvAutosizeTextarea';
+import { ShowDynamicPromptsPreviewButton } from 'features/dynamicPrompts/components/ShowDynamicPromptsPreviewButton';
 import { AddEmbeddingButton } from 'features/embedding/AddEmbeddingButton';
 import { EmbeddingPopover } from 'features/embedding/EmbeddingPopover';
 import { usePrompt } from 'features/embedding/usePrompt';
@@ -77,6 +78,7 @@ export const ParamPositivePrompt = () => {
         >
           <AddEmbeddingButton isOpen={isOpen} onOpen={onOpen} />
           {baseModel === 'sdxl' && <SDXLConcatButton />}
+          <ShowDynamicPromptsPreviewButton />
         </Flex>
       </Box>
     </EmbeddingPopover>

@@ -46,6 +46,7 @@ const ParamDynamicPromptsMaxPrompts = () => {
       label={t('dynamicPrompts.maxPrompts')}
       isDisabled={isDisabled}
       feature="dynamicPromptsMaxPrompts"
+      renderInfoPopoverInPortal={false}
     >
       <InvSlider
         min={min}

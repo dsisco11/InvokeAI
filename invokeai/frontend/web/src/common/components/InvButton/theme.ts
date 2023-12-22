@@ -53,6 +53,7 @@ export const buttonTheme = defineStyleConfig({
       const _disabled = {
         bg: bgBase,
         color: fg,
+        opacity: 1,
         svg: {
           fill: fg,
         },
@@ -64,7 +65,7 @@ export const buttonTheme = defineStyleConfig({
             transform: 'none',
           },
         },
-        filter: 'contrast(50%)',
+        filter: 'contrast(50%) brightness(80%)',
       };
 
       return {
@@ -82,6 +83,26 @@ export const buttonTheme = defineStyleConfig({
           _disabled,
         },
         _disabled,
+      };
+    }),
+    appTab: defineStyle((_props) => {
+      return {
+        bg: 'none',
+        svg: {
+          fill: 'base.600',
+        },
+        _hover: {
+          bg: 'none',
+          svg: {
+            fill: 'base.500',
+          },
+        },
+        '&[data-selected="true"]': {
+          bg: 'none',
+          svg: {
+            fill: 'base.100',
+          },
+        },
       };
     }),
     outline: defineStyle((props) => {

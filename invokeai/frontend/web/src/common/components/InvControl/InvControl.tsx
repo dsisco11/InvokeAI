@@ -15,6 +15,7 @@ export const InvControl = forwardRef((props: InvControlProps, ref) => {
     labelW = 'min-content',
     feature,
     direction = 'row',
+    renderInfoPopoverInPortal = true,
     ...formControlProps
   } = props;
 
@@ -28,7 +29,11 @@ export const InvControl = forwardRef((props: InvControlProps, ref) => {
       >
         <Flex>
           {props.label && (
-            <InvLabel feature={feature} labelW={labelW}>
+            <InvLabel
+              feature={feature}
+              labelW={labelW}
+              renderInfoPopoverInPortal={renderInfoPopoverInPortal}
+            >
               {props.label}
             </InvLabel>
           )}
@@ -42,7 +47,11 @@ export const InvControl = forwardRef((props: InvControlProps, ref) => {
   return (
     <ChakraFormControl ref={ref} {...formControlProps} flexDir={direction}>
       {props.label && (
-        <InvLabel feature={feature} labelW={labelW}>
+        <InvLabel
+          feature={feature}
+          labelW={labelW}
+          renderInfoPopoverInPortal={renderInfoPopoverInPortal}
+        >
           {props.label}
         </InvLabel>
       )}

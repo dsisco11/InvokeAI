@@ -16,12 +16,7 @@ import { QueueButtonTooltip } from './QueueButtonTooltip';
 
 const invoke = 'Invoke';
 
-const invokeButtonWidth = 128;
-const iterationsInsetInlineStart = invokeButtonWidth + 12;
-const iterationsWidth = iterationsInsetInlineStart + 72;
-
 const numberInputFieldProps: InvNumberInputFieldProps = {
-  ps: `${iterationsInsetInlineStart}px`,
   borderInlineStartRadius: 'base',
   h: 'full',
   textAlign: 'center',
@@ -59,10 +54,24 @@ export const InvokeQueueBackButton = () => {
   );
 
   return (
-    <Flex pos="relative">
+    <Flex pos="relative" flexGrow={1}>
+      <IAIInformationalPopover feature="paramIterations">
+        <InvNumberInput
+          pos="absolute"
+          insetInlineEnd={0}
+          step={step}
+          fineStep={fineStep}
+          min={1}
+          max={999}
+          onChange={handleChange}
+          value={iterations}
+          h="full"
+          ps={0}
+          w="100px"
+          numberInputFieldProps={numberInputFieldProps}
+        />
+      </IAIInformationalPopover>
       <InvButton
-        pos="absolute"
-        insetInlineStart={0}
         onClick={queueBack}
         isLoading={isLoading}
         isDisabled={isDisabled}
@@ -72,25 +81,11 @@ export const InvokeQueueBackButton = () => {
         colorScheme="yellow"
         size="lg"
         tooltip={<QueueButtonTooltip />}
-        w={`${invokeButtonWidth}px`}
+        w="calc(100% - 84px)"
       >
         {invoke}
         <Spacer />
       </InvButton>
-      <IAIInformationalPopover feature="paramIterations">
-        <InvNumberInput
-          step={step}
-          fineStep={fineStep}
-          min={1}
-          max={999}
-          onChange={handleChange}
-          value={iterations}
-          h="full"
-          ps={0}
-          w={`${iterationsWidth}px`}
-          numberInputFieldProps={numberInputFieldProps}
-        />
-      </IAIInformationalPopover>
     </Flex>
   );
 };

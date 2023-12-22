@@ -15,7 +15,7 @@ import type {
 } from './types';
 
 const styles: StylesConfig<InvSelectOption> = {
-  menuPortal: (provided) => ({ ...provided, zIndex: 999 }),
+  menuPortal: (provided) => ({ ...provided, zIndex: 9999 }),
 };
 
 const components: SelectComponentsConfig<

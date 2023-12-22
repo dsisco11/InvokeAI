@@ -13,10 +13,14 @@ const StyledDivider = () => <Divider opacity={0.2} borderColor="base.900" />;
 
 const tooltipSelector = createMemoizedSelector(
   [stateSelector],
-  ({ gallery }) => {
+  ({ gallery, dynamicPrompts, generation }) => {
     const { autoAddBoardId } = gallery;
+    const promptsCount = dynamicPrompts.prompts.length;
+    const { iterations } = generation;
     return {
       autoAddBoardId,
+      promptsCount,
+      iterations,
     };
   }
 );
@@ -28,7 +32,8 @@ type Props = {
 export const QueueButtonTooltip = memo(({ prepend = false }: Props) => {
   const { t } = useTranslation();
   const { isReady, reasons } = useIsReadyToEnqueue();
-  const { autoAddBoardId } = useAppSelector(tooltipSelector);
+  const { autoAddBoardId, promptsCount, iterations } =
+    useAppSelector(tooltipSelector);
   const autoAddBoardName = useBoardName(autoAddBoardId);
   const [_, { isLoading }] = useEnqueueBatchMutation({
     fixedCacheKey: 'enqueueBatch',
@@ -50,14 +55,24 @@ export const QueueButtonTooltip = memo(({ prepend = false }: Props) => {
   return (
     <Flex flexDir="column" gap={1}>
       <InvText fontWeight={600}>{label}</InvText>
+      <InvText fontWeight={400}>
+        {t('queue.queueCountPrediction', {
+          promptsCount,
+          iterations,
+          count: Math.min(promptsCount * iterations, 10000),
+        })}
+      </InvText>
       {reasons.length > 0 && (
-        <UnorderedList>
-          {reasons.map((reason, i) => (
-            <ListItem key={`${reason}.${i}`}>
-              <InvText fontWeight={400}>{reason}</InvText>
-            </ListItem>
-          ))}
-        </UnorderedList>
+        <>
+          <StyledDivider />
+          <UnorderedList>
+            {reasons.map((reason, i) => (
+              <ListItem key={`${reason}.${i}`}>
+                <InvText fontWeight={400}>{reason}</InvText>
+              </ListItem>
+            ))}
+          </UnorderedList>
+        </>
       )}
       <StyledDivider />
       <InvText fontWeight={400} fontStyle="oblique 10deg">

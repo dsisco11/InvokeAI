@@ -11,9 +11,11 @@ export type InvControlProps = ChakraFormControlProps & {
   labelW?: ChakraFormLabelProps['w'];
   feature?: Feature;
   direction?: 'row' | 'column';
+  renderInfoPopoverInPortal?: boolean;
 };
 
 export type InvLabelProps = PropsWithChildren<{
   feature?: Feature;
   labelW?: ChakraFormLabelProps['w'];
+  renderInfoPopoverInPortal?: boolean;
 }>;

@@ -1,32 +1,22 @@
 import { InvIconButton } from 'common/components/InvIconButton/InvIconButton';
 import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
-import { memo } from 'react';
+import { useDynamicPromptsModal } from 'features/dynamicPrompts/hooks/useDynamicPromptsModal';
 import { useTranslation } from 'react-i18next';
-import { FaCode } from 'react-icons/fa';
+import { BsBracesAsterisk } from 'react-icons/bs';
 
-type Props = {
-  isOpen: boolean;
-  onOpen: () => void;
-};
-
-const ShowDynamicPromptsPreviewButton = (props: Props) => {
-  const { onOpen, isOpen } = props;
+export const ShowDynamicPromptsPreviewButton = () => {
   const { t } = useTranslation();
+  const { isOpen, onOpen } = useDynamicPromptsModal();
   return (
-    <InvTooltip label={t('embedding.addEmbedding')}>
+    <InvTooltip label={t('dynamicPrompts.showDynamicPrompts')}>
       <InvIconButton
         size="sm"
         variant="promptOverlay"
         isDisabled={isOpen}
-        aria-label={t('embedding.addEmbedding')}
-        icon={<FaCode />}
+        aria-label={t('dynamicPrompts.showDynamicPrompts')}
+        icon={<BsBracesAsterisk />}
         onClick={onOpen}
-        pos="absolute"
-        insetBlockStart={0}
-        insetInlineEnd={0}
       />
     </InvTooltip>
   );
 };
-
-export default memo(AddEmbeddingButton);

@@ -8,6 +8,10 @@ const GOLD = { H: 40, S: 70 };
 const WARNING = { H: 28, S: 42 };
 const OK = { H: 113, S: 42 };
 const ERROR = { H: 0, S: 42 };
+const YELLOW = { H: 66, S: 92 };
+const BLUE = { H: 200, S: 76 };
+const GREEN = { H: 110, S: 69 };
+const RED = { H: 16, S: 92 };
 
 export const InvokeAIColors: InvokeAIThemeColors = {
   base: generateColorPalette(BASE.H, BASE.S),
@@ -24,6 +28,14 @@ export const InvokeAIColors: InvokeAIThemeColors = {
   okAlpha: generateColorPalette(OK.H, OK.S, true),
   error: generateColorPalette(ERROR.H, ERROR.S),
   errorAlpha: generateColorPalette(ERROR.H, ERROR.S, true),
+  yellow: generateColorPalette(YELLOW.H, YELLOW.S),
+  yellowAlpha: generateColorPalette(YELLOW.H, YELLOW.S, true),
+  blue: generateColorPalette(BLUE.H, BLUE.S),
+  blueAlpha: generateColorPalette(BLUE.H, BLUE.S, true),
+  green: generateColorPalette(GREEN.H, GREEN.S),
+  greenAlpha: generateColorPalette(GREEN.H, GREEN.S, true),
+  red: generateColorPalette(RED.H, RED.S),
+  redAlpha: generateColorPalette(RED.H, RED.S, true),
 };
 
 export const layerStyleBody = {

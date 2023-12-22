@@ -12,7 +12,8 @@ const tab = defineStyle({
   lineHeight: 1,
   minW: 5,
   borderRadius: 4,
-  bg: 'accent.400',
+  bg: 'blue.500',
+  color: 'base.900',
 });
 
 export const badgeTheme = defineStyleConfig({

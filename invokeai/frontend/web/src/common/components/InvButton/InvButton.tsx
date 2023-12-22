@@ -4,7 +4,7 @@ import { InvTooltip } from 'common/components/InvTooltip/InvTooltip';
 import type { InvButtonProps } from './types';
 
 export const InvButton = forwardRef(
-  ({ isChecked, tooltip, ...rest }: InvButtonProps, ref) => {
+  ({ isChecked, tooltip, children, ...rest }: InvButtonProps, ref) => {
     if (tooltip) {
       return (
         <InvTooltip label={tooltip}>
@@ -12,13 +12,17 @@ export const InvButton = forwardRef(
             ref={ref}
             colorScheme={isChecked ? 'accent' : 'base'}
             {...rest}
-          />
+          >
+            {children}
+          </Button>
         </InvTooltip>
       );
     }
 
     return (
-      <Button ref={ref} colorScheme={isChecked ? 'accent' : 'base'} {...rest} />
+      <Button ref={ref} colorScheme={isChecked ? 'accent' : 'base'} {...rest}>
+        {children}
+      </Button>
     );
   }
 );

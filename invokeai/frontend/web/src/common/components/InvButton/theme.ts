@@ -1,86 +1,114 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
 import { buttonVariantPromptOverlay } from 'features/embedding/styles';
 
-const baseStyle = defineStyle((props) => {
-  const { colorScheme: c } = props;
-  // must specify `_disabled` colors if we override `_hover`, else hover on disabled has no styles
-
-  if (c === 'base') {
-    const _disabled = {
-      bg: 'base.700',
-      color: 'base.500',
+export const buttonTheme = defineStyleConfig({
+  baseStyle: {
+    fontWeight: 'bold',
+    // borderRadius: 'sm',
+    svg: {
+      transitionProperty: 'all',
+      transitionDuration: 'faster',
+    },
+    _hover: {
       svg: {
-        fill: 'base.500',
+        transform: 'scale(1.2)',
       },
-      opacity: 1,
-    };
+    },
+  },
+  sizes: {
+    sm: {
+      fontSize: 'sm',
+      px: 3,
+      py: 2,
+    },
+    md: {
+      fontSize: 'md',
+      px: 4,
+      py: 2,
+    },
+    lg: {
+      fontSize: 'lg',
+      px: 4,
+      py: 2,
+      h: 12,
+    },
+  },
+  variants: {
+    solid: defineStyle((props) => {
+      const { colorScheme: c } = props;
 
-    const data_progress = {
-      bg: 'none',
-      color: 'base.500',
-      svg: {
-        fill: 'base.500',
-      },
-      opacity: 1,
-    };
+      const bg = c === 'base' ? `${c}.300` : `${c}.500`;
+      const bgHover = c === 'base' ? `${c}.400` : `${c}.400`;
+      const fg = 'base.800';
 
-    return {
-      bg: 'base.600',
-      color: 'base.100',
-      borderRadius: 'base',
-      svg: {
-        fill: 'base.100',
-      },
-      _hover: {
-        bg: 'base.500',
-        color: 'base.50',
+      const _disabled = {
+        bg: bg,
+        color: fg,
         svg: {
-          fill: 'base.50',
+          fill: fg,
+        },
+        _hover: {
+          bg: bgHover,
+          color: fg,
+          svg: {
+            fill: fg,
+          },
+        },
+        opacity: 0.7,
+      };
+
+      return {
+        bg: bg,
+        color: fg,
+        svg: {
+          fill: fg,
         },
         _disabled,
-      },
-      _disabled,
-      '&[data-progress="true"]': { ...data_progress, _hover: data_progress },
-    };
-  }
+        _hover: {
+          bg: bgHover,
+          color: fg,
+          svg: {
+            fill: fg,
+          },
+        },
+      };
+    }),
+    outline: defineStyle((props) => {
+      const { colorScheme: c } = props;
+      const _disabled = {
+        svg: {
+          fill: `${c}.500`,
+          filter: 'unset',
+        },
+        opacity: 0.7,
+        filter: 'saturate(65%)',
+      };
 
-  const _disabled = {
-    bg: `${c}.700`,
-    color: `${c}.500`,
-    svg: {
-      fill: `${c}.500`,
-      filter: 'unset',
-    },
-    opacity: 0.7,
-    filter: 'saturate(65%)',
-  };
-
-  return {
-    bg: `${c}.600`,
-    color: `base.100`,
-    borderRadius: 'base',
-    svg: {
-      fill: `base.100`,
-    },
-    _disabled,
-    _hover: {
-      bg: `${c}.500`,
-      color: `base.50`,
-      svg: {
-        fill: `base.50`,
-      },
-      _disabled,
-    },
-  };
-});
-
-export const buttonTheme = defineStyleConfig({
-  variants: {
-    base: {},
+      return {
+        bg: 'none',
+        color: `${c}.500`,
+        borderColor: `${c}.500`,
+        borderWidth: '2px',
+        borderStyle: 'solid',
+        svg: {
+          fill: `${c}.500`,
+        },
+        _disabled,
+        _hover: {
+          bg: 'none',
+          color: `${c}.500`,
+          svg: {
+            fill: `${c}.500`,
+          },
+          _disabled,
+        },
+      };
+    }),
     promptOverlay: buttonVariantPromptOverlay,
   },
-  baseStyle,
   defaultProps: {
+    variant: 'solid',
     colorScheme: 'base',
+    size: 'md',
   },
 });

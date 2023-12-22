@@ -31,7 +31,7 @@ const QueueControls = () => {
       }}
     >
       <Flex gap={2} w="full">
-        {isPrependEnabled && <QueueFrontButton asIconButton />}
+        {isPrependEnabled && <QueueFrontButton />}
         <InvokeQueueBackButton />
         <CancelCurrentQueueItemButton asIconButton />
         {isResumeEnabled && <ResumeProcessorButton asIconButton />}

@@ -3,19 +3,17 @@ import {
   createMultiStyleConfigHelpers,
   defineStyle,
 } from '@chakra-ui/styled-system';
-import { mode } from '@chakra-ui/theme-tools';
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys);
 
 const invokeAIFilledTrack = defineStyle((_props) => ({
-  bg: 'accentAlpha.700',
+  bg: 'yellow.500',
 }));
 
 const invokeAITrack = defineStyle((_props) => {
-  const { colorScheme: c } = _props;
   return {
-    bg: mode(`${c}.200`, `${c}.700`)(_props),
+    bg: 'base.800',
   };
 });
 
@@ -25,6 +23,9 @@ const invokeAI = definePartsStyle((props) => ({
 }));
 
 export const progressTheme = defineMultiStyleConfig({
+  baseStyle: {
+    track: { borderRadius: '2px' },
+  },
   variants: {
     invokeAI,
   },

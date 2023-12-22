@@ -64,6 +64,6 @@ export const checkboxTheme = defineMultiStyleConfig({
   },
   defaultProps: {
     variant: 'invokeAI',
-    colorScheme: 'accent',
+    colorScheme: 'blue',
   },
 });

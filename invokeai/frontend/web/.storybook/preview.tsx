@@ -35,9 +35,7 @@ const preview: Preview = {
         <Provider store={store}>
           <ThemeLocaleProvider>
             <ReduxInit>
-              <Container maxW="container.sm">
-                <Story />
-              </Container>
+              <Story />
             </ReduxInit>
           </ThemeLocaleProvider>
         </Provider>

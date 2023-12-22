@@ -24,12 +24,6 @@ const invokeAI = definePartsStyle(() => ({
   },
   stepper: {
     border: 'none',
-    // expand arrow hitbox
-    px: 2,
-    py: 0,
-    mx: -2,
-    my: 0,
-
     svg: {
       color: 'base.300',
       width: 2.5,
@@ -47,7 +41,7 @@ const filled = definePartsStyle(() => {
     field: getInputFilledStyles(),
     stepperGroup: {
       border: 'none',
-      w: 8,
+      w: 6,
     },
     stepper: {
       color: 'base.200',
@@ -65,13 +59,13 @@ const filled = definePartsStyle(() => {
         border: 'none',
         margin: 0,
         borderTopEndRadius: 'base',
-        borderBottomStartRadius: '3px',
+        borderBottomStartRadius: 'base',
       },
       _last: {
         border: 'none',
         margin: 0,
         borderBottomEndRadius: 'base',
-        borderTopStartRadius: '3px',
+        borderTopStartRadius: 'base',
       },
     },
   };

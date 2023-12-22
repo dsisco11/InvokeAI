@@ -59,7 +59,7 @@ export const theme: ThemeOverride = {
     }),
   },
   radii: {
-    base: '12px',
+    base: '4px',
     lg: '8px',
     md: '4px',
     sm: '2px',

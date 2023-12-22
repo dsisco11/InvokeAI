@@ -13,6 +13,14 @@ export type InvokeAIThemeColors = {
   okAlpha: Partial<InvokeAIPaletteSteps>;
   error: Partial<InvokeAIPaletteSteps>;
   errorAlpha: Partial<InvokeAIPaletteSteps>;
+  yellow: Partial<InvokeAIPaletteSteps>;
+  yellowAlpha: Partial<InvokeAIPaletteSteps>;
+  red: Partial<InvokeAIPaletteSteps>;
+  redAlpha: Partial<InvokeAIPaletteSteps>;
+  green: Partial<InvokeAIPaletteSteps>;
+  greenAlpha: Partial<InvokeAIPaletteSteps>;
+  blue: Partial<InvokeAIPaletteSteps>;
+  blueAlpha: Partial<InvokeAIPaletteSteps>;
 };
 
 export type InvokeAIPaletteSteps = {

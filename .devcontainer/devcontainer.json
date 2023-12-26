@@ -1,0 +1,52 @@
+{
+	"name": "InvokeAI::Dev",
+	// "dockerComposeFile": "../docker/docker-compose.yml",
+	// "service": "invokeai",
+	"image": "local/invokeai:latest",
+	"workspaceFolder": "/workspace/invokeai",
+	"mounts": [
+		{
+			"type": "bind",
+			"source": "${localWorkspaceFolder}",
+			"target": "/workspace"
+		},
+		{
+			"type": "bind",
+			"source": "~/.pnpm-store",
+			"target": "/workspace/.pnpm-store"
+		},
+		{
+			"type": "bind",
+			"source": "${localWorkspaceFolder}/invokeai",
+			"target": "/opt/invokeai/invokeai"
+		}
+	],
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/pnpm": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/python": {
+			"version": "3.9"
+		},
+		"ghcr.io/devcontainers/features/nvidia-cuda": {
+			"installCudnn": "true"
+		},
+		"ghcr.io/akhildevelops/devcontainer-features/pip": {},
+		"ghcr.io/raucha/devcontainer-features/pytorch": {}
+	},
+	"hostRequirements": {
+		"gpu": "optional"
+	},
+	"forwardPorts": [80, 9090],
+	"portsAttributes": {
+		"80": {"label": "InvokeAI Frontend"},
+		"9090": {"label": "InvokeAI Backend"}
+	},
+	"postCreateCommand": "cd ./frontend/web && pnpm install --reporter=append-only",
+	"postStartCommand": {
+		"Frontend::Vite": "cd ./frontend/web && vite dev",
+		"Frontend::Themes": "cd ./frontend/web && pnpm run theme:watch"
+		// "frontend": "cd ./frontend/web && pnpm dev"
+		// "backend": "cd ./backend && invokeai-web --host 0.0.0.0 --port 9090"
+	}
+}

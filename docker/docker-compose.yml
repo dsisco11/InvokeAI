@@ -4,6 +4,7 @@ version: '3.8'
 
 x-invokeai: &invokeai
     image: "local/invokeai:latest"
+    container_name: "invokeai"
     build:
       context: ..
       dockerfile: docker/Dockerfile

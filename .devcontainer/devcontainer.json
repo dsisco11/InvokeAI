@@ -35,18 +35,25 @@
 		"ghcr.io/raucha/devcontainer-features/pytorch": {}
 	},
 	"hostRequirements": {
-		"gpu": "optional"
+		"gpu": "optional",
+		"cpus": 1,
+		"memory": "8gb",
+		"storage": "4gb"
 	},
 	"forwardPorts": [80, 9090],
 	"portsAttributes": {
 		"80": {"label": "InvokeAI Frontend"},
 		"9090": {"label": "InvokeAI Backend"}
 	},
-	"postCreateCommand": "cd ./frontend/web && pnpm install --reporter=append-only",
-	"postStartCommand": {
+	"overrideCommand": true,
+	// Have to use the 'apend-only' reporter or else the container will freeze during install (pretty consistently)
+	"postCreateCommand": {
+		"Frontend::Install": "cd ./frontend/web && pnpm install --reporter=append-only",
+		"Backend::Install": "cd ./backend && pip install '.[dev,test]'"
+	},
+	"postAttachCommand": {
 		"Frontend::Vite": "cd ./frontend/web && vite dev",
 		"Frontend::Themes": "cd ./frontend/web && pnpm run theme:watch"
-		// "frontend": "cd ./frontend/web && pnpm dev"
-		// "backend": "cd ./backend && invokeai-web --host 0.0.0.0 --port 9090"
+		// "Backend": "cd ./backend && invokeai-web --dev_reload --host 0.0.0.0 --port 9090"
 	}
 }

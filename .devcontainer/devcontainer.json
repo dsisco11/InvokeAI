@@ -3,27 +3,36 @@
 	// "dockerComposeFile": "../docker/docker-compose.yml",
 	// "service": "invokeai",
 	"image": "local/invokeai:latest",
-	"workspaceFolder": "/workspace/invokeai",
+	// "workspaceFolder": "/workspace",
+	"initializeCommand": {
+		// Get the hosts PNPM store path and set it as an environment variable so we can mount it into the container
+		// "Get_Pnpm_StorePath": "export PNPM_HOME=$(pnpm store path)"
+	},
 	"mounts": [
-		{
+		{// Insert the devcontainers vscode settings into the container
 			"type": "bind",
 			"source": "${localWorkspaceFolder}/.devcontainer/.vscode/",
-			"target": "/workspace/.vscode/"
+			"target": "${containerWorkspaceFolder}/.vscode/"
 		},
-		{
-			"type": "bind",
-			"source": "${localWorkspaceFolder}",
-			"target": "/workspace"
-		},
-		{
-			"type": "bind",
-			"source": "~/.pnpm-store",
-			"target": "/workspace/.pnpm-store"
-		},
-		{
+		// {// Mount the project folder into the container under /workspace as per standard devcontainer practice
+		// 	"type": "bind",
+		// 	"source": "${localWorkspaceFolder}",
+		// 	"target": "${containerWorkspaceFolder}"
+		// },
+		{// Replace the invokeai folder in the container with the one on the host machine
 			"type": "bind",
 			"source": "${localWorkspaceFolder}/invokeai",
 			"target": "/opt/invokeai/invokeai"
+		},
+		{// Setup a volume for the pnpm-store
+			"type": "volume",
+			"source": "pnpm-store",
+			"target": "/pnpm/store"
+		},
+		{// Setup a volume for the pip cache
+			"type": "volume",
+			"source": "pip-cache",
+			"target": "/root/.cache/pip"
 		}
 	],
 	"features": {
@@ -36,8 +45,10 @@
 		"ghcr.io/devcontainers/features/nvidia-cuda": {
 			"installCudnn": "true"
 		},
-		"ghcr.io/akhildevelops/devcontainer-features/pip": {},
-		"ghcr.io/raucha/devcontainer-features/pytorch": {}
+		"ghcr.io/raucha/devcontainer-features/pytorch": {},
+		"ghcr.io/akhildevelops/devcontainer-features/pip": {
+			"PACKAGES": "'.[dev,test]'"// Install the dev and test dependencies
+		}
 	},
 	"hostRequirements": {
 		"gpu": "optional",
@@ -50,10 +61,25 @@
 		"80": {"label": "InvokeAI Frontend"},
 		"9090": {"label": "InvokeAI Backend"}
 	},
-	"overrideCommand": true,
-	// Have to use the 'apend-only' reporter or else the container will freeze during install (pretty consistently)
+	"overrideCommand": true,// Don't run the default command to run invokeai when the container starts
 	"postCreateCommand": {
-		"Frontend::Install": "cd ./frontend/web && pnpm install --reporter=append-only",
-		"Backend::Install": "cd ./backend && pip install '.[dev,test]'"
+		"Frontend::Install": "cd ./frontend/web && pnpm install --reporter=append-only" // Have to use the 'apend-only' reporter or else the container will freeze during install (pretty consistently)
+		// "Backend::Install": "pip install '.[dev,test]'"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"eamodio.gitlens",
+				"ms-toolsai.jupyter",
+				"ms-toolsai.vscode-jupyter-cell-tags",
+				"ms-toolsai.jupyter-renderers",
+				"ms-toolsai.vscode-jupyter-slideshow",
+				"charliermarsh.ruff",
+				"esbenp.prettier-vscode",
+				"fabiospampinato.vscode-todo-plus",
+				"DavidAnson.vscode-markdownlint",
+				"antfu.vite"
+			]
+		}
 	}
 }

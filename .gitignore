@@ -189,4 +189,5 @@ installer/update.bat
 installer/update.sh
 installer/InvokeAI-Installer/
 
-.pnpm-store
+# Let the devcontainer manage its own gitignore
+!.devcontainer/*

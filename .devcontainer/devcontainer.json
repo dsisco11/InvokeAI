@@ -7,6 +7,11 @@
 	"mounts": [
 		{
 			"type": "bind",
+			"source": "${localWorkspaceFolder}/.devcontainer/.vscode/",
+			"target": "/workspace/.vscode/"
+		},
+		{
+			"type": "bind",
 			"source": "${localWorkspaceFolder}",
 			"target": "/workspace"
 		},
@@ -50,10 +55,5 @@
 	"postCreateCommand": {
 		"Frontend::Install": "cd ./frontend/web && pnpm install --reporter=append-only",
 		"Backend::Install": "cd ./backend && pip install '.[dev,test]'"
-	},
-	"postAttachCommand": {
-		"Frontend::Vite": "cd ./frontend/web && vite dev",
-		"Frontend::Themes": "cd ./frontend/web && pnpm run theme:watch"
-		// "Backend": "cd ./backend && invokeai-web --dev_reload --host 0.0.0.0 --port 9090"
 	}
 }

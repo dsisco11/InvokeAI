@@ -3,22 +3,12 @@
 	// "dockerComposeFile": "../docker/docker-compose.yml",
 	// "service": "invokeai",
 	"image": "local/invokeai:latest",
-	// "workspaceFolder": "/workspace",
-	"initializeCommand": {
-		// Get the hosts PNPM store path and set it as an environment variable so we can mount it into the container
-		// "Get_Pnpm_StorePath": "export PNPM_HOME=$(pnpm store path)"
-	},
 	"mounts": [
 		{// Insert the devcontainers vscode settings into the container
 			"type": "bind",
 			"source": "${localWorkspaceFolder}/.devcontainer/.vscode/",
 			"target": "${containerWorkspaceFolder}/.vscode/"
 		},
-		// {// Mount the project folder into the container under /workspace as per standard devcontainer practice
-		// 	"type": "bind",
-		// 	"source": "${localWorkspaceFolder}",
-		// 	"target": "${containerWorkspaceFolder}"
-		// },
 		{// Replace the invokeai folder in the container with the one on the host machine
 			"type": "bind",
 			"source": "${localWorkspaceFolder}/invokeai",
@@ -44,10 +34,6 @@
 		},
 		"ghcr.io/devcontainers/features/nvidia-cuda": {
 			"installCudnn": "true"
-		},
-		"ghcr.io/raucha/devcontainer-features/pytorch": {},
-		"ghcr.io/akhildevelops/devcontainer-features/pip": {
-			"PACKAGES": "'.[dev,test]'"// Install the dev and test dependencies
 		}
 	},
 	"hostRequirements": {
@@ -63,8 +49,8 @@
 	},
 	"overrideCommand": true,// Don't run the default command to run invokeai when the container starts
 	"postCreateCommand": {
-		"Frontend::Install": "cd ./frontend/web && pnpm install --reporter=append-only" // Have to use the 'apend-only' reporter or else the container will freeze during install (pretty consistently)
-		// "Backend::Install": "pip install '.[dev,test]'"
+		"Frontend::Install": "cd ./frontend/web && pnpm install --reporter=append-only", // Have to use the 'apend-only' reporter or else the container will freeze during install (pretty consistently)
+		"Backend::Install": "pip install '.[dev,test]'"
 	},
 	"customizations": {
 		"vscode": {

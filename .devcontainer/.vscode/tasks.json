@@ -1,0 +1,47 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "InvokeAI :: Frontend :: Debug",
+			"type": "npm",
+			"problemMatcher": [
+				"$tsc",
+				"$tsc-watch"
+			],
+			"script": "dev",
+			"path": "invokeai/frontend/web",
+			"detail": "concurrently \"vite dev\" \"pnpm run theme:watch\"",
+			"group": {
+				"name": "Frontend",
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "InvokeAI :: Backend :: Debug",
+			"type": "python",
+			"problemMatcher": [],
+			"detail": "Launch backend with hot reloading",
+			"group": {
+				"name": "Backend",
+				"kind": "build",
+				"isDefault": true
+			},
+			"request": "launch",
+			"program": "scripts/invokeai-web.py",
+			"args": [
+				// Your InvokeAI root dir (where `invokeai.yaml` lives)
+				"--root",
+				"/opt/invokeai",
+				// Access the app from anywhere on your local network
+				"--host",
+				"0.0.0.0",
+				"--port",
+				"9090",
+				// Enable hot reloading
+				"--dev_reload"
+			],
+			"justMyCode": true
+		}
+	]
+}

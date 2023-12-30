@@ -17,7 +17,7 @@
 		{// Setup a volume for the pnpm-store
 			"type": "volume",
 			"source": "pnpm-store",
-			"target": "/pnpm/store"
+			"target": "${containerWorkspaceFolder}/.pnpm-store/v3"
 		},
 		{// Setup a volume for the pip cache
 			"type": "volume",
@@ -31,7 +31,8 @@
 		}
 	],
 	"containerEnv": {
-		"INVOKEAI_ROOT": "/invokeai"
+		"INVOKEAI_ROOT": "/invokeai",
+		"XDG_CACHE_HOME": "/root/.cache"
 	},
 	"features": {
 		"ghcr.io/devcontainers-contrib/features/pnpm": {
@@ -56,10 +57,11 @@
 		"9090": {"label": "InvokeAI Backend"}
 	},
 	"init": true, // Helps prevent zombie processes & stops the normal startup command for the image from running.
+	"updateContentCommand": "cd ${containerWorkspaceFolder}/invokeai/frontend/web && pnpm install --frozen-lockfile --reporter=append-only",
 	// "postCreateCommand": "code /workspace/InvokeAI/.devcontainer/InvokeAI.code-workspace",
 	"postAttachCommand": {
 		// "Open Workspace": ["code /workspace/InvokeAI/.devcontainer/InvokeAI.code-workspace"],
-		"Frontend::Install": ["cd /invokeai/frontend/web && pnpm install --reporter=append-only"], // Have to use the 'append-only' reporter or else the container will freeze during install (pretty consistently)
+		// "Frontend::Install": ["cd /invokeai/frontend/web && pnpm install --frozen-lockfile --reporter=append-only"], // Have to use the 'append-only' reporter or else the container will freeze during install (pretty consistently)
 		// "Frontend::Install": "cd ${containerWorkspaceFolder}/invokeai/frontend/web && pnpm install --reporter=append-only", // Have to use the 'append-only' reporter or else the container will freeze during install (pretty consistently)
 		// "Backend::Install": "cd ${containerWorkspaceFolder} && pip install \".[dev,test]\"",
 	},
@@ -73,7 +75,6 @@
 				"ms-toolsai.vscode-jupyter-slideshow",
 				"charliermarsh.ruff",
 				"esbenp.prettier-vscode",
-				"fabiospampinato.vscode-todo-plus",
 				"DavidAnson.vscode-markdownlint",
 				"antfu.vite"
 			]

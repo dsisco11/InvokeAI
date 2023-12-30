@@ -2,7 +2,7 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "InvokeAI :: Frontend :: Debug",
+			"label": "InvokeAI :: Frontend",
 			"type": "npm",
 			"problemMatcher": [
 				"$tsc",
@@ -10,29 +10,46 @@
 			],
 			"script": "dev",
 			"path": "invokeai/frontend/web",
-			"detail": "concurrently \"vite dev\" \"pnpm run theme:watch\"",
+			"detail": "Launch frontend with hot reloading",
+			"isBackground": true,
 			"group": {
 				"name": "Frontend",
 				"kind": "build",
-				"isDefault": true
-			}
+				"isDefault": false
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": true,
+				"panel": "dedicated",
+				"showReuseMessage": false,
+				"clear": false
+			},
 		},
 		{
-			"label": "InvokeAI :: Backend :: Debug",
-			"type": "python",
+			"label": "InvokeAI :: Backend",
+			"type": "process",
 			"problemMatcher": [],
 			"detail": "Launch backend with hot reloading",
+			"isBackground": true,
 			"group": {
 				"name": "Backend",
 				"kind": "build",
-				"isDefault": true
+				"isDefault": false
 			},
-			"request": "launch",
-			"program": "scripts/invokeai-web.py",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": true,
+				"panel": "dedicated",
+				"showReuseMessage": false,
+				"clear": false
+			},
+			"options": {
+				"cwd": "/opt/invokeai"
+			},
+			"command": "invokeai-web",
 			"args": [
-				// Your InvokeAI root dir (where `invokeai.yaml` lives)
-				"--root",
-				"/opt/invokeai",
 				// Access the app from anywhere on your local network
 				"--host",
 				"0.0.0.0",
@@ -40,8 +57,7 @@
 				"9090",
 				// Enable hot reloading
 				"--dev_reload"
-			],
-			"justMyCode": true
+			]
 		}
 	]
 }

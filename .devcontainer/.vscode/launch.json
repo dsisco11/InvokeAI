@@ -10,6 +10,25 @@
             "request": "launch",
             "url": "http://localhost:9090",
             "webRoot": "${workspaceFolder}/invokeai/frontend/web",
-        }
+        },
+		{
+			"name": "InvokeAI :: Backend :: Debug",
+			"type": "python",
+			"request": "launch",
+			"program": "scripts/invokeai-web.py",
+			"args": [
+				// Your InvokeAI root dir (where `invokeai.yaml` lives)
+				"--root",
+				"/opt/invokeai",
+				// Access the app from anywhere on your local network
+				"--host",
+				"0.0.0.0",
+				"--port",
+				"9090",
+				// Enable hot reloading
+				"--dev_reload"
+			],
+			"justMyCode": true,
+		}
     ]
 }

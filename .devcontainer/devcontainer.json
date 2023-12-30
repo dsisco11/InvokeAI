@@ -23,8 +23,16 @@
 			"type": "volume",
 			"source": "pip-cache",
 			"target": "/root/.cache/pip"
+		},
+		{// Setup a volume for the invokeai data (to prevent development work from corrupting users stable invokeai data)
+			"type": "volume",
+			"source": "invokeai-data-dev",
+			"target": "/invokeai"
 		}
 	],
+	"containerEnv": {
+		"INVOKEAI_ROOT": "/invokeai"
+	},
 	"features": {
 		"ghcr.io/devcontainers-contrib/features/pnpm": {
 			"version": "latest"
@@ -47,10 +55,13 @@
 		"80": {"label": "InvokeAI Frontend"},
 		"9090": {"label": "InvokeAI Backend"}
 	},
-	"overrideCommand": true,// Don't run the default command to run invokeai when the container starts
-	"postCreateCommand": {
-		"Frontend::Install": "cd ./frontend/web && pnpm install --reporter=append-only", // Have to use the 'apend-only' reporter or else the container will freeze during install (pretty consistently)
-		"Backend::Install": "pip install '.[dev,test]'"
+	"init": true, // Helps prevent zombie processes & stops the normal startup command for the image from running.
+	// "postCreateCommand": "code /workspace/InvokeAI/.devcontainer/InvokeAI.code-workspace",
+	"postAttachCommand": {
+		// "Open Workspace": ["code /workspace/InvokeAI/.devcontainer/InvokeAI.code-workspace"],
+		"Frontend::Install": ["cd /invokeai/frontend/web && pnpm install --reporter=append-only"], // Have to use the 'append-only' reporter or else the container will freeze during install (pretty consistently)
+		// "Frontend::Install": "cd ${containerWorkspaceFolder}/invokeai/frontend/web && pnpm install --reporter=append-only", // Have to use the 'append-only' reporter or else the container will freeze during install (pretty consistently)
+		// "Backend::Install": "cd ${containerWorkspaceFolder} && pip install \".[dev,test]\"",
 	},
 	"customizations": {
 		"vscode": {

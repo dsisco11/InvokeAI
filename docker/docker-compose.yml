@@ -2,7 +2,6 @@
 
 x-invokeai: &invokeai
     image: "ghcr.io/invoke-ai/invokeai:latest"
-    container_name: "invokeai"
     build:
       context: ..
       dockerfile: docker/Dockerfile

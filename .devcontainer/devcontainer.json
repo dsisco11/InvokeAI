@@ -21,10 +21,15 @@
 			"source": "invokeai-data-dev",
 			"target": "/invokeai"
 		},
-		{// Insert the devcontainers vscode settings into the container
+		{// Insert the devcontainers vscode launch config into the container
 			"type": "bind",
-			"source": "${localWorkspaceFolder}/.devcontainer/.vscode/*.json",
-			"target": "${containerWorkspaceFolder}/.vscode/"
+			"source": "${localWorkspaceFolder}/.devcontainer/.vscode/launch.json",
+			"target": "${containerWorkspaceFolder}/.vscode/launch.json"
+		},
+		{// Insert the devcontainers vscode task config into the container
+			"type": "bind",
+			"source": "${localWorkspaceFolder}/.devcontainer/.vscode/tasks.json",
+			"target": "${containerWorkspaceFolder}/.vscode/tasks.json"
 		}
 	],
 	"features": {

@@ -23,7 +23,7 @@
 		},
 		{// Insert the devcontainers vscode settings into the container
 			"type": "bind",
-			"source": "${localWorkspaceFolder}/.devcontainer/.vscode/",
+			"source": "${localWorkspaceFolder}/.devcontainer/.vscode/*.json",
 			"target": "${containerWorkspaceFolder}/.vscode/"
 		}
 	],
@@ -42,7 +42,7 @@
 		"9090": {"label": "InvokeAI Backend"}
 	},
 	"updateContentCommand": {
-		"Backend::Setup": "uv sync --dev && uv sync",
+		"Backend::Setup": "uv sync --extra=docs --extra=dev --extra=test && python -c \"from patchmatch import patch_match\"",
 		"Frontend::Setup": "pnpm install --dir invokeai/frontend/web/ --frozen-lockfile --verbose"
 	},
 	"customizations": {

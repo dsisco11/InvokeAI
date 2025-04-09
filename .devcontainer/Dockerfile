@@ -83,8 +83,8 @@ RUN pnpm config --global set store-dir ${CACHE_DIR}/pnpm
 
 # Install `uv` for package management
 COPY --from=ghcr.io/astral-sh/uv /uv /uvx /bin/
-RUN uv install python
+RUN uv python install 
 
 # build patchmatch
-RUN cd /usr/lib/$(uname -p)-linux-gnu/pkgconfig/ && ln -sf opencv4.pc opencv.pc
-RUN python -c "from patchmatch import patch_match"
+RUN ln -sf --relative /usr/lib/${USERNAME}-linux-gnu/pkgconfig/{opencv4,opencv}.pc
+# RUN python -c "from patchmatch import patch_match"

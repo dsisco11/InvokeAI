@@ -45,9 +45,6 @@
 				"showReuseMessage": false,
 				"clear": false
 			},
-			"options": {
-				"cwd": "/opt/invokeai"
-			},
 			"command": "invokeai-web",
 			"args": [
 				// Access the app from anywhere on your local network

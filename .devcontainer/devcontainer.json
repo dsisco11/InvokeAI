@@ -1,49 +1,34 @@
 {
 	"name": "InvokeAI::Dev",
-	// "dockerComposeFile": "../docker/docker-compose.yml",
-	// "service": "invokeai",
-	"image": "local/invokeai:latest",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "../",
+		"args": {
+			"USERNAME": "node",
+			"PYTHON_VERSION": "3.12",
+			"INVOKEAI_ROOT": "/invokeai",
+			"INVOKEAI_SRC": "/workspaces/InvokeAI"
+		}
+	},
 	"mounts": [
-		{// Insert the devcontainers vscode settings into the container
-			"type": "bind",
-			"source": "${localWorkspaceFolder}/.devcontainer/.vscode/",
-			"target": "${containerWorkspaceFolder}/.vscode/"
-		},
-		{// Replace the invokeai folder in the container with the one on the host machine
-			"type": "bind",
-			"source": "${localWorkspaceFolder}/invokeai",
-			"target": "/opt/invokeai/invokeai"
-		},
-		{// Setup a volume for the pnpm-store
+		{// Setup a volume for all dependencies (pnpm, pip, uv, etc.)
 			"type": "volume",
-			"source": "pnpm-store",
-			"target": "${containerWorkspaceFolder}/.pnpm-store/v3"
-		},
-		{// Setup a volume for the pip cache
-			"type": "volume",
-			"source": "pip-cache",
-			"target": "/root/.cache/pip"
+			"source": "dependency-cache",
+			"target": "/home/node/.cache"
 		},
 		{// Setup a volume for the invokeai data (to prevent development work from corrupting users stable invokeai data)
 			"type": "volume",
 			"source": "invokeai-data-dev",
 			"target": "/invokeai"
+		},
+		{// Insert the devcontainers vscode settings into the container
+			"type": "bind",
+			"source": "${localWorkspaceFolder}/.devcontainer/.vscode/",
+			"target": "${containerWorkspaceFolder}/.vscode/"
 		}
 	],
-	"containerEnv": {
-		"INVOKEAI_ROOT": "/invokeai",
-		"XDG_CACHE_HOME": "/root/.cache"
-	},
 	"features": {
-		"ghcr.io/devcontainers-contrib/features/pnpm": {
-			"version": "latest"
-		},
-		"ghcr.io/devcontainers/features/python": {
-			"version": "3.9"
-		},
-		"ghcr.io/devcontainers/features/nvidia-cuda": {
-			"installCudnn": "true"
-		}
+		"ghcr.io/devcontainers/features/github-cli": {}
 	},
 	"hostRequirements": {
 		"gpu": "optional",
@@ -56,14 +41,9 @@
 		"80": {"label": "InvokeAI Frontend"},
 		"9090": {"label": "InvokeAI Backend"}
 	},
-	"init": true, // Helps prevent zombie processes & stops the normal startup command for the image from running.
-	"updateContentCommand": "cd ${containerWorkspaceFolder}/invokeai/frontend/web && pnpm install --frozen-lockfile --reporter=append-only",
-	// "postCreateCommand": "code /workspace/InvokeAI/.devcontainer/InvokeAI.code-workspace",
-	"postAttachCommand": {
-		// "Open Workspace": ["code /workspace/InvokeAI/.devcontainer/InvokeAI.code-workspace"],
-		// "Frontend::Install": ["cd /invokeai/frontend/web && pnpm install --frozen-lockfile --reporter=append-only"], // Have to use the 'append-only' reporter or else the container will freeze during install (pretty consistently)
-		// "Frontend::Install": "cd ${containerWorkspaceFolder}/invokeai/frontend/web && pnpm install --reporter=append-only", // Have to use the 'append-only' reporter or else the container will freeze during install (pretty consistently)
-		// "Backend::Install": "cd ${containerWorkspaceFolder} && pip install \".[dev,test]\"",
+	"updateContentCommand": {
+		"Backend::Setup": "uv sync --dev && uv sync",
+		"Frontend::Setup": "pnpm install --dir invokeai/frontend/web/ --frozen-lockfile --verbose"
 	},
 	"customizations": {
 		"vscode": {

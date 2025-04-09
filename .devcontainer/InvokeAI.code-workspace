@@ -16,5 +16,10 @@
 			"name": "[AppData]",
 			"path": "/invokeai"
 		}
-	]
+	],
+	"settings": {
+	  // Where your InvokeAI `venv`'s python executable lives
+	  "python.defaultInterpreterPath": "$UV_PROJECT_ENVIRONMENT/bin/python",
+	  "python.analysis.extraPaths": ["/invokeai", "${workspaceRoot}"],
+	}
 }

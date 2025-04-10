@@ -61,7 +61,10 @@
 				"charliermarsh.ruff",
 				"esbenp.prettier-vscode",
 				"DavidAnson.vscode-markdownlint",
-				"antfu.vite"
+				"antfu.vite",
+				"docker.docker",
+				"ms-vscode-remote.remote-containers",
+				"ms-azuretools.vscode-docker"
 			]
 		}
 	}

@@ -25,11 +25,6 @@
 			"type": "bind",
 			"source": "${localWorkspaceFolder}/.devcontainer/.vscode/launch.json",
 			"target": "${containerWorkspaceFolder}/.vscode/launch.json"
-		},
-		{// Insert the devcontainers vscode task config into the container
-			"type": "bind",
-			"source": "${localWorkspaceFolder}/.devcontainer/.vscode/tasks.json",
-			"target": "${containerWorkspaceFolder}/.vscode/tasks.json"
 		}
 	],
 	"features": {

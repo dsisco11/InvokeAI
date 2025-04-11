@@ -25,7 +25,7 @@ ln -s "/usr/share/libdrm/amdgpu.ids" "/opt/amdgpu/share/libdrm/amdgpu.ids"
 ARG GPU_DRIVER=cuda
 ARG INVOKEAI_SRC=/home/${USERNAME}/src/invokeai
 ARG INVOKEAI_ROOT=/home/${USERNAME}/invokeai-data
-ARG UV_PROJECT_ENVIRONMENT=/home/${USERNAME}/.cache/.venv
+ARG UV_PROJECT_ENVIRONMENT=/home/${USERNAME}/.venv
 
 ENV \
     VIRTUAL_ENV=${UV_PROJECT_ENVIRONMENT} \
@@ -34,9 +34,7 @@ ENV \
 ENV \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    UV_COMPILE_BYTECODE=1 \
     UV_MANAGED_PYTHON=1 \
-    UV_LINK_MODE=copy \
     UV_INDEX="https://download.pytorch.org/whl/cu124" \
     INVOKEAI_HOST=0.0.0.0 \
     INVOKEAI_PORT=9090 \
@@ -63,8 +61,7 @@ ENV XDG_CACHE_HOME=${CACHE_DIR} \
     PATH="$UV_PROJECT_ENVIRONMENT/bin:$CACHE_DIR/pnpm:$CACHE_DIR/uv:$PATH" 
 
 # Setup cache volume for dependencies
-VOLUME [ "${CACHE_DIR}" ]
-VOLUME [ "${INVOKEAI_ROOT}" ]
+VOLUME [ "${CACHE_DIR}", "${INVOKEAI_ROOT}", "${INVOKEAI_SRC}" ]
 
 # Create & set ownership of directories
 RUN set -eux; \
@@ -82,9 +79,20 @@ RUN corepack use pnpm && corepack enable
 RUN pnpm config --global set store-dir ${CACHE_DIR}/pnpm
 
 # Install `uv` for package management
+# TODO: Shouldnt this be put in the users .local dir?
 COPY --from=ghcr.io/astral-sh/uv /uv /uvx /bin/
-RUN uv python install 
 
-# build patchmatch
-RUN ln -sf --relative /usr/lib/${USERNAME}-linux-gnu/pkgconfig/{opencv4,opencv}.pc
-# RUN python -c "from patchmatch import patch_match"
+# RUN --mount=type=cache,target=/home/${USERNAME}/.cache/uv \
+RUN uv python install ${PYTHON_VERSION}
+
+WORKDIR ${INVOKEAI_SRC}
+
+# RUN --mount=type=cache,target=/home/${USERNAME}/.cache/uv \
+#     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+#     --mount=type=bind,source=uv.lock,target=uv.lock \
+#     # this is just to get the package manager to recognize that the project exists, without making changes to the docker layer
+#     --mount=type=bind,source=invokeai/version,target=invokeai/version \
+#     uv sync --frozen --inexact --active --all-extras --no-extra onnx-directml
+
+# # build patchmatch
+# RUN ln -sf --relative /usr/lib/${USERNAME}-linux-gnu/pkgconfig/{opencv4,opencv}.pc && python -c "from patchmatch import patch_match"
